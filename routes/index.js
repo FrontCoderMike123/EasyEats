@@ -7,7 +7,6 @@ router.get('/', function(req, res) {
     formTitle: 'Welcome Back',
     username: 'Username',
     password: 'Password',
-    craving: 'Hungry for Something Else?',
     Login: 'Login'
   });
 });
@@ -15,13 +14,23 @@ router.get('/', function(req, res) {
 router.get('/signUp', function(req, res) {
   res.render('pages/signUp', {
     title: 'Register Today',
-    comment: 'Start Eating Now!'
+    signUpTitle: 'Sign Up',
+    username: 'Username',
+    password: 'Password',
+    fname: 'First Name',
+    lname: 'Last Name',
+    signUp: 'Sign Up'
   });
 });
 
 router.get('/budget', function(req, res) {
   res.render('pages/budget', {
-    title: 'Welcome Back!'
+    title: 'Hungry?',
+    budgetTitle: 'Food Finder!',
+    craving: 'Hungry for Something Else?',
+    budget: 'Enter Budget',
+    placeholder: '($)',
+    find: 'Find Food'
   });
 });
 

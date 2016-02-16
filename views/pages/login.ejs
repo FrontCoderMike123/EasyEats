@@ -8,6 +8,8 @@
       <% include ../partials/header %>
     </header>
 
+    <div class="padding"><!--for bottom padding. keep footer down!-->
+
     <form class="forms" id="loginForm"><!--action="budget" method="post"-->
     	<h1><%= formTitle %></h1>
         <fieldset>
@@ -16,19 +18,13 @@
         </fieldset>
         <fieldset>
             <label><%= password %></label>
-            <input type="password" name="password">
+            <input type="password">
         </fieldset>
-        <fieldset class="options">
-            <label><%= craving %></label>
-            <select>
-                <option value="1">Subs</option>
-                <option value="2">Burgers</option>
-                <option value="3">Pizza</option>
-            </select>
-        </fieldset>
-        <a class="twoButtons" href="signup">Not a Member?</a>
+        <a class="twoButtons" id="noMember" href="signup">Register</a>
     	<input class="twoButtons" type="submit" value="<%= Login %>">
     </form>
+
+    </div>
 
     <footer>
       <% include ../partials/footer %>

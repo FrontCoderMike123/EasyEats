@@ -8,12 +8,30 @@
       <% include ../partials/header %>
     </header>
 
-<section id="intro">
-    <h1><%= title %></h1>
-    <div>
-      <p><%= comment %></p>
+    <div class="padding"><!--for bottom padding. keep footer down!-->
+
+    <form class="forms" id="signUpForm">
+      <h1><%= signUpTitle %></h1>
+      <fieldset>
+          <label><%= username %></label>
+          <input type="text" name="username">
+      </fieldset>
+      <fieldset>
+          <label><%= password %></label>
+          <input type="password">
+      </fieldset>
+      <fieldset>
+          <label><%= fname %></label>
+          <input type="text" name="firstname">
+      </fieldset>
+      <fieldset>
+          <label><%= lname %></label>
+          <input type="text" name="lastname">
+      </fieldset>
+      <input class="mainButton" type="submit" value="<%= signUp %>">
+    </form>
+
     </div>
-</section>
 
     <footer>
       <% include ../partials/footer %>

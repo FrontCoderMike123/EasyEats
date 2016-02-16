@@ -6,6 +6,16 @@ body
 	min-height: 100vh;
 }
 
+img
+{
+	max-width: 100%!important;
+}
+
+.padding
+{
+	padding-bottom: 100px!important;/*this is NEEDED to keep the footer down while its in absolute postion!!!*/
+}
+
 h1,h2,h3,h4,h5,h6,label,button
 {
 	font-family: 'Lato', sans-serif;
@@ -46,7 +56,7 @@ header img
 
 .mainTitle h1
 {
-	font-size: 2.5em;
+	font-size: 1.7em;
 	border-bottom: thin solid white;
 	width: 30%;
 	display: block;
@@ -169,6 +179,29 @@ header li
 	margin-bottom: 10px;
 }
 
+.mainButton
+{
+	width: 40%!important;
+	margin: auto;
+	display: block;
+	background-color: #006699;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	border: thin solid rgba(0,0,0,.0);
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.mainButton:hover
+{
+	background: rgba(255,255,255,.5);
+	border-color: #006699;
+	color: #006699;
+}
+
 #loginForm fieldset
 {
 	width: 50%;
@@ -231,4 +264,910 @@ header li
 	border-color: #006699;
 }
 
+/******Sign up form*****/
+#signUpForm fieldset
+{
+	width: 50%;
+	float: left;
+	text-align: center;
+}
 
+/******Budget form*****/
+#budgetForm input
+{
+	width: 100%;
+	text-align: center;
+}
+#budgetForm fieldset
+{
+	width: 40%;
+	margin: auto;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+
+/*My Phone*/
+@media only screen and (max-width: 240px) {
+	p
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.3em!important;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	header img
+	{
+		float: none;
+		width: 100px;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 90%;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	footer
+	{
+		text-align: center;
+		font-size: .7em;
+		line-height: 16px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+}
+
+/*Android*/
+@media only screen and (min-width:241px) and  (max-width: 266px) {
+	p
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.3em!important;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	header img
+	{
+		float: none;
+		width: 100px;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 90%;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	footer
+	{
+		text-align: center;
+		font-size: .7em;
+		line-height: 16px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+}
+
+/*iPhone4*/
+@media only screen and (min-width: 267px) and (max-width: 320px) {
+	p
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.3em!important;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	header img
+	{
+		float: none;
+		width: 100px;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 90%;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	footer
+	{
+		text-align: center;
+		font-size: .8em;
+		line-height: 18px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+}
+
+/*Blackberry*/
+@media only screen and (min-width: 321px) and (max-width: 360px) {
+	p
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.3em!important;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	header img
+	{
+		float: none;
+    width: 100px;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 90%;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	footer
+	{
+		text-align: center;
+		font-size: .8em;
+		line-height: 18px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+}
+
+/*Galaxy S*/
+@media only screen and (min-width: 415px) and (max-width: 480px) {
+	p
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.3em!important;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	header img
+	{
+		float: none;
+    width: 100px;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 90%;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	footer
+	{
+		text-align: center;
+		font-size: .8em;
+		line-height: 18px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+}
+
+/*Kindle*/
+@media only screen and (min-width: 481px) and (max-width: 533px) {
+	p
+	{
+	 font-size: 1.2em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	header img
+	{
+		float: none;
+    width: 100px;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 90%;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	footer
+	{
+		text-align: center;
+		font-size: .8em;
+		line-height: 18px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+}
+
+/*Nook Tablet*/
+@media only screen and (min-width: 534px) and (max-width: 600px) {
+	p
+	{
+	 font-size: 1.2em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	header img
+	{
+		float: none;
+    width: 100px;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 90%;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	footer
+	{
+		text-align: center;
+		font-size: .8em;
+		line-height: 18px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+}
+
+/*Apple Ipad*/
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+	p
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.5em!important;
+	}
+
+	.mainTitle
+	{
+		width: 60%;
+	}
+	
+	.mainTitle h1
+	{
+		width: 60%;
+	}
+	
+	#logoHolder
+	{
+		width: 20%;
+		overflow: hidden;
+		float: left;
+	}
+	
+	header img
+	{
+		width: 100px;
+	}
+	
+	header ul
+	{
+		width: 20%;
+	}
+	
+	header li
+	{
+		margin: 0 3px;
+	}
+	
+	footer
+	{
+		font-size: .8em;
+	}
+}
+
+/*Desktop1*/
+@media only screen and (min-width: 801px) and (max-width: 980px) {
+	p
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 1.7em!important;
+	}
+	
+	.mainTitle
+	{
+		width: 60%;
+	}
+	
+	.mainTitle h1
+	{
+		width: 60%;
+	}
+	
+	#logoHolder
+	{
+		width: 20%;
+		overflow: hidden;
+		float: left;
+	}
+	
+	header img
+	{
+		width: 100px;
+	}
+	
+	header ul
+	{
+		width: 20%;
+	}
+	
+	header li
+	{
+		margin: 0 3px;
+	}
+	
+	footer
+	{
+		font-size: .9em;
+	}
+}
+
+/*Desktop 4*/
+@media only screen and (min-width: 1367px) {
+	p
+	{
+	 font-size: 1.2em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6
+	{
+		font-size: 2em!important;
+	}
+	
+	.mainTitle
+	{
+		width: 60%;
+	}
+	
+	.mainTitle h1
+	{
+		width: 60%;
+	}
+	
+	#logoHolder
+	{
+		width: 20%;
+		overflow: hidden;
+		float: left;
+	}
+	
+	header img
+	{
+		width: 100px;
+	}
+	
+	header ul
+	{
+		width: 20%;
+	}
+	
+	header li
+	{
+		margin: 0 3px;
+	}
+	
+	footer
+	{
+		font-size: 1.1em;
+	}
+}
