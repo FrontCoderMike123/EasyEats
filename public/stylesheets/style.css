@@ -1,0 +1,234 @@
+body
+{
+	background-color: #ebebeb;
+	overflow-x: hidden;
+	position: relative;
+	min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5,h6,label,button
+{
+	font-family: 'Lato', sans-serif;
+}
+
+p,a,input,select
+{
+	font-family: 'Quicksand', sans-serif;
+}
+
+a
+{
+	text-decoration: none;
+	color: #006699;
+}
+
+header
+{
+	background-color: #006699;
+	padding: 1%;
+	width: 98%;
+	color: #ffcc00;
+	overflow: hidden;
+}
+
+header img
+{
+	float: left;
+	width: 10%;
+}
+
+.mainTitle
+{
+	width: 80%;
+	text-align: center;
+	float: left;
+}
+
+.mainTitle h1
+{
+	font-size: 2.5em;
+	border-bottom: thin solid white;
+	width: 30%;
+	display: block;
+	margin: auto;
+	padding-bottom: 8px;
+	margin-bottom: 8px;
+}
+
+.mainTitle p
+{
+	font-size: 1.2em;
+}
+
+footer
+{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	z-index: 0;
+	width:98%;
+	background-color: #006699;
+	padding: 1%;
+	color: #ffcc00;
+	text-align: right;
+}
+
+/*****************************SOCIAL ICONS******************************/
+
+header ul p
+{
+	font-size: .9em;
+	text-align: center;
+	border-bottom: thin solid white;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+header ul
+{
+	float: right;
+	text-align: center;
+	width: 10%;
+}
+
+header li
+{
+	width: 32px;
+	height: 32px;
+	display: inline-block;
+	border-radius: 50%;
+}
+
+.social
+{
+	background: url(../images/icons/socialSprite.png) no-repeat;
+}
+
+.facebook{ background-position: 0px 0px;}
+.facebook:hover{ background-position: 0px -32px; }
+
+.twitter{ background-position: -32px 0px;}
+.twitter:hover{ background-position: -32px -32px; }
+
+.instagram{ background-position: -64px 0px;}
+.instagram:hover{ background-position: -64px -32px; }
+
+/***********************FORMS******************************/
+.forms
+{
+	width: 45%;
+	background-color: #ffcc00;
+	border-radius: 5px;
+	border:thin solid #006699;
+	margin: 20px auto;
+	padding-bottom: 10px;
+	overflow: hidden;
+}
+
+.forms h1
+{
+	text-align: center;
+	color: #006699;
+	font-size: 2em;
+	padding: 10px 0;
+	border-bottom: thin solid white;
+	margin-bottom: 10px;
+}
+
+.forms label
+{
+	color: #006699;
+	font-weight: bold;
+	font-size: 1.2em;
+	display: block;
+	margin-bottom: 5px;
+}
+
+.forms input
+{
+	width: 78%;
+	padding: 1%;
+	font-size: 1.2em;
+	border: none;
+	border: thin solid rgba(0,0,0,.0);
+}
+
+.forms input:hover
+{
+	border-color: #006699;
+}
+
+.forms input:focus
+{
+	border: thin solid #006699;
+	border-radius: 5px;
+}
+
+.forms fieldset
+{
+	margin-bottom: 10px;
+}
+
+#loginForm fieldset
+{
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+#loginForm
+{
+	text-align: center;
+}
+
+.options
+{
+	width: 100%!important;/*because of the fieldset styling above. i need this to be different*/
+	clear: both;
+}
+
+.options select
+{
+	width: 40%;
+	border: none;
+	font-size: 1.2em;
+}
+
+.options option
+{
+	padding: 5px;
+}
+
+.options option:nth-child(odd)
+{
+	background-color: #006699;
+	color: white;
+}
+
+.twoButtons
+{
+	background-color: #006699;
+	border: none;
+	color: white;
+  width: 40%!important;
+	margin: 0 10px;
+	display: inline-block;
+	font-size: 1.2em;
+	padding: 10px 0;
+	border: thin solid rgba(0,0,0,.0);
+	font-weight: bold;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+.twoButtons:hover
+{
+	border-radius: 5px;
+	background: rgba(255,255,255,.5);
+	color: #006699;
+	border-color: #006699;
+}
+
+
