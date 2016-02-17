@@ -12,7 +12,7 @@
     	
       <form class="forms" id="budgetForm">
         <h1><%= budgetTitle %></h1>
-        <h5><%= info %></h5>
+        <h5 class="errMsgs"><%= info %></h5>
         <fieldset>
           <label><%= budget %></label>
           <input type="text" name="budget" placeholder="<%= placeholder %>">
@@ -28,7 +28,13 @@
         <input class="mainButton" type="submit" value="<%= find %>">
       </form>
 
-      <a href="/logout">Logout</a>
+      <a id="logout" href="/logout">
+        <!--<div>
+          <object data="/images/icons/logout.svg">
+            <img src="/images/icons/logout.png">
+          </object>
+        </div>-->
+      </a>
 
     </div>
 

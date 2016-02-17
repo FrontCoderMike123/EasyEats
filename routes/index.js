@@ -6,7 +6,8 @@ var router = express.Router();
 router.get('/', function (req, res) {
     res.render('pages/index', {
       user : req.user,
-      title: 'New or Not?'
+      title: 'Welcome to EasyEatz!',
+      subTitle: 'New or Not?'
     });
 });
 
@@ -21,13 +22,21 @@ router.get('/login', function(req, res) {
   });
 });
 
-router.post('/login', passport.authenticate('local'), function(req,res) {
+router.post('/login', passport.authenticate('local'), function(req,res,err) {
   res.redirect('/budget');
 });
 
 router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
+});
+
+router.post('/logout', function(req, res){
+    res.render('pages/index',{
+      user : req.user,
+      title: 'EasyEatz',
+      subTitle: 'Come back soon '+req.user
+    });
 });
 
 router.get('/signUp', function(req, res) {
@@ -43,9 +52,11 @@ router.get('/signUp', function(req, res) {
   });
 });
 
+/*
 router.get('/ping', function(req, res){
     res.status(200).send("pong!");
 });
+*/
 
 router.post('/signUp', function(req, res) {
     Account.register(new Account({ username : req.body.username, firstname: req.body.firstname, lastname: req.body.lastname }), req.body.password, function(err, account) {
@@ -59,11 +70,11 @@ router.post('/signUp', function(req, res) {
               fname: 'First Name',
               lname: 'Last Name',
               signUp: 'Sign Up'
-            })
+            });
         }
 
         passport.authenticate('local')(req, res, function () {
-            res.redirect('/');
+            res.redirect('/login');
         });
     });
 });

@@ -42,7 +42,13 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-mongoose.connect('mongodb://localhost/users');//name of DB
+mongoose.connect('mongodb://localhost/users', function(err){
+  if(err){
+    console.log('Connection Issues', err);
+  }else{
+    console.log('Connected');
+  }
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
