@@ -10,7 +10,7 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-    <form class="forms" id="loginForm"><!--action="budget" method="post"-->
+    <form role="form" action="/login" method="post" class="forms" id="loginForm">
     	<h1><%= formTitle %></h1>
         <fieldset>
             <label><%= username %></label>
@@ -18,9 +18,8 @@
         </fieldset>
         <fieldset>
             <label><%= password %></label>
-            <input type="password">
+            <input type="password" name="password">
         </fieldset>
-        <a class="twoButtons" id="noMember" href="signup">Register</a>
     	<input class="twoButtons" type="submit" value="<%= Login %>">
     </form>
 
