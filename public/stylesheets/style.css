@@ -6,6 +6,16 @@ body
 	min-height: 100vh;
 }
 
+#map
+{
+	height: 100%;
+}
+
+.hidden
+{
+	display: none;
+}
+
 object
 {
 	pointer-events: none;

@@ -9,26 +9,14 @@
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
+
       <p class="hidden" id="startLat"></p>
       <p class="hidden" id="startLon"></p>
-    	
-      <form role="form" action="/budget" method="post" class="forms" id="budgetForm">
-        <h1><%= budgetTitle %></h1>
-        <h5 class="errMsgs"><%= info %></h5>
-        <fieldset>
-          <label><%= budget %></label>
-          <input type="text" name="budget" placeholder="<%= placeholder %>">
-        </fieldset>
-        <fieldset class="options">
-            <label><%= craving %></label>
-            <select>
-                <option value="1">Subs</option>
-                <option value="2">Burgers</option>
-                <option value="3">Pizza</option>
-            </select>
-        </fieldset>
-        <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">
-      </form>
+
+      <section>
+        <h3><%= title %></h3>
+        <h5><%= subTitle %></h5>
+      </section>
 
       <a id="logout" href="/logout">
         <!--<div>

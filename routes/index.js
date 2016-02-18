@@ -96,4 +96,11 @@ router.get('/budget', function(req, res) {
   });
 });
 
+router.post('/budget', function(req,res,err) {
+  res.render('pages/restaurants', {
+    title: 'Restaurants',
+    subTitle: 'Where are you going to eat '+req.user.username+'?'
+  });
+});
+
 module.exports = router;
