@@ -28,7 +28,12 @@ router.post('/login', passport.authenticate('local'), function(req,res,err) {
 
 router.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/');
+    //res.redirect('/');
+    res.render('pages/index',{
+      user : req.user,
+      title: 'EasyEatz',
+      subTitle: 'Come back soon'
+    });
 });
 
 router.post('/logout', function(req, res){
