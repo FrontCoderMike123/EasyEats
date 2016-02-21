@@ -438,6 +438,11 @@ header li
   padding: 0 0 5px 0;
 }
 
+#userWelcome
+{
+	font-size: 1.4em;
+}
+
 /*****restaurants page*****/
 #restaurantsHolder
 {

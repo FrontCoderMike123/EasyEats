@@ -12,11 +12,11 @@
     	
       <form role="form" action="/budget" method="post" class="forms" id="budgetForm">
         <h1><%= budgetTitle %></h1>
-        <h5 class="errMsgs"><%= info %></h5>
+        <h5 class="errMsgs" id="userWelcome"><%= info %></h5>
         <div id="foundYou">
           <div id="map"></div>
-          <p>Before YOU find food. I must first find YOU.</p>
-          <span id="status">Please Wait...</span>
+          <p>But before YOU find food. I must first find YOU.</p>
+          <span id="status">Waiting For You...</span>
         </div>
         <div id="budgetWrapper">
         <fieldset>
