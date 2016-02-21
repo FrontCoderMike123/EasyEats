@@ -92,14 +92,14 @@ router.get('/budget', function(req, res) {
     budget: 'Enter Budget',
     placeholder: '($)',
     find: 'Find Food',
-    info: 'Hello '+req.user.username+', feeling hungry?'
+    info: "Hello "+req.user.username+". I bet you're feeling hungry."
   });
 });
 
 router.post('/budget', function(req,res,err) {
   res.render('pages/restaurants', {
     title: 'Restaurants',
-    subTitle: 'Where are you going to eat '+req.user.username+'?'
+    subTitle: "What's on the menu today, "+req.user.username+"?"
   });
 });
 

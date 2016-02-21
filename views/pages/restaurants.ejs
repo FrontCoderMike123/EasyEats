@@ -10,12 +10,10 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-      <p class="hidden" id="startLat"></p>
-      <p class="hidden" id="startLon"></p>
-
-      <section>
-        <h3><%= title %></h3>
+      <section class="forms" id="restaurantsHolder">
+        <h1><%= title %></h1>
         <h5><%= subTitle %></h5>
+        <a href="/budget" class="twoButtons">Back To Finder</a>
       </section>
 
       <a id="logout" href="/logout">
@@ -29,11 +27,14 @@
     </div>
 
     <footer>
-      <script src="/javascripts/geo.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places"></script>
       <% include ../partials/footer %>
     </footer>
+
+<!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script src="/javascripts/geo.js"></script>-->
+<!--
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places"></script>
+-->
 
   </body>
 </html>

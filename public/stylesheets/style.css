@@ -6,11 +6,6 @@ body
 	min-height: 100vh;
 }
 
-#map
-{
-	height: 100%;
-}
-
 .hidden
 {
 	display: none;
@@ -37,7 +32,7 @@ h1,h2,h3,h4,h5,h6,label,button
 	font-family: 'Lato', sans-serif;
 }
 
-p,a,input,select
+p,a,input,select,span
 {
 	font-family: 'Quicksand', sans-serif;
 }
@@ -46,6 +41,16 @@ a
 {
 	text-decoration: none;
 	color: #006699;
+}
+
+.remove
+{
+	display: none!important;
+}
+
+.appear
+{
+	display: block!important;
 }
 
 header
@@ -105,6 +110,17 @@ footer
 	margin-bottom: 10px;
 	color: #006699;
 	display: block;
+}
+
+footer a
+{
+	color: #ffcc00;
+	font-weight: bold;
+}
+
+footer a:hover
+{
+	color: white;
 }
 
 #logout
@@ -282,6 +298,7 @@ header li
 	-moz-transition: all .5s ease;
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
+	cursor: pointer;
 }
 
 .mainButton:hover
@@ -337,6 +354,8 @@ header li
 	display: inline-block;
 	font-size: 1.2em;
 	padding: 10px 0;
+	border-radius: 5px;
+	cursor: pointer;
 	border: thin solid rgba(0,0,0,.0);
 	font-weight: bold;
 	-webkit-transition: all .5s ease;
@@ -361,6 +380,28 @@ header li
 	text-align: center;
 }
 
+.neverMind
+{
+	color: white;
+	background-color: #006699;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: thin solid rgba(0,0,0,.0);
+	font-weight: bold;
+	display: block;
+	margin: auto;
+	width: 20%;
+	text-align: center;
+	margin-top: 10px;
+}
+
+.neverMind:hover
+{
+	background: rgba(255,255,255,.5);
+	color: #006699;
+	border-color: #006699;
+}
+
 /******Budget form*****/
 #budgetForm input
 {
@@ -374,6 +415,41 @@ header li
 	margin-bottom: 10px;
 	text-align: center;
 }
+
+#budgetWrapper
+{
+	display: none;
+}
+
+#foundYou p
+{
+	text-align: center;
+	color: #006699;
+	font-weight: bold;
+}
+
+#foundYou span
+{
+	display: block;
+	text-align: center;
+	color: #006699;
+	font-weight: bold;
+	font-size: 1.3em;
+  padding: 0 0 5px 0;
+}
+
+/*****restaurants page*****/
+#restaurantsHolder
+{
+  text-align: center;
+}
+
+#restaurantsHolder h5
+{
+	color: #006699;
+	font-size: 1.5em;
+}
+
 
 
 /*My Phone*/

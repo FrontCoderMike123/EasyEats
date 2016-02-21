@@ -14,13 +14,14 @@
     	<h1><%= formTitle %></h1>
         <fieldset>
             <label><%= username %></label>
-            <input type="text" name="username">
+            <input type="text" name="username" required>
         </fieldset>
         <fieldset>
             <label><%= password %></label>
-            <input type="password" name="password">
+            <input type="password" name="password" required>
         </fieldset>
     	<input class="twoButtons" type="submit" value="<%= Login %>">
+        <a class="neverMind" href="/">Never Mind</a>
     </form>
 
     </div>

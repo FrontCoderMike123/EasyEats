@@ -9,15 +9,19 @@
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
-      <p class="hidden" id="startLat"></p>
-      <p class="hidden" id="startLon"></p>
     	
       <form role="form" action="/budget" method="post" class="forms" id="budgetForm">
         <h1><%= budgetTitle %></h1>
         <h5 class="errMsgs"><%= info %></h5>
+        <div id="foundYou">
+          <div id="map"></div>
+          <p>Before YOU find food. I must first find YOU.</p>
+          <span id="status">Please Wait...</span>
+        </div>
+        <div id="budgetWrapper">
         <fieldset>
           <label><%= budget %></label>
-          <input type="text" name="budget" placeholder="<%= placeholder %>">
+          <input type="text" name="budget" placeholder="<%= placeholder %>" required>
         </fieldset>
         <fieldset class="options">
             <label><%= craving %></label>
@@ -28,6 +32,8 @@
             </select>
         </fieldset>
         <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">
+        </div><!--gone for now-->
+
       </form>
 
       <a id="logout" href="/logout">
@@ -41,11 +47,11 @@
     </div>
 
     <footer>
-      <script src="/javascripts/geo.js"></script>
-<!--<script src="https://maps.googleapis.com/maps/api/js"></script>-->
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places"></script>
       <% include ../partials/footer %>
     </footer>
+
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+<script src="/javascripts/geo.js"></script>
 
   </body>
 </html>
