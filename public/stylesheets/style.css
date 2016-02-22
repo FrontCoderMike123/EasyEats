@@ -53,6 +53,15 @@ a
 	display: block!important;
 }
 
+.markerLabels
+{
+	color: white;
+	background-color: black;
+	padding-top: 1%;
+	border-radius: 50%;
+	margin: 0;
+}
+
 header
 {
 	background-color: #006699;
