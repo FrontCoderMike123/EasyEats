@@ -53,6 +53,13 @@ a
 	display: block!important;
 }
 
+.mapGrow
+{
+	width: 100%;
+	min-height: 400px;
+	margin-bottom: 10px;
+}
+
 .markerLabels
 {
 	color: white;

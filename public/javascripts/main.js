@@ -1,53 +1,27 @@
 (function(){
-	var EASYEATZ = angular.module('EASYEATZ',['ui.router','ngAnimate']);
+	var EASYEATZ = angular.module('EASYEATZ',['ui.router']);
 
-	EASYEATZ.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider){
-		$stateProvider.state('new',{
-			url: '/new',
-			temaplteUrl: 'pages/new.ejs',
-			controller: 'newController'
-		});
-		$stateProvider.state('login',{
-			url: '/login',
-			temaplteUrl: 'pages/login.ejs',
-			controller: 'loginController'
-		});
-		$stateProvider.state('signup',{
-			url: '/signup',
-			temaplteUrl: 'pages/signUp.ejs',
-			controller: 'signupController'
-		});
-		$stateProvider.state('budget',{
-			url: '/budget',
-			temaplteUrl: 'pages/budget.ejs',
-			controller: 'budgetController'
-		});
-		$stateProvider.state('restaurants',{
-			url: '/restaurants',
-			temaplteUrl: 'pages/restaurants.ejs',
-			controller: 'restaurantsController'
-		});
-		$urlRouterProvider.otherwise('/new');
-	}]);
+EASYEATZ.factory('httpRequestInterceptor', function () {
+    return {
+        request: function (config) {
+        config.headers['x-custom-header-name'] = '/'
+        return config
+    }
+}
+});
 
-	EASYEATZ.controller('newController',['$scope','$http',function($scope,$http){
+EASYEATZ.config(['$stateProvider','$urlRouterProvider','$httpProvider',function($stateProvider,$urlRouterProvider,$httpProvider) {
+    $httpProvider.interceptors.push('httpRequestInterceptor');
+    $stateProvider.state('index',{
+		url: '/',
+		templateUrl: 'pages/new.ejs',
+		controller: 'newCtrl'
+	});
+	$urlRouterProvider.otherwise('/');
+}]);
 
-	}]);
+EASYEATZ.controller('newCtrl',['$scope','$http',function($scope,$http){
 
-	EASYEATZ.controller('loginController',['$scope','$http',function($scope,$http){
-		
-	}]);
-
-	EASYEATZ.controller('signupController',['$scope','$http',function($scope,$http){
-		
-	}]);
-
-	EASYEATZ.controller('budgetController',['$scope','$http',function($scope,$http){
-		
-	}]);
-
-	EASYEATZ.controller('restaurantsController',['$scope','$http',function($scope,$http){
-		
-	}]);
+}]);
 
 })();

@@ -2,6 +2,14 @@ var express = require('express');
 var passport = require('passport');
 var Account = require('../models/account.js');
 var router = express.Router();
+var app = express();
+
+app.use(function (req, res, next) {
+    if (!req.headers['x-custom-header-name']) {
+        res.redirect('/'); 
+    }
+    next();
+});
 
 router.get('/', function (req, res) {
     res.render('pages/index', {
@@ -92,14 +100,23 @@ router.get('/budget', function(req, res) {
     budget: 'Enter Budget',
     placeholder: '($)',
     find: 'Find Food',
-    info: "Hello "+req.user.username+". I bet you're feeling hungry."
+    info: "Hello "+req.user.username+". I bet you're feeling hungry.",
+    userBudget: req.cookies.budget
   });
 });
 
+router.get('/forget', function(req, res){
+  res.clearCookie('budget');
+  res.redirect('/');
+});
+
 router.post('/budget', function(req,res,err) {
+  var minute = 60 * 1000;
+  if (req.body.budget) res.cookie('budget', 1, { maxAge: minute });
   res.render('pages/restaurants', {
     title: 'Restaurants',
-    subTitle: "What's on the menu today, "+req.user.username+"?"
+    subTitle: "What's on the menu today, "+req.user.username+"?",
+    budget: req.body.budget
   });
 });
 
