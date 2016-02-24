@@ -31,4 +31,5 @@ function error(msg) {
   var status = document.querySelector('#status');
   status.innerHTML = typeof msg == 'string' ? msg : "failed";
 }
+
 })();

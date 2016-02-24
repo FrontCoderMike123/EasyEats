@@ -4,13 +4,6 @@ var Account = require('../models/account.js');
 var router = express.Router();
 var app = express();
 
-app.use(function (req, res, next) {
-    if (!req.headers['x-custom-header-name']) {
-        res.redirect('/'); 
-    }
-    next();
-});
-
 router.get('/', function (req, res) {
     res.render('pages/index', {
       user : req.user,
@@ -101,7 +94,8 @@ router.get('/budget', function(req, res) {
     placeholder: '($)',
     find: 'Find Food',
     info: "Hello "+req.user.username+". I bet you're feeling hungry.",
-    userBudget: req.cookies.budget
+    userBudget: req.cookies.budget,
+    moneyOnly: "Silly "+req.user.username+". You can't pay with words."
   });
 });
 
@@ -116,7 +110,7 @@ router.post('/budget', function(req,res,err) {
   res.render('pages/restaurants', {
     title: 'Restaurants',
     subTitle: "What's on the menu today, "+req.user.username+"?",
-    budget: req.body.budget
+    budget: "So you have $"+req.body.budget+" in your pocket? Let's Rock!"
   });
 });
 

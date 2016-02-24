@@ -459,6 +459,39 @@ header li
 	font-size: 1.4em;
 }
 
+.opac
+{
+	-webkit-opacity: 1!important;
+	-moz-opacity: 1!important;
+	-o-opacity: 1!important;
+	opacity: 1!important;
+}
+
+#moneyOnly
+{
+	position: absolute;
+	top: 0;
+	left: 10px;
+	background-color: #ffcc00;
+	color: #006699;
+	border-radius: 5px;
+	border: thin solid #006699;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	-o-opacity: 0;
+	opacity: 0;
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+#moneyOnly p
+{
+	margin: 10px;
+	font-weight: bold;
+}
+
 /*****restaurants page*****/
 #restaurantsHolder
 {
@@ -469,6 +502,27 @@ header li
 {
 	color: #006699;
 	font-size: 1.5em;
+}
+
+#spendingCon
+{
+	position: absolute;
+	top: 0;
+	left: 10px;
+	background-color: #ffcc00;
+	color: #006699;
+	border-radius: 5px;
+	border: thin solid #006699;
+	width: 200px;
+	padding: 1%;
+	text-align: center;
+}
+
+#spendingCon p
+{
+	font-weight: bold;
+	font-size:1.3em;
+	line-height: 30px;
 }
 
 

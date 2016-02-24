@@ -5,6 +5,23 @@
     <!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places" async defer></script>
 <script src="/javascripts/geo.js"></script>
+<script type="text/javascript">
+  function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    var moneyDiv = document.querySelector('#moneyOnly');
+    var moneyOnly = document.querySelector('#moneyOnly p');
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        moneyOnly.innerHTML = "<%= moneyOnly %>";
+        moneyDiv.classList.add('opac');
+        return false;
+    }else{
+      moneyOnly.innerHTML = "";
+      moneyDiv.classList.remove('opac');
+    }
+    return true;
+}
+</script>
 </head>
 <body>
     <header>
@@ -12,6 +29,8 @@
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
+
+      <div id="moneyOnly"><p></p></div>
 
       <form name="myForm" role="form" action="/budget" method="post" class="forms" id="budgetForm">
         
@@ -24,7 +43,7 @@
         <div id="budgetWrapper">
         <fieldset>
           <label><%= budget %></label>
-<input type="text" name="budget" placeholder="<%= placeholder %>" required>
+<input type="text" name="budget" placeholder="<%= placeholder %>" onkeypress="return isNumber(event)" required>
         </fieldset>
         <fieldset class="options">
             <label><%= craving %></label>
