@@ -552,6 +552,20 @@ header li
 	padding: 5px 0!important;
 }
 
+.infoWindow a
+{
+	padding: 5px 0!important;
+	background-color: #ffcc00;
+	display: block;
+}
+
+.infoWindow a:hover
+{
+	background-color: #006699;
+	color: #ffcc00;
+	font-weight: bold;
+}
+
 
 
 /*My Phone*/

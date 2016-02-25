@@ -22,22 +22,53 @@
     
   document.querySelector('.foundYou').appendChild(mapcanvas);
 
-  console.log(position.coords.latitude);
+  /*console.log(position.coords.latitude);
 	console.log(position.coords.longitude);
 	console.log(position.coords.accuracy);
-
-    var userSpot = position.coords.latitude || position.coords.longitude || position.coords.accuracy;
+  var userSpot = position.coords.latitude || position.coords.longitude || position.coords.accuracy;
     if(userSpot = position){
     	console.log(userSpot);
-    }
+    }*/
+
+  var customMapType = new google.maps.StyledMapType([
+      {
+        stylers: [
+          {hue: '#006699'},
+          {visibility: 'simplified'},
+          {gamma: 0.5},
+          {weight: 0.5}
+        ]
+      },
+      {
+        elementType: 'labels',
+        stylers: [{visibility: 'off'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry',
+        stylers: [{color: '#ffcc00'}]
+      }
+    ], {
+      name: 'Styled Map'
+  });
+  var customMapTypeId = 'custom_style';
   
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
   var myOptions = {
     zoom: 16,
-    center: latlng
+    center: latlng,
+    mapTypeControlOptions: {
+      mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
+    }
   };
+
   var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  map.mapTypes.set(customMapTypeId, customMapType);
+  map.setMapTypeId(customMapTypeId);
+
   var yourArrow = '/images/icons/urArrow.svg';
+
   var yourMarker = new google.maps.Marker({
       position: latlng, 
       map: map, 
@@ -74,10 +105,9 @@ function createMarker(place, timeout) {
       map: map,
       label: labels[labelIndex++ % labels.length],
       animation: google.maps.Animation.DROP,
-      position: place.geometry.location,
+      position: placeLoc,
       icon: icon
     });
-
   marker.addListener('click', toggleBounce);
 
 function toggleBounce() {
@@ -88,22 +118,23 @@ function toggleBounce() {
   }
 }
   
-  var request = { reference: place.reference };
-  service.getDetails(request, function(details) {
+  //var request = { reference: place.reference };
+  //service.getDetails(request, function(details) {
     google.maps.event.addListener(marker, 'click', function() {
     infoWindow.setContent('<div class="infoWindow"><h1>'+ place.name + '</h1>'+
       //'<img src="'+place.icon+'">' +
-      '<span>' + 'Address' + '</span>' + '<p>' + details.formatted_address + '</p>' +
-      '<span>' + 'Phone Number' + '</span>' + '<p>' + details.international_phone_number + '</p>' + '</div>');
+      '<span>' + 'Address' + '</span>' + '<p>' + place.vicinity + '</p>' +
+      '<span>' + 'Phone Number' + '</span>' + '<p>' + place.international_phone_number + '</p>' +
+      '<a href="'+place.url+'" target="onblank">' + 'View Website' + '</a>' + '</div>');
     infoWindow.open(map, this);
   });
   }, timeout);
-  });
+  //});
 }
 }
 
 function error(msg) {
   var status = document.querySelector('.status');
-  status.innerHTML = typeof msg == 'string' ? msg : "failed";
+  status.innerHTML = typeof msg == 'string' ? msg : "FAILED!!!!";
 }
 })();

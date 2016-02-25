@@ -15,7 +15,7 @@
   P.classList.add('remove');
   budget.classList.add('appear');
     
-  document.querySelector('.foundYou');//.appendChild(mapcanvas);
+  document.querySelector('.foundYou');
 
   console.log(position.coords.latitude);
 	console.log(position.coords.longitude);
@@ -29,7 +29,7 @@
 
 function error(msg) {
   var status = document.querySelector('.status');
-  status.innerHTML = typeof msg == 'string' ? msg : "failed";
+  status.innerHTML = typeof msg == 'string' ? msg : "FAILED!!!!";
 }
 
 })();
