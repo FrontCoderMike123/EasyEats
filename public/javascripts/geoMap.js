@@ -7,20 +7,20 @@
 	}
 
 	function success(position) {
-  		var status = document.querySelector('#status');
-  		var P = document.querySelector('#foundYou p');
+  		var status = document.querySelector('.status');
+  		var P = document.querySelector('.foundYou p');
       var infoWindow;
       var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       var labelIndex = 0;
       var markers = [];
   
-  status.innerHTML = "Where To?";
+  status.innerHTML = "Where to?";
   
   var mapcanvas = document.querySelector('#map');
   mapcanvas.id = 'mapcanvas';
   mapcanvas.classList.add('mapGrow');
     
-  document.querySelector('#foundYou').appendChild(mapcanvas);
+  document.querySelector('.foundYou').appendChild(mapcanvas);
 
   console.log(position.coords.latitude);
 	console.log(position.coords.longitude);
@@ -46,7 +46,9 @@
       title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
   });
 
-  infoWindow = new google.maps.InfoWindow();
+  var infoWindow = new google.maps.InfoWindow({
+    maxWidth: 200
+    });
 
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
@@ -85,16 +87,23 @@ function toggleBounce() {
     marker.setAnimation(google.maps.Animation.BOUNCE);
   }
 }
-  google.maps.event.addListener(marker, 'click', function() {
-    infoWindow.setContent(place.name);
+  
+  var request = { reference: place.reference };
+  service.getDetails(request, function(details) {
+    google.maps.event.addListener(marker, 'click', function() {
+    infoWindow.setContent('<div class="infoWindow"><h1>'+ place.name + '</h1>'+
+      //'<img src="'+place.icon+'">' +
+      '<span>' + 'Address' + '</span>' + '<p>' + details.formatted_address + '</p>' +
+      '<span>' + 'Phone Number' + '</span>' + '<p>' + details.international_phone_number + '</p>' + '</div>');
     infoWindow.open(map, this);
   });
   }, timeout);
+  });
 }
 }
 
 function error(msg) {
-  var status = document.querySelector('#status');
+  var status = document.querySelector('.status');
   status.innerHTML = typeof msg == 'string' ? msg : "failed";
 }
 })();

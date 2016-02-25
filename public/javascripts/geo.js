@@ -7,15 +7,15 @@
 	}
 
 	function success(position) {
-  		var status = document.querySelector('#status');
-  		var P = document.querySelector('#foundYou p');
+  		var status = document.querySelector('.status');
+  		var P = document.querySelector('.foundYou p');
   		var budget = document.querySelector('#budgetWrapper');
   
   status.innerHTML = "Let's Eat!";
   P.classList.add('remove');
   budget.classList.add('appear');
     
-  document.querySelector('#foundYou');//.appendChild(mapcanvas);
+  document.querySelector('.foundYou');//.appendChild(mapcanvas);
 
   console.log(position.coords.latitude);
 	console.log(position.coords.longitude);
@@ -28,7 +28,7 @@
 }
 
 function error(msg) {
-  var status = document.querySelector('#status');
+  var status = document.querySelector('.status');
   status.innerHTML = typeof msg == 'string' ? msg : "failed";
 }
 

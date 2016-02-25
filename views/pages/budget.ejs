@@ -30,27 +30,35 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-      <div id="moneyOnly"><p></p></div>
-
       <form name="myForm" role="form" action="/budget" method="post" class="forms" id="budgetForm">
         
         <h1><%= budgetTitle %></h1>
         <h5 class="errMsgs" id="userWelcome"><%= info %></h5>
-        <div id="foundYou">
+        <div class="foundYou">
           <p>But before YOU find food. I must first find YOU.</p>
-          <span id="status">Waiting For You...</span>
+          <span class="status">Waiting For You...</span>
         </div>
+        <div id="moneyOnly"><p></p></div>
         <div id="budgetWrapper">
         <fieldset>
           <label><%= budget %></label>
-<input type="text" name="budget" placeholder="<%= placeholder %>" onkeypress="return isNumber(event)" required>
+<input type="text"
+id="budgetInput"
+name="budget"
+placeholder="<%= placeholder %>"
+onkeypress="return isNumber(event)"
+maxlength="2"
+required>
         </fieldset>
         <fieldset class="options">
             <label><%= craving %></label>
-            <select>
-                <option value="1">Subs</option>
-                <option value="2">Burgers</option>
-                <option value="3">Pizza</option>
+            <select name="options">
+                <option value="FOOD">Food</option>
+                <option value="Subs">Subs</option>
+                <option value="Burgers">Burgers</option>
+                <option value="Pizza">Pizza</option>
+                <option value="Ice Cream">Ice Cream</option>
+                <option value="Tacos">Tacos</option>
             </select>
         </fieldset>
         <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">

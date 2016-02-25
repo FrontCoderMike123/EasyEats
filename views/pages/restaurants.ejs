@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places" async defer></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places"></script>
 <script src="/javascripts/geoMap.js"></script>
 </head>
 <body>
@@ -12,17 +12,16 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-      <div id="spendingCon">
-        <p><%= budget %></p>
-      </div>
-
       <section class="forms" id="restaurantsHolder">
         <h1><%= title %></h1>
         <h5><%= subTitle %></h5>
-        <div id="foundYou">
+        <div id="spendingCon">
+        <p><%= budget %></p>
+        </div>
+        <div class="foundYou">
+          <p>Here are some restaurants that offer what you're craving.</p>
+          <span class="status">Waiting For You...</span>
           <div id="map"></div>
-          <p>These Are Some Restaurants Near Your Location</p>
-          <span id="status">Waiting For You...</span>
         </div>
         <a href="/budget" class="twoButtons">Back To Finder</a>
       </section>

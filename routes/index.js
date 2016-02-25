@@ -89,7 +89,7 @@ router.get('/budget', function(req, res) {
   res.render('pages/budget', {
     title: 'Hungry?',
     budgetTitle: 'Food Finder!',
-    craving: 'Hungry for Something Else?',
+    craving: 'Craving Something?',
     budget: 'Enter Budget',
     placeholder: '($)',
     find: 'Find Food',
@@ -107,10 +107,11 @@ router.get('/forget', function(req, res){
 router.post('/budget', function(req,res,err) {
   var minute = 60 * 1000;
   if (req.body.budget) res.cookie('budget', 1, { maxAge: minute });
+  if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
   res.render('pages/restaurants', {
     title: 'Restaurants',
     subTitle: "What's on the menu today, "+req.user.username+"?",
-    budget: "So you have $"+req.body.budget+" in your pocket? Let's Rock!"
+    budget: "I see you have $"+req.body.budget+" in your pocket? And you're craving some "+req.body.options+"?"
   });
 });
 
