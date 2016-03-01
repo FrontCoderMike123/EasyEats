@@ -53,22 +53,6 @@ a
 	display: block!important;
 }
 
-.mapGrow
-{
-	width: 100%;
-	min-height: 400px;
-	margin-bottom: 10px;
-}
-
-.markerLabels
-{
-	color: white;
-	background-color: black;
-	padding-top: 1%;
-	border-radius: 50%;
-	margin: 0;
-}
-
 header
 {
 	background-color: #006699;
@@ -78,17 +62,17 @@ header
 	overflow: hidden;
 }
 
-header img
+header object
 {
 	float: left;
-	width: 10%;
+	width: 8%;
 }
 
 .mainTitle
 {
-	width: 80%;
+	width: 100%;
 	text-align: center;
-	float: left;
+	float: none;
 }
 
 .mainTitle h1
@@ -105,6 +89,10 @@ header img
 .mainTitle p
 {
 	font-size: 1.2em;
+	display: block;
+	text-align: center;
+	margin: auto;
+	width: 50%;
 }
 
 footer
@@ -124,6 +112,11 @@ footer
 {
 	text-align: center;
 	color: #006699;
+	display: block;
+}
+
+.firstBreak
+{
 	display: block;
 }
 
@@ -205,27 +198,19 @@ footer a:hover
 
 /*****************************SOCIAL ICONS******************************/
 
-header ul p
+footer ul
 {
-	font-size: .9em;
+	float: left;
 	text-align: center;
-	border-bottom: thin solid white;
-	margin-bottom: 5px;
-	padding-bottom: 5px;
 }
 
-header ul
-{
-	float: right;
-	text-align: center;
-	width: 10%;
-}
-
-header li
+footer li
 {
 	width: 32px;
 	height: 32px;
-	display: inline-block;
+	display: block;
+	float: left;
+	margin-right: 15px;
 	border-radius: 50%;
 }
 
@@ -240,7 +225,7 @@ header li
 .twitter{ background-position: -32px 0px;}
 .twitter:hover{ background-position: -32px -32px; }
 
-.instagram{ background-position: -64px 0px;}
+.instagram{ background-position: -64px 0px; margin: 0;}
 .instagram:hover{ background-position: -64px -32px; }
 
 /***********************FORMS******************************/
@@ -566,7 +551,31 @@ header li
 	font-weight: bold;
 }
 
+.mapHolder
+{
+	clear: both;
+	width: 90%;
+	margin: auto;
+	display: block;
+	border-radius: 5px;
+}
 
+.mapGrow
+{
+	max-width: 100%;
+	min-height: 500px;
+	border-radius: 5px;
+	border: thin solid #006699;
+}
+
+.markerLabels
+{
+	color: white;
+	background-color: black;
+	padding-top: 1%;
+	border-radius: 50%;
+	margin: 0;
+}
 
 /*My Phone*/
 @media only screen and (max-width: 240px) {

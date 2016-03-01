@@ -20,7 +20,7 @@
   mapcanvas.id = 'mapcanvas';
   mapcanvas.classList.add('mapGrow');
     
-  document.querySelector('.foundYou').appendChild(mapcanvas);
+  document.querySelector('.mapHolder').appendChild(mapcanvas);
 
   /*console.log(position.coords.latitude);
 	console.log(position.coords.longitude);

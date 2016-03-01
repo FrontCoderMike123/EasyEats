@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <div class="padding"><!--for bottom padding. keep footer down!-->
+
+        <form role="form" class="forms" method="post">
+          <fieldset>
+            <label>New Password</label>
+            <input type="password" name="password" value="">
+          </fieldset>
+          <fieldset>
+            <label>Confirm Password</label>
+            <input type="password" name="confirm" value="">
+          </fieldset>
+          <input class="mainButton" type="submit" value="Update Password">
+        </form>
+      
+    </div>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+
+  </body>
+</html>
