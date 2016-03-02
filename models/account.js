@@ -4,6 +4,7 @@
 	var Schema = mongoose.Schema;
 	var passportLocalMongoose = require('passport-local-mongoose');
 	var bcrypt = require('bcrypt-nodejs');
+	var SALT_WORK_FACTOR = 10;
 
 	var Account = new Schema({
 		username: String,
@@ -12,7 +13,8 @@
 		lastname: String,
 		emailAddress: String,
 		resetPasswordToken: String,
-  		resetPasswordExpires: Date
+  		resetPasswordExpires: Date,
+  		userPhoto: String
 	});
 
 	Account.pre('save', function(next) {

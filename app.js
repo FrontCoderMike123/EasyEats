@@ -12,6 +12,7 @@ var bcrypt = require('bcrypt-nodejs');
 var async = require('async');
 var crypto = require('crypto');
 var flash = require('express-flash');
+var multer  =   require('multer');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

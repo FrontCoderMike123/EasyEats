@@ -10,9 +10,10 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-    <form role="form" action="/signUp" method="post" class="forms" id="signUpForm">
+    <form action="/signUp" method="post" class="forms" id="signUpForm">
       <h1><%= signUpTitle %></h1>
       <h5 class="errMsgs"><%= info %></h5>
+      <h5 class="errMsgs"><%= message %></h5>
       <fieldset>
           <label><%= username %></label>
           <input type="text" name="username" required>

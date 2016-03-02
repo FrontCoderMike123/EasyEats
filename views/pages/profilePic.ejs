@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+      <% include ../partials/headerWithSet %>
+    </header>
+
+    <div class="padding"><!--for bottom padding. keep footer down!-->
+
+    <form class="forms" id="uploadForm" enctype="multipart/form-data" action="/profilePicture" method="post">
+      <h1><%= profilePic %> <%= user %></h1>
+      <input type="file" name="userPhoto">
+      <input class="mainButton" type="submit" value="Upload Image" name="submit">
+    </form>
+
+    </div>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+
+  </body>
+</html>

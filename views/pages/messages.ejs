@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+      <% include ../partials/headerWithSet %>
+    </header>
+
+    <div class="padding"><!--for bottom padding. keep footer down!-->
+
+        <div class="messagesHolder">
+          <p><%= sent %></p>
+          <p><%= noUpload %></p>
+          <p><%= goodUpload %></p>
+        </div>
+      
+    </div>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+
+  </body>
+</html>

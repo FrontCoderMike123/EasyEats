@@ -5,15 +5,16 @@
 </head>
 <body>
     <header>
-      <% include ../partials/header %>
+      <% include ../partials/headerWithSet %>
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-        <form role="form" class="forms" action="/forgotPass" method="post">
+        <form role="form" class="forms settingForms" action="/forgotPass" method="post">
           <h1><%= subTitle %></h1>
-          <label>Email</label>
-          <input type="text" name="email">
+          <fieldset>
+            <input type="text" name="email">
+          </fieldset>
           <input class="mainButton" type="submit" value="Send">
         </form>
       

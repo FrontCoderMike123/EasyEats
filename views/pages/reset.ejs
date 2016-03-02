@@ -10,7 +10,10 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-        <form role="form" class="forms" method="post">
+        <form role="form" class="forms resetForm" method="post">
+          <h1>Current Password</h1>
+          <h5><%= currentPass %></h5>
+          <span><%= error %></span>
           <fieldset>
             <label>New Password</label>
             <input type="password" name="password" value="">

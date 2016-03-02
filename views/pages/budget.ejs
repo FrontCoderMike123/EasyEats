@@ -25,7 +25,7 @@
 </head>
 <body>
     <header>
-      <% include ../partials/header %>
+      <% include ../partials/headerWithSet %>
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
@@ -67,19 +67,9 @@ required>
             </select>
         </fieldset>
         <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">
-        <a href="/changePass">Change Password</a>
-        <a href="/forgotPass">Forgot Password</a>
         </div><!--gone for now-->
 
       </form>
-
-      <a id="logout" href="/logout">
-        <!--<div>
-          <object data="/images/icons/logout.svg">
-            <img src="/images/icons/logout.png">
-          </object>
-        </div>-->
-      </a>
       
     </div>
 

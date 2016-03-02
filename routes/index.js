@@ -8,6 +8,20 @@ var bcrypt = require('bcrypt-nodejs');
 var async = require('async');
 var crypto = require('crypto');
 var flash = require('express-flash');
+var multer  =   require('multer');
+var storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './public/images/profilePictures');
+  },
+  filename: function (req, file, callback) {
+    var today = new Date();
+    var day = today.getDate();
+    var month = today.getMonth()+1;
+    var year = today.getFullYear();
+    callback(null, file.fieldname + '-' + day + '-' + month + '-' + year);
+  }
+});
+var upload = multer({ storage : storage}).single('userPhoto');
 
 router.get('/', function (req, res) {
     res.render('pages/index', {
@@ -25,7 +39,9 @@ router.get('/login', function(req,res,next) {
     username: 'Username',
     password: 'Password',
     Login: 'Login',
-    message: ''
+    message: '',
+    sent: '',
+    success: req.flash('success')
   });
 });
 
@@ -42,7 +58,9 @@ router.post('/login', function(req, res, next) {
         username: 'Username',
         password: 'Password',
         Login: 'Login',
-        message : 'Username or Password Incorrect. Please Try Again.'
+        message : 'Username or Password Incorrect. Please Try Again.',
+        sent: '',
+        success: ''
       });
     }
     req.login(user, loginErr => {
@@ -87,7 +105,8 @@ router.get('/signUp', function(req, res) {
     lname: 'Last Name',
     signUp: 'Sign Up',
     info: '',
-    email: 'Email Address'
+    email: 'Email Address',
+    message: req.flash('error')
   });
 });
 
@@ -109,7 +128,8 @@ router.post('/signUp', function(req, res) {
               fname: 'First Name',
               lname: 'Last Name',
               signUp: 'Sign Up',
-              email: 'Email Address'
+              email: 'Email Address',
+              message: ''
             });
         }
 
@@ -154,7 +174,7 @@ router.get('/forgotPass',function(req,res){
   res.render('pages/forgotPass',{
     user: req.user,
     title: 'Forget Password?',
-    subTitle: 'Please Enter Your Email'
+    subTitle: 'Enter This Accounts Email'
   });
 });
 
@@ -192,20 +212,30 @@ router.post('/forgotPass', function(req, res, next) {
       var mailOptions = {
         to: user.emailAddress,
         from: 'passwordreset@demo.com',
-        subject: 'Node.js Password Reset',
+        subject: 'Easy Eats Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
           'http://' + req.headers.host + '/reset/' + token + '\n\n' +
           'If you did not request this, please ignore this email and your password will remain unchanged.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
-        req.flash('info', 'An e-mail has been sent to ' + user.emailAddress + ' with further instructions.');
+        req.flash('info',
+          'Hey ' + user.username + '! A reset link has been sent to ' + user.emailAddress + '.');
         done(err, 'done');
       });
     }
   ], function(err) {
     if (err) return next(err);
-    res.redirect('/login');
+    res.redirect('/message');
+  });
+});
+
+router.get('/message',function(req,res){
+  res.render('pages/messages',{
+    title: 'Messages',
+    sent: req.flash('info'),
+    noUpload: req.flash('uploadError'),
+    goodUpload: req.flash('goodUpload')
   });
 });
 
@@ -217,7 +247,9 @@ router.get('/reset/:token', function(req, res) {
     }
     res.render('pages/reset', {
       user: req.user,
-      title: 'Reset Password'
+      title: 'Reset Password',
+      currentPass: user.password,
+      error: req.flash('error')
     });
   });
 });
@@ -228,7 +260,7 @@ router.post('/reset/:token', function(req, res) {
       Account.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
         if (!user) {
           req.flash('error', 'Password reset token is invalid or has expired.');
-          return res.redirect('back');
+          return res.redirect('/');
         }
 
         user.password = req.body.password;
@@ -254,7 +286,7 @@ router.post('/reset/:token', function(req, res) {
         to: user.emailAddress,
         from: 'passwordreset@demo.com',
         subject: 'Your password has been changed',
-        text: 'Hello,\n\n' +
+        text: 'Hello,'+ user.firstname +'\n\n' +
           'This is a confirmation that the password for your account ' + user.emailAddress + ' has just been changed.\n'
       };
       smtpTransport.sendMail(mailOptions, function(err) {
@@ -267,18 +299,33 @@ router.post('/reset/:token', function(req, res) {
   });
 });
 
-router.get('/changePass', function(req,res,next){
-  res.render('pages/changePass',{
-    user: req.user,
-    title: "Change Password",
-    label1: "New Password",
-    label2: "Retype Password",
-    noMatch: ''
+router.get('/settings',function(req,res){
+  res.render('pages/settings',{
+    title: 'Settings',
+    updateBio: 'Update Profile Information',
+    reset: 'Reset / Forgot Password',
+    picture: 'Change Profile Picture',
+    favorite: 'Different Favorites'
   });
 });
 
-router.post('/changePass', function (req,res,next) {
+router.get('/profilePicture',function(req,res){
+  res.render('pages/profilePic',{
+    title: 'Profile Picture',
+    user: req.user.username,
+    profilePic: 'Upload a Profile Picture '
+  });
+});
 
+router.post('/profilePicture',function(req,res){
+  upload(req,res,function(err) {
+    if(err) {
+      req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
+      return res.redirect('/message');
+    }
+    req.flash('goodUpload', 'Your profile picture has been uploaded. Go Check it Out');
+    res.redirect('/message');
+  });
 });
 
 module.exports = router;
