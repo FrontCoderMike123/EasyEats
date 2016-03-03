@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-    <!--<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>-->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places" async defer></script>
 <script src="/javascripts/geo.js"></script>
+<script src="/javascripts/myAngular.js"></script>
 <script type="text/javascript">
   function isNumber(evt) {
     evt = (evt) ? evt : window.event;
@@ -23,14 +23,21 @@
 }
 </script>
 </head>
-<body>
+<body ng-app="budgetOptions">
     <header>
       <% include ../partials/headerWithSet %>
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-      <form name="myForm" role="form" action="/budget" method="post" class="forms" id="budgetForm">
+      <form
+      ng-controller="optionCtrl"
+      name="myForm"
+      role="form"
+      action="/budget"
+      method="post"
+      class="forms"
+      id="budgetForm">
         
         <h1><%= budgetTitle %></h1>
         <h5 class="errMsgs" id="userWelcome"><%= info %></h5>
@@ -49,22 +56,6 @@ placeholder="<%= placeholder %>"
 onkeypress="return isNumber(event)"
 maxlength="2"
 required>
-        </fieldset>
-        <fieldset class="options">
-            <label><%= craving %></label>
-            <select name="options">
-                <option value="Anything">Let Me Decide</option>
-                <option value="Fast &amp; Casual">Fast &amp; Casual</option>
-                <option value="Family Style">Family Style</option>
-                <option value="Fine Dining">Fine Dining</option>
-                <option value="Café or Bistro">Café or Bistro</option>
-                <option value="Fast Food">Fast Food</option>
-                <option value="Food Truck">Food Truck</option>
-                <option value="Buffet">Buffet</option>
-                <option value="Oriental">Oriental</option>
-                <option value="Italian">Italian</option>
-                <option value="Sea Food">Sea Food</option>
-            </select>
         </fieldset>
         <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">
         </div><!--gone for now-->

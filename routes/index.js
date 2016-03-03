@@ -1,6 +1,8 @@
 var express = require('express');
 var passport = require('passport');
+var mongoose = require('mongoose');
 var Account = require('../models/account.js');
+var Food = require('../models/Type.js');
 var router = express.Router();
 var app = express();
 var nodemailer = require('nodemailer');
@@ -22,6 +24,30 @@ var storage = multer.diskStorage({
   }
 });
 var upload = multer({ storage : storage}).single('userPhoto');
+
+router.get('/foodTypes', function(req,res,next){
+  /*Account.find().select('Foods').exec(function(err,foodType){
+    if(err)return next(err);
+    res.json(foodType);
+  });*/
+  Food.find(function(err,foodType){
+    if(err)return next(err);
+    res.json(foodType);
+  });
+});
+
+router.get('/favorites',function(req,res){
+  res.render('pages/favorites',{
+    user: req.user,
+    username: req.user.username,
+    title:'Favorites'
+  });
+});
+
+router.post('/favorites',function(req,res){
+  req.flash('favorites',"Your favorites have been saved. Eat what you want!");
+  res.redirect('/message');
+});//this WILL be used. each food item has an ID
 
 router.get('/', function (req, res) {
     res.render('pages/index', {
@@ -162,11 +188,11 @@ router.get('/forgetMemory', function(req, res){
 router.post('/budget', function(req,res,err) {
   var minute = 60 * 1000;
   if (req.body.budget) res.cookie('budget', 1, { maxAge: minute });
-  if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
+  //if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
   res.render('pages/restaurants', {
     title: 'Restaurants',
     subTitle: "What's on the menu today, "+req.user.username+"?",
-    budget: "I see you have $"+req.body.budget+" in your pocket? And you're craving some "+req.body.options+"?"
+    budget: "I see you have $"+req.body.budget+" in your pocket? And you're craving some ?"
   });
 });
 
@@ -230,15 +256,6 @@ router.post('/forgotPass', function(req, res, next) {
   });
 });
 
-router.get('/message',function(req,res){
-  res.render('pages/messages',{
-    title: 'Messages',
-    sent: req.flash('info'),
-    noUpload: req.flash('uploadError'),
-    goodUpload: req.flash('goodUpload')
-  });
-});
-
 router.get('/reset/:token', function(req, res) {
   Account.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
     if (!user) {
@@ -299,8 +316,20 @@ router.post('/reset/:token', function(req, res) {
   });
 });
 
+router.get('/message',function(req,res){
+  res.render('pages/messages',{
+    title: 'Messages',
+    sent: req.flash('info'),
+    noUpload: req.flash('uploadError'),
+    goodUpload: req.flash('goodUpload'),
+    favorites: req.flash('favorites'),
+    userPic: req.body.userPhoto
+  });
+});
+
 router.get('/settings',function(req,res){
   res.render('pages/settings',{
+    user: req.user,
     title: 'Settings',
     updateBio: 'Update Profile Information',
     reset: 'Reset / Forgot Password',
@@ -319,11 +348,14 @@ router.get('/profilePicture',function(req,res){
 
 router.post('/profilePicture',function(req,res){
   upload(req,res,function(err) {
-    if(err) {
+    var today = new Date();
+    var year = today.getFullYear();
+    if(err || req.body.userPhoto) {
+      console.log(req.body.userPhoto);
       req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
       return res.redirect('/message');
     }
-    req.flash('goodUpload', 'Your profile picture has been uploaded. Go Check it Out');
+    req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
     res.redirect('/message');
   });
 });

@@ -720,6 +720,124 @@ opacity: 0;
 	padding: 14% 1%!important;
 }
 
+/************************upload image****************************/
+#uploadForm input:nth-child(2)
+{
+	clear: both;
+	margin: auto;
+	display: block;
+	margin-bottom: 5px;
+	text-align: center;
+}
+
+#uploadForm input:nth-child(2):hover
+{
+	border:none;
+}
+
+/************************FAVORITES***************************/
+.type-true
+{
+	background: rgba(255,255,255,.5);
+	border-top-left-radius: 10%;
+}
+
+#favHolder
+{
+	position: relative;
+	width: 100%;
+	display: block;
+}
+
+.favForm
+{
+	width: 100%;
+	clear: both;
+	position: absolute;
+  top: 0;
+	left: 0;
+	overflow: hidden;
+	background-color: #ffcc00;
+}
+
+.favForm ul
+{
+	text-align: center;
+}
+
+.favForm ul li
+{
+	width:20%;
+	float: left;
+	overflow: hidden;
+	padding:9px 0;
+	cursor: pointer;
+	position: relative;
+}
+
+.favForm ul li:hover
+{
+	background-color: rgba(255,255,255,.5);
+}
+
+.selected
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	color: #006699;
+	background-color: #ffcc00;
+	padding: 5% 6%;
+  border-radius: 50%;
+	font-weight: bold;
+}
+
+.slide
+{
+  -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.slide:hover
+{
+   -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+#favSubmit
+{
+	position: absolute;
+	bottom: 0;
+	left: 25%;
+	z-index: 1;
+	background: rgba(0,102,153,.8);
+	border: none;
+	padding: 0!important;
+	margin: 0!important;
+	color: #fff;
+	width: 50%;
+	font-size: 2em;
+	font-weight: bold;
+	display: none;
+	cursor: pointer;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+#favSubmit:hover
+{
+	font-size: 2.2em;
+}
+
+
+
+
+
 /*My Phone*/
 @media only screen and (max-width: 240px) {
 	p

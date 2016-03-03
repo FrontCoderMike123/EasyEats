@@ -48,11 +48,19 @@ passport.use(new LocalStrategy(Account.authenticate()));
 passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser());
 
-mongoose.connect('mongodb://localhost/users', function(err){
+/*mongoose.connect('mongodb://localhost/users', function(err){
   if(err){
     console.log('Connection Issues', err);
   }else{
-    console.log('Connected');
+    console.log('Connected to Users');
+  }
+});*/
+
+mongoose.connect('mongodb://localhost/foods', function(err){
+  if(err){
+    console.log('Connection Issues', err);
+  }else{
+    console.log('Connected to Foods');
   }
 });
 

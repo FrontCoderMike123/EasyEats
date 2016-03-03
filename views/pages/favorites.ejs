@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+<script src="/javascripts/myAngular.js"></script>
+</head>
+<body ng-app="budgetOptions">
+    <header>
+      <% include ../partials/headerWithSet %>
+
+    </header>
+
+    <div class="padding"><!--for bottom padding. keep footer down!-->
+
+    <div id="favHolder">
+
+      <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
+            <ul class="favList">
+<li data-ng-repeat="type in types"
+data-ng-click="toggleFav(type); isHidden=!isHidden;"
+class="type-{{type.Favorite}} slide"
+value="{{type.Cookie}}"
+name="foodTypes">
+<object data="{{type.SVG}}">
+  <img data-ng-src="{{type.PNG}}" alt="{{type.Type}}">
+</object>
+<!--<span>{{type.Type}}</span><span>{{type.Desc}}</span>-->
+<div ng-init="isHidden=true">
+<span ng-hide="isHidden" class="selected">{{selected()}}</span>
+</div>
+</li>
+            </ul>
+<input class="slide" id="favSubmit" type="submit" name="submit" value="Happy With These <%= username %>?">
+      </form>
+
+    </div><!--fav Holder-->
+      
+    </div><!--padding-->
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+
+  </body>
+</html>
