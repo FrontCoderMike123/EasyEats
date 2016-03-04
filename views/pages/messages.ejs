@@ -6,10 +6,7 @@
 <body>
     <header>
       <% include ../partials/headerWithSet %>
-    </header>
-
-    <div class="padding"><!--for bottom padding. keep footer down!-->
-      
+    </header>      
 
         <div class="messagesHolder">
           <p><%= userPic %></p>
@@ -17,11 +14,16 @@
           <p><%= noUpload %></p>
           <p><%= goodUpload %></p>
           <p><%= favorites %></p>
+          <a href="/">
+            <div>
+              <object data="/images/icons/favs/checked.svg">
+                <img src="/images/icons/favs/checked.svg" alt="Check Mark">
+              </object>
+            </div>
+          </a>
         </div>
       
-    </div>
-
-    <footer>
+    <footer class="relative">
       <% include ../partials/footer %>
     </footer>
 

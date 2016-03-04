@@ -349,30 +349,6 @@ footer li
 	text-align: center;
 }
 
-.options
-{
-	width: 100%!important;/*because of the fieldset styling above. i need this to be different*/
-	clear: both;
-}
-
-.options select
-{
-	width: 40%;
-	border: none;
-	font-size: 1.2em;
-}
-
-.options option
-{
-	padding: 5px;
-}
-
-.options option:nth-child(odd)
-{
-	background-color: #006699;
-	color: white;
-}
-
 .twoButtons
 {
 	background-color: #006699;
@@ -430,6 +406,96 @@ footer li
 	color: #006699;
 	border-color: #006699;
 }
+
+#SIGNUP
+{
+	clear: both;
+}
+
+.options
+{
+	width: 100%;
+	clear: both;
+	margin-bottom: 10px;
+	font-size: 1em;
+	position: relative;
+}
+
+.options input[type=button]
+{
+	width: 60%;
+	margin: auto;
+	display: block;
+	background-color: #006699;
+	color: white;
+	font-weight: bold;
+	border-radius: 5px;
+	border: thin solid rgba(0,0,0,.0);
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+}
+
+.options input[type=button]:hover
+{
+	background: rgba(255,255,255,.5);
+	border-color: #006699;
+	color: #006699;
+}
+
+.options ul
+{
+	width: 100%;
+	text-align: center;
+	overflow: hidden;
+}
+
+.options ul li
+{
+	width: 40%;
+	display: inline-block;
+	margin: 1% 2.5%;
+	cursor: pointer;
+	background-color: rgba(255,255,255,.5);
+	border-radius: 5px;
+}
+
+.options ul li:hover
+{
+	background-color: #006699;
+}
+
+.options ul li:hover > p
+{
+	color: #ffcc00;
+}
+
+.options ul li p
+{
+	padding: 10px 0;
+	border-radius: 5px;
+	color: #006699;
+	font-weight: bold;
+	pointer-events: none;
+}
+
+#proFavs
+{
+	color: #ffcc00;
+	margin: auto;
+	font-size: 2em;
+	padding: 10px 0;
+	font-weight: bold;
+	background-color: #006699;
+}
+
+#EMAIL
+{
+	width: 100%!important;
+}
+
 
 /******Budget form*****/
 #budgetForm input
@@ -696,11 +762,9 @@ opacity: 0;
 /************************MESSAGES****************************/
 .messagesHolder
 {
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 0;
-	width: 100%;
+	position: relative;
+	clear: both;
+	width: 98%;
 	margin: 0;
 	padding: 16% 1%;
 	background-color: #ffcc00;
@@ -713,6 +777,15 @@ opacity: 0;
 	line-height: 50px;
 	color: #006699;
 	font-weight: bold;
+}
+
+.messagesHolder a
+{
+	position: absolute;
+	bottom: 20%;
+	left: 47.5%;
+	width: 5%;
+	text-align: center;
 }
 
 .emailSent
@@ -736,10 +809,30 @@ opacity: 0;
 }
 
 /************************FAVORITES***************************/
+
 .type-true
 {
-	background: rgba(255,255,255,.5);
-	border-top-left-radius: 10%;
+	border-radius: 5%;
+}
+
+.type-true .fav-content
+{
+	opacity: 1;
+    -moz-opacity:1;
+    -webkit-opacity:1;
+}
+
+.type-true .checked
+{
+	opacity: 1;
+    -moz-opacity:1;
+    -webkit-opacity:1;
+}
+
+.type-true .activeType
+{
+	color: #ffcc00;
+	background-color: #006699;
 }
 
 #favHolder
@@ -753,9 +846,7 @@ opacity: 0;
 {
 	width: 100%;
 	clear: both;
-	position: absolute;
-  top: 0;
-	left: 0;
+	position: relative;
 	overflow: hidden;
 	background-color: #ffcc00;
 }
@@ -775,9 +866,46 @@ opacity: 0;
 	position: relative;
 }
 
-.favForm ul li:hover
+span.fav-content
 {
-	background-color: rgba(255,255,255,.5);
+position: absolute;
+	color: #006699;
+width: 100%;
+top: 0;
+left: 0;
+background-color: rgba(255,204,0,.7);
+font-size: 1.3em;
+padding: 40% 0;
+font-weight: bold;
+opacity: 0;
+  -moz-opacity:0;
+  -webkit-opacity:0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
+}
+
+.favForm li:hover span.fav-content {
+  opacity: 1;
+    -moz-opacity:1;
+    -webkit-opacity:1;
+}
+
+.checked
+{
+	position: absolute;
+	width: 50%;
+	top: 20%;
+	left: 25%;
+	z-index: 2;
+	opacity: 0;
+  -moz-opacity:0;
+  -webkit-opacity:0;
+  -webkit-transition: opacity 500ms;
+  -moz-transition: opacity 500ms;
+  -o-transition: opacity 500ms;
+  transition: opacity 500ms;
 }
 
 .selected
@@ -834,6 +962,10 @@ opacity: 0;
 	font-size: 2.2em;
 }
 
+.relative
+{
+	position: relative;
+}
 
 
 
@@ -1708,6 +1840,7 @@ opacity: 0;
 	}
 	
 	header ul
+	
 	{
 		width: 20%;
 	}

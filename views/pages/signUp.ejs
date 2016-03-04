@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
+<script src="/javascripts/myAngular.js"></script>
 </head>
-<body>
+<body ng-app="budgetOptions">
     <header>
       <% include ../partials/header %>
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-    <form action="/signUp" method="post" class="forms" id="signUpForm">
+    <form action="/signUp" method="post" class="forms" id="signUpForm" ng-controller="optionCtrl">
       <h1><%= signUpTitle %></h1>
       <h5 class="errMsgs"><%= info %></h5>
       <h5 class="errMsgs"><%= message %></h5>
@@ -30,11 +31,26 @@
           <label><%= lname %></label>
           <input type="text" name="lastname" required>
       </fieldset>
-      <fieldset>
+      <fieldset id="EMAIL">
           <label><%= email %></label>
           <input type="email" name="email" required>
       </fieldset>
-      <input class="mainButton" type="submit" value="<%= signUp %>">
+      <div class="options">
+        <input type="button" data-ng-click="isHidden=!isHidden" value="<%= favorites %>">
+        <ul ng-init="isHidden=true">
+          <li
+          data-ng-repeat="type in types"
+          data-ng-click="toggleFav(type)"
+          class="type-{{type.Favorite}} slide"
+          value="{{type.Cookie}}"
+          name="options"
+          ng-hide="isHidden">
+          <p class="activeType">{{type.Type}}</p>
+          </li>
+          <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>
+        </ul>
+      </div>
+      <input id="SIGNUP" class="mainButton" type="submit" value="<%= signUp %>">
       <a class="neverMind" href="/">Never Mind</a>
     </form>
 
