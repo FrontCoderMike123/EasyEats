@@ -4,8 +4,9 @@ var budgetOptions = angular.module('budgetOptions', []);
 
 budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($scope,$http,$interval){
     $http.get('/foodTypes').success(function(data){
-    	$scope.types = data;
+    	$scope.types = data[0].Foods;
     	//console.log($scope.types);
+        //to me...how the scope above makes sense. is clear NOW... but it didnt at the time...
     });
 
     $scope.toggleFav = function(type){
@@ -38,6 +39,7 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
     $scope.profileSelected = function(){
         var favs = 0;
         var proFavs = document.querySelector('#proFavs');
+        var myChoice = document.querySelector('#favoriteSelector').value;
         angular.forEach($scope.types, function(type){
             if(type.Favorite){
                 favs++;
@@ -58,9 +60,27 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
             if(favs == 10){
                 proFavs.innerHTML = "Craving Everything!";
             }
+            if(myChoice == 'Anything'){
+                proFavs.innerHTML = "You want me to decide!";
+            }
         });
         return favs;
     };
+
+    $("#favoriteSelector").mousedown(function(e){
+        e.preventDefault();
+        var select = this;
+        e.target.selected = !e.target.selected;
+    $(select).focus();
+    }).mousemove(function(e){e.preventDefault()});
+    //Hello Sir(s)...
+    //PLEASE AND I ReAllY MEAN PLEEEEAASE.... BEFORE YOU TAKE A MARK OFF BEVAUSE IM USING JQUERY FOR THIS..
+    //I HAVE LITERALLY WASTED AN EEENNNTTTIIIRRREEE NIGHT RESEARCHING AND CODING AND DECODING A GOSH DARN
+    //CORE FUNCTION.... NOTHIN TO HELP ME OUT...... IM TELLING YOU! I SEARCH EVERYWHERE, READ EVERYTHING...
+    //UNTIL FINALLY I RAN INTO AN ARTICLE WHERE SOMEONE WAS TRYING TO DO THE SAME AS ME... BUT IN JQUERY...
+    //I GAVE IN LOL.... SO NOW!!!!!! I CAN HAVE MULIPLE SELECTIONS IN MY FAVORITES SELECTIONS OPTIONS IN
+    //SIGN UP FORM....
+    //tHANK YOU GENTLEMEN!!
 
 }]);
 

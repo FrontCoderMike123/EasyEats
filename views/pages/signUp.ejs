@@ -11,7 +11,12 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-    <form action="/signUp" method="post" class="forms" id="signUpForm" ng-controller="optionCtrl">
+<form
+action="/signUp"
+method="post"
+class="forms"
+id="signUpForm"
+ng-controller="optionCtrl">
       <h1><%= signUpTitle %></h1>
       <h5 class="errMsgs"><%= info %></h5>
       <h5 class="errMsgs"><%= message %></h5>
@@ -35,24 +40,40 @@
           <label><%= email %></label>
           <input type="email" name="email" required>
       </fieldset>
+      
       <div class="options">
-        <input type="button" data-ng-click="isHidden=!isHidden" value="<%= favorites %>">
-        <ul ng-init="isHidden=true">
-          <li
+        <div data-ng-click="isHidden=!isHidden">Set Favorites</div>
+        
+        <select id="favoriteSelector" multiple size="10" name="favorites">
+          <option
           data-ng-repeat="type in types"
           data-ng-click="toggleFav(type)"
           class="type-{{type.Favorite}} slide"
-          value="{{type.Cookie}}"
-          name="options"
-          ng-hide="isHidden">
+          value="{{type.Cookie}}">{{type.Type}}</option>
+        </select>
+        
+        <!--
+        <div ng-init="isHidden=true">
+          <ul>
+          <li
+          data-ng-click="toggleFav(type)"
+          data-ng-repeat="type in types"
+          class="type-{{type.Favorite}} slide"
+          ng-hide="isHidden"
+          name="favorites"
+          value="{{type.Cookie}}">
           <p class="activeType">{{type.Type}}</p>
           </li>
-          <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>
-        </ul>
+          </ul>
+        </div>
+        -->
+    
+
+      <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>
       </div>
       <input id="SIGNUP" class="mainButton" type="submit" value="<%= signUp %>">
       <a class="neverMind" href="/">Never Mind</a>
-    </form>
+</form>
 
     </div>
 

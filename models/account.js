@@ -14,7 +14,17 @@
 		emailAddress: String,
 		resetPasswordToken: String,
   		resetPasswordExpires: Date,
-  		userPhoto: String
+  		userPhoto: String,
+  		Foods:
+  		[{
+        ID: String,
+  			Type: String,
+  			Cookie: String,
+  			Favorite: Boolean,
+  			Desc: String,
+  			SVG: String,
+  			PNG: String
+  		}]
 	});
 
 	Account.pre('save', function(next) {

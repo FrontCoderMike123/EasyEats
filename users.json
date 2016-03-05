@@ -5,17 +5,95 @@
 	"lastname":"Beaubien",
 	"emailAddress":"michelBeaubien@hotmail.com",
 	"userPhoto":"/images/profilePics/me.jpg",
-	"Favorites":
+	"Foods":
 	[{
-		"Let Easy Eats Decide":"true",
-		"Fast & Casual":"false",
-		"Family Style":"false",
-		"Fine Dining":"false",
-		"Café or Bistro":"false",
-		"Food Truck":"false",
-		"Buffet":"false",
-		"Oriental":"false",
-		"Italian":"false",
-		"Sea Food":"false"
+		"ID":"1",
+		"Type":"Let Easy Eats Decide",
+		"Cookie":"Anything",
+		"Favorite": false,
+		"Desc":"Cause Your HUUUNGRY!",
+		"SVG":"/images/icons/favs/decide.svg",
+		"PNG":"/images/icons/favs/decide.png"
+	},
+	{
+		"ID":"2",
+		"Type":"Fast & Casual",
+		"Cookie":"Fast & Casual",
+		"Favorite": false,
+		"Desc":"Burgers & Fries",
+		"SVG":"/images/icons/favs/fastCasual.svg",
+		"PNG":"/images/icons/favs/fastCasual.png"
+	},
+	{
+		"ID":"3",
+		"Type":"Family Style",
+		"Cookie":"Family Style",
+		"Favorite": false,
+		"Desc":"Sit Down for a Meal",
+		"SVG":"/images/icons/favs/familyStyle.svg",
+		"PNG":"/images/icons/favs/familyStyle.png"
+	},
+	{
+		"ID":"4",
+		"Type":"Fine Dining",
+		"Cookie":"Fine Dining",
+		"Favorite": false,
+		"Desc":"Who You Taking Out?",
+		"SVG":"/images/icons/favs/fineDining.svg",
+		"PNG":"/images/icons/favs/fineDining.png"
+	},
+	{
+		"ID":"5",
+		"Type":"Café or Bistro",
+		"Cookie":"Coffee or Sandwiches",
+		"Favorite": false,
+		"Desc":"Coffee or Sandwiches",
+		"SVG":"/images/icons/favs/bistro.svg",
+		"PNG":"/images/icons/favs/bistro.png"
+	},
+	{
+		"ID":"6",
+		"Type":"Food Truck",
+		"Cookie":"Street Meat",
+		"Favorite": false,
+		"Desc":"Hot Dogs, Burgers, Wraps",
+		"SVG":"/images/icons/favs/foodTruck.svg",
+		"PNG":"/images/icons/favs/foodTruck.png"
+	},
+	{
+		"ID":"7",
+		"Type":"Buffet",
+		"Cookie":"FOOD",
+		"Favorite": false,
+		"Desc":"Food, Food, Food",
+		"SVG":"/images/icons/favs/buffet.svg",
+		"PNG":"/images/icons/favs/buffet.png"
+	},
+	{
+		"ID":"8",
+		"Type":"Oriental Cuisine",
+		"Cookie":"Oriental",
+		"Favorite": false,
+		"Desc":"Chinese, Japanese, Korean & Indian",
+		"SVG":"/images/icons/favs/oriental.svg",
+		"PNG":"/images/icons/favs/oriental.png"
+	},
+	{
+		"ID":"9",
+		"Type":"Italian",
+		"Cookie":"Italian",
+		"Favorite": false,
+		"Desc":"Pasta, Pizza, Bruschetta",
+		"SVG":"/images/icons/favs/italian.svg",
+		"PNG":"/images/icons/favs/italian.png"
+	},
+	{
+		"ID":"10",
+		"Type":"Sea Food",
+		"Cookie":"Sea Food",
+		"Active": false,
+		"Desc":"Shrimp, Lobster, Crab",
+		"SVG":"/images/icons/favs/seaFood.svg",
+		"PNG":"/images/icons/favs/seaFood.png"
 	}]
 }

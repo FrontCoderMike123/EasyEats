@@ -26,14 +26,11 @@ var storage = multer.diskStorage({
 var upload = multer({ storage : storage}).single('userPhoto');
 
 router.get('/foodTypes', function(req,res,next){
-  /*Account.find().select('Foods').exec(function(err,foodType){
-    if(err)return next(err);
-    res.json(foodType);
-  });*/
-  Food.find(function(err,foodType){
+  Account.find().select('Foods').exec(function(err,foodType){
     if(err)return next(err);
     res.json(foodType);
   });
+  //This above digs in the Accounts schema, and grabs the Foods Array and give me only what im looking for
 });
 
 router.get('/favorites',function(req,res){
@@ -67,7 +64,8 @@ router.get('/login', function(req,res,next) {
     Login: 'Login',
     message: '',
     sent: '',
-    success: req.flash('success')
+    success: req.flash('success'),
+    Foods: ''
   });
 });
 
@@ -144,9 +142,16 @@ router.get('/ping', function(req, res){
 */
 
 router.post('/signUp', function(req, res) {
-    Account.register(new Account({ username : req.body.username, firstname: req.body.firstname, lastname: req.body.lastname, emailAddress: req.body.email }), req.body.password, function(err, account) {
-        var minute = 60 * 1000;
-        if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
+    Account.register(new Account({
+      username : req.body.username,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      emailAddress: req.body.email,
+      Foods: req.body.favorites.value
+    }), req.body.password, function(err, account) {
+        var today = new Date();
+        var year = today.getFullYear();
+        if (req.body.favorites.value) res.cookie('favorites', 1, { maxAge: year });
         if (err) {
             return res.render("pages/signUp", {
               info: "Sorry. That username already exists. Try again.",
@@ -159,12 +164,25 @@ router.post('/signUp', function(req, res) {
               signUp: 'Sign Up',
               email: 'Email Address',
               favorites: 'Set Favorites',
-              message: ''
+              message: '',
+              Foods: req.body.favorites
             });
         }
 
         passport.authenticate('local')(req, res, function () {
-            res.redirect('/login');
+            //res.redirect('/login');
+            res.render('pages/login', {
+              user: req.user,
+              title: 'Please Login',
+              formTitle: 'Welcome ' + req.user.username,
+              username: 'Username',
+              password: 'Password',
+              Login: 'Login',
+              message: '',
+              sent: '',
+              success: req.flash('success'),
+              Foods: req.body.favorites
+  });
         });
     });
 });
@@ -177,6 +195,7 @@ router.get('/budget', function(req, res) {
     budget: 'Enter Budget',
     placeholder: '($)',
     find: 'Find Food',
+    favorites: "These are your favorites? " + req.body.favorites,
     info: "Hello "+req.user.username+". I bet you're feeling hungry.",
     userBudget: req.cookies.budget,
     moneyOnly: "Silly "+req.user.username+". You can't pay with words."
@@ -192,7 +211,7 @@ router.get('/forgetMemory', function(req, res){
 router.post('/budget', function(req,res,err) {
   var minute = 60 * 1000;
   if (req.body.budget) res.cookie('budget', 1, { maxAge: minute });
-  if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
+  //if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
   res.render('pages/restaurants', {
     title: 'Restaurants',
     subTitle: "What's on the menu today, "+req.user.username+"?",
@@ -327,7 +346,8 @@ router.get('/message',function(req,res){
     noUpload: req.flash('uploadError'),
     goodUpload: req.flash('goodUpload'),
     favorites: req.flash('favorites'),
-    userPic: req.body.userPhoto
+    userPic: req.body.userPhoto,
+    updated: 'Profile Updated'
   });
 });
 
@@ -362,6 +382,21 @@ router.post('/profilePicture',function(req,res){
     req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
     res.redirect('/message');
   });
+});
+
+router.get('/updateProfile',function(req,res){
+  res.render('pages/profileUpdate',{
+    title: 'Your Profile',
+    update: 'Update Your Profile ' + req.user.username,
+    firstname: req.user.firstname,
+    lastname: req.user.lastname,
+    username: req.user.username,
+    emailAddress: req.user.emailAddress
+  });
+});
+
+router.post('/updateProfile',function(req,res){
+  res.redirect('/message');
 });
 
 module.exports = router;
