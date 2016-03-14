@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places" async defer></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places">
+</script>
 <script src="/javascripts/geoMap.js"></script>
 </head>
 <body>
@@ -23,11 +24,12 @@
           <span class="status">Waiting For You...</span>
           <a href="/budget" class="twoButtons">Back To Finder</a>
         </div>
-      </section>
 
-      <div class="mapHolder">
-        <div id="map"></div>
-      </div>
+        <div class="mapHolder">
+          <div id="map"></div>
+        </div>
+
+      </section>
       
     </div>
 

@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script src="/javascripts/myAngular.js"></script>
+<script src="/javascripts/confirm.js"></script>
 </head>
-<body ng-app="budgetOptions">
+<body ng-app="confirmEmail">
     <header>
-      <% include ../partials/header %>
+      <% include ../partials/headerWithSet %>
     </header>
 
       <div class="padding">
 
-<form class="forms" action="/updateProfile" method="post" id="updateProfileCon" ng-controller="optionCtrl">
+<form name="updateForm"
+class="forms" action="/updateProfile"
+method="post" id="updateProfileCon">
           <h1><%= update %></h1>
           <fieldset>
             <label>First Name</label>
@@ -27,8 +29,17 @@
           </fieldset>
           <fieldset>
             <label>Email Address</label>
-            <input type="text" name="email" placeholder="<%= emailAddress %>">
+            <input type="email" id="email" name="email" ng-model="email" placeholder="<%= emailAddress %>">
           </fieldset>
+          <fieldset>
+            <label>Retype Email</label>
+            <input type="email" id="email2" name="email2" ng-model="email2" pw-check="email" placeholder="<%= emailAddress %>">
+          </fieldset>
+
+          <div class="msg-block" ng-show="updateForm">
+          <span ng-show="updateForm.email2.$error.emailMatch">Emails Don't Match</span> 
+          </div>
+
           <input type="button" class="mainButton confirm" ng-click="isHidden=!isHidden" value="Confirm">
           <div ng-init="isHidden=true">
             <input ng-hide="isHidden" type="submit" class="mainButton" value="Submit Changes">

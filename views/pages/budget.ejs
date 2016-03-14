@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places" async defer></script>
-<script src="/javascripts/geo.js"></script>
 <script src="/javascripts/myAngular.js"></script>
 <script type="text/javascript">
   function isNumber(evt) {
@@ -41,16 +39,10 @@
         
         <h1><%= budgetTitle %></h1>
         <h5 class="errMsgs" id="userWelcome"><%= info %></h5>
-        <div class="foundYou">
-          <p>But before YOU find food. I must first find YOU.</p>
-          <span class="status">Waiting For You...</span>
-        </div>
         <div id="moneyOnly"><p></p></div>
-        <div id="budgetWrapper">
-        <fieldset>
+        <fieldset id="budgetInput">
           <label><%= budget %></label>
 <input type="text"
-id="budgetInput"
 name="budget"
 placeholder="<%= placeholder %>"
 onkeypress="return isNumber(event)"
@@ -58,10 +50,6 @@ maxlength="2"
 required>
         </fieldset>
         <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">
-
-        <div><%= favorites %></div>
-
-        </div><!--gone for now-->
 
       </form>
       

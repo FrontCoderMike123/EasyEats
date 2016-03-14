@@ -41,18 +41,27 @@ ng-controller="optionCtrl">
           <input type="email" name="email" required>
       </fieldset>
       
+      <!--
       <div class="options">
-        <div data-ng-click="isHidden=!isHidden">Set Favorites</div>
+        <div id="favButton" data-ng-click="isHidden=!isHidden"><h3>Set Favorites</h3></div>
         
-        <select id="favoriteSelector" multiple size="10" name="favorites">
+        <div ng-init="isHidden=true">
+
+        <div class="favoriteSelector" ng-hide="isHidden">
+          <select id="select" multiple size="10" name="favorites">
           <option
           data-ng-repeat="type in types"
           data-ng-click="toggleFav(type)"
           class="type-{{type.Favorite}} slide"
           value="{{type.Cookie}}">{{type.Type}}</option>
-        </select>
+          </select>
+        </div>
+
+        <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>
+
+        </div>
         
-        <!--
+        
         <div ng-init="isHidden=true">
           <ul>
           <li
@@ -66,11 +75,10 @@ ng-controller="optionCtrl">
           </li>
           </ul>
         </div>
-        -->
-    
-
-      <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>
+        
       </div>
+      -->
+
       <input id="SIGNUP" class="mainButton" type="submit" value="<%= signUp %>">
       <a class="neverMind" href="/">Never Mind</a>
 </form>

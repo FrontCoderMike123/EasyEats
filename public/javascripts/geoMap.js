@@ -29,43 +29,16 @@
     if(userSpot = position){
     	console.log(userSpot);
     }*/
-
-  var customMapType = new google.maps.StyledMapType([
-      {
-        stylers: [
-          {hue: '#006699'},
-          {visibility: 'simplified'},
-          {gamma: 0.5},
-          {weight: 0.5}
-        ]
-      },
-      {
-        elementType: 'labels',
-        stylers: [{visibility: 'off'}]
-      },
-      {
-        featureType: 'road',
-        elementType: 'geometry',
-        stylers: [{color: '#ffcc00'}]
-      }
-    ], {
-      name: 'Styled Map'
-  });
-  var customMapTypeId = 'custom_style';
   
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
   var myOptions = {
     zoom: 16,
     center: latlng,
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
-    }
+    mapTypeIds: google.maps.MapTypeId.ROADMAP
   };
 
   var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
-  map.mapTypes.set(customMapTypeId, customMapType);
-  map.setMapTypeId(customMapTypeId);
 
   var yourArrow = '/images/icons/urArrow.svg';
 

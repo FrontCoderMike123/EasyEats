@@ -64,8 +64,7 @@ router.get('/login', function(req,res,next) {
     Login: 'Login',
     message: '',
     sent: '',
-    success: req.flash('success'),
-    Foods: ''
+    success: req.flash('success')
   });
 });
 
@@ -146,12 +145,12 @@ router.post('/signUp', function(req, res) {
       username : req.body.username,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      emailAddress: req.body.email,
-      Foods: req.body.favorites.value
+      emailAddress: req.body.email
+      //Foods: req.body.favorites.value
     }), req.body.password, function(err, account) {
-        var today = new Date();
+        /*var today = new Date();
         var year = today.getFullYear();
-        if (req.body.favorites.value) res.cookie('favorites', 1, { maxAge: year });
+        if (req.body.favorites.value) res.cookie('favorites', 1, { maxAge: year });*/
         if (err) {
             return res.render("pages/signUp", {
               info: "Sorry. That username already exists. Try again.",
@@ -164,8 +163,8 @@ router.post('/signUp', function(req, res) {
               signUp: 'Sign Up',
               email: 'Email Address',
               favorites: 'Set Favorites',
-              message: '',
-              Foods: req.body.favorites
+              message: ''
+              //Foods: req.body.favorites
             });
         }
 
@@ -195,10 +194,10 @@ router.get('/budget', function(req, res) {
     budget: 'Enter Budget',
     placeholder: '($)',
     find: 'Find Food',
-    favorites: "These are your favorites? " + req.body.favorites,
     info: "Hello "+req.user.username+". I bet you're feeling hungry.",
     userBudget: req.cookies.budget,
     moneyOnly: "Silly "+req.user.username+". You can't pay with words."
+    //Foods: "Favorites: " + req.user.favorites.value
   });
 });
 
@@ -396,7 +395,23 @@ router.get('/updateProfile',function(req,res){
 });
 
 router.post('/updateProfile',function(req,res){
-  res.redirect('/message');
+  Account.findById({ _id: req.user.id }, function(err,account){
+
+    if(err) throw err;
+
+    account.firstname = req.body.firstname;
+    account.lastname = req.body.lastname;
+    account.username = req.body.username;
+    account.emailAddress = req.body.email;
+
+    account.save(function(err){
+      if(err){
+        alert('shit went wrong');
+      }else{
+        res.redirect('/message');
+      }
+    });
+  });
 });
 
 module.exports = router;

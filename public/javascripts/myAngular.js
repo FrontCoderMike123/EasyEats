@@ -39,7 +39,8 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
     $scope.profileSelected = function(){
         var favs = 0;
         var proFavs = document.querySelector('#proFavs');
-        var myChoice = document.querySelector('#favoriteSelector').value;
+        var myChoice = document.querySelector('#select').value;
+        var option = document.querySelector('#select option');
         angular.forEach($scope.types, function(type){
             if(type.Favorite){
                 favs++;
@@ -57,17 +58,14 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
             if(favs == 0){
                 proFavs.classList.remove('appear');
             }
-            if(favs == 10){
+            if(favs == 9){
                 proFavs.innerHTML = "Craving Everything!";
-            }
-            if(myChoice == 'Anything'){
-                proFavs.innerHTML = "You want me to decide!";
             }
         });
         return favs;
     };
 
-    $("#favoriteSelector").mousedown(function(e){
+    $("#select").mousedown(function(e){
         e.preventDefault();
         var select = this;
         e.target.selected = !e.target.selected;

@@ -412,24 +412,44 @@ footer li
 	clear: both;
 }
 
-.options
+/**FAVS**/
+
+.favoriteSelector
 {
-	width: 100%;
-	clear: both;
+	display:inline-block;
+	vertical-align:top;
+	overflow:hidden;
+	float: left;
+	margin-left: 10px;
+	width: -moz-max-content;
 	margin-bottom: 10px;
-	font-size: 1em;
-	position: relative;
 }
 
-.options input[type=button]
+.favoriteSelector select
 {
-	width: 60%;
+	padding:10px;
+	text-align: center;
+	margin:-5px -20px -5px -5px;
+}
+
+.favoriteSelector select option
+{
+	padding: 5px 50px;
+}
+
+#favButton
+{
+	cursor: pointer;
+	width: 40%;
+	text-align: center;
 	margin: auto;
-	display: block;
+	margin-bottom: 10px;
 	background-color: #006699;
+	clear: both;
+	padding: 10px 0;
+	border-radius: 5px;
 	color: white;
 	font-weight: bold;
-	border-radius: 5px;
 	border: thin solid rgba(0,0,0,.0);
 	-webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
@@ -438,55 +458,27 @@ footer li
 	cursor: pointer;
 }
 
-.options input[type=button]:hover
+#favButton:hover
 {
 	background: rgba(255,255,255,.5);
 	border-color: #006699;
 	color: #006699;
 }
 
-.options ul
+.type-true
 {
-	width: 100%;
-	text-align: center;
-	overflow: hidden;
-}
-
-.options ul li
-{
-	width: 40%;
-	display: inline-block;
-	margin: 1% 2.5%;
-	cursor: pointer;
-	background-color: rgba(255,255,255,.5);
-	border-radius: 5px;
-}
-
-.options ul li:hover
-{
-	background-color: #006699;
-}
-
-.options ul li:hover > p
-{
-	color: #ffcc00;
-}
-
-.options ul li p
-{
-	padding: 10px 0;
-	border-radius: 5px;
-	color: #006699;
-	font-weight: bold;
-	pointer-events: none;
+	
 }
 
 #proFavs
 {
+	float: right;
+	margin-right: 10px;
+	width: 50%;
+	text-align: center;
 	color: #ffcc00;
-	margin: auto;
-	font-size: 2em;
-	padding: 10px 0;
+	font-size: 1.2em;
+	padding: 10% 0;
 	font-weight: bold;
 	background-color: #006699;
 }
@@ -503,12 +495,24 @@ footer li
 	width: 100%;
 	text-align: center;
 }
+
 #budgetForm fieldset
 {
 	width: 40%;
 	margin: auto;
 	margin-bottom: 10px;
 	text-align: center;
+}
+
+#budgetInput
+{
+	display: block;
+	width: 100%!important;
+}
+
+#budgetInput input
+{
+	width: 38%;
 }
 
 #budgetWrapper
@@ -575,6 +579,10 @@ footer li
 #restaurantsHolder
 {
   text-align: center;
+	width: 100%;
+	border-radius: 0;
+	border: none;
+	margin: 0;
 }
 
 #restaurantsHolder p,#restaurantsHolder span
@@ -651,8 +659,15 @@ footer li
 	clear: both;
 	width: 90%;
 	margin: auto;
+	margin-top: 10px;
 	display: block;
 	border-radius: 5px;
+}
+
+#map
+{
+	width: 500px;
+	height: 300px;
 }
 
 .mapGrow
@@ -809,12 +824,6 @@ opacity: 0;
 }
 
 /************************FAVORITES***************************/
-
-.type-true
-{
-	background-color: #006699;
-	padding: 10px 0;
-}
 
 .type-true .fav-content
 {
@@ -988,6 +997,26 @@ opacity: 0;
 .confirm
 {
 	margin-bottom: 10px!important;
+}
+
+.msg-block
+{
+	clear: both;
+	width: 100%;
+	display: block;
+}
+
+.msg-block span
+{
+	width: 100%;
+	display: block;
+	font-size: 1.5em;
+	background-color: #aa1111;
+	padding: 15px 0;
+	text-align: center;
+	margin-bottom: 10px;
+	color: white;
+	font-weight: bold;
 }
 
 
