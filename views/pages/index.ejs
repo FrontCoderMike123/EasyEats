@@ -6,12 +6,39 @@
 <body>
     <header>
       <% include ../partials/header %>
+      <script src="/javascripts/TweenMax.min.js"></script>
+      <script src="/javascripts/openingTween.js"></script>
     </header>
 
 <div id="intro">
   <h3><%= subTitle %></h3>
     <a href="/login">Login</a>
     <a href="/signUp">Register</a>
+</div>
+
+<div id="openingBanner">
+  <!--<h3>Welcome To Easy Eats! Where it has NEVER been easier to find the food you love!</h3>-->
+  <div class="opening moneySVG">
+    <object data="images/banner/money.svg">
+      <img src="images/banner/money.png" alt="How Much Money You Have">
+    </object>
+    <span class="bannerContent moneyContent">Enter Your Budget</span>
+  </div>
+
+  <div class="opening refreshSVG">
+    <object data="images/banner/refresh.svg">
+      <img src="images/banner/refresh.png" alt="Let Me Find You The Nearest Restaurants">
+    </object>
+    <span class="bannerContent refreshContent">Return The Best Results</span>
+  </div>
+
+  <div class="opening happySVG">
+    <object data="images/banner/happy.svg">
+      <img src="images/banner/happy.png" alt="Leaving You, the User, Very Happy">
+    </object>
+    <span class="bannerContent happyContent">Making You a Happy User</span>
+  </div>
+
 </div>
 
     <footer>
