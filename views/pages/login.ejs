@@ -10,6 +10,8 @@
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
+        <img src="<%= thumb %>">
+
     <form role="form" action="/login" method="post" class="forms" id="loginForm">
     	<h1><%= formTitle %></h1>
         
@@ -18,11 +20,11 @@
             <span class="errMsgs"><%= success %></span>
         <fieldset>
             <label><%= username %></label>
-            <input type="text" name="username" required>
+            <input type="text" name="username">
         </fieldset>
         <fieldset>
             <label><%= password %></label>
-            <input type="password" name="password" required>
+            <input type="password" name="password">
         </fieldset>
     	<input class="twoButtons" type="submit" value="<%= Login %>">
         <a class="neverMind" href="/">Never Mind</a>

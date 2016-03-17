@@ -23,7 +23,7 @@ var storage = multer.diskStorage({
     callback(null, file.fieldname + '-' + day + '-' + month + '-' + year);
   }
 });
-var upload = multer({ storage : storage}).single('userPhoto');
+var upload = multer({ storage : storage});
 
 router.get('/foodTypes', function(req,res,next){
   Account.find().select('Foods').exec(function(err,foodType){
@@ -64,7 +64,8 @@ router.get('/login', function(req,res,next) {
     Login: 'Login',
     message: '',
     sent: '',
-    success: req.flash('success')
+    success: req.flash('success'),
+    thumb: ''
   });
 });
 
@@ -145,12 +146,11 @@ router.post('/signUp', function(req, res) {
       username : req.body.username,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      emailAddress: req.body.email
+      emailAddress: req.body.email,
+      userPhoto: req.body.userPhoto
       //Foods: req.body.favorites.value
     }), req.body.password, function(err, account) {
-        /*var today = new Date();
-        var year = today.getFullYear();
-        if (req.body.favorites.value) res.cookie('favorites', 1, { maxAge: year });*/
+
         if (err) {
             return res.render("pages/signUp", {
               info: "Sorry. That username already exists. Try again.",
@@ -170,6 +170,7 @@ router.post('/signUp', function(req, res) {
 
         passport.authenticate('local')(req, res, function () {
             //res.redirect('/login');
+            var thumbSpot = 'images/profilePictures/';
             res.render('pages/login', {
               user: req.user,
               title: 'Please Login',
@@ -180,7 +181,7 @@ router.post('/signUp', function(req, res) {
               message: '',
               sent: '',
               success: req.flash('success'),
-              Foods: req.body.favorites
+              thumb: upload.storage + '/' + req.user.userPhoto 
   });
         });
     });
@@ -279,7 +280,8 @@ router.post('/forgotPass', function(req, res, next) {
 });
 
 router.get('/reset/:token', function(req, res) {
-  Account.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+  Account.findOne({
+    resetPasswordToken: req.params.token, resetPasswordExpires: {$gt: Date.now()}}, function(err, user) {
     if (!user) {
       req.flash('error', 'Password reset token is invalid or has expired.');
       return res.redirect('/forgotPass');
@@ -287,7 +289,7 @@ router.get('/reset/:token', function(req, res) {
     res.render('pages/reset', {
       user: req.user,
       title: 'Reset Password',
-      currentPass: user.password,
+      //currentPass: user.password,
       error: req.flash('error')
     });
   });
@@ -302,6 +304,7 @@ router.post('/reset/:token', function(req, res) {
           return res.redirect('/');
         }
 
+        //user.hash = req.body.password;
         user.password = req.body.password;
         user.resetPasswordToken = undefined;
         user.resetPasswordExpires = undefined;
@@ -345,8 +348,7 @@ router.get('/message',function(req,res){
     noUpload: req.flash('uploadError'),
     goodUpload: req.flash('goodUpload'),
     favorites: req.flash('favorites'),
-    userPic: req.body.userPhoto,
-    updated: 'Profile Updated'
+    userPic: req.body.userPhoto
   });
 });
 
@@ -370,7 +372,20 @@ router.get('/profilePicture',function(req,res){
 });
 
 router.post('/profilePicture',function(req,res){
-  upload(req,res,function(err) {
+  Account.findById({ _id: req.user.id }, function(err,account){
+    if(err) throw err;
+    account.userPhoto = req.body.userPhoto;
+    account.save(function(err){
+      if(err){
+        req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
+        return res.redirect('/message');
+      }else{
+        req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
+        res.redirect('/message');
+      }
+    });
+  });
+  /*upload(req,res,function(err) {
     var today = new Date();
     var year = today.getFullYear();
     if(err || req.body.userPhoto) {
@@ -380,7 +395,7 @@ router.post('/profilePicture',function(req,res){
     }
     req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
     res.redirect('/message');
-  });
+  });*/
 });
 
 router.get('/updateProfile',function(req,res){

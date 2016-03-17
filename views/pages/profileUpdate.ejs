@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script src="/javascripts/confirm.js"></script>
 </head>
-<body ng-app="confirmEmail">
+<body>
     <header>
       <% include ../partials/headerWithSet %>
     </header>
@@ -17,33 +16,22 @@ method="post" id="updateProfileCon">
           <h1><%= update %></h1>
           <fieldset>
             <label>First Name</label>
-            <input type="text" name="firstname" placeholder="<%= firstname %>">
+            <input type="text" name="firstname" placeholder="<%= firstname %>" required>
           </fieldset>
           <fieldset>
             <label>Last Name</label>
-            <input type="text" name="lastname" placeholder="<%= lastname %>">
+            <input type="text" name="lastname" placeholder="<%= lastname %>" required>
           </fieldset>
           <fieldset>
             <label>Username</label>
-            <input type="text" name="username" placeholder="<%= username %>">
+            <input type="text" name="username" placeholder="<%= username %>" required>
           </fieldset>
           <fieldset>
             <label>Email Address</label>
-            <input type="email" id="email" name="email" ng-model="email" placeholder="<%= emailAddress %>">
-          </fieldset>
-          <fieldset>
-            <label>Retype Email</label>
-            <input type="email" id="email2" name="email2" ng-model="email2" pw-check="email" placeholder="<%= emailAddress %>">
+      <input type="email" id="email" name="email" placeholder="<%= emailAddress %>" required>
           </fieldset>
 
-          <div class="msg-block" ng-show="updateForm">
-          <span ng-show="updateForm.email2.$error.emailMatch">Emails Don't Match</span> 
-          </div>
-
-          <input type="button" class="mainButton confirm" ng-click="isHidden=!isHidden" value="Confirm">
-          <div ng-init="isHidden=true">
-            <input ng-hide="isHidden" type="submit" class="mainButton" value="Submit Changes">
-          </div>
+          <input type="submit" class="mainButton" value="Submit Changes">
 </form><!--update profile con-->
 
       </div>

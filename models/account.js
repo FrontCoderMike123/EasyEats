@@ -12,9 +12,9 @@
 		firstname: String,
 		lastname: String,
 		emailAddress: String,
+    userPhoto: String,
 		resetPasswordToken: String,
   		resetPasswordExpires: Date,
-  		userPhoto: String,
   		Foods:
   		[{
         ID: String,

@@ -79,7 +79,6 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
     //I GAVE IN LOL.... SO NOW!!!!!! I CAN HAVE MULIPLE SELECTIONS IN MY FAVORITES SELECTIONS OPTIONS IN
     //SIGN UP FORM....
     //tHANK YOU GENTLEMEN!!
-
 }]);
 
 })();

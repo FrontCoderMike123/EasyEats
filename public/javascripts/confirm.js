@@ -1,21 +1,25 @@
 (function(){
 
-var confirm = angular.module('confirmEmail', ['confirmEmail.directives']);
+var confirm = angular.module('confirmPass', []);
 
-angular.module('confirmEmail.directives', [])
-    .directive('pwCheck', [function () {
-    return {
-        require: 'ngModel',
-        link: function (scope, elem, attrs, ctrl) {
-            var firstPassword = '#' + attrs.pwCheck;
-            elem.add(firstPassword).on('keyup', function () {
-                scope.$apply(function () {
-                    // console.info(elem.val() === $(firstPassword).val());
-                    ctrl.$setValidity('emailMatch', elem.val() === $(firstPassword).val());
+    confirm.directive('nxEqual', function(){
+        return {
+            require: 'ngModel',
+            link: function(scope,elem,attrs,model){
+                if(!attrs.nxEqual){
+                    console.error('nxEqual expects a model as an argument.');
+                    return;
+                }
+                scope.$watch(attrs.nxEqual, function(value){
+                    model.$setValidity('nxEqual',value === model.$viewValue);
                 });
-            });
-        }
-    }
-}]);
+                model.$parsers.push(function(value){
+                    var isValid = value === scope.$eval(attrs.nxEqual);
+                    model.$setValidity('nxEqual', isValid);
+                    return isValid ? value : undefined;
+                });
+            }
+        };
+    });
 
 })();

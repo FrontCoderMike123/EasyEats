@@ -832,6 +832,18 @@ opacity: 0;
 	display: block;
 }
 
+.error
+{
+	display: block;
+	padding: 10px 0;
+	background-color: #006699;
+	text-align:center;
+	color: white;
+	font-weight: bold;
+	font-size: 1.5em;
+	margin-top: 10px;
+}
+
 /************************MESSAGES****************************/
 .messagesHolder
 {

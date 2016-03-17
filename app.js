@@ -56,14 +56,6 @@ mongoose.connect('mongodb://localhost/users', function(err){
   }
 });
 
-/*mongoose.connect('mongodb://localhost/foods', function(err){
-  if(err){
-    console.log('Connection Issues', err);
-  }else{
-    console.log('Connected to Foods');
-  }
-});*/
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
