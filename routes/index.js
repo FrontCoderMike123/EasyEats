@@ -1,6 +1,7 @@
 var express = require('express');
 var passport = require('passport');
 var mongoose = require('mongoose');
+var fs = require('fs');
 var Account = require('../models/account.js');
 var Food = require('../models/Type.js');
 var router = express.Router();
@@ -10,6 +11,7 @@ var bcrypt = require('bcrypt-nodejs');
 var async = require('async');
 var crypto = require('crypto');
 var flash = require('express-flash');
+var busboy = require('connect-busboy');
 var multer  =   require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
@@ -26,11 +28,14 @@ var storage = multer.diskStorage({
 var upload = multer({ storage : storage});
 
 router.get('/foodTypes', function(req,res,next){
-  Account.find().select('Foods').exec(function(err,foodType){
+  Food.find(function(err,favs){
+    if(err)return next(err);
+    res.json(favs);
+  });
+  /*Account.find().select('Foods').exec(function(err,foodType){
     if(err)return next(err);
     res.json(foodType);
-  });
-  //This above digs in the Accounts schema, and grabs the Foods Array and give me only what im looking for
+  });*/
 });
 
 router.get('/favorites',function(req,res){
@@ -42,8 +47,21 @@ router.get('/favorites',function(req,res){
 });
 
 router.post('/favorites',function(req,res){
-  req.flash('favorites',"Your favorites have been saved. Eat what you want!");
-  res.redirect('/message');
+  Account.findById({ _id: req.user.id }, function(err,account){
+    if(err) throw err;
+
+    account.Foods['Cookie'] = req.body.favorites.value;
+
+    account.save(function(err){
+      if(err){
+        req.flash('favsError', 'Sorry, Could Not Save Your Favorites, Try Again.');
+        return res.redirect('/message');
+      }else{
+        req.flash('favorites',"Your favorites have been saved. Eat what you want!");
+        res.redirect('/message');
+      }
+    });
+  });
 });//this WILL be used. each food item has an ID
 
 router.get('/', function (req, res) {
@@ -170,7 +188,6 @@ router.post('/signUp', function(req, res) {
 
         passport.authenticate('local')(req, res, function () {
             //res.redirect('/login');
-            var thumbSpot = 'images/profilePictures/';
             res.render('pages/login', {
               user: req.user,
               title: 'Please Login',
@@ -181,8 +198,8 @@ router.post('/signUp', function(req, res) {
               message: '',
               sent: '',
               success: req.flash('success'),
-              thumb: upload.storage + '/' + req.user.userPhoto 
-  });
+              thumb: ''
+            });
         });
     });
 });
@@ -197,7 +214,9 @@ router.get('/budget', function(req, res) {
     find: 'Find Food',
     info: "Hello "+req.user.username+". I bet you're feeling hungry.",
     userBudget: req.cookies.budget,
-    moneyOnly: "Silly "+req.user.username+". You can't pay with words."
+    moneyOnly: "Silly "+req.user.username+". You can't pay with words.",
+    thumb: '/uploads/' + req.user.userPhoto
+    // or req.user.photo gives me the array its being held in thanks to mongoose thumb... but still no go
     //Foods: "Favorites: " + req.user.favorites.value
   });
 });
@@ -348,7 +367,8 @@ router.get('/message',function(req,res){
     noUpload: req.flash('uploadError'),
     goodUpload: req.flash('goodUpload'),
     favorites: req.flash('favorites'),
-    userPic: req.body.userPhoto
+    profileUpdated: req.flash('profileUpdated'),
+    favsError: req.flash('favsError')
   });
 });
 
@@ -411,18 +431,29 @@ router.get('/updateProfile',function(req,res){
 
 router.post('/updateProfile',function(req,res){
   Account.findById({ _id: req.user.id }, function(err,account){
-
     if(err) throw err;
 
     account.firstname = req.body.firstname;
     account.lastname = req.body.lastname;
     account.username = req.body.username;
     account.emailAddress = req.body.email;
+    account.userPhoto.contentType = req.body.userPhoto;
+    account.set('userPhoto.file', req.body.userPhoto);
+
+    var fstream;
+    req.pipe(req.busboy);
+    req.busboy.on('userPhoto',function(fieldname, file, filename){
+      console.log('Uploading: ' + filename);
+      fstream = fs.createWriteStream(__dirname + '/uploads/' + filename);
+      file.pipe(fstream);
+      //fstream.on('close',function(){});
+    });
 
     account.save(function(err){
       if(err){
-        alert('shit went wrong');
+        console.log('shit went wrong');
       }else{
+        req.flash('profileUpdated', 'Your Profile has been Updated!');
         res.redirect('/message');
       }
     });

@@ -7,18 +7,36 @@
 <body ng-app="budgetOptions">
     <header>
       <% include ../partials/headerWithSet %>
-
     </header>
 
     <div id="favHolder">
 
       <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
+
+        <div class="favoriteSelector" ng-hide="isHidden">
+          <select id="select" multiple size="10" name="favorites">
+          <option
+          data-ng-repeat="type in types"
+          data-ng-click="toggleFav(type)"
+          class="type-{{type.Favorite}} slide"
+          ng-value="{{type.Cookie}}">{{type.Type}}</option>
+          </select>
+        </div>
+
+        <!--<span id="wordChange">{{selected()}}</span>
+        <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>-->
+
+        <button class="slide" name="button" type="submit">Fucking click me</button>
+      </form>
+
+        <!--
             <ul class="favList">
 <li data-ng-repeat="type in types"
 data-ng-click="toggleFav(type)"
 class="type-{{type.Favorite}} slide"
-value="{{type.Cookie}}"
-name="foodTypes">
+ng-value="{{type.Cookie}}"
+name="foodForm"
+ng-model="clickedFavs.Favorite">
 <object data-ng-data="{{type.SVG}}">
   <img data-ng-src="{{type.PNG}}" alt="{{type.Type}}">
 </object>
@@ -30,10 +48,7 @@ name="foodTypes">
 </div>
 </li>
             </ul>
-<button class="slide" id="favSubmit" type="submit" name="submit">
-<span id="wordChange">{{selected()}}</span>
-</button>
-      </form>
+          -->
 
     </div><!--fav Holder-->
       

@@ -6,13 +6,22 @@
 	var bcrypt = require('bcrypt-nodejs');
 	var SALT_WORK_FACTOR = 10;
 
+  var thumbnailPluginLib = require('mongoose-thumbnail');
+  var thumbnailPlugin = thumbnailPluginLib.thumbnailPlugin;
+  var make_upload_to_model = thumbnailPluginLib.make_upload_to_model;
+  var path = require('path');
+
+  var uploads_base = path.join(__dirname, "uploads");
+  var uploads = path.join(uploads_base, "u");
+
 	var Account = new Schema({
 		username: String,
 		password: String,
 		firstname: String,
 		lastname: String,
 		emailAddress: String,
-    userPhoto: String,
+    //userPhoto: String,
+    userPhoto: { data: Buffer, contentType: String },
 		resetPasswordToken: String,
   		resetPasswordExpires: Date,
   		Foods:
@@ -26,6 +35,16 @@
   			PNG: String
   		}]
 	});
+
+  Account.plugin(thumbnailPlugin,{
+    name: 'photo',
+    format: 'jpg',
+    size: 80,
+    inline: false,
+    save: true,
+    upload_to: make_upload_to_model(uploads, 'photos'),
+    relative_to: uploads_base
+  });
 
 	Account.pre('save', function(next) {
   		var user = this;

@@ -13,6 +13,9 @@ var async = require('async');
 var crypto = require('crypto');
 var flash = require('express-flash');
 var multer  =   require('multer');
+var uploads_base = path.join(__dirname, "uploads");
+var busboy = require('connect-busboy');
+var methodOverride = require('method-override');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -29,6 +32,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+//Two app.use below are for image file uploads
+app.use(busboy());
+app.use(methodOverride()); 
+
 app.use(require('express-session')({
     secret: 'keyboard cat',
     resave: false,
@@ -38,6 +45,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
+//app.use('/uploads', express.static(__dirname + '/uploads'));
+//app.use(multer({dest: './uploads/'}));
+app.use('/uploads', express.static(uploads_base));
 
 app.use('/', routes);
 app.use('/users', users);

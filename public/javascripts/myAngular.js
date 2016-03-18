@@ -4,9 +4,8 @@ var budgetOptions = angular.module('budgetOptions', []);
 
 budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($scope,$http,$interval){
     $http.get('/foodTypes').success(function(data){
-    	$scope.types = data[0].Foods;
-    	//console.log($scope.types);
-        //to me...how the scope above makes sense. is clear NOW... but it didnt at the time...
+    	$scope.types = data;
+    	console.log($scope.types);
     });
 
     $scope.toggleFav = function(type){

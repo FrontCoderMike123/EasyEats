@@ -7,16 +7,14 @@
 	"userPhoto":"/images/profilePics/me.jpg",
 	"Foods":
 	[{
-		"ID":"1",
 		"Type":"Fast & Casual",
 		"Cookie":"Fast & Casual",
 		"Favorite": false,
-		"Desc":"Burgers & Fries",
+		"Desc":"Classie Fast Food",
 		"SVG":"/images/icons/favs/fastCasual.svg",
 		"PNG":"/images/icons/favs/fastCasual.png"
 	},
 	{
-		"ID":"2",
 		"Type":"Family Style",
 		"Cookie":"Family Style",
 		"Favorite": false,
@@ -25,7 +23,6 @@
 		"PNG":"/images/icons/favs/familyStyle.png"
 	},
 	{
-		"ID":"3",
 		"Type":"Fine Dining",
 		"Cookie":"Fine Dining",
 		"Favorite": false,
@@ -34,7 +31,6 @@
 		"PNG":"/images/icons/favs/fineDining.png"
 	},
 	{
-		"ID":"4",
 		"Type":"Café or Bistro",
 		"Cookie":"Coffee or Sandwiches",
 		"Favorite": false,
@@ -43,7 +39,6 @@
 		"PNG":"/images/icons/favs/bistro.png"
 	},
 	{
-		"ID":"5",
 		"Type":"Food Truck",
 		"Cookie":"Street Meat",
 		"Favorite": false,
@@ -52,7 +47,14 @@
 		"PNG":"/images/icons/favs/foodTruck.png"
 	},
 	{
-		"ID":"6",
+		"Type":"Fast Food",
+		"Cookie":"Fast Food",
+		"Favorite": false,
+		"Desc":"Burgers & Fries",
+		"SVG":"/images/icons/favs/fastFood.svg",
+		"PNG":"/images/icons/favs/fastFood.png"
+	},
+	{
 		"Type":"Buffet",
 		"Cookie":"FOOD",
 		"Favorite": false,
@@ -61,7 +63,6 @@
 		"PNG":"/images/icons/favs/buffet.png"
 	},
 	{
-		"ID":"7",
 		"Type":"Oriental Cuisine",
 		"Cookie":"Oriental",
 		"Favorite": false,
@@ -70,7 +71,6 @@
 		"PNG":"/images/icons/favs/oriental.png"
 	},
 	{
-		"ID":"8",
 		"Type":"Italian",
 		"Cookie":"Italian",
 		"Favorite": false,
@@ -79,7 +79,6 @@
 		"PNG":"/images/icons/favs/italian.png"
 	},
 	{
-		"ID":"9",
 		"Type":"Sea Food",
 		"Cookie":"Sea Food",
 		"Active": false,
