@@ -207,15 +207,17 @@ router.post('/signUp', function(req, res) {
 router.get('/budget', function(req, res) {
   res.render('pages/budget', {
     title: 'Hungry?',
-    budgetTitle: 'Food Finder!',
-    craving: 'Craving Something?',
-    budget: 'Enter Budget',
+    budgetTitle: 'Food Finder',
+    budget: 'Enter Budget Below',
     placeholder: '($)',
     find: 'Find Food',
-    info: "Hello "+req.user.username+". I bet you're feeling hungry.",
+    userName: req.user.username,
     userBudget: req.cookies.budget,
     moneyOnly: "Silly "+req.user.username+". You can't pay with words.",
-    thumb: '/uploads/' + req.user.userPhoto
+    thumb: 'images/profilePictures/me.png',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username
+    //thumb: req.user.userPhoto
     // or req.user.photo gives me the array its being held in thanks to mongoose thumb... but still no go
     //Foods: "Favorites: " + req.user.favorites.value
   });
@@ -227,14 +229,17 @@ router.get('/forgetMemory', function(req, res){
   res.redirect('/');
 });
 
-router.post('/budget', function(req,res,err) {
+router.post('/restaurants', function(req,res,err) {
   var minute = 60 * 1000;
   if (req.body.budget) res.cookie('budget', 1, { maxAge: minute });
   //if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
   res.render('pages/restaurants', {
     title: 'Restaurants',
-    subTitle: "What's on the menu today, "+req.user.username+"?",
-    budget: "I see you have $"+req.body.budget+" in your pocket?"
+    subTitle: "What's on the menu today "+req.user.username+"?",
+    budget: "I see you have $"+req.body.budget+" in your pocket?",
+    thumb: 'images/profilePictures/me.png',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username
   });
 });
 
@@ -379,7 +384,7 @@ router.get('/settings',function(req,res){
     updateBio: 'Update Profile Information',
     reset: 'Reset / Forgot Password',
     picture: 'Change Profile Picture',
-    favorite: 'Different Favorites'
+    favorite: 'Update Favorites'
   });
 });
 
@@ -392,7 +397,7 @@ router.get('/profilePicture',function(req,res){
 });
 
 router.post('/profilePicture',function(req,res){
-  Account.findById({ _id: req.user.id }, function(err,account){
+  /*Account.findById({ _id: req.user.id }, function(err,account){
     if(err) throw err;
     account.userPhoto = req.body.userPhoto;
     account.save(function(err){
@@ -404,8 +409,8 @@ router.post('/profilePicture',function(req,res){
         res.redirect('/message');
       }
     });
-  });
-  /*upload(req,res,function(err) {
+  });*/
+  upload(req,res,function(err) {
     var today = new Date();
     var year = today.getFullYear();
     if(err || req.body.userPhoto) {
@@ -415,7 +420,7 @@ router.post('/profilePicture',function(req,res){
     }
     req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
     res.redirect('/message');
-  });*/
+  });
 });
 
 router.get('/updateProfile',function(req,res){

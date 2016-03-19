@@ -4,30 +4,57 @@
     <% include ../partials/head %>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places">
 </script>
+
 <script src="/javascripts/geoMap.js"></script>
 </head>
 <body>
     <header>
       <% include ../partials/headerWithSet %>
+      <div id="userHolder">
+        <div id="userPicHolder">
+          <img src="<%= thumb %>" alt="Your Thumbnail"/>
+          <article>
+            <h3><%= fullName %></h3>
+            <p><%= userName %></p>
+            <a href="/updateProfile">Update Profile</a>
+          </article>
+        </div>
+        <a href="/profilePicture">
+        <div class="noThumb">
+          <object data="images/icons/noThumb.svg">
+            <img src="images/icons/noThumb.png" alt="Upload a Thumbnail"/>
+          </object>
+          <article>
+            <h3>Upload an Avatar!</h3>
+          </article>
+        </div>
+        </a>
+      </div>
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
       <section class="forms" id="restaurantsHolder">
-        <h1><%= title %></h1>
-        <h5><%= subTitle %></h5>
+        <h1><%= subTitle %></h1>
         <div id="spendingCon">
-        <p><%= budget %></p>
+          <p><%= budget %></p>
         </div>
         <div class="foundYou">
           <p>Here are some restaurants that offer what you're craving.</p>
           <span class="status">Waiting For You...</span>
-          <a href="/budget" class="twoButtons">Back To Finder</a>
         </div>
 
         <div class="mapHolder">
           <div id="map"></div>
         </div>
+
+        <a href="/budget" id="backFinder" title="Go Back">
+          <div>
+            <object data="images/icons/home.svg">
+              <img src="images/icons/home.png" alt="Back to 'Food Finder'">
+            </object>
+          </div>
+        </a>
 
       </section>
       

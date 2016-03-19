@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script src="/javascripts/myAngular.js"></script>
 <script type="text/javascript">
   function isNumber(evt) {
     evt = (evt) ? evt : window.event;
@@ -21,26 +20,43 @@
 }
 </script>
 </head>
-<body ng-app="budgetOptions">
+<body>
     <header>
       <% include ../partials/headerWithSet %>
+      <div id="userHolder">
+        <div id="userPicHolder">
+          <img src="<%= thumb %>" alt="Your Thumbnail"/>
+          <article>
+            <h3><%= fullName %></h3>
+            <p><%= userName %></p>
+            <a href="/updateProfile">Update Profile</a>
+          </article>
+        </div>
+        <a href="/profilePicture">
+        <div class="noThumb">
+          <object data="images/icons/noThumb.svg">
+            <img src="images/icons/noThumb.png" alt="Upload a Thumbnail"/>
+          </object>
+          <article>
+            <h3>Upload an Avatar!</h3>
+          </article>
+        </div>
+        </a>
+      </div>
     </header>
 
     <div class="padding"><!--for bottom padding. keep footer down!-->
 
-      <img src="<%= thumb %>" alt="Your Thumbnail"/>
-
       <form
-      ng-controller="optionCtrl"
       name="myForm"
       role="form"
-      action="/budget"
+      action="/restaurants"
       method="post"
       class="forms"
       id="budgetForm">
         
         <h1><%= budgetTitle %></h1>
-        <h5 class="errMsgs" id="userWelcome"><%= info %></h5>
+<h5 class="errMsgs" id="userWelcome">Hey <span><%= userName %></span>!<br>I Bet You're Feeling Hungry!</h5>
         <div id="moneyOnly"><p></p></div>
         <fieldset id="budgetInput">
           <label><%= budget %></label>

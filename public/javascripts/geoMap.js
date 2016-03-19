@@ -14,21 +14,12 @@
       var labelIndex = 0;
       var markers = [];
   
-  status.innerHTML = "Where to?";
+  status.innerHTML = "";
   
   var mapcanvas = document.querySelector('#map');
   mapcanvas.id = 'mapcanvas';
   mapcanvas.classList.add('mapGrow');
-    
   document.querySelector('.mapHolder').appendChild(mapcanvas);
-
-  /*console.log(position.coords.latitude);
-	console.log(position.coords.longitude);
-	console.log(position.coords.accuracy);
-  var userSpot = position.coords.latitude || position.coords.longitude || position.coords.accuracy;
-    if(userSpot = position){
-    	console.log(userSpot);
-    }*/
   
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -91,18 +82,18 @@ function toggleBounce() {
   }
 }
   
-  //var request = { reference: place.reference };
-  //service.getDetails(request, function(details) {
+  var request = { reference: place.reference };
+  service.getDetails(request, function(details) {
     google.maps.event.addListener(marker, 'click', function() {
-    infoWindow.setContent('<div class="infoWindow"><h1>'+ place.name + '</h1>'+
+    infoWindow.setContent('<div class="infoWindow"><h1>'+ details.name + '</h1>'+
       //'<img src="'+place.icon+'">' +
-      '<span>' + 'Address' + '</span>' + '<p>' + place.vicinity + '</p>' +
-      '<span>' + 'Phone Number' + '</span>' + '<p>' + place.international_phone_number + '</p>' +
-      '<a href="'+place.url+'" target="onblank">' + 'View Website' + '</a>' + '</div>');
+      '<span>' + 'Address' + '</span>' + '<p>' + details.vicinity + '</p>' +
+      '<span>' + 'Phone Number' + '</span>' + '<p>' + details.international_phone_number + '</p>' +
+      '<a href="'+details.url+'" target="onblank">' + 'View Website' + '</a>' + '</div>');
     infoWindow.open(map, this);
   });
+  });
   }, timeout);
-  //});
 }
 }
 
@@ -110,4 +101,12 @@ function error(msg) {
   var status = document.querySelector('.status');
   status.innerHTML = typeof msg == 'string' ? msg : "FAILED!!!!";
 }
+
+/*console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+  console.log(position.coords.accuracy);
+  var userSpot = position.coords.latitude || position.coords.longitude || position.coords.accuracy;
+    if(userSpot = position){
+      console.log(userSpot);
+    }*/
 })();
