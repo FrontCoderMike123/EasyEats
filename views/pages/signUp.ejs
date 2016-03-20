@@ -9,7 +9,7 @@
       <% include ../partials/header %>
     </header>
 
-    <div class="padding"><!--for bottom padding. keep footer down!-->
+    <div id="padding" class="signPad"><!--for bottom padding. keep footer down!-->
 
 <form
 action="/signUp"
@@ -22,7 +22,7 @@ ng-controller="optionCtrl">
       <h5 class="errMsgs"><%= message %></h5>
       <fieldset>
           <label><%= username %></label>
-          <input type="text" name="username" required>
+          <input type="text" name="username" required minlength="4" maxlength="12">
       </fieldset>
       <fieldset>
           <label><%= password %></label>

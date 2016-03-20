@@ -24,9 +24,9 @@ img
 	max-width: 100%!important;
 }
 
-.padding
+#padding
 {
-	padding-bottom: 55px!important;/*this is NEEDED to keep the footer down while its in absolute postion!!!*/
+	padding-bottom: 55px;/*this is NEEDED to keep the footer down while its in absolute postion!!!*/
 	position: relative;
 }
 
@@ -119,6 +119,13 @@ header
 	margin-bottom: 5px;
 }
 
+.settingMobile
+{
+	display: none;
+	color: #ffcc00;
+	font-weight: bold;
+}
+
 footer
 {
 	position: absolute;
@@ -185,6 +192,7 @@ footer a:hover
   width: 400px;
 	text-align: right;
 	clear: both;
+	overflow: hidden;
 }
 
 #userPicHolder
@@ -1211,6 +1219,17 @@ opacity: 0;
 @media only screen and (max-width: 240px) {
 	
 	/*Main importants*/
+	
+	.signPad
+	{
+		padding-bottom: 130px!important;
+	}
+	
+	#padding
+	{
+		padding-bottom: 130px;
+	}
+	
 	#logoHolder object,#logoHolder img
 	{
 		width: 40%;
@@ -1323,6 +1342,11 @@ opacity: 0;
 	 width: 80%!important;
 	}
 	
+	.neverMind
+	{
+		width: 70%;
+	}
+	
 	.options
 	{
 		width: 100%;
@@ -1348,6 +1372,91 @@ opacity: 0;
 	}
 	
 	/*BUTTONS*/
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: .9em!important;
+		line-height:23px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: .6em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
 	
 	#noMember
 	{
@@ -1476,6 +1585,11 @@ opacity: 0;
 	 width: 80%!important;
 	}
 	
+	.neverMind
+	{
+		width: 70%;
+	}
+	
 	.options
 	{
 		width: 100%;
@@ -1501,6 +1615,91 @@ opacity: 0;
 	}
 	
 	/*BUTTONS*/
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: .9em!important;
+		line-height:23px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: .7em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
 	
 	#noMember
 	{
@@ -1629,6 +1828,11 @@ opacity: 0;
 	 width: 80%!important;
 	}
 	
+	.neverMind
+	{
+		width: 70%;
+	}
+	
 	.options
 	{
 		width: 100%;
@@ -1654,6 +1858,92 @@ opacity: 0;
 	}
 	
 	/*BUTTONS*/
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: .9em!important;
+		padding: 0 10px;
+		line-height:23px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: .8em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
 	
 	#noMember
 	{
@@ -1782,6 +2072,11 @@ opacity: 0;
 	 width: 80%!important;
 	}
 	
+	.neverMind
+	{
+		width: 70%;
+	}
+	
 	.options
 	{
 		width: 100%;
@@ -1807,6 +2102,92 @@ opacity: 0;
 	}
 	
 	/*BUTTONS*/
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: 1em!important;
+		padding: 0 10px;
+		line-height:23px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: .9em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
 	
 	#noMember
 	{
@@ -1935,6 +2316,11 @@ opacity: 0;
 	 width: 80%!important;
 	}
 	
+	.neverMind
+	{
+		width: 70%;
+	}
+	
 	.options
 	{
 		width: 100%;
@@ -1960,6 +2346,92 @@ opacity: 0;
 	}
 	
 	/*BUTTONS*/
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: 1em!important;
+		padding: 0 30px;
+		line-height:23px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: .95em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
 	
 	#noMember
 	{
@@ -2088,6 +2560,11 @@ opacity: 0;
 	 width: 80%!important;
 	}
 	
+	.neverMind
+	{
+		width: 75%;
+	}
+	
 	.options
 	{
 		width: 100%;
@@ -2113,6 +2590,92 @@ opacity: 0;
 	}
 	
 	/*BUTTONS*/
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: 1.2em!important;
+		padding: 0 30px;
+		line-height:28px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: .95em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
 	
 	#noMember
 	{
@@ -2241,6 +2804,11 @@ opacity: 0;
 	 width: 80%!important;
 	}
 	
+	.neverMind
+	{
+		width: 75%;
+	}
+	
 	.options
 	{
 		width: 100%;
@@ -2266,6 +2834,92 @@ opacity: 0;
 	}
 	
 	/*BUTTONS*/
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: 1.2em!important;
+		padding: 0 60px;
+		line-height:28px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: 1.1em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
 	
 	#noMember
 	{
@@ -2415,6 +3069,83 @@ opacity: 0;
 	
 	/*BUTTONS*/
 	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: 1.3em!important;
+		padding: 0 80px;
+		line-height:30px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*User Thumb and Settings*/
+	
+	#settings
+{
+	float: none;
+	width: 100%;
+	padding-top:10px;
+	border-top: thin solid white;
+}
+	
+  .settingMobile
+	{
+		display: block;
+	}
+
+#settings a
+{
+	display: inline-block;
+	width:40%;
+	text-align: center;
+}
+	
+	#userHolder
+{
+	position: static;
+  width: 100%;
+	text-align: center;
+	clear: both;
+	border-top: thin solid white;
+	margin-top: 10px;
+	padding: 10px 0;
+}
+
+#userPicHolder
+{
+	text-align: center;
+	width: 100%;
+}
+
+#userPicHolder img
+{
+	float: none;
+}
+
+#userPicHolder article
+{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	border-right: none;
+}
+	
+	/*User Thumb and Settings*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		position: static;
+   margin: auto;
+		display: block;
+		width: 40px;
+	}
+	
+	/*Go Back*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -2470,6 +3201,86 @@ opacity: 0;
 	{
 		font-size: .8em;
 	}
+	
+	.neverMind
+	{
+		width: 32%;
+	}
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: 1em!important;
+		line-height:22px;
+	}
+	
+	/*Error Msgs*/
+	
+	/*USER AND SETTINGS*/
+	
+	#settings
+	{
+		width: 20%;
+		text-align: right;
+	}
+	
+	#settings a
+	{
+    display: block;
+		float: none;
+	}
+	
+	#settings object, #settings img
+	{
+		width: 23px;
+	}
+	
+	#userHolder
+	{
+		width: 190px;
+		right: 5.5%;
+		overflow: hidden;
+	}
+	
+	#userPicHolder article
+	{
+		width: 125px;
+		height: 53px;
+	}
+	
+	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
+	{
+		font-size: 10px!important;
+		padding: 3.5px 0;
+	}
+	
+	#userPicHolder img
+	{
+		width: 50px;
+	}
+	
+	/*USER AND SETTINGS*/
+	
+	/*BUDGET MONEY*/
+	
+	#moneyOnly
+	{
+		font-size: .7em;
+	}
+	
+	/*BUDGET MONEY*/
+	
+	/*Go Back*/
+	
+	.goBack
+	{
+		width: 45px;
+	}
+	
+	/*Go Back*/
+	
+	
 }
 
 /*Desktop1*/
@@ -2525,6 +3336,84 @@ opacity: 0;
 	{
 		font-size: .9em;
 	}
+	
+	.neverMind
+	{
+		width: 32%;
+	}
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: .9em!important;
+	}
+	
+	/*Error Msgs*/
+	
+	/*USER AND SETTINGS*/
+	
+	#settings
+	{
+		width: 20%;
+		text-align: right;
+	}
+	
+	#settings a
+	{
+    display: block;
+		float: none;
+	}
+	
+	#settings object, #settings img
+	{
+		width: 25px;
+	}
+	
+	#userHolder
+	{
+		width: 190px;
+		overflow: hidden;
+	}
+	
+	#userPicHolder article
+	{
+		width: 125px;
+		height: 53px;
+	}
+	
+	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
+	{
+		font-size: 10px!important;
+		padding: 3.5px 0;
+	}
+	
+	#userPicHolder img
+	{
+		width: 50px;
+	}
+	
+	/*USER AND SETTINGS*/
+	
+	/*Budget Page*/
+	
+	#userWelcome
+	{
+		line-height: 35px;
+		font-size: 1.4em!important;
+	}
+	
+	/*Budget Page*/
+	
+		/*Go Back*/
+	
+	.goBack
+	{
+		width: 45px;
+	}
+	
+	/*Go Back*/
+	
 }
 
 /*Desktop 4*/
@@ -2556,6 +3445,11 @@ opacity: 0;
 		float: left;
 	}
 	
+	#logoHolder object, #logoHolder img
+	{
+		width: 100px;
+	}
+	
 	header img
 	{
 		width: 100px;
@@ -2576,4 +3470,61 @@ opacity: 0;
 	{
 		font-size: 1.1em;
 	}
+	
+	/*Error Msgs*/
+	
+	.errMsgs
+	{
+		font-size: .9em!important;
+	}
+	
+	/*Error Msgs*/
+	
+	/*USER AND SETTINGS*/
+	
+	#settings
+	{
+		width: 20%;
+		text-align: right;
+	}
+	
+	#userHolder
+	{
+		top: 2%;
+	}
+	
+	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
+	{
+		font-size: 12px!important;
+		padding: 6px 0;
+	}
+	
+	/*USER AND SETTINGS*/
+	
+	/*Budget Page*/
+	
+	#userWelcome
+	{
+		line-height: 50px;
+		font-size: 1.8em!important;
+	}
+	
+	#moneyOnly
+	{
+		font-size: 1.2em;
+	}
+	
+	/*Budget Page*/
+	
+		/*Go Back*/
+	
+	.goBack
+	{
+		top: 1%;
+	}
+	
+	/*Go Back*/
+	
+	
+	
 }

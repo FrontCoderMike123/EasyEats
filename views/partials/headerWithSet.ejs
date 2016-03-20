@@ -7,6 +7,26 @@
 <h1><%= title %></h1>
 <p>Easy as One, Two, Eat!</p>
 </div>
+	<div id="userHolder">
+        <div id="userPicHolder">
+          <img src="<%= thumb %>" alt="Your Thumbnail"/>
+          <article>
+            <h3><%= fullName %></h3>
+            <p><%= userName %></p>
+            <a href="/updateProfile">Update Profile</a>
+          </article>
+        </div>
+        <a href="/profilePicture">
+        <div class="noThumb">
+          <object data="images/icons/noThumb.svg">
+            <img src="images/icons/noThumb.png" alt="Upload a Thumbnail"/>
+          </object>
+          <article>
+            <h3>Upload an Avatar!</h3>
+          </article>
+        </div>
+        </a>
+    </div>
 <div id="settings">
 	<a href="/settings">
 		<div>
@@ -14,6 +34,7 @@
 				<img src="/images/icons/settings.png" alt="Settings">
 			</object>
 		</div>
+		<span class="settingMobile">Settings</span>
 	</a>
 	<a href="/logout">
 		<div>
@@ -21,5 +42,6 @@
 				<img src="/images/icons/logout.png" alt="Logout">
 			</object>
 		</div>
+		<span class="settingMobile">Logout</span>
 	</a>
 </div>
