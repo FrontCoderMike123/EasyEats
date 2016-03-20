@@ -3,9 +3,16 @@
 <head>
     <% include ../partials/head %>
 </head>
-<body>
+<body id="settingsBody">
     <header>
       <% include ../partials/header %>
+      <a href="/budget" class="goBack" title="Go Back">
+          <div>
+            <object data="images/icons/yellowHome.svg">
+              <img src="images/icons/yellowHome.png" alt="Back to 'Food Finder'">
+            </object>
+          </div>
+        </a>
     </header>
 
     <div id="padding">
@@ -45,7 +52,6 @@
             <span class="text-content"><span><%= favorite %></span></span>
             </div>
           </a>
-          <a class="goBack" href="/budget">Go Back</a>
       </div>
 
     </div>

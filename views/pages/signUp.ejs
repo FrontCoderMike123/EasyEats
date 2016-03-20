@@ -22,23 +22,23 @@ ng-controller="optionCtrl">
       <h5 class="errMsgs"><%= message %></h5>
       <fieldset>
           <label><%= username %></label>
-          <input type="text" name="username">
+          <input type="text" name="username" required>
       </fieldset>
       <fieldset>
           <label><%= password %></label>
-          <input type="password" name="password">
+          <input type="password" name="password" required>
       </fieldset>
       <fieldset>
           <label><%= fname %></label>
-          <input type="text" name="firstname">
+          <input type="text" name="firstname" required>
       </fieldset>
       <fieldset>
           <label><%= lname %></label>
-          <input type="text" name="lastname">
+          <input type="text" name="lastname" required>
       </fieldset>
       <fieldset id="EMAIL">
           <label><%= email %></label>
-          <input type="email" name="email">
+          <input type="email" name="email" required>
       </fieldset>
       
       <!--

@@ -65,7 +65,7 @@ header
 	overflow: hidden;
 }
 
-#logoHolder object
+#logoHolder object,#logoHolder img
 {
 	float: left;
 	width: 10%;
@@ -387,7 +387,6 @@ footer a:hover
 
 footer ul
 {
-	float: left;
 	text-align: center;
 }
 
@@ -868,12 +867,16 @@ position: relative;
 }
 
 /***************************SETTINGS PAGE**************************************/
+#settingsBody
+{
+	background-color: #ffcc00;
+}
+
 #settingList
 {
   width: 100%;
 	background-color: #ffcc00;
-	padding: 7% 0 0 0;
-	height: 100vh;
+	padding: 2% 0 0 0;
 	text-align: center;
 	overflow: hidden;
 	position: relative;
@@ -916,28 +919,15 @@ opacity: 0;
 .goBack
 {
 	position: absolute;
-	bottom: 10%;
-	left: 25%;
-	width: 50%;
-	padding: 2% 0;
-	font-size: 2em;
-	background-color: #006699;
-	border-radius: 10px;
-	border: thin solid rgba(0,0,0,.0);
-	color: #ffcc00;
-	font-weight: bold;
+	top: 2%;
+	right: 1%;
 	-webkit-transition: all .5s ease;
 	-moz-transition: all .5s ease;
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
 }
 
-.goBack:hover
-{
-	background: rgba(255,255,255,.5);
-	border-color: #006699;
-	color: #006699;
-}
+
 
 /*****************RESET FORM*******************/
 .resetForm
@@ -1219,14 +1209,100 @@ opacity: 0;
 
 /*My Phone*/
 @media only screen and (max-width: 240px) {
-	p
+	
+	/*Main importants*/
+	#logoHolder object,#logoHolder img
+	{
+		width: 40%;
+		float: none;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 100%;
+	}
+	
+	.mainTitle p
+	{
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
 	{
 	 font-size: 1em!important;	
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	h1,h2,h3,h4,h5,h6,label,button
 	{
-		font-size: 1.3em!important;
+		font-size: 1.1em!important;
+	}
+	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 90%;
+		margin: 0 0 10px 0;
+	}
+	
+	#intro a:last-child
+	{
+		margin: 0;
 	}
 	
 	.forms
@@ -1262,76 +1338,124 @@ opacity: 0;
 		font-size: 1em!important;
 	}
 	
-	#noMember
-	{
-		width: 80%!important;
-		margin-bottom: 10px;
-	}
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
 	
 	.twoButtons
 	{
 		float: none;
 	}
 	
-	header img
-	{
-		float: none;
-		width: 100px;
-		margin: 5px auto;
-		display: block;
-	}
+	/*BUTTONS*/
 	
-	.mainTitle
+	#noMember
 	{
-		width: 100%;
-		float: none;
-	}
-	
-	.mainTitle h1
-	{
-		width: 90%;
-	}
-	
-	header ul
-	{
-		width: 90%;
-		float: none;
-		margin: 10px auto;
-	}
-	
-	header li
-	{
-		margin: 0 10px;
-	}
-	
-	header ul p
-	{
-		display: none;
-	}
-	
-	footer
-	{
-		text-align: center;
-		font-size: .7em;
-		line-height: 16px;
-	}
-	
-	.break
-	{
-		display: block;
+		width: 80%!important;
+		margin-bottom: 10px;
 	}
 }
 
 /*Android*/
 @media only screen and (min-width:241px) and  (max-width: 266px) {
-	p
+		/*Main importants*/
+	#padding
+	{
+		padding-bottom: 200px!important;
+	}
+	
+	#logoHolder object,#logoHolder img
+	{
+		width: 40%;
+		float: none;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 100%;
+	}
+	
+	.mainTitle p
+	{
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
 	{
 	 font-size: 1em!important;	
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	h1,h2,h3,h4,h5,h6,label,button
 	{
-		font-size: 1.3em!important;
+		font-size: 1.1em!important;
+	}
+	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 90%;
+		margin: 0 0 10px 0;
+	}
+	
+	#intro a:last-child
+	{
+		margin: 0;
 	}
 	
 	.forms
@@ -1367,76 +1491,124 @@ opacity: 0;
 		font-size: 1em!important;
 	}
 	
-	#noMember
-	{
-		width: 80%!important;
-		margin-bottom: 10px;
-	}
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
 	
 	.twoButtons
 	{
 		float: none;
 	}
 	
-	header img
-	{
-		float: none;
-		width: 100px;
-		margin: 5px auto;
-		display: block;
-	}
+	/*BUTTONS*/
 	
-	.mainTitle
+	#noMember
 	{
-		width: 100%;
-		float: none;
-	}
-	
-	.mainTitle h1
-	{
-		width: 90%;
-	}
-	
-	header ul
-	{
-		width: 90%;
-		float: none;
-		margin: 10px auto;
-	}
-	
-	header ul p
-	{
-		display: none;
-	}
-	
-	header li
-	{
-		margin: 0 10px;
-	}
-	
-	footer
-	{
-		text-align: center;
-		font-size: .7em;
-		line-height: 16px;
-	}
-	
-	.break
-	{
-		display: block;
+		width: 80%!important;
+		margin-bottom: 10px;
 	}
 }
 
 /*iPhone4*/
 @media only screen and (min-width: 267px) and (max-width: 320px) {
-	p
+		/*Main importants*/
+	#padding
+	{
+		padding-bottom: 250px!important;
+	}
+	
+	#logoHolder object,#logoHolder img
+	{
+		width: 40%;
+		float: none;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 100%;
+	}
+	
+	.mainTitle p
+	{
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
 	{
 	 font-size: 1em!important;	
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	h1,h2,h3,h4,h5,h6,label,button
 	{
 		font-size: 1.3em!important;
+	}
+	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 90%;
+		margin: 0 0 10px 0;
+	}
+	
+	#intro a:last-child
+	{
+		margin: 0;
 	}
 	
 	.forms
@@ -1472,76 +1644,124 @@ opacity: 0;
 		font-size: 1em!important;
 	}
 	
-	#noMember
-	{
-		width: 80%!important;
-		margin-bottom: 10px;
-	}
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
 	
 	.twoButtons
 	{
 		float: none;
 	}
 	
-	header img
-	{
-		float: none;
-		width: 100px;
-		margin: 5px auto;
-		display: block;
-	}
+	/*BUTTONS*/
 	
-	.mainTitle
+	#noMember
 	{
-		width: 100%;
-		float: none;
-	}
-	
-	.mainTitle h1
-	{
-		width: 90%;
-	}
-	
-	header ul
-	{
-		width: 90%;
-		float: none;
-		margin: 10px auto;
-	}
-	
-	header ul p
-	{
-		display: none;
-	}
-	
-	header li
-	{
-		margin: 0 10px;
-	}
-	
-	footer
-	{
-		text-align: center;
-		font-size: .8em;
-		line-height: 18px;
-	}
-	
-	.break
-	{
-		display: block;
+		width: 80%!important;
+		margin-bottom: 10px;
 	}
 }
 
 /*Blackberry*/
-@media only screen and (min-width: 321px) and (max-width: 360px) {
-	p
+@media only screen and (min-width: 321px) and (max-width: 379px) {
+		/*Main importants*/
+	#padding
+	{
+		padding-bottom: 250px!important;
+	}
+	
+	#logoHolder object,#logoHolder img
+	{
+		width: 30%;
+		float: none;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 100%;
+	}
+	
+	.mainTitle p
+	{
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
 	{
 	 font-size: 1em!important;	
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	h1,h2,h3,h4,h5,h6,label,button
 	{
 		font-size: 1.3em!important;
+	}
+	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 40%;
+		margin: 0;
+	}
+	
+	#intro a:last-child
+	{
+		margin: 0;
 	}
 	
 	.forms
@@ -1577,23 +1797,55 @@ opacity: 0;
 		font-size: 1em!important;
 	}
 	
-	#noMember
-	{
-		width: 80%!important;
-		margin-bottom: 10px;
-	}
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
 	
 	.twoButtons
 	{
 		float: none;
 	}
 	
-	header img
+	/*BUTTONS*/
+	
+	#noMember
 	{
+		width: 80%!important;
+		margin-bottom: 10px;
+	}
+}
+
+/*Device*/
+@media only screen and (min-width:380px) and (max-width:414px){
+  	/*Main importants*/
+	#padding
+	{
+		padding-bottom: 250px!important;
+	}
+	
+	#logoHolder object,#logoHolder img
+	{
+		width: 30%;
 		float: none;
-    width: 100px;
 		margin: 5px auto;
 		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
 	}
 	
 	.mainTitle
@@ -1604,49 +1856,218 @@ opacity: 0;
 	
 	.mainTitle h1
 	{
-		width: 90%;
+		width: 100%;
 	}
 	
-	header ul
+	.mainTitle p
 	{
-		width: 90%;
-		float: none;
-		margin: 10px auto;
-	}
-	
-	header ul p
-	{
-		display: none;
-	}
-	
-	header li
-	{
-		margin: 0 10px;
-	}
-	
-	footer
-	{
-		text-align: center;
-		font-size: .8em;
-		line-height: 18px;
+		width: 100%;
+		margin-bottom: 5px;
 	}
 	
 	.break
 	{
 		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6,label,button
+	{
+		font-size: 1.3em!important;
+	}
+	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 40%;
+		margin: 0;
+	}
+	
+	#intro a:last-child
+	{
+		margin: 0;
+	}
+	
+	.forms
+	{
+		width: 100%;
+		margin: 0;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.forms fieldset
+	{
+		width: 100%!important;
+	}
+	
+	.forms input
+	{
+	 width: 80%!important;
+	}
+	
+	.options
+	{
+		width: 100%;
+	}
+	
+	.options select
+	{
+		width: 80%;
+	}
+	
+	.options label
+	{
+		font-size: 1em!important;
+	}
+	
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
+	
+	.twoButtons
+	{
+		float: none;
+	}
+	
+	/*BUTTONS*/
+	
+	#noMember
+	{
+		width: 80%!important;
+		margin-bottom: 10px;
 	}
 }
 
 /*Galaxy S*/
 @media only screen and (min-width: 415px) and (max-width: 480px) {
-	p
+		/*Main importants*/
+	#padding
+	{
+		padding-bottom: 250px!important;
+	}
+	
+	#logoHolder object,#logoHolder img
+	{
+		width: 70px;
+		float: none;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 100%;
+	}
+	
+	.mainTitle p
+	{
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
 	{
 	 font-size: 1em!important;	
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	h1,h2,h3,h4,h5,h6,label,button
 	{
 		font-size: 1.3em!important;
+	}
+	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 40%;
+		margin: 0;
+	}
+	
+	#intro a:last-child
+	{
+		margin: 0;
 	}
 	
 	.forms
@@ -1682,76 +2103,124 @@ opacity: 0;
 		font-size: 1em!important;
 	}
 	
-	#noMember
-	{
-		width: 80%!important;
-		margin-bottom: 10px;
-	}
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
 	
 	.twoButtons
 	{
 		float: none;
 	}
 	
-	header img
-	{
-		float: none;
-    width: 100px;
-		margin: 5px auto;
-		display: block;
-	}
+	/*BUTTONS*/
 	
-	.mainTitle
+	#noMember
 	{
-		width: 100%;
-		float: none;
-	}
-	
-	.mainTitle h1
-	{
-		width: 90%;
-	}
-	
-	header ul
-	{
-		width: 90%;
-		float: none;
-		margin: 10px auto;
-	}
-	
-	header ul p
-	{
-		display: none;
-	}
-	
-	header li
-	{
-		margin: 0 10px;
-	}
-	
-	footer
-	{
-		text-align: center;
-		font-size: .8em;
-		line-height: 18px;
-	}
-	
-	.break
-	{
-		display: block;
+		width: 80%!important;
+		margin-bottom: 10px;
 	}
 }
 
 /*Kindle*/
 @media only screen and (min-width: 481px) and (max-width: 533px) {
-	p
+		/*Main importants*/
+	#padding
 	{
-	 font-size: 1.2em!important;	
+		padding-bottom: 300px!important;
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	#logoHolder object,#logoHolder img
 	{
-		font-size: 1.5em!important;
+		width: 70px;
+		float: none;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 100%;
+	}
+	
+	.mainTitle p
+	{
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
+	{
+	 font-size: 1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6,label,button
+	{
+		font-size: 1.3em!important;
+	}
+	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 40%;
+		margin: 0;
+	}
+	
+	#intro a:last-child
+	{
+		margin: 0;
 	}
 	
 	.forms
@@ -1787,78 +2256,121 @@ opacity: 0;
 		font-size: 1em!important;
 	}
 	
-	#noMember
-	{
-		width: 80%!important;
-		margin-bottom: 10px;
-	}
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
 	
 	.twoButtons
 	{
 		float: none;
 	}
 	
-	header img
-	{
-		float: none;
-    width: 100px;
-		margin: 5px auto;
-		display: block;
-	}
+	/*BUTTONS*/
 	
-	.mainTitle
+	#noMember
 	{
-		width: 100%;
-		float: none;
-	}
-	
-	.mainTitle h1
-	{
-		width: 90%;
-	}
-	
-	header ul
-	{
-		width: 90%;
-		float: none;
-		margin: 10px auto;
-	}
-	
-	header ul p
-	{
-		display: none;
-	}
-	
-	header li
-	{
-		margin: 0 10px;
-	}
-	
-	footer
-	{
-		text-align: center;
-		font-size: .8em;
-		line-height: 18px;
-	}
-	
-	.break
-	{
-		display: block;
+		width: 80%!important;
+		margin-bottom: 10px;
 	}
 }
 
 /*Nook Tablet*/
 @media only screen and (min-width: 534px) and (max-width: 600px) {
-	p
+		/*Main importants*/
+	#padding
 	{
-	 font-size: 1.2em!important;	
+		padding-bottom: 300px!important;
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	#logoHolder object,#logoHolder img
+	{
+		width: 70px;
+		float: none;
+		margin: 5px auto;
+		display: block;
+	}
+	
+	header ul
+	{
+		width: 90%;
+		float: none;
+		margin: 10px auto;
+	}
+	
+	header li
+	{
+		margin: 0 10px;
+	}
+	
+	header ul p
+	{
+		display: none;
+	}
+	
+	.mainTitle
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	.mainTitle h1
+	{
+		width: 100%;
+	}
+	
+	.mainTitle p
+	{
+		width: 100%;
+		margin-bottom: 5px;
+	}
+	
+	.break
+	{
+		display: block;
+	}
+	
+	footer
+	{
+		text-align: center;
+	}
+	
+	footer ul
+	{
+		overflow: hidden;
+	}
+	
+	footer li
+	{
+		display: inline-block;
+		float: none;
+		margin: 5px 10px!important;
+	}
+	
+	footer p
+	{
+		line-height: 20px;
+	}
+	
+	p,a,input,select
+	{
+	 font-size: 1.1em!important;	
+	}
+	
+	h1,h2,h3,h4,h5,h6,label,button
 	{
 		font-size: 1.5em!important;
 	}
 	
+	/*Main importants*/
+	
+	/*FORMS and OPTIONS*/
+	
+  #intro a
+	{
+		width: 30%;
+		margin: 0 10px;
+	}
+
 	.forms
 	{
 		width: 100%;
@@ -1892,76 +2404,34 @@ opacity: 0;
 		font-size: 1em!important;
 	}
 	
-	#noMember
-	{
-		width: 80%!important;
-		margin-bottom: 10px;
-	}
+	/*FORMS and OPTIONS*/
+	
+	/*BUTTONS*/
 	
 	.twoButtons
 	{
 		float: none;
 	}
 	
-	header img
-	{
-		float: none;
-    width: 100px;
-		margin: 5px auto;
-		display: block;
-	}
+	/*BUTTONS*/
 	
-	.mainTitle
+	#noMember
 	{
-		width: 100%;
-		float: none;
-	}
-	
-	.mainTitle h1
-	{
-		width: 90%;
-	}
-	
-	header ul
-	{
-		width: 90%;
-		float: none;
-		margin: 10px auto;
-	}
-	
-	header ul p
-	{
-		display: none;
-	}
-	
-	header li
-	{
-		margin: 0 10px;
-	}
-	
-	footer
-	{
-		text-align: center;
-		font-size: .8em;
-		line-height: 18px;
-	}
-	
-	.break
-	{
-		display: block;
+		width: 80%!important;
+		margin-bottom: 10px;
 	}
 }
 
 /*Apple Ipad*/
 @media only screen and (min-width: 601px) and (max-width: 768px) {
-	p
+	p,a,input,select
 	{
-	 font-size: 1em!important;	
+	 font-size: 1.1em!important;	
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	h1,h2,h3,h4,h5,h6,label,button
 	{
-		font-size: 1.5em!important;
+		font-size: 1.4em!important;
 	}
 
 	.mainTitle
@@ -1981,9 +2451,9 @@ opacity: 0;
 		float: left;
 	}
 	
-	header img
+	#logoHolder object, #logoHolder img
 	{
-		width: 100px;
+		width: 80px;
 	}
 	
 	header ul
@@ -2004,12 +2474,12 @@ opacity: 0;
 
 /*Desktop1*/
 @media only screen and (min-width: 801px) and (max-width: 980px) {
-	p
+	p,a,input,select
 	{
 	 font-size: 1em!important;	
 	}
 	
-	h1,h2,h3,h4,h5,h6
+	h1,h2,h3,h4,h5,h6,label,button
 	{
 		font-size: 1.7em!important;
 	}
@@ -2029,6 +2499,11 @@ opacity: 0;
 		width: 20%;
 		overflow: hidden;
 		float: left;
+	}
+	
+	#logoHolder object, #logoHolder img
+	{
+		width: 85px;
 	}
 	
 	header img

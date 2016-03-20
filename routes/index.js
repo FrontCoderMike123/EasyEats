@@ -100,7 +100,7 @@ router.post('/login', function(req, res, next) {
         username: 'Username',
         password: 'Password',
         Login: 'Login',
-        message : 'Username or Password Incorrect. Please Try Again.',
+        message : 'Username or Password Are Incorrect. Please Try Again.',
         sent: '',
         success: ''
       });
@@ -120,21 +120,9 @@ router.post('/login', function(req, res, next) {
 }));*/
 
 router.get('/logout', function(req, res) {
+    req.session.destroy();
     req.logout();
-    //res.redirect('/');
-    res.render('pages/index',{
-      user : req.user,
-      title: 'EasyEatz',
-      subTitle: 'Come back soon'
-    });
-});
-
-router.post('/logout', function(req, res){
-    res.render('pages/index',{
-      user : req.user,
-      title: 'EasyEatz',
-      subTitle: 'Come back soon '+req.user
-    });
+    res.redirect('/login');
 });
 
 router.get('/signUp', function(req, res) {
