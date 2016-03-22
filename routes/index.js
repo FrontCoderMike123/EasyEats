@@ -42,7 +42,10 @@ router.get('/favorites',function(req,res){
   res.render('pages/favorites',{
     user: req.user,
     username: req.user.username,
-    title:'Favorites'
+    title:'Favorites',
+    thumb: 'images/profilePictures/me.png',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username
   });
 });
 
@@ -76,7 +79,7 @@ router.get('/login', function(req,res,next) {
   res.render('pages/login', {
     user: req.user,
     title: 'Please Login',
-    formTitle: 'Welcome Back',
+    formTitle: 'Welcome',
     username: 'Username',
     password: 'Password',
     Login: 'Login',
@@ -235,7 +238,10 @@ router.get('/forgotPass',function(req,res){
   res.render('pages/forgotPass',{
     user: req.user,
     title: 'Forget Password?',
-    subTitle: 'Enter This Accounts Email'
+    subTitle: 'Enter This Accounts Email',
+    thumb: 'images/profilePictures/me.png',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username
   });
 });
 
@@ -418,7 +424,10 @@ router.get('/updateProfile',function(req,res){
     firstname: req.user.firstname,
     lastname: req.user.lastname,
     username: req.user.username,
-    emailAddress: req.user.emailAddress
+    emailAddress: req.user.emailAddress,
+    thumb: 'images/profilePictures/me.png',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username
   });
 });
 

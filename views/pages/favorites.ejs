@@ -13,24 +13,7 @@
 
       <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
 
-        <div class="favoriteSelector" ng-hide="isHidden">
-          <select id="select" multiple size="10" name="favorites">
-          <option
-          data-ng-repeat="type in types"
-          data-ng-click="toggleFav(type)"
-          class="type-{{type.Favorite}} slide"
-          ng-value="{{type.Cookie}}">{{type.Type}}</option>
-          </select>
-        </div>
-
-        <!--<span id="wordChange">{{selected()}}</span>
-        <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>-->
-
-        <button class="slide" name="button" type="submit">Fucking click me</button>
-      </form>
-
-        <!--
-            <ul class="favList">
+        <ul class="favList">
 <li data-ng-repeat="type in types"
 data-ng-click="toggleFav(type)"
 class="type-{{type.Favorite}} slide"
@@ -48,8 +31,24 @@ ng-model="clickedFavs.Favorite">
 </div>
 </li>
             </ul>
-          -->
 
+            <!--<span id="wordChange">{{selected()}}</span>
+            <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>-->
+
+<!--
+        <div class="favoriteSelector" ng-hide="isHidden">
+          <select id="select" multiple size="10" name="favorites">
+          <option
+          data-ng-repeat="type in types"
+          data-ng-click="toggleFav(type)"
+          class="type-{{type.Favorite}} slide"
+          ng-value="{{type.Cookie}}">{{type.Type}}</option>
+          </select>
+        </div>
+        <button class="slide" name="button" type="submit">Fucking click me</button>
+      -->
+      </form>
+          
     </div><!--fav Holder-->
       
     <footer class="relative">

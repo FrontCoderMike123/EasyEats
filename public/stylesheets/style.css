@@ -369,7 +369,7 @@ footer a:hover
 
 .moneySVG
 {
-	left:-400px;
+	left:-10000px;
 	top: 0;
 }
 
@@ -385,8 +385,17 @@ footer a:hover
 
 .happySVG
 {
-	right: -400px;
+	right: -10000px;
 	top: 0;
+}
+
+.mobileMoney,.mobileRefresh,.mobileHappy
+{
+	display: none;
+	opacity: 0;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	-o-opacity: 0;
 }
 
 
@@ -875,6 +884,11 @@ position: relative;
 }
 
 /***************************SETTINGS PAGE**************************************/
+#settingList object, #settingList img
+{
+  width: 370px;
+}
+
 #settingsBody
 {
 	background-color: #ffcc00;
@@ -1186,6 +1200,23 @@ opacity: 0;
 	display: block;
 }
 
+#updateProfileCon
+{
+	width: 80%;
+	text-align: center;
+}
+
+#updateProfileCon fieldset
+{
+	width: 45%;
+	display: inline-block;
+}
+
+.updatePad
+{
+	padding-bottom: 70px!important;
+}
+
 .confirm
 {
 	margin-bottom: 10px!important;
@@ -1458,6 +1489,90 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: .7em;
+		padding: 30px 0;
+	}
+	
+	.moneySVG,.refreshSVG,.happySVG
+	{
+		display: none;
+	}
+	
+	.mobileMoney,.mobileRefresh,.mobileHappy
+	{
+		width: 35%;
+		display: block;
+	}
+	
+	.mobileMoney
+	{
+		left: 32.5%;
+	}
+	
+	.mobileRefresh
+	{
+		top: 70px;
+		left: 5px;
+	}
+	
+	.mobileHappy
+	{
+		right: 5px;
+		top: 70px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	#settingList div
+	{
+	 width: 70%;
+		margin: 10px 0;
+	}
+	
+	span.text-content
+	{
+		font-size: 1.3em;
+	 position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -1470,7 +1585,7 @@ opacity: 0;
 		/*Main importants*/
 	#padding
 	{
-		padding-bottom: 200px!important;
+		padding-bottom: 350px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -1701,6 +1816,91 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: .7em;
+		padding: 30px 0;
+	}
+	
+	.moneySVG,.refreshSVG,.happySVG
+	{
+		display: none;
+	}
+	
+	.mobileMoney,.mobileRefresh,.mobileHappy
+	{
+		width: 35%;
+		display: block;
+	}
+	
+	.mobileMoney
+	{
+		left: 32.5%;
+		top: 10px;
+	}
+	
+	.mobileRefresh
+	{
+		top: 110px;
+		left: 15px;
+	}
+	
+	.mobileHappy
+	{
+		right: 15px;
+		top: 110px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	#settingList div
+	{
+	 width: 70%;
+		margin: 10px 0;
+	}
+	
+	span.text-content
+	{
+		font-size: 1.3em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 130px!important;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -1713,7 +1913,7 @@ opacity: 0;
 		/*Main importants*/
 	#padding
 	{
-		padding-bottom: 250px!important;
+		padding-bottom: 370px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -1945,6 +2145,91 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: .8em;
+		padding: 40px 0;
+	}
+	
+	.moneySVG,.refreshSVG,.happySVG
+	{
+		display: none;
+	}
+	
+	.mobileMoney,.mobileRefresh,.mobileHappy
+	{
+		width: 35%;
+		display: block;
+	}
+	
+	.mobileMoney
+	{
+		left: 32.5%;
+		top: 10px;
+	}
+	
+	.mobileRefresh
+	{
+		top: 120px;
+		left: 15px;
+	}
+	
+	.mobileHappy
+	{
+		right: 15px;
+		top: 120px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	#settingList div
+	{
+	 width: 70%;
+		margin: 10px 0;
+	}
+	
+	span.text-content
+	{
+		font-size: 1.5em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -1957,7 +2242,7 @@ opacity: 0;
 		/*Main importants*/
 	#padding
 	{
-		padding-bottom: 250px!important;
+		padding-bottom: 400px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2189,6 +2474,91 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: .95em;
+		padding: 50px 0;
+	}
+	
+	.moneySVG,.refreshSVG,.happySVG
+	{
+		display: none;
+	}
+	
+	.mobileMoney,.mobileRefresh,.mobileHappy
+	{
+		width: 35%;
+		display: block;
+	}
+	
+	.mobileMoney
+	{
+		left: 32.5%;
+		top: 5px;
+	}
+	
+	.mobileRefresh
+	{
+		top: 135px;
+		left: 15px;
+	}
+	
+	.mobileHappy
+	{
+		right: 15px;
+		top: 135px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	#settingList div
+	{
+	 width: 70%;
+		margin: 10px 0;
+	}
+	
+	span.text-content
+	{
+		font-size: 1.7em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -2201,7 +2571,7 @@ opacity: 0;
   	/*Main importants*/
 	#padding
 	{
-		padding-bottom: 250px!important;
+		padding-bottom: 420px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2433,6 +2803,91 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: 1.1em;
+		padding: 50px 0;
+	}
+	
+	.moneySVG,.refreshSVG,.happySVG
+	{
+		display: none;
+	}
+	
+	.mobileMoney,.mobileRefresh,.mobileHappy
+	{
+		width: 35%;
+		display: block;
+	}
+	
+	.mobileMoney
+	{
+		left: 32.5%;
+		top: 5px;
+	}
+	
+	.mobileRefresh
+	{
+		top: 135px;
+		left: 15px;
+	}
+	
+	.mobileHappy
+	{
+		right: 15px;
+		top: 135px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	#settingList div
+	{
+	 width: 50%;
+		margin: 10px 0;
+	}
+	
+	span.text-content
+	{
+		font-size: 1.4em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -2445,7 +2900,7 @@ opacity: 0;
 		/*Main importants*/
 	#padding
 	{
-		padding-bottom: 250px!important;
+		padding-bottom: 420px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2676,6 +3131,91 @@ opacity: 0;
 	}
 	
 	/*Go Back*/
+	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: 1.15em;
+		padding: 50px 0;
+	}
+	
+	.moneySVG,.refreshSVG,.happySVG
+	{
+		display: none;
+	}
+	
+	.mobileMoney,.mobileRefresh,.mobileHappy
+	{
+		width: 30%;
+		display: block;
+	}
+	
+	.mobileMoney
+	{
+		left: 35%;
+		top: 5px;
+	}
+	
+	.mobileRefresh
+	{
+		top: 145px;
+		left: 15px;
+	}
+	
+	.mobileHappy
+	{
+		right: 15px;
+		top: 145px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	#settingList div
+	{
+	 width: 50%;
+		margin: 10px 0;
+	}
+	
+	span.text-content
+	{
+		font-size: 1.6em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 130px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 132px;
+	}
+	
+	/*UPDATE PRO*/
 	
 	#noMember
 	{
@@ -2921,6 +3461,60 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: 1em;
+		padding: 50px 0;
+	}
+	.opening
+	{
+		top: 20px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	span.text-content
+	{
+		font-size: 1.1em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 150px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 135px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -3146,6 +3740,60 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: 1.2em;
+		padding: 50px 0;
+	}
+	.opening
+	{
+		top: 12px;
+	}
+	
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	span.text-content
+	{
+		font-size: 1.1em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 150px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon
+	{
+		width: 100%;
+	}
+	
+	#updateProfileCon fieldset
+	{
+		width: 100%;
+		float: none;
+	}
+	
+	#updatePad
+	{
+		padding-bottom: 135px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	#noMember
 	{
 		width: 80%!important;
@@ -3157,12 +3805,12 @@ opacity: 0;
 @media only screen and (min-width: 601px) and (max-width: 768px) {
 	p,a,input,select
 	{
-	 font-size: 1.1em!important;	
+	 font-size: 1em!important;	
 	}
 	
 	h1,h2,h3,h4,h5,h6,label,button
 	{
-		font-size: 1.4em!important;
+		font-size: 1.2em!important;
 	}
 
 	.mainTitle
@@ -3205,6 +3853,11 @@ opacity: 0;
 	.neverMind
 	{
 		width: 32%;
+	}
+	
+	#budgetForm
+	{
+		width: 60%;
 	}
 	
 	/*Error Msgs*/
@@ -3280,6 +3933,54 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: 1.4em;
+		padding: 75px 0;
+	}
+	
+	.opening
+	{
+		top: 10px;
+	}
+	/*BANNER*/
+	
+	/*SETTING*/
+	
+	span.text-content
+	{
+		font-size: 1.6em;
+		position: static;
+		opacity: 1;
+		-webkit-opacity: 1;
+		-moz-opacity: 1;
+		-o-opacity: 1;
+		background: none;
+	}
+	
+	#settingPad
+	{
+		padding-bottom: 170px;
+	}
+	
+	/*SETTING*/
+	
+	/*UPDATE PRO*/
+	
+	#updateProfileCon input
+	{
+		width: 95%;
+	}
+
+	#updatePad
+	{
+		padding-bottom: 70px;
+	}
+	
+	/*UPDATE PRO*/
+	
 	
 }
 
@@ -3292,7 +3993,7 @@ opacity: 0;
 	
 	h1,h2,h3,h4,h5,h6,label,button
 	{
-		font-size: 1.7em!important;
+		font-size: 1.4em!important;
 	}
 	
 	.mainTitle
@@ -3414,6 +4115,25 @@ opacity: 0;
 	
 	/*Go Back*/
 	
+	/*BANNER*/
+	
+	.bannerContent
+	{
+		font-size: 2em;
+		padding: 90px 0;
+	}
+
+	/*BANNER*/
+	
+		/*SETTING*/
+	
+	span.text-content
+	{
+		font-size: 1.6em;
+	}
+	
+	/*SETTING*/
+	
 }
 
 /*Desktop 4*/
@@ -3524,6 +4244,11 @@ opacity: 0;
 	}
 	
 	/*Go Back*/
+	
+	#updatePad
+	{
+		padding-bottom: 70px;
+	}
 	
 	
 	
