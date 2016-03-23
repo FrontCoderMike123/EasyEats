@@ -2,19 +2,28 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
+    <script src="/javascripts/deleteTween.js"></script>
 </head>
-<body>
+<body id="settingsBody">
     <header>
       <% include ../partials/headerWithSet %>
     </header>
 
     <div id="updatePad"><!--for bottom padding. keep footer down!-->
 
-        <form role="form" action="/deleteProfile" method="post">
-          <h1><%= subTitle %></h1>
+        <form role="form" id="deleteForm" action="/deleteProfile" method="post">
+          <p id="deleteText">You Can Still Say No... It's Up To You.</p>
+          <button id="nukeButton" type="submit">
+            <object data="images/icons/buttons/deleteUser.svg">
+              <img src="images/icons/buttons/deleteUser.png" alt="Delete User"/>
+            </object>
+          </button>
+          <a href="/settings" id="abort">
+            <object data="images/icons/buttons/abort.svg">
+              <img src="images/icons/buttons/abort.png" alt="Abort Mission"/>
+            </object>
+          </a>
 
-          <input class="mainButton" type="submit" value="Send">
-          <a class="neverMind" href="/settings">Never Mind</a>
         </form>
       
     </div>

@@ -11,42 +11,22 @@
 
     <div id="favHolder">
 
+      <!--<h3><%= yourFavs %></h3>-->
+
       <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
 
-        <ul class="favList">
-<li data-ng-repeat="type in types"
-data-ng-click="toggleFav(type)"
-class="type-{{type.Favorite}} slide"
-ng-value="{{type.Cookie}}"
-name="foodForm"
-ng-model="clickedFavs.Favorite">
-<object data-ng-data="{{type.SVG}}">
+        <div class="favoriteSelector">
+  <label data-ng-repeat="type in types">
+<input type="checkbox" ng-model="type.Favorite" name="favorites" value="{{type.Type}}" style="display:none">  <object data-ng-data="{{type.SVG}}">
   <img data-ng-src="{{type.PNG}}" alt="{{type.Type}}">
 </object>
-<div>
-<span class="fav-content">{{type.Type}}</span>
-<object class="checked" data-ng-data="/images/icons/favs/checked.svg">
-  <img data-ng-src="/images/icons/favs/checked.png" alt="Check Mark">
-</object>
-</div>
-</li>
-            </ul>
-
-            <!--<span id="wordChange">{{selected()}}</span>
-            <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>-->
-
-<!--
-        <div class="favoriteSelector" ng-hide="isHidden">
-          <select id="select" multiple size="10" name="favorites">
-          <option
-          data-ng-repeat="type in types"
-          data-ng-click="toggleFav(type)"
-          class="type-{{type.Favorite}} slide"
-          ng-value="{{type.Cookie}}">{{type.Type}}</option>
-          </select>
+  </label>
         </div>
-        <button class="slide" name="button" type="submit">Fucking click me</button>
-      -->
+
+        <button id="favSubmit" type="submit">
+          <span id="wordChange">{{selected()}}</span>
+        </button>
+
       </form>
           
     </div><!--fav Holder-->

@@ -38,35 +38,6 @@ router.get('/foodTypes', function(req,res,next){
   });*/
 });
 
-router.get('/favorites',function(req,res){
-  res.render('pages/favorites',{
-    user: req.user,
-    username: req.user.username,
-    title:'Favorites',
-    thumb: 'images/profilePictures/me.png',
-    fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username
-  });
-});
-
-router.post('/favorites',function(req,res){
-  Account.findById({ _id: req.user.id }, function(err,account){
-    if(err) throw err;
-
-    account.Foods['Cookie'] = req.body.favorites.value;
-
-    account.save(function(err){
-      if(err){
-        req.flash('favsError', 'Sorry, Could Not Save Your Favorites, Try Again.');
-        return res.redirect('/message');
-      }else{
-        req.flash('favorites',"Your favorites have been saved. Eat what you want!");
-        res.redirect('/message');
-      }
-    });
-  });
-});//this WILL be used. each food item has an ID
-
 router.get('/', function (req, res) {
     res.render('pages/index', {
       user : req.user,
@@ -157,7 +128,6 @@ router.post('/signUp', function(req, res) {
       lastname: req.body.lastname,
       emailAddress: req.body.email,
       userPhoto: req.body.userPhoto
-      //Foods: req.body.favorites.value
     }), req.body.password, function(err, account) {
 
         if (err) {
@@ -173,7 +143,6 @@ router.post('/signUp', function(req, res) {
               email: 'Email Address',
               favorites: 'Set Favorites',
               message: ''
-              //Foods: req.body.favorites
             });
         }
 
@@ -210,7 +179,6 @@ router.get('/budget', function(req, res) {
     userName: req.user.username
     //thumb: req.user.userPhoto
     // or req.user.photo gives me the array its being held in thanks to mongoose thumb... but still no go
-    //Foods: "Favorites: " + req.user.favorites.value
   });
 });
 
@@ -367,7 +335,8 @@ router.get('/message',function(req,res){
     goodUpload: req.flash('goodUpload'),
     favorites: req.flash('favorites'),
     profileUpdated: req.flash('profileUpdated'),
-    favsError: req.flash('favsError')
+    favsError: req.flash('favsError'),
+    deleted: req.flash('deleted')
   });
 });
 
@@ -463,11 +432,43 @@ router.post('/updateProfile',function(req,res){
   });
 });
 
+router.get('/favorites',function(req,res){
+  res.render('pages/favorites',{
+    user: req.user,
+    username: req.user.username,
+    title:'Favorites',
+    thumb: 'images/profilePictures/me.png',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username,
+    yourFavs: req.user.Foods
+  });
+});
+
+router.post('/favorites',function(req,res){
+  var today = new Date();
+  var year = today.getFullYear();
+  if (req.body.favorites) res.cookie('favorites', 1, { maxAge: year });
+  Account.findByIdAndUpdate({ _id: req.user.id },{Favorite:true}, function(err,account){
+    if(err) throw err;
+
+    account.Foods = req.body.favorites;
+
+    account.save(function(err){
+      if(err){
+        req.flash('favsError', 'Sorry, Could Not Save Your Favorites, Try Again.');
+        return res.redirect('/message');
+      }else{
+        req.flash('favorites',"Your favorites have been saved. Eat what you want!");
+        res.redirect('/message');
+      }
+    });
+  });
+});//this WILL be used. each food item has an ID
+
 router.get('/deleteProfile',function(req,res){
   res.render('pages/deleteProfile',{
-    user: req.user,
+    user: req.user.username,
     title: 'Delete Account',
-    subTitle: 'Are You Sure You Want To Leave Easy Eats?',
     thumb: 'images/profilePictures/me.png',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username
@@ -477,8 +478,8 @@ router.get('/deleteProfile',function(req,res){
 router.post('/deleteProfile',function(req,res){
   Account.findByIdAndRemove({ _id: req.user.id }, function(err, account){
     if(err) throw err;
-    console.log('user has been deleted');
-    res.redirect('/signUp');
+    req.flash('deleted', 'Your Account has been Deleted... Goodbye.');
+    res.redirect('/message');
   });
 });
 

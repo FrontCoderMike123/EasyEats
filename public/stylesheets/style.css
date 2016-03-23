@@ -15,7 +15,7 @@ body
 
 object
 {
-	pointer-events: none!important;
+	pointer-events: none;
 	max-width: 100%;
 }
 
@@ -847,7 +847,7 @@ position: relative;
 	left: 5px;
 }
 
-#spendingCon, .foundYou
+#spendingCon, .foundYou, #tuner
 {
 	display: inline-block;
 	background-color: #006699;
@@ -857,20 +857,28 @@ position: relative;
 	border-radius: 5px;
 }
 
-#spendingCon p, .foundYou p
+#spendingCon p, .foundYou p ,#tuner p
 {
 	font-family: 'Lato', sans-serif;
 	font-size: 1.1em;
 }
 
-#spendingCon
+#spendingCon,.foundYou,#tuner
 {
 	width: 30%;
 }
 
-.foundYou
+#tuner
 {
-	width: 60%;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+}
+
+#tuner:hover
+{
+	background:rgba(0,102,153,.8);
 }
 
 .foundYou span
@@ -1067,21 +1075,6 @@ opacity: 0;
 	background-color: #ffcc00;
 }
 
-.favForm ul
-{
-	text-align: center;
-}
-
-.favForm ul li
-{
-	width:20%;
-	float: left;
-	overflow: hidden;
-	padding:9px 0;
-	cursor: pointer;
-	position: relative;
-}
-
 span.fav-content
 {
 position: absolute;
@@ -1242,8 +1235,62 @@ opacity: 0;
 	font-weight: bold;
 }
 
+/**************************DELETE PAGE*****************/
+
+#deleteForm
+{
+	width: 100%;
+	background-color: #ffcc00;
+	text-align: center;
+	overflow: hidden;
+	clear: both;
+	color: #006699;
+	position: relative;
+	padding: 6% 0;
+}
+
+#deleteForm p{
+	position: absolute;
+	top: 1%;
+	left: 0;
+	padding: 10px 0;
+	z-index: 1;
+	width: 100%;
+	font-size: 2.3em;
+	font-weight: bold;
+	opacity: 0;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	-o-opacity: 0;
+}
+
+#nukeButton, #abort
+{
+	border: none;
+	border-radius: 50%;
+	background-color: #095e7f;
+	padding: 0;
+	cursor: pointer;
+	display: inline-block;
+	margin: 0 30px;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	opacity: 0;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	-o-opacity: 0;
+	width: 300px;
+}
+
+#nukeButton:hover, #abort:hover
+{
+	box-shadow: 0 0 10px rgba(51,51,51,.8)
+}
 
 
+/**************************DELETE PAGE*****************/
 
 
 /*My Phone*/
