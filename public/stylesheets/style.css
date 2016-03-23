@@ -898,7 +898,7 @@ position: relative;
 {
   width: 100%;
 	background-color: #ffcc00;
-	padding: 2% 0 0 0;
+	padding: 5% 0 0 0;
 	text-align: center;
 	overflow: hidden;
 	position: relative;
@@ -907,7 +907,7 @@ position: relative;
 #settingList div
 {
   display: inline-block;
-	width: 30%;
+	width: 22%;
 	margin: 0 1%;
 	position: relative;
 }
@@ -921,7 +921,7 @@ left: 0;
 background-color: rgba(255,204,0,.7);
 font-size: 2.8em;
 font-weight: bold;
-padding: 40% 0;
+padding: 35% 0;
 	height: 100%;
 opacity: 0;
   -moz-opacity:0;
@@ -3985,7 +3985,7 @@ opacity: 0;
 }
 
 /*Desktop1*/
-@media only screen and (min-width: 801px) and (max-width: 980px) {
+@media only screen and (min-width: 768px) and (max-width: 980px) {
 	p,a,input,select
 	{
 	 font-size: 1em!important;	

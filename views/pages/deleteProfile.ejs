@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+      <% include ../partials/headerWithSet %>
+    </header>
+
+    <div id="updatePad"><!--for bottom padding. keep footer down!-->
+
+        <form role="form" action="/deleteProfile" method="post">
+          <h1><%= subTitle %></h1>
+
+          <input class="mainButton" type="submit" value="Send">
+          <a class="neverMind" href="/settings">Never Mind</a>
+        </form>
+      
+    </div>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+
+  </body>
+</html>

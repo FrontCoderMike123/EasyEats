@@ -375,10 +375,11 @@ router.get('/settings',function(req,res){
   res.render('pages/settings',{
     user: req.user,
     title: 'Settings',
-    updateBio: 'Update Profile Information',
-    reset: 'Reset / Forgot Password',
+    updateBio: 'Update Profile',
+    reset: 'Reset Password',
     picture: 'Change Profile Picture',
-    favorite: 'Update Favorites'
+    favorite: 'Update Favorites',
+    remove: 'Delete User Account'
   });
 });
 
@@ -459,6 +460,25 @@ router.post('/updateProfile',function(req,res){
         res.redirect('/message');
       }
     });
+  });
+});
+
+router.get('/deleteProfile',function(req,res){
+  res.render('pages/deleteProfile',{
+    user: req.user,
+    title: 'Delete Account',
+    subTitle: 'Are You Sure You Want To Leave Easy Eats?',
+    thumb: 'images/profilePictures/me.png',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username
+  });
+});
+
+router.post('/deleteProfile',function(req,res){
+  Account.findByIdAndRemove({ _id: req.user.id }, function(err, account){
+    if(err) throw err;
+    console.log('user has been deleted');
+    res.redirect('/signUp');
   });
 });
 
