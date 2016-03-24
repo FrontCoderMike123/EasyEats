@@ -15,20 +15,32 @@
 
       <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
 
-        <div class="favoriteSelector">
-  <label data-ng-repeat="type in types">
-<input type="checkbox" ng-model="type.Favorite" name="favorites" value="{{type.Type}}" style="display:none">  <object data-ng-data="{{type.SVG}}">
-  <img data-ng-src="{{type.PNG}}" alt="{{type.Type}}">
-</object>
-  </label>
+        <div id="cravingAll">
+          <p>I Want Everything!</p>
+          <div class="everything">
+            <input type="checkbox" id="everything" ng-model="selectedAll" ng-click="checkAll()">
+            <label for="everything"></label>
+          </div>
+        </div>
+
+        <div class="favoriteSelector" data-ng-repeat="type in types">
+          <div class="FOODS">
+            <object data="{{type.SVG}}">
+              <img data-ng-src="{{type.PNG}}" alt="{{type.Type}}"/>
+            </object>
+          </div>
+          <h3>{{type.Type}}</h3>
+  <div class="slider"> 
+  <input type="checkbox" class="decide" ng-model="type.Favorite"  value="{{type.Type}}" id="{{type.Type}}" name="favorites">
+    <label for="{{type.Type}}"></label>
+  </div>
         </div>
 
         <button id="favSubmit" type="submit">
           <span id="wordChange">{{selected()}}</span>
         </button>
 
-      </form>
-          
+      </form>          
     </div><!--fav Holder-->
       
     <footer class="relative">

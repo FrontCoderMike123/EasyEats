@@ -12,6 +12,23 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
     	type.Favorite = !type.Favorite;
     };
 
+    $scope.checkAll = function () {
+        var P = document.querySelector('#cravingAll p');
+        if ($scope.selectedAll) {
+            $scope.selectedAll = true;
+        } else {
+            $scope.selectedAll = false;
+        }
+        angular.forEach($scope.types, function (type) {
+            type.Favorite = $scope.selectedAll;
+            if(type.Favorite){
+                P.innerHTML = 'Craving It All!';
+            }else{
+                P.innerHTML = 'I Want Everything!';
+            }
+        });
+    };
+
     $scope.selected = function(){
     	var favs = 0;
     	var favSub = document.querySelector('#favSubmit');
@@ -20,16 +37,16 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
     		if(type.Favorite){
     			favs++;
     			favSub.classList.add('appear');
-                wordChange.innerHTML = 'Happy with this '+favs+'?';
+                wordChange.innerHTML = 'Only Submit This ' + favs;
                 if(favs >= 2){
-                    wordChange.innerHTML = 'Happy with these '+favs+'?';
+                    wordChange.innerHTML = 'Submit These ' + favs;
                 }
     		}
     		if(favs == 0){
     			favSub.classList.remove('appear');
     		}
             if(favs == 10){
-                wordChange.innerHTML = "Craving Everything!";
+                wordChange.innerHTML = "Submit Everything!";
             }
     	});
     	return favs;

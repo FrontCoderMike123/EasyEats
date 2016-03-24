@@ -593,77 +593,6 @@ footer li
 	clear: both;
 }
 
-/**FAVS**/
-
-.favoriteSelector
-{
-	display:inline-block;
-	vertical-align:top;
-	overflow:hidden;
-	float: left;
-	margin-left: 10px;
-	width: -moz-max-content;
-	margin-bottom: 10px;
-}
-
-.favoriteSelector select
-{
-	padding:10px;
-	text-align: center;
-	margin:-5px -20px -5px -5px;
-}
-
-.favoriteSelector select option
-{
-	padding: 5px 50px;
-}
-
-#favButton
-{
-	cursor: pointer;
-	width: 40%;
-	text-align: center;
-	margin: auto;
-	margin-bottom: 10px;
-	background-color: #006699;
-	clear: both;
-	padding: 10px 0;
-	border-radius: 5px;
-	color: white;
-	font-weight: bold;
-	border: thin solid rgba(0,0,0,.0);
-	-webkit-transition: all .5s ease;
-	-moz-transition: all .5s ease;
-	-o-transition: all .5s ease;
-	transition: all .5s ease;
-	cursor: pointer;
-}
-
-#favButton:hover
-{
-	background: rgba(255,255,255,.5);
-	border-color: #006699;
-	color: #006699;
-}
-
-.type-true
-{
-	
-}
-
-#proFavs
-{
-	float: right;
-	margin-right: 10px;
-	width: 50%;
-	text-align: center;
-	color: #ffcc00;
-	font-size: 1.2em;
-	padding: 10% 0;
-	font-weight: bold;
-	background-color: #006699;
-}
-
 #EMAIL
 {
 	width: 100%!important;
@@ -1075,6 +1004,108 @@ opacity: 0;
 	background-color: #ffcc00;
 }
 
+#cravingAll
+{
+	display: block;
+	overflow: hidden;
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	margin-bottom: 10px;
+	overflow: hidden;
+	padding: 5px 0 0 5px;
+	height: 55px;
+}
+
+#cravingAll p
+{
+	font-size: 25px;
+	font-weight: bold;
+	color: #006699;
+	float: left;
+	margin-right: 10px;
+}
+
+.everything {
+	width: 30px;
+	height: 30px;
+	background: #fcfff4;
+	float: left;
+
+	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+
+	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
+	position: relative;
+}
+
+.everything label {
+	cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	left: 2.5px;
+	top: 2.5px;
+
+	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+	box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
+
+	background: -webkit-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -moz-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -o-linear-gradient(top, #222 0%, #45484d 100%);
+	background: -ms-linear-gradient(top, #222 0%, #45484d 100%);
+	background: linear-gradient(top, #222 0%, #45484d 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#222', endColorstr='#45484d',GradientType=0 );
+}
+
+.everything label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+	opacity: 0;
+	content: '';
+	position: absolute;
+	width: 10px;
+	height: 5px;
+	background: transparent;
+	top: 7px;
+	left: 6px;
+	border: 5px solid #ffcc00;
+	border-top: none;
+	border-right: none;
+
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	-o-transform: rotate(-45deg);
+	-ms-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+
+.everything label:hover::after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	opacity: 0.3;
+}
+
+.everything input[type=checkbox]:checked + label:after {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
 span.fav-content
 {
 position: absolute;
@@ -1095,10 +1126,172 @@ opacity: 0;
   transition: opacity 500ms;
 }
 
-.favForm li:hover span.fav-content {
-  opacity: 1;
-    -moz-opacity:1;
-    -webkit-opacity:1;
+pre
+{
+	float: left;
+}
+
+.favoriteSelector
+{
+	overflow: hidden;
+	display: block;
+	width: 20%;
+	float: left;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.favoriteSelector h3
+{
+	color: #006699;
+	font-size: 1.5em;
+}
+
+input[type=checkbox] {
+	visibility: hidden;
+}
+
+.favOpac
+{
+	opacity: 1!important;
+}
+
+.slider
+{
+	width: 95%;
+	height: 50px;
+	margin: 10px auto;
+	-webkit-border-radius: 50px;
+	-moz-border-radius: 50px;
+	border-radius: 50px;
+	position: relative;
+	box-shadow: inset 0 0 2px rgba(0,0,0,.5);
+	font-family: 'Quicksand', sans-serif;
+}
+
+.slider:after
+{
+	content: 'NO';
+	font-size: 40px;
+	color: #990000;
+	position: absolute;
+	right: 20px;
+	z-index: 0;
+	top: 5px;
+	font-weight: bold;
+	-webkit-text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+	-moz-text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+	text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+}
+
+.slider:before
+{
+	content: 'YES';
+	font-size: 40px;
+	color: #339933;
+	position: absolute;
+	top: 5px;
+	left: 20px;
+	font-weight: bold;
+}
+
+.slider label
+{
+	display: block;
+	width: 50%;
+	height: 46px;
+  -webkit-border-top-left-radius: 50px;
+	-moz-border-top-left-radius: 50px;
+	border-top-left-radius: 50px;
+	-webkit-border-bottom-left-radius: 50px;
+	-moz-border-bottom-left-radius: 50px;
+	border-bottom-left-radius: 50px;
+	-webkit-border-top-right-radius: 15px;
+	-moz-border-top-right-radius: 15px;
+	border-top-right-radius: 15px;
+	-webkit-border-bottom-right-radius: 15px;
+	-moz-border-bottom-right-radius: 15px;
+	border-bottom-right-radius: 15px;
+	-webkit-transition:all .5s ease;
+	-moz-transition:all .5s ease;
+	-o-transition:all .5s ease;
+	-ms-transition:all .5s ease;
+	transition:all .5s ease;
+	cursor: pointer;
+	position: absolute;
+	top: 2px;
+	left: 3px;
+	z-index: 1;
+	background-color: #ebebeb;
+	box-shadow: inset 0 0 3px rgba(51,51,51,.5);
+}
+
+.slider label:hover
+{
+	box-shadow: inset 0 0 5px rgba(51,51,51,.5);
+}
+
+.slider label:active
+{
+	box-shadow: inset 0 0 8px rgba(51,51,51,.5);
+}
+
+.slider input[type=checkbox]:checked + label {
+	left:50%;
+	margin-left: -3px;
+	-webkit-border-top-left-radius: 15px;
+	-moz-border-top-left-radius: 15px;
+	border-top-left-radius: 15px;
+	-webkit-border-bottom-left-radius: 15px;
+	-moz-border-bottom-left-radius: 15px;
+	border-bottom-left-radius: 15px;
+	-webkit-border-top-right-radius: 50px;
+	-moz-border-top-right-radius: 50px;
+	border-top-right-radius: 50px;
+	-webkit-border-bottom-right-radius: 50px;
+	-moz-border-bottom-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+}
+
+#favButton
+{
+	cursor: pointer;
+	width: 40%;
+	text-align: center;
+	margin: auto;
+	margin-bottom: 10px;
+	background-color: #006699;
+	clear: both;
+	padding: 10px 0;
+	border-radius: 5px;
+	color: white;
+	font-weight: bold;
+	border: thin solid rgba(0,0,0,.0);
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
+	cursor: pointer;
+}
+
+#favButton:hover
+{
+	background: rgba(255,255,255,.5);
+	border-color: #006699;
+	color: #006699;
+}
+
+#proFavs
+{
+	float: right;
+	margin-right: 10px;
+	width: 50%;
+	text-align: center;
+	color: #ffcc00;
+	font-size: 1.2em;
+	padding: 10% 0;
+	font-weight: bold;
+	background-color: #006699;
 }
 
 .checked
@@ -1148,27 +1341,29 @@ opacity: 0;
 
 #favSubmit
 {
-	position: absolute;
-	bottom: 0;
-	left: 25%;
-	z-index: 1;
-	background: rgba(0,102,153,.8);
-	border: none;
-	padding: 0!important;
-	margin: 0!important;
-	color: #fff;
-	width: 50%;
-	font-size: 2em;
+	width: 32%;
+	margin: 20px auto;
+	display: block;
+	background-color: #006699;
+	color: white;
 	font-weight: bold;
-	display: none;
+	border-radius: 50px;
+	padding: 3% 0;
+	font-size: 2em;
+	border: thin solid rgba(0,0,0,.0);
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	transition: all .5s ease;
 	cursor: pointer;
-	border-top-left-radius: 10px;
-	border-top-right-radius: 10px;
+	display: none;
 }
 
 #favSubmit:hover
 {
-	font-size: 2.2em;
+	background: rgba(255,255,255,.5);
+	border-color: #006699;
+	color: #006699;
 }
 
 .relative
