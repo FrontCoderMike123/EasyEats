@@ -1,35 +1,58 @@
 (function() {
 
-	if (navigator.geolocation) {
-  		navigator.geolocation.getCurrentPosition(success, error);
-	} else {
-  		error('Geolocation is not supported. Please update.');
-	}
+  if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+  } else {
+      error('Geolocation is not supported. Please update.');
+  }
 
-	function success(position) {
-  		var status = document.querySelector('.status');
-  		var P = document.querySelector('.foundYou p');
+  function success(position) {
+      var status = document.querySelector('.status');
+      var P = document.querySelector('.foundYou p');
       var infoWindow;
       var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       var labelIndex = 0;
       var markers = [];
   
   status.innerHTML = "";
-  
-  var mapcanvas = document.querySelector('#map');
-  mapcanvas.id = 'mapcanvas';
-  mapcanvas.classList.add('mapGrow');
-  document.querySelector('.mapHolder').appendChild(mapcanvas);
-  
+
+  var home = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+  function HomeControl(controlDiv, map){
+    controlDiv.style.padding = '5px';
+    var controlUI = document.createElement('div');
+    controlUI.style.backgroundColor = "#006699";
+    controlUI.style.borderRadius = '10px';
+    controlUI.style.border = '1px solid #ccc';
+    controlUI.style.cursor = 'pointer';
+    controlUI.style.textAlign = 'center';
+    controlUI.title = "Send Me Home";
+    controlDiv.appendChild(controlUI);
+    var controlText = document.createElement('div');
+    controlText.style.fontFamily = 'Lato, sans-serif';
+    controlText.style.color = '#ffcc00';
+    controlText.style.fontSize = '12px';
+    controlText.style.padding = '10px';
+    controlText.innerHTML = '<b>HOME<b>';
+    controlUI.appendChild(controlText);
+
+    google.maps.event.addDomListener(controlUI,'click',function(){
+      map.setCenter(home);
+    });
+  }
+
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
   var myOptions = {
-    zoom: 16,
+    zoom: 15,
     center: latlng,
-    mapTypeIds: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
-  var map = new google.maps.Map(document.getElementById("mapcanvas"), myOptions);
+  var map = new google.maps.Map(document.getElementById('map'), myOptions);
+  var homeControlDiv = document.createElement('div');
+  var homeControl = new HomeControl(homeControlDiv,map);
+  map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
 
   var yourArrow = '/images/icons/urArrow.svg';
 
@@ -48,7 +71,7 @@
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: latlng,
-    radius: 500,
+    radius: 1000,
     types: ['restaurant']
   },callback);
 
@@ -95,6 +118,13 @@ function toggleBounce() {
   });
   }, timeout);
 }
+
+    google.maps.event.addDomListener(window, "resize", function() {
+      var center = map.getCenter();
+      google.maps.event.trigger(map, "resize");
+      map.setCenter(center);
+    });
+
 }
 
 function error(msg) {

@@ -11,9 +11,9 @@
 
     <div id="favHolder">
 
-      <!--<h3><%= yourFavs %></h3>-->
+      <form class="favForm" action="/favorites/:_id" method="post" ng-controller="optionCtrl">
 
-      <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
+        <p><%= yourFavs %></p>
 
         <div id="cravingAll">
           <p>I Want Everything!</p>

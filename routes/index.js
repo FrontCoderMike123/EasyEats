@@ -15,17 +15,14 @@ var busboy = require('connect-busboy');
 var multer  =   require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    callback(null, './public/images/profilePictures');
+    callback(null, '/uploads/');
   },
   filename: function (req, file, callback) {
-    var today = new Date();
-    var day = today.getDate();
-    var month = today.getMonth()+1;
-    var year = today.getFullYear();
-    callback(null, file.fieldname + '-' + day + '-' + month + '-' + year);
+    var datetimestamp = Date.now();
+    callback(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
   }
 });
-var upload = multer({ storage : storage});
+var upload = multer({ storage : storage}).single('file');
 
 router.get('/foodTypes', function(req,res,next){
   Food.find(function(err,favs){
@@ -127,7 +124,8 @@ router.post('/signUp', function(req, res) {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       emailAddress: req.body.email,
-      userPhoto: req.body.userPhoto
+      userPhoto: req.body.userPhoto,
+      password: req.body.password
     }), req.body.password, function(err, account) {
 
         if (err) {
@@ -171,14 +169,10 @@ router.get('/budget', function(req, res) {
     budget: 'Enter Budget Below',
     placeholder: '($)',
     find: 'Find Food',
-    userName: req.user.username,
     userBudget: req.cookies.budget,
     moneyOnly: "Silly "+req.user.username+". You can't pay with words.",
-    thumb: 'images/profilePictures/me.png',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username
-    //thumb: req.user.userPhoto
-    // or req.user.photo gives me the array its being held in thanks to mongoose thumb... but still no go
   });
 });
 
@@ -196,7 +190,6 @@ router.post('/restaurants', function(req,res,err) {
     title: 'Restaurants',
     subTitle: "What's on the menu today "+req.user.username+"?",
     budget: "I see you have $"+req.body.budget+" in your pocket?",
-    thumb: 'images/profilePictures/me.png',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username
   });
@@ -207,7 +200,6 @@ router.get('/forgotPass',function(req,res){
     user: req.user,
     title: 'Forget Password?',
     subTitle: 'Enter This Accounts Email',
-    thumb: 'images/profilePictures/me.png',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username
   });
@@ -356,29 +348,15 @@ router.get('/profilePicture',function(req,res){
   res.render('pages/profilePic',{
     title: 'Profile Picture',
     user: req.user.username,
-    profilePic: 'Upload a Profile Picture '
+    profilePic: 'Upload a Profile Picture ',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username
   });
 });
 
 router.post('/profilePicture',function(req,res){
-  /*Account.findById({ _id: req.user.id }, function(err,account){
-    if(err) throw err;
-    account.userPhoto = req.body.userPhoto;
-    account.save(function(err){
-      if(err){
-        req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
-        return res.redirect('/message');
-      }else{
-        req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
-        res.redirect('/message');
-      }
-    });
-  });*/
-  upload(req,res,function(err) {
-    var today = new Date();
-    var year = today.getFullYear();
-    if(err || req.body.userPhoto) {
-      console.log(req.body.userPhoto);
+  upload(req,res,function(err){
+    if(err){
       req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
       return res.redirect('/message');
     }
@@ -395,7 +373,6 @@ router.get('/updateProfile',function(req,res){
     lastname: req.user.lastname,
     username: req.user.username,
     emailAddress: req.user.emailAddress,
-    thumb: 'images/profilePictures/me.png',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username
   });
@@ -409,17 +386,8 @@ router.post('/updateProfile',function(req,res){
     account.lastname = req.body.lastname;
     account.username = req.body.username;
     account.emailAddress = req.body.email;
-    account.userPhoto.contentType = req.body.userPhoto;
-    account.set('userPhoto.file', req.body.userPhoto);
-
-    var fstream;
-    req.pipe(req.busboy);
-    req.busboy.on('userPhoto',function(fieldname, file, filename){
-      console.log('Uploading: ' + filename);
-      fstream = fs.createWriteStream(__dirname + '/uploads/' + filename);
-      file.pipe(fstream);
-      //fstream.on('close',function(){});
-    });
+    //account.userPhoto.contentType = req.body.userPhoto;
+    //account.set('userPhoto.file', req.body.userPhoto);
 
     account.save(function(err){
       if(err){
@@ -437,17 +405,13 @@ router.get('/favorites',function(req,res){
     user: req.user,
     username: req.user.username,
     title:'Favorites',
-    thumb: 'images/profilePictures/me.png',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
     yourFavs: req.user.Foods
   });
 });
 
-router.post('/favorites',function(req,res){
-  var today = new Date();
-  var year = today.getFullYear();
-  if (req.body.favorites) res.cookie('favorites', 1, { maxAge: year });
+router.post('/favorites/:_id',function(req,res){
   Account.findByIdAndUpdate({ _id: req.user.id },{Favorite:true}, function(err,account){
     if(err) throw err;
 
@@ -469,7 +433,6 @@ router.get('/deleteProfile',function(req,res){
   res.render('pages/deleteProfile',{
     user: req.user.username,
     title: 'Delete Account',
-    thumb: 'images/profilePictures/me.png',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username
   });

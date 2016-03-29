@@ -21,7 +21,7 @@
 		lastname: String,
 		emailAddress: String,
     //userPhoto: String,
-    userPhoto: { data: Buffer, contentType: String },
+    userPhoto: { data: Buffer, contentType: String, default: '' },
 		resetPasswordToken: String,
   		resetPasswordExpires: Date,
   		Foods: String
@@ -55,7 +55,7 @@
 	});
 
 	Account.methods.comparePassword = function(candidatePassword, cb) {
-  		bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+  		bcrypt.compare(candidatePassword, this.salt, function(err, isMatch) {
     		if (err) return cb(err);
     		cb(null, isMatch);
   		});

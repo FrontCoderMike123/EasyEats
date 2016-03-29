@@ -4,7 +4,6 @@
     <% include ../partials/head %>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places">
 </script>
-
 <script src="/javascripts/geoMap.js"></script>
 </head>
 <body>
@@ -12,7 +11,7 @@
       <% include ../partials/headerWithSet %>
     </header>
 
-    <div class="padding"><!--for bottom padding. keep footer down!-->
+    <div id="padding"><!--for bottom padding. keep footer down!-->
 
       <section class="forms" id="restaurantsHolder">
         <h1><%= subTitle %></h1>
@@ -29,9 +28,10 @@
           </div>
         </a>
 
-        <div class="mapHolder">
-          <div id="map"></div>
-        </div>
+          <div class="mapHolder">
+            <div id="map_container"></div>
+            <div id="map" style="width:100%; height:400px"></div>
+          </div>  
 
         <a href="/budget" id="backFinder" title="Go Back">
           <div>
