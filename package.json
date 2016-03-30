@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular-local-storage": "^0.2.7",
     "angular-messages": "^1.5.0",
     "angular-password": "^1.0.1",
     "async": "^1.5.2",
@@ -27,6 +28,7 @@
     "morgan": "~1.6.1",
     "multer": "^1.1.0",
     "ng-file-upload": "^12.0.4",
+    "ngstorage": "^0.3.10",
     "nodemailer": "^0.7.1",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",

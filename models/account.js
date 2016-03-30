@@ -24,7 +24,7 @@
     userPhoto: { data: Buffer, contentType: String, default: '' },
 		resetPasswordToken: String,
   		resetPasswordExpires: Date,
-  		Foods: String
+  		Foods: { Type: String, Favorite: Boolean }
 	});
 
   Account.plugin(thumbnailPlugin,{

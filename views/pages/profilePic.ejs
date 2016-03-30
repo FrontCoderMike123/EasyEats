@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
+    <script src="/javascripts/uploads.js"></script>
 </head>
 <body>
     <header>
@@ -12,6 +13,12 @@
 
     <form class="forms" id="uploadForm" enctype="multipart/form-data" action="/profilePicture" method="post">
       <h1><%= profilePic %> <%= user %></h1>
+
+      <div class="errorMsgs">
+          <p><%= noUpload %></p>
+          <p><%= goodUpload %></p>
+      </div>
+
       <input type="file" name="userPhoto">
       <input class="mainButton" type="submit" value="Upload Image" name="submit">
       <a class="neverMind" href="/budget">Never Mind</a>

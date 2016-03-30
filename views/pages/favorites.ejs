@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
 <script src="/javascripts/myAngular.js"></script>
 </head>
 <body ng-app="budgetOptions">
@@ -11,9 +12,14 @@
 
     <div id="favHolder">
 
-      <form class="favForm" action="/favorites/:_id" method="post" ng-controller="optionCtrl">
+    <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
 
         <p><%= yourFavs %></p>
+
+        <div class="errorMsgs">
+          <p><%= favorites %></p>
+          <p><%= favsError %></p>
+        </div>
 
         <div id="cravingAll">
           <p>I Want Everything!</p>
@@ -31,10 +37,23 @@
           </div>
           <h3>{{type.Type}}</h3>
   <div class="slider"> 
-  <input type="checkbox" class="decide" ng-model="type.Favorite"  value="{{type.Type}}" id="{{type.Type}}" name="favorites">
-    <label for="{{type.Type}}"></label>
+  <input type="checkbox"
+  class="decide"
+  ng-model="type.Favorite"
+  ng-checked="$storage.a[type.Type]"
+  ng-click="$storage.a[type.Type] = type.Favorite"
+  value="{{type.Type}}"
+  id="{{type.Type}}"
+  name="favorites">
+  <label for="{{type.Type}}"></label>
   </div>
         </div>
+
+        <!--
+        <div ng-repeat="(key, value) in $storage.a">
+            localStorage: {{key}}: {{value}}
+        </div>
+        -->
 
         <button id="favSubmit" type="submit">
           <span id="wordChange">{{selected()}}</span>

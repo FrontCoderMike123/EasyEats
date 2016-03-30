@@ -1,12 +1,15 @@
 (function(){
 
-var budgetOptions = angular.module('budgetOptions', []);
+var budgetOptions = angular.module('budgetOptions', ['ngStorage']);
 
-budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($scope,$http,$interval){
+budgetOptions.controller('optionCtrl',['$scope','$http','$filter','$localStorage',function($scope,$http,$filter,$localStorage){
     $http.get('/foodTypes').success(function(data){
     	$scope.types = data;
-    	//console.log($scope.types);
     });
+
+    $scope.$storage =  $localStorage.$default({
+        a: {}  
+  });
 
     $scope.toggleFav = function(type){
     	type.Favorite = !type.Favorite;
@@ -50,35 +53,6 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$interval',function($sc
             }
     	});
     	return favs;
-    };
-
-    $scope.profileSelected = function(){
-        var favs = 0;
-        var proFavs = document.querySelector('#proFavs');
-        var myChoice = document.querySelector('#select').value;
-        var option = document.querySelector('#select option');
-        angular.forEach($scope.types, function(type){
-            if(type.Favorite){
-                favs++;
-                if(favs >= 1){
-                    proFavs.classList.add('appear');
-                    proFavs.innerHTML = favs + " Favorites Selected";
-                }
-            }
-            if(favs == 1){
-                proFavs.innerHTML = "You Have " + favs + " Selected";
-            }
-            if(favs <= 0){
-                proFavs.classList.add('remove');
-            }
-            if(favs == 0){
-                proFavs.classList.remove('appear');
-            }
-            if(favs == 9){
-                proFavs.innerHTML = "Craving Everything!";
-            }
-        });
-        return favs;
     };
 
     $("#select").mousedown(function(e){

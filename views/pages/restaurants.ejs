@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places">
+<script async defer src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places">
 </script>
 <script src="/javascripts/geoMap.js"></script>
 </head>
@@ -28,10 +28,9 @@
           </div>
         </a>
 
-          <div class="mapHolder">
-            <div id="map_container"></div>
-            <div id="map" style="width:100%; height:400px"></div>
-          </div>  
+        <div class="mapHolder">
+          <div id="map"></div> 
+        </div> 
 
         <a href="/budget" id="backFinder" title="Go Back">
           <div>

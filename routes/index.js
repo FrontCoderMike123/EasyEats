@@ -15,14 +15,14 @@ var busboy = require('connect-busboy');
 var multer  =   require('multer');
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    callback(null, '/uploads/');
+    callback(null, './uploads')
   },
   filename: function (req, file, callback) {
     var datetimestamp = Date.now();
     callback(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
   }
 });
-var upload = multer({ storage : storage}).single('file');
+var upload = multer({ storage : storage }).single('file');
 
 router.get('/foodTypes', function(req,res,next){
   Food.find(function(err,favs){
@@ -323,11 +323,7 @@ router.get('/message',function(req,res){
   res.render('pages/messages',{
     title: 'Messages',
     sent: req.flash('info'),
-    noUpload: req.flash('uploadError'),
-    goodUpload: req.flash('goodUpload'),
-    favorites: req.flash('favorites'),
     profileUpdated: req.flash('profileUpdated'),
-    favsError: req.flash('favsError'),
     deleted: req.flash('deleted')
   });
 });
@@ -350,7 +346,9 @@ router.get('/profilePicture',function(req,res){
     user: req.user.username,
     profilePic: 'Upload a Profile Picture ',
     fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username
+    userName: req.user.username,
+    noUpload: req.flash('uploadError'),
+    goodUpload: req.flash('goodUpload'),
   });
 });
 
@@ -358,10 +356,10 @@ router.post('/profilePicture',function(req,res){
   upload(req,res,function(err){
     if(err){
       req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
-      return res.redirect('/message');
+      return res.redirect('/profilePicture');
     }
     req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
-    res.redirect('/message');
+    res.redirect('/profilePicture');
   });
 });
 
@@ -407,23 +405,26 @@ router.get('/favorites',function(req,res){
     title:'Favorites',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
-    yourFavs: req.user.Foods
+    yourFavs: req.user.Foods.Type,
+    favorites: req.flash('favorites'),
+    favsError: req.flash('favsError')
   });
 });
 
-router.post('/favorites/:_id',function(req,res){
-  Account.findByIdAndUpdate({ _id: req.user.id },{Favorite:true}, function(err,account){
+router.post('/favorites',function(req,res){
+  Account.findById({ _id: req.user.id },{Favorite:true}, function(err,account){
     if(err) throw err;
 
-    account.Foods = req.body.favorites;
+    account.Foods.Favorite = true;
+    account.Foods.Type = req.body.favorites;
 
     account.save(function(err){
       if(err){
         req.flash('favsError', 'Sorry, Could Not Save Your Favorites, Try Again.');
-        return res.redirect('/message');
+        return res.redirect('/favorites');
       }else{
         req.flash('favorites',"Your favorites have been saved. Eat what you want!");
-        res.redirect('/message');
+        res.redirect('/favorites');
       }
     });
   });
