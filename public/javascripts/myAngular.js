@@ -8,8 +8,8 @@ budgetOptions.controller('optionCtrl',['$scope','$http','$filter','$localStorage
     });
 
     $scope.$storage =  $localStorage.$default({
-        a: {}  
-  });
+        userFav: {}  
+    });
 
     $scope.toggleFav = function(type){
     	type.Favorite = !type.Favorite;

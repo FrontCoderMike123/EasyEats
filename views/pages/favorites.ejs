@@ -40,8 +40,8 @@
   <input type="checkbox"
   class="decide"
   ng-model="type.Favorite"
-  ng-checked="$storage.a[type.Type]"
-  ng-click="$storage.a[type.Type] = type.Favorite"
+  ng-checked="$storage.userFav[type.Type]"
+  ng-click="$storage.userFav[type.Type] = type.Favorite"
   value="{{type.Type}}"
   id="{{type.Type}}"
   name="favorites">
@@ -50,10 +50,10 @@
         </div>
 
         <!--
-        <div ng-repeat="(key, value) in $storage.a">
-            localStorage: {{key}}: {{value}}
+        <div ng-repeat="(key, value) in $storage.userFav">
+            Foods: {{key}}: {{value}}
         </div>
-        -->
+      -->
 
         <button id="favSubmit" type="submit">
           <span id="wordChange">{{selected()}}</span>
