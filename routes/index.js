@@ -337,7 +337,7 @@ router.get('/settings',function(req,res){
     reset: 'Reset Password',
     picture: 'Change Profile Picture',
     favorite: 'Update Favorites',
-    remove: 'Delete User Account'
+    remove: 'Delete Account'
   });
 });
 
