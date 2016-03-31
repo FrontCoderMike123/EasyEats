@@ -302,66 +302,119 @@ footer a:hover
 /***********BANNER****************/
 #openingBanner
 {
-	position: relative;
 	display: block;
-	width: 100%;
 	text-align: center;
+	width: 100%;
+	overflow: hidden;
+	padding: 3% 0;
 }
 
-.opening
+#openingBanner button
 {
-	position: absolute;
-	z-index: 1;
-	width: 25%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 290px;
+	width: 380px;
+	height: 380px;
+	border: none;
+	background-color:#ebebeb;
+	border-radius: 50%;
+	border: thin solid #006699;
+	display: inline-block;
+	margin: 0 5px;
+	cursor: pointer;
+	position: relative;
 	overflow: hidden;
 }
 
-.bannerContent
+#openingBanner button:hover > .infoText
+{
+  opacity: 1;
+	-webkit-opacity:1;
+	-moz-opacity:1;
+	-o-opacity:1;
+}
+
+.infoText
 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100%;
-	background:rgba(235,235,235,.8);
-	color: #006699;
-	font-size: 1.4em;
-	font-weight: bold;
-	padding: 45% 0;
-	opacity: 0;
+	z-index: 1;
+	background-color: rgba(235,235,235,.9);
+	height: 100%;
+	padding-top: 12%;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-moz-transition: all .5s ease;
+	-o-transition: all .5s ease;
+	 opacity: 0;
 	-webkit-opacity:0;
 	-moz-opacity:0;
 	-o-opacity:0;
+}
+
+.infoText h3
+{
+	font-size: 2em;
+	color: #006699;
+	border-bottom: thin solid #006699;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+.infoText p
+{
+	font-size: 1.3em;
+	line-height: 35px;
+	display: block;
+	width: 85%;
+	font-weight: bold;
+	color: #666;
+	margin: auto;
+}
+
+.firstWord
+{
+	color: #006699;
 }
 
 .moneySVG
 {
-	left:-10000px;
-	top: 0;
+	background-image: url('../images/banner/money.svg');
 }
 
 .refreshSVG
 {
-	top: 0;
-	left: 37.5%;
-	opacity: 0;
-	-webkit-opacity:0;
-	-moz-opacity:0;
-	-o-opacity:0;
+	background-image: url('../images/banner/refresh.svg');
 }
 
 .happySVG
 {
-	right: -10000px;
-	top: 0;
+	background-image: url('../images/banner/happy.svg');
 }
 
-.mobileMoney,.mobileRefresh,.mobileHappy
+.mobileText
 {
+	display: block;
+	padding: 20px 0;
+	background-color: #006699;
+	color: #fff;
 	display: none;
-	opacity: 0;
-	-webkit-opacity: 0;
-	-moz-opacity: 0;
-	-o-opacity: 0;
+}
+
+.mobileText h3
+{
+	color: #ffcc00;
+	font-size: 2em;
+	border-bottom: thin solid white;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+.mobileText .firstWord
+{
+	color: #ffcc00;
 }
 
 
@@ -385,7 +438,7 @@ footer li
 
 .social
 {
-	background: url(../images/icons/socialSprite.png) no-repeat;
+	background: url(../images/icons/social/socialSprite.svg) no-repeat;
 }
 
 .facebook{ background-position: 0px 0px;}
@@ -602,14 +655,24 @@ footer li
 #userWelcome
 {
 	font-size: 1.4em;
-	padding-bottom: 10px;
-	border-bottom: thin solid white;
 }
 
 #userWelcome span
 {
 	text-transform: uppercase;
 	font-weight: bold;
+}
+
+#favMsgs
+{
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: #006699;
+	font-weight: bold;
+	font-size: 1.2em;
+	margin-top: 10px;
+	clear: both;
 }
 
 .opac
@@ -631,7 +694,7 @@ footer li
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;
 	transition: all .2s ease;
-	margin-bottom: 10px;
+	margin: 10px 0;
 }
 
 #moneyOnly p
@@ -931,12 +994,6 @@ opacity: 0;
 }
 
 /************************FAVORITES***************************/
-
-.testClass
-{
-	border-radius: 0!important;
-}
-
 .type-true .fav-content
 {
 	opacity: 1;
@@ -977,39 +1034,28 @@ opacity: 0;
 {
 	display: block;
 	overflow: hidden;
-	border-bottom-left-radius: 10px;
-	border-bottom-right-radius: 10px;
-	margin-bottom: 10px;
-	overflow: hidden;
-	padding: 5px 0 0 5px;
-	height: 55px;
+	text-align: center;
+	padding:0 0 15px 0;
 }
 
 #cravingAll p
 {
-	font-size: 25px;
+	font-size: 1.5em;
 	font-weight: bold;
 	color: #006699;
-	float: left;
-	margin-right: 10px;
+	display: block;
 }
 
 .everything {
-	width: 30px;
+	width: 300px;
 	height: 30px;
-	background: #fcfff4;
-	float: left;
-
-	background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
-
-	-webkit-border-radius: 50px;
-	-moz-border-radius: 50px;
-	border-radius: 50px;
+	background-color: #ebebeb;
+	display: block;
+	margin: auto;
+	margin-top: 5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
 
 	-webkit-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
 	-moz-box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
@@ -1020,14 +1066,14 @@ opacity: 0;
 .everything label {
 	cursor: pointer;
 	position: absolute;
-	width: 25px;
-	height: 25px;
+	width: 294px;
+	height: 24px;
 
-	-webkit-border-radius: 50px;
-	-moz-border-radius: 50px;
-	border-radius: 50px;
-	left: 2.5px;
-	top: 2.5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	left: 3px;
+	top: 3px;
 
 	-webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
 	-moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
@@ -1047,20 +1093,13 @@ opacity: 0;
 	opacity: 0;
 	content: '';
 	position: absolute;
-	width: 10px;
-	height: 5px;
 	background: transparent;
-	top: 7px;
-	left: 6px;
-	border: 5px solid #ffcc00;
-	border-top: none;
-	border-right: none;
-
-	-webkit-transform: rotate(-45deg);
-	-moz-transform: rotate(-45deg);
-	-o-transform: rotate(-45deg);
-	-ms-transform: rotate(-45deg);
-	transform: rotate(-45deg);
+	top: 0px;
+	left: 0px;
+  background-color: #006699;
+	border-radius: 5px;
+	height: 24px;
+	width: 294px;
 }
 
 .everything label:hover::after {
@@ -1108,6 +1147,11 @@ pre
 	float: left;
 	text-align: center;
 	margin-bottom: 10px;
+}
+
+.favoriteSelector object, .favoriteSelector immg
+{
+	max-width: 70%;
 }
 
 .favoriteSelector h3
@@ -1311,13 +1355,14 @@ input[type=checkbox] {
 #favSubmit
 {
 	width: 50%;
-	margin: 20px auto;
+	margin: 20px auto 0 auto;
 	display: block;
 	background-color: #006699;
 	color: white;
 	font-weight: bold;
-	border-radius: 10px;
-	padding: 1% 0;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	padding: 5px 0;
 	font-size: 2em;
 	border: thin solid rgba(0,0,0,.0);
 	-webkit-transition: all .5s ease;
@@ -1325,7 +1370,7 @@ input[type=checkbox] {
 	-o-transition: all .5s ease;
 	transition: all .5s ease;
 	cursor: pointer;
-	display: none;
+	border-bottom: none;
 }
 
 #favSubmit:hover
@@ -1338,6 +1383,17 @@ input[type=checkbox] {
 .relative
 {
 	position: relative;
+}
+
+#favErrors
+{
+  display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 1.5em;
+	color: #006699;
+	margin: 10px 0;
+	font-weight: bold;
 }
 
 
@@ -1445,7 +1501,7 @@ input[type=checkbox] {
 	-webkit-opacity: 0;
 	-moz-opacity: 0;
 	-o-opacity: 0;
-	width: 300px;
+	width: 0px;
 }
 
 #nukeButton:hover, #abort:hover
@@ -1702,38 +1758,34 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: .7em;
-		padding: 30px 0;
+		width: 100%;
+		display: block;
 	}
 	
-	.moneySVG,.refreshSVG,.happySVG
+	#openingBanner button
+	{
+		width:200px;
+		height: 200px;
+		background-size: 130px;
+		margin: 10px 0;
+	}
+	
+	.infoText
 	{
 		display: none;
 	}
 	
-	.mobileMoney,.mobileRefresh,.mobileHappy
+	.mobileText
 	{
-		width: 35%;
 		display: block;
 	}
 	
-	.mobileMoney
+	.mobileText p
 	{
-		left: 32.5%;
-	}
-	
-	.mobileRefresh
-	{
-		top: 70px;
-		left: 5px;
-	}
-	
-	.mobileHappy
-	{
-		right: 5px;
-		top: 70px;
+		line-height: 22px;
+		padding: 0 10px;
 	}
 	
 	/*BANNER*/
@@ -2029,39 +2081,34 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: .7em;
-		padding: 30px 0;
+		width: 100%;
+		display: block;
 	}
 	
-	.moneySVG,.refreshSVG,.happySVG
+	#openingBanner button
+	{
+		width:200px;
+		height: 200px;
+		background-size: 130px;
+		margin: 10px 0;
+	}
+	
+	.infoText
 	{
 		display: none;
 	}
 	
-	.mobileMoney,.mobileRefresh,.mobileHappy
+	.mobileText
 	{
-		width: 35%;
 		display: block;
 	}
 	
-	.mobileMoney
+	.mobileText p
 	{
-		left: 32.5%;
-		top: 10px;
-	}
-	
-	.mobileRefresh
-	{
-		top: 110px;
-		left: 15px;
-	}
-	
-	.mobileHappy
-	{
-		right: 15px;
-		top: 110px;
+		line-height: 22px;
+		padding: 0 10px;
 	}
 	
 	/*BANNER*/
@@ -2358,39 +2405,34 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: .8em;
-		padding: 40px 0;
+		width: 100%;
+		display: block;
 	}
 	
-	.moneySVG,.refreshSVG,.happySVG
+	#openingBanner button
+	{
+		width:200px;
+		height: 200px;
+		background-size: 130px;
+		margin: 10px 0;
+	}
+	
+	.infoText
 	{
 		display: none;
 	}
 	
-	.mobileMoney,.mobileRefresh,.mobileHappy
+	.mobileText
 	{
-		width: 35%;
 		display: block;
 	}
 	
-	.mobileMoney
+	.mobileText p
 	{
-		left: 32.5%;
-		top: 10px;
-	}
-	
-	.mobileRefresh
-	{
-		top: 120px;
-		left: 15px;
-	}
-	
-	.mobileHappy
-	{
-		right: 15px;
-		top: 120px;
+		line-height: 22px;
+		padding: 0 10px;
 	}
 	
 	/*BANNER*/
@@ -2687,39 +2729,34 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: .95em;
-		padding: 50px 0;
+		width: 100%;
+		display: block;
 	}
 	
-	.moneySVG,.refreshSVG,.happySVG
+	#openingBanner button
+	{
+		width:270px;
+		height: 270px;
+		background-size: 200px;
+		margin: 10px 0;
+	}
+	
+	.infoText
 	{
 		display: none;
 	}
 	
-	.mobileMoney,.mobileRefresh,.mobileHappy
+	.mobileText
 	{
-		width: 35%;
 		display: block;
 	}
 	
-	.mobileMoney
+	.mobileText p
 	{
-		left: 32.5%;
-		top: 5px;
-	}
-	
-	.mobileRefresh
-	{
-		top: 135px;
-		left: 15px;
-	}
-	
-	.mobileHappy
-	{
-		right: 15px;
-		top: 135px;
+		line-height: 25px;
+		padding: 0 10px;
 	}
 	
 	/*BANNER*/
@@ -3016,39 +3053,34 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: 1.1em;
-		padding: 50px 0;
+		width: 100%;
+		display: block;
 	}
 	
-	.moneySVG,.refreshSVG,.happySVG
+	#openingBanner button
+	{
+		width:270px;
+		height: 270px;
+		background-size: 200px;
+		margin: 10px 0;
+	}
+	
+	.infoText
 	{
 		display: none;
 	}
 	
-	.mobileMoney,.mobileRefresh,.mobileHappy
+	.mobileText
 	{
-		width: 35%;
 		display: block;
 	}
 	
-	.mobileMoney
+	.mobileText p
 	{
-		left: 32.5%;
-		top: 5px;
-	}
-	
-	.mobileRefresh
-	{
-		top: 135px;
-		left: 15px;
-	}
-	
-	.mobileHappy
-	{
-		right: 15px;
-		top: 135px;
+		line-height: 25px;
+		padding: 0 10px;
 	}
 	
 	/*BANNER*/
@@ -3345,39 +3377,34 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: 1.15em;
-		padding: 50px 0;
+		width: 100%;
+		display: block;
 	}
 	
-	.moneySVG,.refreshSVG,.happySVG
+	#openingBanner button
+	{
+		width:270px;
+		height: 270px;
+		background-size: 200px;
+		margin: 10px 0;
+	}
+	
+	.infoText
 	{
 		display: none;
 	}
 	
-	.mobileMoney,.mobileRefresh,.mobileHappy
+	.mobileText
 	{
-		width: 30%;
 		display: block;
 	}
 	
-	.mobileMoney
+	.mobileText p
 	{
-		left: 35%;
-		top: 5px;
-	}
-	
-	.mobileRefresh
-	{
-		top: 145px;
-		left: 15px;
-	}
-	
-	.mobileHappy
-	{
-		right: 15px;
-		top: 145px;
+		line-height: 25px;
+		padding: 0 10px;
 	}
 	
 	/*BANNER*/
@@ -3674,14 +3701,28 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: 1em;
-		padding: 50px 0;
+		width: 100%;
+		display: block;
 	}
-	.opening
+	
+	#openingBanner button
 	{
-		top: 20px;
+		width:400px;
+		height: 400px;
+		background-size: 300px;
+		margin: 10px 0;
+	}
+	
+	.infoText
+	{
+		padding: 30px 20px 0 20px;
+	}
+	
+	.infoText p
+	{
+		line-height: 30px;
 	}
 	
 	/*BANNER*/
@@ -3953,14 +3994,34 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: 1.2em;
-		padding: 50px 0;
+		width: 100%;
+		display: block;
 	}
-	.opening
+	
+	#openingBanner button
 	{
-		top: 12px;
+		width:400px;
+		height: 400px;
+		background-size: 300px;
+		margin: 10px 0;
+	}
+	
+	.infoText
+	{
+		padding: 30px 10px 0 10px;
+	}
+	
+	.infoText h3
+	{
+		font-size: 1em!important;
+	}
+	
+	.infoText p
+	{
+		line-height: 30px;
+		font-size: .8em!important;
 	}
 	
 	/*BANNER*/
@@ -4146,16 +4207,36 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: 1.4em;
-		padding: 75px 0;
+		width: 100%;
+		display: block;
 	}
 	
-	.opening
+	#openingBanner button
 	{
-		top: 10px;
+		width:300px;
+		height: 300px;
+		background-size: 220px;
+		margin: 10px;
 	}
+	
+	.infoText
+	{
+		padding: 22px 5px 0 5px;
+	}
+	
+	.infoText h3
+	{
+		font-size: 1em!important;
+	}
+	
+	.infoText p
+	{
+		line-height: 25px;
+		font-size: .76em!important;
+	}
+	
 	/*BANNER*/
 	
 	/*SETTING*/
@@ -4328,12 +4409,35 @@ input[type=checkbox] {
 	
 	/*BANNER*/
 	
-	.bannerContent
+	#openingBanner
 	{
-		font-size: 2em;
-		padding: 90px 0;
+		width: 100%;
+		display: block;
 	}
-
+	
+	#openingBanner button
+	{
+		width:280px;
+		height: 280px;
+		background-size: 200px;
+	}
+	
+	.infoText
+	{
+		padding: 35px 5px 0 5px;
+	}
+	
+	.infoText h3
+	{
+		font-size: 1em!important;
+	}
+	
+	.infoText p
+	{
+		line-height: 20px;
+		font-size: .62em!important;
+	}
+	
 	/*BANNER*/
 	
 		/*SETTING*/
@@ -4460,6 +4564,29 @@ input[type=checkbox] {
 	{
 		padding-bottom: 70px;
 	}
+	
+	/*BANNER*/
+	
+	#openingBanner
+	{
+		width: 100%;
+		display: block;
+	}
+	
+	#openingBanner button
+	{
+		width:450px;
+		height: 450px;
+		background-size: 320px;
+	}
+	
+	.infoText p
+	{
+		font-size: 1.5em!important;
+		line-height: 40px;
+	}
+	
+	/*BANNER*/
 	
 	
 	

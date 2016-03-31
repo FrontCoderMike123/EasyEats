@@ -172,7 +172,8 @@ router.get('/budget', function(req, res) {
     userBudget: req.cookies.budget,
     moneyOnly: "Silly "+req.user.username+". You can't pay with words.",
     fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username
+    userName: req.user.username,
+    favorites: req.flash('favorites')
   });
 });
 
@@ -406,7 +407,6 @@ router.get('/favorites',function(req,res){
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
     yourFavs: req.user.Foods.Type,
-    favorites: req.flash('favorites'),
     favsError: req.flash('favsError')
   });
 });
@@ -424,7 +424,7 @@ router.post('/favorites',function(req,res){
         return res.redirect('/favorites');
       }else{
         req.flash('favorites',"Your favorites have been saved. Eat what you want!");
-        res.redirect('/favorites');
+        res.redirect('/budget');
       }
     });
   });

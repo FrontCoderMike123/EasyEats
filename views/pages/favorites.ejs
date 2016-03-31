@@ -3,6 +3,7 @@
 <head>
     <% include ../partials/head %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+<!--YES i have the modules... NO!!! it would NOT! load in controller!!!! nothing but errors. this way it works!-->
 <script src="/javascripts/myAngular.js"></script>
 </head>
 <body ng-app="budgetOptions">
@@ -14,10 +15,9 @@
 
     <form class="favForm" action="/favorites" method="post" ng-controller="optionCtrl">
 
-        <p><%= yourFavs %></p>
+        <!--<p><%= yourFavs %></p>-->
 
-        <div class="errorMsgs">
-          <p><%= favorites %></p>
+        <div id="favErrors">
           <p><%= favsError %></p>
         </div>
 
@@ -56,7 +56,10 @@
       -->
 
         <button id="favSubmit" type="submit">
-          <span id="wordChange">{{selected()}}</span>
+          <span id="wordChange">Go Eat!</span>
+          <!--<span id="wordChange">{{selected()}}</span>
+          This is FINE!!! This app has bigger worries than a JS word spit.
+          im harding a "submit" value for now, function still in file-->
         </button>
 
       </form>          

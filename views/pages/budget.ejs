@@ -36,7 +36,13 @@
       id="budgetForm">
         
         <h1><%= budgetTitle %></h1>
-<h5 class="errMsgs" id="userWelcome">Hey <span><%= userName %></span>!<br>I Bet You're Feeling Hungry!</h5>
+<h5 class="errMsgs" id="userWelcome">Hey <span><%= userName %></span>!<br>
+  I Bet You're Feeling Hungry!</h5>
+
+    <div id="favMsgs">
+      <p><%= favorites %></p>
+    </div>
+
         <div id="moneyOnly"><p></p></div>
         <fieldset id="budgetInput">
           <label><%= budget %></label>
