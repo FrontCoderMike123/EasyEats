@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script src="/javascripts/myAngular.js"></script>
 </head>
-<body ng-app="budgetOptions">
+<body>
     <header>
       <% include ../partials/header %>
     </header>
@@ -15,8 +14,7 @@
 action="/signUp"
 method="post"
 class="forms"
-id="signUpForm"
-ng-controller="optionCtrl">
+id="signUpForm">
       <h1><%= signUpTitle %></h1>
       <h5 class="errMsgs"><%= info %></h5>
       <h5 class="errMsgs"><%= message %></h5>
@@ -40,44 +38,6 @@ ng-controller="optionCtrl">
           <label><%= email %></label>
           <input type="email" name="email" required>
       </fieldset>
-      
-      <!--
-      <div class="options">
-        <div id="favButton" data-ng-click="isHidden=!isHidden"><h3>Set Favorites</h3></div>
-        
-        <div ng-init="isHidden=true">
-
-        <div class="favoriteSelector" ng-hide="isHidden">
-          <select id="select" multiple size="10" name="favorites">
-          <option
-          data-ng-repeat="type in types"
-          data-ng-click="toggleFav(type)"
-          class="type-{{type.Favorite}} slide"
-          value="{{type.Cookie}}">{{type.Type}}</option>
-          </select>
-        </div>
-
-        <span id="proFavs" class="slide">{{profileSelected()}} Favorites Selected!</span>
-
-        </div>
-        
-        
-        <div ng-init="isHidden=true">
-          <ul>
-          <li
-          data-ng-click="toggleFav(type)"
-          data-ng-repeat="type in types"
-          class="type-{{type.Favorite}} slide"
-          ng-hide="isHidden"
-          name="favorites"
-          value="{{type.Cookie}}">
-          <p class="activeType">{{type.Type}}</p>
-          </li>
-          </ul>
-        </div>
-        
-      </div>
-      -->
 
       <input id="SIGNUP" class="mainButton" type="submit" value="<%= signUp %>">
       <a class="neverMind" href="/">Never Mind</a>

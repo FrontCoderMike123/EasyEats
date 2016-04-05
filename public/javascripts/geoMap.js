@@ -8,7 +8,6 @@
 
   function success(position) {
       var status = document.querySelector('.status');
-      var P = document.querySelector('.foundYou p');
       var infoWindow;
       var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
       var labelIndex = 0;
@@ -65,13 +64,13 @@
   });
 
   var infoWindow = new google.maps.InfoWindow({
-    maxWidth: 200
-    });
+    maxWidth: 300
+  });
 
   var service = new google.maps.places.PlacesService(map);
   service.nearbySearch({
     location: latlng,
-    radius: 1000,
+    radius: 1500,
     types: ['restaurant']
   },callback);
 
@@ -90,7 +89,7 @@ function createMarker(place, timeout) {
   var icon = '/images/icons/arrow.svg';
     var marker = new google.maps.Marker({
       map: map,
-      label: labels[labelIndex++ % labels.length],
+      //label: labels[labelIndex++ % labels.length],
       animation: google.maps.Animation.DROP,
       position: placeLoc,
       icon: icon
@@ -108,11 +107,12 @@ function toggleBounce() {
   var request = { reference: place.reference };
   service.getDetails(request, function(details) {
     google.maps.event.addListener(marker, 'click', function() {
-    infoWindow.setContent('<div class="infoWindow"><h1>'+ details.name + '</h1>'+
-      //'<img src="'+place.icon+'">' +
-      '<span>' + 'Address' + '</span>' + '<p>' + details.vicinity + '</p>' +
-      '<span>' + 'Phone Number' + '</span>' + '<p>' + details.international_phone_number + '</p>' +
-      '<a href="'+details.url+'" target="onblank">' + 'View Website' + '</a>' + '</div>');
+    infoWindow.setContent('<div class="infoWindow"><h1>'+ details.name + '</h1>' +
+      '<span>Address</span>' +
+      '<p>' + details.vicinity + '</p>' +
+      '<span>Phone Number</span>' +
+      '<p>' + details.international_phone_number + '</p>' +
+      '<a href="'+details.url+'" target="onblank">GO EAT!</a>' + '</div>');
     infoWindow.open(map, this);
   });
   });
@@ -132,11 +132,4 @@ function error(msg) {
   status.innerHTML = typeof msg == 'string' ? msg : "FAILED!!!!";
 }
 
-/*console.log(position.coords.latitude);
-  console.log(position.coords.longitude);
-  console.log(position.coords.accuracy);
-  var userSpot = position.coords.latitude || position.coords.longitude || position.coords.accuracy;
-    if(userSpot = position){
-      console.log(userSpot);
-    }*/
 })();

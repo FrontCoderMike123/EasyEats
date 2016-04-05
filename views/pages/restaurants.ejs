@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script async defer src="https://maps.googleapis.com/maps/api/js?sensor=false&key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places">
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAif8p3tGiOldjVWz8wxPN33mH3nxXqY8s&libraries=places">
 </script>
-<script src="/javascripts/geoMap.js"></script>
 </head>
 <body>
     <header>
@@ -17,29 +16,31 @@
       <section class="forms" id="restaurantsHolder">
         <h1><%= subTitle %></h1>
         <div id="spendingCon">
-          <p><%= budget %></p>
-        </div>
-        <div class="foundYou">
-          <p>Your Top Restaurant Choices!</p>
-          <span class="status">Waiting For You...</span>
-        </div>
-        <a href="/favorites">
+          <p>I see you have $<%= budget %> to spend. Let's not waste any more time! Located on the map below are restaurants in your area.</p>
+          <span>It's That Easy!</span>
+
           <div id="tuner">
-            <p>Tune your craving here!</p>
-          </div>
-        </a>
+            <a href="/favorites" title="Change Favorites">
+              <div>
+                <object data="images/icons/restaurants/favorite.svg">
+                 <img src="images/icons/restaurants/favorite.png" alt="Favorites"/>
+                </object>
+              </div>
+            </a>
+            <a href="/budget" title="Go Back">
+              <div>
+                <object data="images/icons/restaurants/back.svg">
+                  <img src="images/icons/restaurants/back.png" alt="Back to 'Food Finder'"/>
+                </object>
+              </div>
+            </a>
+          </div><!--tuner-->
 
-        <div class="mapHolder">
-          <div id="map"></div> 
-        </div> 
+        </div>
 
-        <a href="/budget" id="backFinder" title="Go Back">
-          <div>
-            <object data="images/icons/home.svg">
-              <img src="images/icons/home.png" alt="Back to 'Food Finder'">
-            </object>
-          </div>
-        </a>
+        <div id="map"></div> 
+
+        <span class="status">Waiting For You...</span>
 
       </section>
       
@@ -48,6 +49,6 @@
     <footer>
       <% include ../partials/footer %>
     </footer>
-
+<script src="/javascripts/geoMap.js"></script>
   </body>
 </html>

@@ -190,7 +190,7 @@ router.post('/restaurants', function(req,res,err) {
   res.render('pages/restaurants', {
     title: 'Restaurants',
     subTitle: "What's on the menu today "+req.user.username+"?",
-    budget: "I see you have $"+req.body.budget+" in your pocket?",
+    budget: req.body.budget,
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username
   });
