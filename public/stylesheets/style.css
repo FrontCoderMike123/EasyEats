@@ -167,6 +167,18 @@ header
 	left: 5px;
 }
 
+.dropSize#mapDrop:after
+{
+	width: 55px;
+	left: -5px;
+}
+
+.dropSize#mapDrop:before
+{
+	width: 35px;
+	left: 5px;
+}
+
 #settings
 {
 	float: right;
@@ -761,6 +773,46 @@ footer li
 }
 
 /*****restaurants page*****/
+
+#mapDrop
+	{
+		height: 5px;
+		width: 40px;
+		background-color: #ffcc00;
+		display: block;
+		margin:20px auto;
+		border-radius: 2px;
+		position: relative;
+		cursor: pointer;
+		display:none;
+	}
+	
+	#mapDrop:before
+	{
+		content: '';
+		height: 5px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: 10px;
+		z-index: 1;
+		background-color: #ffcc00;
+		border-radius: 2px;
+	}
+	
+	#mapDrop:after
+	{
+		content: '';
+		height: 5px;
+		width: 100%;
+		position: absolute;
+		left: 0;
+		top: -10px;
+		z-index: 1;
+		background-color: #ffcc00;
+		border-radius: 2px;
+	}
+
 #restaurantsHolder
 {
   text-align: center;
@@ -769,6 +821,7 @@ footer li
 	border: none;
 	margin: 0;
 position: relative;
+	padding: 0;
 }
 
 #restaurantsHolder h1
@@ -786,6 +839,103 @@ position: relative;
 	display: block;
 	clear: both;
 	background-color: #006699;
+	overflow: hidden;
+	padding: 10px 0;
+	position: relative;
+}
+
+#spendingCon p
+{
+	display: block;
+	width: 50%;
+  margin: auto;
+	font-size: 1.05em;
+	color: white;
+	font-weight: bold;
+	line-height: 45px;
+}
+
+#first,#second
+{
+	border-radius: 50%;
+	position: absolute;
+	top: 5px;
+	z-index: 100;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-o-transition:all .5s ease;
+}
+
+#spendingCon object, #spendingCon img
+{
+	max-width: 100px;
+}
+
+#first:first-child
+{
+	left: 5px
+}
+
+#second
+{
+	right: 5px;
+}
+
+#first:hover ~ .back
+{
+	opacity: 1;
+	-webkit-opacity:1;
+	-o-opacity:1;
+}
+
+#second:hover ~ .favorites
+{
+	opacity: 1;
+	-webkit-opacity:1;
+	-o-opacity:1;
+}
+
+.mapInstuctions
+{
+	width: 19%;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	height: 100%;
+	padding-top: 45px;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #ffcc00;
+	opacity: 0;
+	-webkit-opacity:0;
+	-o-opacity:0;
+	transition: all .5s ease;
+	-webkit-transition: all .5s ease;
+	-o-transition: all .5s ease;
+}
+
+.back
+{
+	left: 0;
+	border-right: thin solid white;
+	text-align: right;
+	padding-right: 1%;
+}
+
+.favorites
+{
+	right: 0;
+	border-left: thin solid white;
+	text-align: left;
+	padding-left: 1%;
+}
+
+#userBudget
+{
+	color: #ffcc00;
+	position: relative;
+	font-size: 1.5em;
+	border-bottom: thin solid #fff;
 }
 
 .infoWindow
@@ -846,11 +996,9 @@ position: relative;
 
 #map
 {
-	width: 95%;
+	width: 90%;
 	min-height: 350px;
-	margin: 10px auto;
-	border-radius: 10px;
-	border: thin solid #006699;
+	margin: 0 auto;
 }
 
 .markerLabels
@@ -1891,6 +2039,68 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 100%;
+		line-height: normal;
+		font-size: .9em!important;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
 }
 
 /*Android*/
@@ -2295,6 +2505,68 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 100%;
+		line-height: normal;
+		font-size: .9em!important;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
 }
 
 /*iPhone4*/
@@ -2701,6 +2973,69 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 100%;
+		line-height: normal;
+		font-size: .9em!important;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
+	
 }
 
 /*Blackberry*/
@@ -3117,6 +3452,69 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 90%;
+		margin: auto;
+		line-height: normal;
+		font-size: .9em!important;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
 }
 
 /*Device*/
@@ -3523,6 +3921,69 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 90%;
+		margin: auto;
+		line-height: normal;
+		font-size: .95em!important;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
 }
 
 /*Galaxy S*/
@@ -3929,6 +4390,70 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 90%;
+		margin: auto;
+		line-height: normal;
+		font-size: 1em!important;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
+	
 }
 
 /*Kindle*/
@@ -4312,6 +4837,68 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 80%;
+		margin: auto;
+		line-height: 30px;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
 }
 
 /*Nook Tablet*/
@@ -4683,6 +5270,68 @@ input[type=checkbox] {
 		width: 80%!important;
 		margin-bottom: 10px;
 	}
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 80%;
+		margin: auto;
+		line-height: 30px;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
 }
 
 /*Apple Ipad*/
@@ -4958,6 +5607,68 @@ input[type=checkbox] {
 	}
 	
 	/*FAVORITES PAGE*/
+	
+	/*Restaurants Page*/
+	
+	#spendingCon p
+	{
+		margin: 0 0 10px 0;
+		width: 90%;
+		margin: auto;
+		line-height: 30px;
+	}
+	
+	#userBudget
+	{
+		font-size: 1em;
+		border-bottom: none;
+	}
+	
+	#first,#second
+	{
+		position: static;
+		display: block;
+		width: 50%;
+		float: left;
+		margin: 0;
+	}
+	
+	#spendingCon object, #spendingCon img
+	{
+		max-width: 50px;
+	}
+	
+	.mapInstuctions
+	{
+		position: static;
+		width: 100%;
+	}
+	
+	.back,.favorites
+	{
+		opacity: 1;
+		-webkit-opacity: 1;
+		-o-opacity: 1;
+		border:none;
+		font-size: 1em;
+		padding: 0;
+		text-align: center;
+		display: block;
+		width: 50%;
+		float: left;
+	}
+	
+	#mapDrop
+	{
+		display: block;
+	}
+	
+	#mobileMapDrop
+	{
+		display: none;
+	}
+	
+	/*Restaurants Page*/
 }
 
 /*Desktop1*/
@@ -5185,6 +5896,33 @@ input[type=checkbox] {
 	}
 	
 	/*FAVORITES PAGE*/
+	
+	/*Restaurants Page*/
+	
+  #first,#second
+	{
+		top: 10px;
+	}
+	
+	#first
+	{
+		left: 2%!important;
+	}
+	
+	#second
+	{
+		right:2%!important;
+	}
+	
+	.mapInstuctions
+	{
+		opacity: 1;
+		width: 17%;
+		text-align: center;
+		padding: 120px 0 0 0;
+	}
+	
+	/*Restaurants Page*/
 	
 }
 

@@ -16,25 +16,32 @@
       <section class="forms" id="restaurantsHolder">
         <h1><%= subTitle %></h1>
         <div id="spendingCon">
-          <p>I see you have $<%= budget %> to spend. Let's not waste any more time! Located on the map below are restaurants in your area.</p>
-          <span>It's That Easy!</span>
+          <p>Easy Eats can see that you have <span id="userBudget">$<%= budget %></span> to spend. Let's not waste any more time! <span class="break"></span>Located on the map below are restaurants in your area.</p>
 
-          <div id="tuner">
-            <a href="/favorites" title="Change Favorites">
-              <div>
-                <object data="images/icons/restaurants/favorite.svg">
-                 <img src="images/icons/restaurants/favorite.png" alt="Favorites"/>
-                </object>
-              </div>
-            </a>
-            <a href="/budget" title="Go Back">
-              <div>
-                <object data="images/icons/restaurants/back.svg">
-                  <img src="images/icons/restaurants/back.png" alt="Back to 'Food Finder'"/>
-                </object>
-              </div>
-            </a>
-          </div><!--tuner-->
+          <div id="mapDrop"></div>
+
+          <div id="mobileMapDrop">
+
+          <a href="/budget" title="Go Back" id="first">
+            <div>
+              <object data="images/icons/restaurants/back.svg">
+                <img src="images/icons/restaurants/back.png" alt="Back to 'Food Finder'"/>
+              </object>
+            </div>
+          </a>
+          
+          <a href="/favorites" title="Change Favorites" id="second">
+            <div>
+              <object data="images/icons/restaurants/favorite.svg">
+               <img src="images/icons/restaurants/favorite.png" alt="Favorites"/>
+              </object>
+            </div>
+          </a>
+
+          <span class="mapInstuctions back">Go Back</span>
+          <span class="mapInstuctions favorites">Favorites</span>
+
+          </div><!--mobile map dropdown-->
 
         </div>
 
@@ -50,5 +57,6 @@
       <% include ../partials/footer %>
     </footer>
 <script src="/javascripts/geoMap.js"></script>
+<script src="/javascripts/mapDropDownMenu.js"></script>
   </body>
 </html>
