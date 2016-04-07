@@ -269,6 +269,7 @@ footer a:hover
 	position: absolute;
 	top: auto;
 	right: 60px;
+	z-index: 100;
 	text-align: right;
 }
 
@@ -276,21 +277,31 @@ footer a:hover
 {
 	clear: both;
 	float: right;
+	position: relative;
+	border-right: thin solid #ffcc00;
+	padding-right: 5px;
+	width: 215px;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: right;
-	max-width: 75px;
+	position: absolute;
 	width: 75px;
 	height: 75px;
-	border-right: thin solid #ffcc00;
-	padding-right: 5px;;
+	bottom: 0;
+	right: 5px;
+	z-index: 1;
+	border-radius: 50%;
+}
+
+#uploadedUserImage
+{
+	z-index: 10;
 }
 
 #userPicHolder article
 {
-	float: right;
+	float: left;
 	height: 75px;
 	padding-right: 5px;
 	margin-right: 5px;
@@ -1148,18 +1159,71 @@ opacity: 0;
 }
 
 /************************upload image****************************/
-#uploadForm input:nth-child(2)
+
+.fileUpload
 {
-	clear: both;
+    position: relative;
+    overflow: hidden;
+	text-align: center;
+	padding: 0;
+	border-radius: 50%;
+	color: #ffcc00;
+	font-weight: bold;
+	font-size: 2em;
+	width: 75px;
+	height: 75px;
+	background-image: url('../uploads/noUpload/upload.svg');
+	background-repeat: no-repeat;
+	background-position: top center;
+	background-size: contain;
 	margin: auto;
+}
+
+.fileUpload input.upload
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0;
+	width: 100%;
+    opacity: 0;
+	-webkit-opacity:0;
+	-o-opacity:0;
+}
+
+#uploadFile
+{
+	width:50%;
 	display: block;
-	margin-bottom: 5px;
+	margin: auto;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: thin solid #006699;
 	text-align: center;
 }
 
-#uploadForm input:nth-child(2):hover
+#confirmPic
 {
-	border:none;
+	text-align: center;
+}
+
+#confirmPic img
+{
+	display: block;
+	margin: 10px auto 30px auto;
+	max-width: 95%!important;
+	border-radius: 10px;
+	box-shadow: 0 10px 10px -5px rgba(51,51,51,.5);
+}
+
+#confirmPic a
+{
+	display: inline-block;
+	margin: 0 5px;
+	padding: 10px 0;
 }
 
 /************************FAVORITES***************************/
@@ -1844,13 +1908,16 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 80px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 40%;
+	height: 50%;
+	top: 0;
+	left: 30%;
 }
 
 #userPicHolder article
@@ -2127,6 +2194,23 @@ input[type=checkbox] {
 	}
 	
 	/*map only*/
+	
+	/*Confirm Upload*/
+	
+	#confirmPic a
+	{
+		display: block;
+		margin: 0;
+		width: 90%!important;
+		margin: auto;
+	}
+	
+	#confirmPic a:last-child
+	{
+		margin-top: 10px;
+	}
+	
+	/*Confirm Upload*/
 }
 
 /*Android*/
@@ -2336,13 +2420,16 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 90px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 40%;
+	height: 52%;
+	top: 0;
+	left: 30%;
 }
 
 #userPicHolder article
@@ -2619,6 +2706,23 @@ input[type=checkbox] {
 	}
 	
 	/*map only*/
+	
+	/*Confirm Upload*/
+	
+	#confirmPic a
+	{
+		display: block;
+		margin: 0;
+		width: 90%!important;
+		margin: auto;
+	}
+	
+	#confirmPic a:last-child
+	{
+		margin-top: 10px;
+	}
+	
+	/*Confirm Upload*/
 }
 
 /*iPhone4*/
@@ -2830,13 +2934,16 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 85px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 32%;
+	height: 48%;
+	top: 0;
+	left: 34%;
 }
 
 #userPicHolder article
@@ -3114,6 +3221,23 @@ input[type=checkbox] {
 	
 	/*map only*/
 	
+	/*Confirm Upload*/
+	
+	#confirmPic a
+	{
+		display: block;
+		margin: 0;
+		width: 90%!important;
+		margin: auto;
+	}
+	
+	#confirmPic a:last-child
+	{
+		margin-top: 10px;
+	}
+	
+	/*Confirm Upload*/
+	
 }
 
 /*Blackberry*/
@@ -3324,13 +3448,16 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 85px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 28%;
+	height: 50%;
+	top: 0;
+	left: 36%;
 }
 
 #userPicHolder article
@@ -3619,6 +3746,23 @@ input[type=checkbox] {
 	}
 	
 	/*map only*/
+	
+	/*Confirm Upload*/
+	
+	#confirmPic a
+	{
+		display: block;
+		margin: 0;
+		width: 90%!important;
+		margin: auto;
+	}
+	
+	#confirmPic a:last-child
+	{
+		margin-top: 10px;
+	}
+	
+	/*Confirm Upload*/
 }
 
 /*Device*/
@@ -3829,13 +3973,16 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 105px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 28%;
+	height: 55%;
+	top: 0;
+	left: 36%;
 }
 
 #userPicHolder article
@@ -4114,6 +4261,15 @@ input[type=checkbox] {
 	}
 	
 	/*map only*/
+	
+	/*Confirm Upload*/
+	
+	#confirmPic a
+	{
+   width: 46%!important;
+	}
+	
+	/*Confirm Upload*/
 }
 
 /*Galaxy S*/
@@ -4324,13 +4480,16 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 105px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 25%;
+	height: 55%;
+	top: 0;
+	left: 37.5%;
 }
 
 #userPicHolder article
@@ -4820,14 +4979,18 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 105px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 25%;
+	height: 55%;
+	top: 0;
+	left: 37.5%;
 }
+	
 #userPicHolder article
 {
 	width: 100%;
@@ -5281,13 +5444,16 @@ input[type=checkbox] {
 {
 	text-align: center;
 	width: 100%;
+	padding-top: 105px;
+	border:none;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	float: none;
-	border: none;
-	padding: 0;
+	width: 20%;
+	height: 52%;
+	top: 0;
+	left: 40%;
 }
 
 #userPicHolder article
@@ -5619,7 +5785,7 @@ input[type=checkbox] {
 	#userPicHolder
 	{
 		height: 54px;
-		border-right: thin solid #ffcc00;
+		width: 150px;
 	}
 	
 	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
@@ -5632,7 +5798,7 @@ input[type=checkbox] {
 {
 	width: 40px;
 	height: 40px;
-	border:none;
+	bottom: 5px;
 }
 	
 	/*USER AND SETTINGS*/
@@ -5851,6 +6017,22 @@ input[type=checkbox] {
 	}
 	
 	/*Restaurants Page*/
+	
+	/*Confirm Upload*/
+	
+	#confirmPic a
+	{
+   display: block;
+		width: 60%!important;
+		margin: auto;
+	}
+	
+	#confirmPic a:last-child
+	{
+		margin-top: 10px;
+	}
+	
+	/*Confirm Upload*/
 }
 
 /*Desktop1*/
@@ -5955,7 +6137,7 @@ input[type=checkbox] {
 	#userPicHolder
 	{
 		height: 54px;
-		border-right: thin solid #ffcc00;
+		width: 159px;
 	}
 	
 	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
@@ -6106,6 +6288,15 @@ input[type=checkbox] {
 	
 	/*Restaurants Page*/
 	
+	/*Confirm Upload*/
+	
+	#confirmPic a
+	{
+   width: 45%!important;
+	}
+	
+	/*Confirm Upload*/
+	
 }
 
 /*Desktop 4*/
@@ -6183,7 +6374,7 @@ input[type=checkbox] {
 	
 	#userPicHolder
 	{
-		border-right: thin solid #ffcc00;
+		width: 192px;
 	}
 	
 	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a

@@ -174,7 +174,7 @@ router.get('/budget', function(req, res) {
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
     favorites: req.flash('favorites'),
-    goodUpload: req.flash('goodUpload')
+    image: req.user.userPhoto.contentType
   });
 });
 
@@ -193,7 +193,8 @@ router.post('/restaurants', function(req,res,err) {
     subTitle: "What's on the menu today "+req.user.username+"?",
     budget: req.body.budget,
     fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username
+    userName: req.user.username,
+    image: req.user.userPhoto.contentType
   });
 });
 
@@ -203,7 +204,8 @@ router.get('/forgotPass',function(req,res){
     title: 'Forget Password?',
     subTitle: 'Enter This Accounts Email',
     fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username
+    userName: req.user.username,
+    image: req.user.userPhoto.contentType
   });
 });
 
@@ -347,47 +349,38 @@ router.get('/profilePicture',function(req,res){
     title: 'Profile Picture',
     user: req.user.username,
     profilePic: 'Upload a Profile Picture ',
-    fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username,
-    noUpload: req.flash('uploadError'),
-    image: '/uploads/noUpload/noThumb.svg'
+    noUpload: req.flash('uploadError')
   });
 });
 
 router.post('/profilePicture',function(req,res,next){
-  upload(req,res,function(err){
+  Account.findById({ _id: req.user.id }, function(err,account){
+    if(err) throw err;
+    upload(req,res,function(err){
     if(err){
       req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
       return res.redirect('/profilePicture');
-    }
-    //console.dir(req.file);
-    res.render('pages/acceptPicture',{
-      title: 'Profile Picture',
-      user: req.user.username,
-      profilePic: 'Is this the one you want ',
-      fullName: req.user.firstname + ' ' + req.user.lastname,
-      userName: req.user.username,
-      image: '/uploads/UserPics/' + req.file.originalname
-    });
-  });
-});
+    }else{
+        //console.log(account.userPhoto);
+        req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
+        res.render('pages/confirmProfilePic',{
+          title: 'Confirm Picture',
+          user: req.user.username,
+          profilePic: "How's this picture look ",
+          goodUpload: req.flash('goodUpload'),
+          image: '/uploads/UserPics/' + req.file.originalname
+        });
+      }
 
-router.post('/confirmPicture',function(req,res){
-  Account.findById({ _id: req.user.id }, function(err,account){
-    if(err) throw err;
-
-    account.userPhoto.contentType = req.user.userPhoto;
-
+    account.userPhoto.contentType = '/uploads/UserPics/'+req.file.originalname;
     account.save(function(err){
       if(err){
         req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
         return res.redirect('/profilePicture');
-      }else{
-        console.log(account.userPhoto);
-        req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
-        res.redirect('/budget');
       }
     });
+
+  });  
   });
 });
 
@@ -400,7 +393,8 @@ router.get('/updateProfile',function(req,res){
     username: req.user.username,
     emailAddress: req.user.emailAddress,
     fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username
+    userName: req.user.username,
+    image: req.user.userPhoto.contentType
   });
 });
 
@@ -433,6 +427,7 @@ router.get('/favorites',function(req,res){
     title:'Favorites',
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
+    image: req.user.userPhoto.contentType,
     yourFavs: req.user.Foods.Type,
     favsError: req.flash('favsError')
   });
@@ -462,7 +457,8 @@ router.get('/deleteProfile',function(req,res){
     user: req.user.username,
     title: 'Delete Account',
     fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username
+    userName: req.user.username,
+    image: req.user.userPhoto.contentType
   });
 });
 

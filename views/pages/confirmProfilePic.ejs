@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+    <header>
+      <% include ../partials/header %>
+    </header>
+
+    <div id="padding"><!--for bottom padding. keep footer down!-->
+
+      <div class="forms" id="confirmPic">
+        <h1><%= profilePic %> <%= user %>?</h1>
+
+        <h5 class="errMsgs"><%= goodUpload %></h5>
+        <img src="<%= image %>" alt="Your Avatar"/>
+
+        <a href="/profilePicture" class="mainButton">Chose Another</a>
+        <a href="/budget" class="mainButton">I Look Great!</a>
+
+      </div>
+
+    </div>
+
+    <footer>
+      <% include ../partials/footer %>
+    </footer>
+
+  </body>
+</html>
