@@ -996,7 +996,7 @@ position: relative;
 
 #map
 {
-	width: 90%;
+	width: 100%;
 	min-height: 350px;
 	margin: 0 auto;
 }
@@ -2101,6 +2101,32 @@ input[type=checkbox] {
 	}
 	
 	/*Restaurants Page*/
+	
+	/*map only*/
+	
+	.infoWindow
+	{
+		width: 100%;
+	}
+	
+	.infoWindow h1
+	{
+		padding: 0 0 5px 0!important;
+	}
+	
+	.infoWindow span
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	.infoWindow p
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	/*map only*/
 }
 
 /*Android*/
@@ -2118,7 +2144,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 350px!important;
+		padding-bottom: 130px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2567,6 +2593,32 @@ input[type=checkbox] {
 	}
 	
 	/*Restaurants Page*/
+	
+	/*map only*/
+	
+	.infoWindow
+	{
+		width: 100%;
+	}
+	
+	.infoWindow h1
+	{
+		padding: 0 0 5px 0!important;
+	}
+	
+	.infoWindow span
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	.infoWindow p
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	/*map only*/
 }
 
 /*iPhone4*/
@@ -2584,7 +2636,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 370px!important;
+		padding-bottom: 130px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -3036,6 +3088,32 @@ input[type=checkbox] {
 	
 	/*Restaurants Page*/
 	
+	/*map only*/
+	
+	.infoWindow
+	{
+		width: 100%;
+	}
+	
+	.infoWindow h1
+	{
+		padding: 0 0 5px 0!important;
+	}
+	
+	.infoWindow span
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	.infoWindow p
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	/*map only*/
+	
 }
 
 /*Blackberry*/
@@ -3053,7 +3131,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 400px!important;
+		padding-bottom: 130px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -3515,6 +3593,32 @@ input[type=checkbox] {
 	}
 	
 	/*Restaurants Page*/
+	
+	/*map only*/
+	
+	.infoWindow
+	{
+		width: 100%;
+	}
+	
+	.infoWindow h1
+	{
+		padding: 0 0 5px 0!important;
+	}
+	
+	.infoWindow span
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	.infoWindow p
+	{
+		padding: 3px 0;
+		font-size: 1em;
+	}
+	
+	/*map only*/
 }
 
 /*Device*/
@@ -3532,7 +3636,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 420px!important;
+		padding-bottom: 130px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -3984,6 +4088,32 @@ input[type=checkbox] {
 	}
 	
 	/*Restaurants Page*/
+	
+	/*map only*/
+	
+	.infoWindow
+	{
+		width: 100%;
+	}
+	
+	.infoWindow h1
+	{
+		padding: 0 0 5px 0!important;
+	}
+	
+	.infoWindow span
+	{
+		padding: 5px 0;
+		font-size: 1em;
+	}
+	
+	.infoWindow p
+	{
+		padding: 5px 0;
+		font-size: 1em;
+	}
+	
+	/*map only*/
 }
 
 /*Galaxy S*/
@@ -4001,7 +4131,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 420px!important;
+		padding-bottom: 135px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -4454,6 +4584,32 @@ input[type=checkbox] {
 	
 	/*Restaurants Page*/
 	
+	/*map only*/
+	
+	.infoWindow
+	{
+		width: 100%;
+	}
+	
+	.infoWindow h1
+	{
+		padding: 0 0 5px 0!important;
+	}
+	
+	.infoWindow span
+	{
+		padding: 5px 0;
+		font-size: 1em;
+	}
+	
+	.infoWindow p
+	{
+		padding: 5px 0;
+		font-size: 1em;
+	}
+	
+	/*map only*/
+	
 }
 
 /*Kindle*/
@@ -4471,7 +4627,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 300px!important;
+		padding-bottom: 135px!important;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -4899,6 +5055,32 @@ input[type=checkbox] {
 	}
 	
 	/*Restaurants Page*/
+	
+	/*map only*/
+	
+	.infoWindow
+	{
+		width: 100%;
+	}
+	
+	.infoWindow h1
+	{
+		padding: 0 0 5px 0!important;
+	}
+	
+	.infoWindow span
+	{
+		padding: 5px 0;
+		font-size: 1em;
+	}
+	
+	.infoWindow p
+	{
+		padding: 5px 0;
+		font-size: 1em;
+	}
+	
+	/*map only*/
 }
 
 /*Nook Tablet*/
@@ -4916,7 +5098,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 300px!important;
+		padding-bottom: 135px!important;
 	}
 	
 	#logoHolder object,#logoHolder img

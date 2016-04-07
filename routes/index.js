@@ -13,16 +13,16 @@ var crypto = require('crypto');
 var flash = require('express-flash');
 var busboy = require('connect-busboy');
 var multer  =   require('multer');
+var util = require('util');
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
-    callback(null, './uploads')
+    callback(null, './uploads/UserPics/');
   },
   filename: function (req, file, callback) {
-    var datetimestamp = Date.now();
-    callback(null, file.fieldname + '-' + datetimestamp + '.' + file.originalname.split('.')[file.originalname.split('.').length -1])
+    callback(null, file.originalname);
   }
 });
-var upload = multer({ storage : storage }).single('file');
+var upload = multer({ storage : storage }).single('userPhoto');
 
 router.get('/foodTypes', function(req,res,next){
   Food.find(function(err,favs){
@@ -173,7 +173,8 @@ router.get('/budget', function(req, res) {
     moneyOnly: "Silly "+req.user.username+". You can't pay with words.",
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
-    favorites: req.flash('favorites')
+    favorites: req.flash('favorites'),
+    goodUpload: req.flash('goodUpload')
   });
 });
 
@@ -349,18 +350,44 @@ router.get('/profilePicture',function(req,res){
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
     noUpload: req.flash('uploadError'),
-    goodUpload: req.flash('goodUpload'),
+    image: '/uploads/noUpload/noThumb.svg'
   });
 });
 
-router.post('/profilePicture',function(req,res){
+router.post('/profilePicture',function(req,res,next){
   upload(req,res,function(err){
     if(err){
       req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
       return res.redirect('/profilePicture');
     }
-    req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
-    res.redirect('/profilePicture');
+    //console.dir(req.file);
+    res.render('pages/acceptPicture',{
+      title: 'Profile Picture',
+      user: req.user.username,
+      profilePic: 'Is this the one you want ',
+      fullName: req.user.firstname + ' ' + req.user.lastname,
+      userName: req.user.username,
+      image: '/uploads/UserPics/' + req.file.originalname
+    });
+  });
+});
+
+router.post('/confirmPicture',function(req,res){
+  Account.findById({ _id: req.user.id }, function(err,account){
+    if(err) throw err;
+
+    account.userPhoto.contentType = req.user.userPhoto;
+
+    account.save(function(err){
+      if(err){
+        req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
+        return res.redirect('/profilePicture');
+      }else{
+        console.log(account.userPhoto);
+        req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
+        res.redirect('/budget');
+      }
+    });
   });
 });
 
@@ -390,7 +417,7 @@ router.post('/updateProfile',function(req,res){
 
     account.save(function(err){
       if(err){
-        console.log('shit went wrong');
+        console.log('Something went wrong.');
       }else{
         req.flash('profileUpdated', 'Your Profile has been Updated!');
         res.redirect('/message');

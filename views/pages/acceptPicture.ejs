@@ -11,18 +11,13 @@
 
     <div id="padding"><!--for bottom padding. keep footer down!-->
 
-<form class="forms" id="uploadForm" action="/profilePicture" method="post" enctype="multipart/form-data">
+<form class="forms" id="uploadForm" action="/confirmPicture" method="post" enctype="multipart/form-data">
       <h1><%= profilePic %> <%= user %></h1>
       
-      <img src="<%= image %>" alt="Your Avatar"/>
+      <img src="<%= image %>" name="userPhoto" alt="Your Avatar"/>
 
-      <div class="errMsgs">
-          <p style="font-weight:bold;"><%= noUpload %></p>
-      </div>
-
-      <input type="file" name="userPhoto">
-      <input class="mainButton" type="submit" value="Upload Image" name="submit">
-      <a class="neverMind" href="/budget">Never Mind</a>
+      <input class="mainButton" type="submit" value="Confirm" name="submit">
+      <a class="neverMind" href="/profilePicture">Not This One!</a>
 </form>
 
     </div>

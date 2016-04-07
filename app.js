@@ -16,9 +16,9 @@ var uploads_base = path.join(__dirname, "uploads");
 var busboy = require('connect-busboy');
 var methodOverride = require('method-override');
 var routes = require('./routes/index');
-var users = require('./routes/users');
-var app = express();
 var multer  =   require('multer');
+var fs = require('fs');
+var app = express();
 
 app.use(function(req, res, next) {
 res.header("Access-Control-Allow-Origin", "http://localhost");
@@ -55,7 +55,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/uploads', express.static(uploads_base));
 
 app.use('/', routes);
-app.use('/users', users);
 
 // passport config
 var Account = require('./models/account.js');

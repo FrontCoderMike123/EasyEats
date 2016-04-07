@@ -2,14 +2,13 @@
 
 var budgetOptions = angular.module('budgetOptions', ['ngStorage']);
 
-budgetOptions.controller('optionCtrl',['$scope','$http','$filter','$localStorage',function($scope,$http,$filter,$localStorage){
+budgetOptions.controller('optionCtrl',['$scope','$http','$localStorage','$sessionStorage',function($scope,$http,$localStorage,$sessionStorage){
     $http.get('/foodTypes').success(function(data){
     	$scope.types = data;
     });
 
-    $scope.$storage =  $localStorage.$default({
-        userFav: {}  
-    });
+    $scope.$storage = $localStorage.$default({ userFav: {} });
+    $scope.$storage = $sessionStorage.$default({ userFav: {} });
 
     $scope.toggleFav = function(type){
     	type.Favorite = !type.Favorite;
