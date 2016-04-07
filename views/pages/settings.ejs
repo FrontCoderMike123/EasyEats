@@ -6,13 +6,7 @@
 <body id="settingsBody">
     <header>
       <% include ../partials/header %>
-      <a href="/budget" class="goBack" title="Go Back">
-          <div>
-            <object data="images/icons/yellowHome.svg">
-              <img src="images/icons/yellowHome.png" alt="Back to 'Food Finder'">
-            </object>
-          </div>
-        </a>
+      <a href="/budget" class="goBack" title="Go Back"></a>
     </header>
 
     <div id="settingPad">
@@ -20,32 +14,32 @@
       <div id="settingList">
           <a href="/updateProfile">
             <div>
-            <object data="/images/icons/updateBio.svg">
-              <img src="/images/icons/updateBio.png" alt="Update Biography">
+            <object data="/images/icons/settings/updateBio.svg">
+              <img src="/images/icons/settings/updateBio.png" alt="Update Biography">
             </object>
             <span class="text-content"><span><%= updateBio %></span></span>
             </div>
           </a>
           <a href="/forgotPass">
             <div>
-            <object data="/images/icons/password.svg">
-              <img src="/images/icons/password.png" alt="Reset Password">
+            <object data="/images/icons/settings/password.svg">
+              <img src="/images/icons/settings/password.png" alt="Reset Password">
             </object>
             <span class="text-content"><span><%= reset %></span></span>
             </div>
           </a>
           <a href="/favorites">
             <div>
-            <object data="/images/icons/favorite.svg">
-              <img src="/images/icons/favorite.png" alt="Change Favorites">
+            <object data="/images/icons/settings/favorite.svg">
+              <img src="/images/icons/settings/favorite.png" alt="Change Favorites">
             </object>
             <span class="text-content"><span><%= favorite %></span></span>
             </div>
           </a>
           <a href="/deleteProfile">
             <div>
-            <object data="/images/icons/delete.svg">
-              <img src="/images/icons/delete.png" alt="Delete Account">
+            <object data="/images/icons/settings/delete.svg">
+              <img src="/images/icons/settings/delete.png" alt="Delete Account">
             </object>
             <span class="text-content"><span><%= remove %></span></span>
             </div>
