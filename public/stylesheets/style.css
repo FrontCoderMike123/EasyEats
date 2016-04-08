@@ -5,7 +5,7 @@ body
 	position: relative;
 	min-height: 100vh;
 	max-width: 1400px!important;
-	margin: auto;
+	margin: 0 auto;
 }
 
 .hidden
@@ -237,6 +237,7 @@ footer
 	padding: 1%;
 	color: #ffcc00;
 	text-align: right;
+	overflow: hidden;
 }
 
 .errMsgs
@@ -650,6 +651,11 @@ footer li
 	text-align: center;
 }
 
+#loginForm input[type=checkbox]
+{
+	visibility: visible;
+}
+
 .twoButtons
 {
 	background-color: #006699;
@@ -845,13 +851,14 @@ footer li
 
 #restaurantsHolder
 {
-  text-align: center;
-	width: 100%;
-	border-radius: 0;
+  width: 100%;
 	border: none;
+	border-radius: 0;
 	margin: 0;
-position: relative;
 	padding: 0;
+	position: relative;
+	display: block;
+	overflow: hidden;
 }
 
 #restaurantsHolder h1
@@ -861,6 +868,8 @@ position: relative;
 	margin-bottom: 0;
 	border-bottom: none;
 	padding: 20px 0;
+	position: relative;
+	overflow: hidden;
 }
 
 #spendingCon
@@ -970,8 +979,8 @@ position: relative;
 
 .infoWindow
 {
-	width: 300px;
-	overflow: hidden;
+	width: 100%!important;
+	text-align: center;
 }
 
 .infoWindow h1
@@ -980,14 +989,10 @@ position: relative;
 	color: #006699;
 	font-size: 1.4em;
 	border-bottom: thin solid #006699;
-	padding: 0 0 10px 0!important;
+	padding: 10px 0!important;
 	display: block;
 	clear: both;
-}
-
-.infoWindow span, .infoWindow a
-{
-	border-radius: 5px;
+	position: relative;
 }
 
 .infoWindow span
@@ -1026,9 +1031,29 @@ position: relative;
 
 #map
 {
-	width: 100%;
+  width: 100%;
+	max-width: 800px;
 	min-height: 350px;
 	margin: 0 auto;
+}
+
+.gm-style-iw
+{
+	width: 100%!important;
+	top: 0!important;
+	left: 0!important;
+}
+
+#address
+{
+	position: absolute;
+	top: 0;
+	left: 30%;
+	width: 40%;
+	height: 100%;
+	text-align: center;
+	padding-top: 10px;
+	font-weight: bold;
 }
 
 .markerLabels
@@ -1042,11 +1067,14 @@ position: relative;
 
 .status
 {
-  position: absolute;
-	top: 15px;
-	right: 15px;
-	z-index: 0;
-	color: #006699;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	background-color: #ffcc00;
+	width: 100%;
+	height: 100%;
+	padding-top: 18px;
 	font-weight: bold;
 }
 

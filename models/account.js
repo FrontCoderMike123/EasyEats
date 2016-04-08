@@ -12,7 +12,7 @@
 		firstname: String,
 		lastname: String,
 		emailAddress: String,
-    userPhoto: { data: Buffer, contentType: String, default: '' },
+    	userPhoto: { data: Buffer, contentType: String, default: '' },
 		resetPasswordToken: String,
   		resetPasswordExpires: Date,
   		Foods: { Type: String, Favorite: Boolean }

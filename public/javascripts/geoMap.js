@@ -1,19 +1,27 @@
 (function() {
 
-  if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
-  } else {
-      error('Geolocation is not supported. Please update.');
-  }
+  var status = document.querySelector('.status');
+  var infoWindow;
+  var markers = [];
 
-  function success(position) {
-      var status = document.querySelector('.status');
-      var infoWindow;
-      var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-      var labelIndex = 0;
-      var markers = [];
-  
-  status.innerHTML = "";
+  function writeAddress(LatLng){
+    var geoCoder = new google.maps.Geocoder();
+    geoCoder.geocode({
+      "location": LatLng
+    },function(results,status){
+      if(status == google.maps.GeocoderStatus.OK){
+        document.getElementById('address').innerHTML = results[0].formatted_address;
+      }else{
+        status.innerHTML += 'Unable to retrieve your address';
+      }
+    });
+  }//writes the user address!
+
+  function geolocationSuccess(position){
+    var status = document.querySelector('.status');
+    var infoWindow;
+    var markers = [];
+    status.innerHTML = "" + status.classList.add('remove');
 
   var home = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
@@ -41,11 +49,23 @@
   }
 
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
+  writeAddress(latlng);
   var myOptions = {
     zoom: 15,
     center: latlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    zoomControl: false,
+    disableDoubleClickZoom: true,
+    mapTypeControl: false,
+    scaleControl: false,
+    scrollwheel: false,
+    panControl: false,
+    streetViewControl: false,
+    draggable : true,
+    overviewMapControl: true,
+    overviewMapControlOptions: {
+    opened: false
+  }
   };
 
   var map = new google.maps.Map(document.getElementById('map'), myOptions);
@@ -53,7 +73,7 @@
   var homeControl = new HomeControl(homeControlDiv,map);
   map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
 
-  var yourArrow = '/images/icons/urArrow.svg';
+  var yourArrow = '/images/icons/maps/urArrow.svg';
 
   var yourMarker = new google.maps.Marker({
       position: latlng, 
@@ -64,7 +84,8 @@
   });
 
   var infoWindow = new google.maps.InfoWindow({
-    maxWidth: 300
+      position: latlng,
+      maxWidth: 1000
   });
 
   var service = new google.maps.places.PlacesService(map);
@@ -86,7 +107,7 @@ function createMarker(place, timeout) {
   var placeLoc = place.geometry.location;
 
  window.setTimeout(function() {
-  var icon = '/images/icons/arrow.svg';
+  var icon = '/images/icons/maps/arrow.svg';
     var marker = new google.maps.Marker({
       map: map,
       //label: labels[labelIndex++ % labels.length],
@@ -124,12 +145,24 @@ function toggleBounce() {
       google.maps.event.trigger(map, "resize");
       map.setCenter(center);
     });
+  }//success function
 
-}
+  function geolocationError(positionError){
+    status.innerHTML += "Error: " + positionError.message;
+  }//error function
 
-function error(msg) {
-  var status = document.querySelector('.status');
-  status.innerHTML = typeof msg == 'string' ? msg : "FAILED!!!!";
-}
+  function locateUser() {
+    if (navigator.geolocation){
+      var positionOptions = {
+      enableHighAccuracy: true,
+      timeout: 10 * 1000
+    };
+    navigator.geolocation.getCurrentPosition(geolocationSuccess, geolocationError, positionOptions);
+    status.innerHTML += 'Waiting for you...';
+    }else{
+      status.innerHTML += 'Your browser does not support Geolocation';
+    }
+  }//window load function
 
+  window.onload = locateUser;
 })();

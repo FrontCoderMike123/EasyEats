@@ -14,7 +14,7 @@
     <div id="padding"><!--for bottom padding. keep footer down!-->
 
       <section class="forms" id="restaurantsHolder">
-        <h1><%= subTitle %></h1>
+        <h1><%= subTitle %><span class="status"></span></h1>
         <div id="spendingCon">
           <p>Easy Eats can see that you have <span id="userBudget">$<%= budget %></span> to spend. Let's not waste any more time! <span class="break"></span>Located on the map below are restaurants in your area.</p>
 
@@ -45,9 +45,7 @@
 
         </div>
 
-        <div id="map"></div> 
-
-        <span class="status">Waiting For You...</span>
+        <div id="map"></div>
 
       </section>
       
@@ -55,8 +53,9 @@
 
     <footer>
       <% include ../partials/footer %>
+      <span id="address"></span>
     </footer>
-<script src="/javascripts/geoMap.js"></script>
 <script src="/javascripts/mapDropDownMenu.js"></script>
-  </body>
+<script src="/javascripts/geoMap.js"></script>
+</body>
 </html>

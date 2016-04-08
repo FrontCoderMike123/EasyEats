@@ -63,6 +63,7 @@ router.post('/login', function(req, res, next) {
     if (err) {
       return next(err);
     }
+
     if (! user) {
       return res.render('pages/login',{
         user: req.user,
@@ -76,6 +77,7 @@ router.post('/login', function(req, res, next) {
         success: ''
       });
     }
+
     req.login(user, loginErr => {
       if (loginErr) {
         return next(loginErr);
@@ -84,11 +86,6 @@ router.post('/login', function(req, res, next) {
     });      
   })(req, res, next);
 });
-
-/*router.post('/login', passport.authenticate('local',{
-  successRedirect: '/budget',
-  failureRedirect: '/login'
-}));*/
 
 router.get('/logout', function(req, res) {
     req.session.destroy();
