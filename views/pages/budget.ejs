@@ -56,6 +56,15 @@ required>
         </fieldset>
         <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">
 
+        <div id="selectedContainer">
+          <% if(chosen != null) { %>
+          <% var token = ','; var newToken = '. '; %>
+          <% var chosen = JSON.parse(chosen).split(token).join(newToken); %>
+            <h3>Your Favorite Restaurants</h3>
+          <% } %>
+          <p><%= chosen %></p>
+        </div>
+
       </form>
       
     </div>

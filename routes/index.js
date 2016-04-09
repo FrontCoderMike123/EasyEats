@@ -160,6 +160,8 @@ router.post('/signUp', function(req, res) {
 });
 
 router.get('/budget', function(req, res) {
+  var chosen = JSON.stringify(req.user.Foods.Type);
+  console.log(chosen);
   res.render('pages/budget', {
     title: 'Hungry?',
     budgetTitle: 'Food Finder',
@@ -171,7 +173,8 @@ router.get('/budget', function(req, res) {
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
     favorites: req.flash('favorites'),
-    image: req.user.userPhoto.contentType
+    image: req.user.userPhoto.contentType,
+    chosen: chosen
   });
 });
 
@@ -426,18 +429,21 @@ router.get('/favorites',function(req,res){
     userName: req.user.username,
     image: req.user.userPhoto.contentType,
     yourFavs: req.user.Foods.Type,
-    favsError: req.flash('favsError')
+    favsError: req.flash('favsError'),
+    chosen: req.cookies.favorites
   });
 });
 
 router.post('/favorites',function(req,res){
   Account.findById({ _id: req.user.id },{Favorite:true}, function(err,account){
     if(err) throw err;
-
     account.Foods.Favorite = true;
     account.Foods.Type = req.body.favorites;
 
     account.save(function(err){
+      var today = new Date();
+      var year = today.getFullYear();
+      if (req.body.favorites) res.cookie('favorites', 1, { maxAge: year });
       if(err){
         req.flash('favsError', 'Sorry, Could Not Save Your Favorites, Try Again.');
         return res.redirect('/favorites');

@@ -22,14 +22,6 @@
           <p><%= favsError %></p>
         </div>
 
-        <div id="cravingAll">
-          <p>I Want Everything!</p>
-          <div class="everything">
-            <input type="checkbox" id="everything" ng-model="selectedAll" ng-click="checkAll()">
-            <label for="everything"></label>
-          </div>
-        </div>
-
         <div class="favoriteSelector" data-ng-repeat="type in types">
           <div class="FOODS">
             <object data="{{type.SVG}}">
@@ -49,12 +41,6 @@
   <label for="{{type.Type}}"></label>
   </div>
         </div>
-
-        <!--
-        <div ng-repeat="(key, value) in $storage.userFav">
-            Foods: {{key}}: {{value}}
-        </div>
-      -->
 
         <button id="favSubmit" type="submit">
           <span id="wordChange">Go Eat!</span>
