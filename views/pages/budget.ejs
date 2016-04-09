@@ -11,10 +11,12 @@
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
         moneyOnly.innerHTML = "<%= moneyOnly %>";
         moneyDiv.classList.add('opac');
+        budgetResults.classList.add('hidden');
         return false;
     }else{
       moneyOnly.innerHTML = "";
       moneyDiv.classList.remove('opac');
+      budgetResults.classList.remove('hidden');
     }
     return true;
 }
@@ -47,14 +49,22 @@
         <div id="moneyOnly"><p></p></div>
         <fieldset id="budgetInput">
           <label><%= budget %></label>
-<input type="text"
+<input type="search"
+id="budgetBox"
 name="budget"
 placeholder="<%= placeholder %>"
 onkeypress="return isNumber(event)"
 maxlength="2"
+autocomplete="off"
 required>
         </fieldset>
-        <input id="budgetFinder" class="mainButton" type="submit" value="<%= find %>">
+        <div id="budgetResults" class="hidden">
+          <object data="/images/budget/money.svg">
+            <img src="/images/budget/money.png" alt="Money"/>
+          </object>
+          <p></p>
+          <button type="submit">Find Food</button>
+        </div>
 
         <div id="selectedContainer">
           <% if(chosen != null) { %>
@@ -73,5 +83,6 @@ required>
       <% include ../partials/footer %>
     </footer>
 
+    <script src="/javascripts/budgetResults.js"></script>
   </body>
 </html>

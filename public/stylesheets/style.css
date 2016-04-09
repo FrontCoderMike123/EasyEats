@@ -746,11 +746,64 @@ footer li
 #budgetInput
 {
 	display: block;
+	position: relative;
 }
 
-#budgetInput input
+#budgetBox
+{
+	width: 40%!important;
+	clear: both;
+}
+
+#budgetResults
+{
+	background-color: #006699;
+	width: 100%;
+  clear: both;
+	overflow: hidden;
+	color: #ffcc00;
+	text-align: center;
+	font-size: 5em;
+	position: relative;
+}
+
+#budgetResults object, #budgetResults img
+{
+	width: 20%;
+	margin-left: 10%;
+	float: left;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#budgetResults p
 {
 	width: 40%;
+	float: left;
+	margin-top: 25px;
+}
+
+#budgetResults button
+{
+	width: 30%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 1;
+	height: 100%;
+	border: none;
+	cursor: pointer;
+	background-color: #006699;
+	color: #ffcc00;
+	font-size: .5em;
+}
+
+#budgetResults button:hover
+{
+	background-color: #ffcc00;
+	color: #006699;
+	border-top: 3px solid #006699;
+	border-bottom: 3px solid #006699;
 }
 
 #budgetWrapper
