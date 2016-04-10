@@ -8,15 +8,16 @@
     var charCode = (evt.which) ? evt.which : evt.keyCode;
     var moneyDiv = document.querySelector('#moneyOnly');
     var moneyOnly = document.querySelector('#moneyOnly p');
+    var results = document.querySelector('#budgetResults');
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
         moneyOnly.innerHTML = "<%= moneyOnly %>";
         moneyDiv.classList.add('opac');
-        budgetResults.classList.add('hidden');
+        results.classList.add('hidden');
         return false;
     }else{
       moneyOnly.innerHTML = "";
       moneyDiv.classList.remove('opac');
-      budgetResults.classList.remove('hidden');
+      results.classList.remove('hidden');
     }
     return true;
 }
@@ -64,15 +65,6 @@ required>
           </object>
           <p></p>
           <button type="submit">Find Food</button>
-        </div>
-
-        <div id="selectedContainer">
-          <% if(chosen != null) { %>
-          <% var token = ','; var newToken = '. '; %>
-          <% var chosen = JSON.parse(chosen).split(token).join(newToken); %>
-            <h3>Your Favorite Restaurants</h3>
-          <% } %>
-          <p><%= chosen %></p>
         </div>
 
       </form>

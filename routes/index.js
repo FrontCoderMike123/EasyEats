@@ -441,9 +441,6 @@ router.post('/favorites',function(req,res){
     account.Foods.Type = req.body.favorites;
 
     account.save(function(err){
-      var today = new Date();
-      var year = today.getFullYear();
-      if (req.body.favorites) res.cookie('favorites', 1, { maxAge: year });
       if(err){
         req.flash('favsError', 'Sorry, Could Not Save Your Favorites, Try Again.');
         return res.redirect('/favorites');

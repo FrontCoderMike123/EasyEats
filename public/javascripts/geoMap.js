@@ -10,7 +10,7 @@
       "location": LatLng
     },function(results,status){
       if(status == google.maps.GeocoderStatus.OK){
-        document.getElementById('address').innerHTML = results[0].formatted_address;
+        document.getElementById('userAddress').innerHTML = results[0].formatted_address;
       }else{
         status.innerHTML += 'Unable to retrieve your address';
       }

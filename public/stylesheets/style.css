@@ -179,53 +179,6 @@ header
 	left: 5px;
 }
 
-#settings
-{
-	float: right;
-	width: 10%;
-	text-align: center;
-	overflow: hidden;
-}
-
-#settings a
-{
-	display: block;
-	width: 35px;
-	height: 35px;
-	float: right;
-	background-repeat: no-repeat;
-	background-position: center;
-}
-
-#settings a:first-child
-{
-	margin-bottom: 5px;
-	background-image: url('../images/icons/settings/settings.svg');
-}
-
-#settings a:first-child:hover
-{
-	background-image: url('../images/icons/settings/settingsHover.svg');
-}
-
-#settings a:last-child
-{
-	background-image: url('../images/icons/settings/logout.svg');
-	clear: both;
-}
-
-#settings a:last-child:hover
-{
-	background-image: url('../images/icons/settings/logoutHover.svg');
-}
-
-.settingMobile
-{
-	display: none;
-	color: #ffcc00;
-	font-weight: bold;
-}
-
 footer
 {
 	position: absolute;
@@ -726,9 +679,13 @@ footer li
 
 /******Budget form*****/
 
+#budgetForm
+{
+	padding-bottom: 0;
+}
+
 #budgetForm input
 {
-	width: 100%;
 	text-align: center;
 }
 
@@ -796,14 +753,15 @@ footer li
 	background-color: #006699;
 	color: #ffcc00;
 	font-size: .5em;
+	border-top: 3px solid rgba(0,0,0,0);
+	border-bottom: 3px solid rgba(0,0,0,0);
 }
 
 #budgetResults button:hover
 {
 	background-color: #ffcc00;
 	color: #006699;
-	border-top: 3px solid #006699;
-	border-bottom: 3px solid #006699;
+	border-color: #006699;
 }
 
 #budgetWrapper
@@ -966,6 +924,7 @@ footer li
 	color: white;
 	font-weight: bold;
 	line-height: 45px;
+	text-align: center;
 }
 
 #first,#second
@@ -1106,7 +1065,7 @@ footer li
 #map
 {
   width: 100%;
-	max-width: 800px;
+	max-width: 100%;
 	min-height: 350px;
 	margin: 0 auto;
 }
@@ -1152,38 +1111,45 @@ footer li
 	font-weight: bold;
 }
 
-/***************************SETTINGS PAGE**************************************/
-#settingList object, #settingList img
+#yourAddress
 {
-  width: 370px;
+	display: none;
 }
 
-#settingsBody
+/***************************SETTINGS PAGE**************************************/
+
+#settingPad
 {
-	background-color: #ffcc00;
+	position:relative;
 }
 
 #settingList
 {
-  width: 100%;
-	background-color: #ffcc00;
-	padding: 5% 0 0 0;
+	min-height: 100vh;
 	text-align: center;
-	overflow: hidden;
-	position: relative;
+	background-color: #ffcc00;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+
+	align-items: center;
 }
 
 #settingList div
 {
   display: inline-block;
-	width: 22%;
-	margin: 0 1%;
+	margin: 3%;
 	position: relative;
+	overflow: hidden;
 }
 
 span.text-content
 {
 position: absolute;
+	text-align: center;
 width: 100%;
 top: 0;
 left: 0;
@@ -1222,6 +1188,58 @@ opacity: 0;
 	background-image: url('../images/icons/settings/yellowHomeHover.svg');
 }
 
+#settings
+{
+	float: right;
+	width: 30px;
+	margin-right: 8px;
+}
+
+#settings a
+{
+	width: 100%;
+	float: left;
+}
+
+#settings a div
+{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.settings div
+{
+	height: 40px;
+	width: 100%;
+	background-image: url('../images/icons/settings/settings.svg');
+}
+
+.settings div:hover
+{
+	background-image: url('../images/icons/settings/settingsHover.svg');
+}
+
+.logout div
+{
+	height: 40px;
+	width: 100%;
+	background-image: url('../images/icons/settings/logout.svg');
+}
+
+.logout div:hover
+{
+	background-image: url('../images/icons/settings/logoutHover.svg');
+}
+
+.settingMobile
+{
+	display: none;
+	color: #ffcc00;
+		float: none;
+		text-align: center;
+		font-weight: bold;
+}
 
 
 /*****************RESET FORM*******************/
@@ -1819,6 +1837,10 @@ input[type=checkbox] {
 	box-shadow: 0 0 10px rgba(51,51,51,.8)
 }
 
+#updatePad
+{
+	background-color: #ffcc00;
+}
 
 /**************************DELETE PAGE*****************/
 
@@ -2006,22 +2028,25 @@ input[type=checkbox] {
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -2057,6 +2082,11 @@ input[type=checkbox] {
 	border-right: none;
 }
 	
+	#settingList
+	{
+			flex-flow: row wrap;
+	}
+	
 	/*User Thumb and Settings*/
 	
 	/*BUDGET MONEY*/
@@ -2064,6 +2094,43 @@ input[type=checkbox] {
 	#moneyOnly
 	{
 		font-size: .6em;
+	}
+	
+	#budgetForm fieldset
+	{
+		margin-bottom: 0;
+	}
+	
+	#budgetForm input
+	{
+		width: 100%!important;
+	}
+	
+	#budgetForm input:focus
+	{
+		border-radius: 0;
+	}
+	
+	#budgetResults object, #budgetResults img
+	{
+		display: none;
+	}
+	
+	#budgetResults p
+	{
+		margin: 0;
+		float: none;
+		width: 100%;
+		font-size: .8em!important;
+	}
+	
+	#budgetResults button
+	{
+		width: 100%;
+		position: static;
+		font-size: .4em!important;
+	  float: left;
+		border: none;
 	}
 	
 	/*BUDGET MONEY*/
@@ -2199,7 +2266,7 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12)
+	.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -2264,6 +2331,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -2322,6 +2391,36 @@ input[type=checkbox] {
 		font-size: 1em;
 	}
 	
+	#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 220px!important;
+	}
+	
 	/*map only*/
 	
 	/*Confirm Upload*/
@@ -2340,6 +2439,7 @@ input[type=checkbox] {
 	}
 	
 	/*Confirm Upload*/
+	
 }
 
 /*Android*/
@@ -2357,7 +2457,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px!important;
+		padding-bottom: 130px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2518,22 +2618,25 @@ input[type=checkbox] {
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -2576,6 +2679,43 @@ input[type=checkbox] {
 	#moneyOnly
 	{
 		font-size: .7em;
+	}
+	
+	#budgetForm fieldset
+	{
+		margin-bottom: 0;
+	}
+	
+	#budgetForm input
+	{
+		width: 100%!important;
+	}
+	
+	#budgetForm input:focus
+	{
+		border-radius: 0;
+	}
+	
+	#budgetResults object, #budgetResults img
+	{
+		display: none;
+	}
+	
+	#budgetResults p
+	{
+		margin: 0;
+		float: none;
+		width: 100%;
+		font-size: .8em!important;
+	}
+	
+	#budgetResults button
+	{
+		width: 100%;
+		position: static;
+		font-size: .4em!important;
+	  float: left;
+		border: none;
 	}
 	
 	/*BUDGET MONEY*/
@@ -2627,6 +2767,11 @@ input[type=checkbox] {
 	/*BANNER*/
 	
 	/*SETTING*/
+	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
 	
 	#settingList div
 	{
@@ -2711,7 +2856,7 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12)
+	.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -2776,6 +2921,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -2834,6 +2981,36 @@ input[type=checkbox] {
 		font-size: 1em;
 	}
 	
+	#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 220px!important;
+	}
+	
 	/*map only*/
 	
 	/*Confirm Upload*/
@@ -2869,7 +3046,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px!important;
+		padding-bottom: 130px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -3032,22 +3209,25 @@ input[type=checkbox] {
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -3090,6 +3270,48 @@ input[type=checkbox] {
 	#moneyOnly
 	{
 		font-size: .8em;
+	}
+	
+	#budgetForm fieldset
+	{
+		margin-bottom: 0;
+	}
+	
+	#budgetForm input
+	{
+		width: 100%!important;
+	}
+	
+	#budgetForm input:focus
+	{
+		border-radius: 0;
+	}
+	
+	#budgetResults
+	{
+		border-bottom: thin solid white;
+	}
+	
+	#budgetResults object, #budgetResults img
+	{
+		display: none;
+	}
+	
+	#budgetResults p
+	{
+		margin: 0;
+		float: none;
+		width: 100%;
+		font-size: .8em!important;
+	}
+	
+	#budgetResults button
+	{
+		width: 100%;
+		position: static;
+		font-size: .4em!important;
+	  float: left;
+		border: none;
 	}
 	
 	/*BUDGET MONEY*/
@@ -3141,6 +3363,11 @@ input[type=checkbox] {
 	/*BANNER*/
 	
 	/*SETTING*/
+	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
 	
 	#settingList div
 	{
@@ -3225,7 +3452,7 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12)
+	.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -3290,6 +3517,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -3348,6 +3577,36 @@ input[type=checkbox] {
 		font-size: 1em;
 	}
 	
+	#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 220px!important;
+	}
+	
 	/*map only*/
 	
 	/*Confirm Upload*/
@@ -3384,7 +3643,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px!important;
+		padding-bottom: 130px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -3542,26 +3801,28 @@ input[type=checkbox] {
 	/*Error Msgs*/
 	
 	/*User Thumb and Settings*/
-	
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -3604,6 +3865,48 @@ input[type=checkbox] {
 	#moneyOnly
 	{
 		font-size: .9em;
+	}
+	
+	#budgetForm fieldset
+	{
+		margin-bottom: 0;
+	}
+	
+	#budgetForm input
+	{
+		width: 100%!important;
+	}
+	
+	#budgetForm input:focus
+	{
+		border-radius: 0;
+	}
+	
+	#budgetResults
+	{
+		border-bottom:2px solid white;
+	}
+	
+	#budgetResults object, #budgetResults img
+	{
+		display: none;
+	}
+	
+	#budgetResults p
+	{
+		margin: 0;
+		float: none;
+		width: 100%;
+		font-size: .8em!important;
+	}
+	
+	#budgetResults button
+	{
+		width: 100%;
+		position: static;
+		font-size: .4em!important;
+	  float: left;
+		border: none;
 	}
 	
 	/*BUDGET MONEY*/
@@ -3656,9 +3959,14 @@ input[type=checkbox] {
 	
 	/*SETTING*/
 	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
+	
 	#settingList div
 	{
-	 width: 70%;
+	 width: 60%;
 		margin: 10px 0;
 	}
 	
@@ -3740,7 +4048,12 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12),.favoriteSelector:nth-child(11)
+	.favoriteSelector h3
+	{
+		font-size: 1em!important;
+	}
+	
+	.favoriteSelector:nth-child(10),.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -3816,6 +4129,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -3874,6 +4189,36 @@ input[type=checkbox] {
 		font-size: 1em;
 	}
 	
+	#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 220px!important;
+	}
+	
 	/*map only*/
 	
 	/*Confirm Upload*/
@@ -3909,7 +4254,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px!important;
+		padding-bottom: 130px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -4071,22 +4416,25 @@ input[type=checkbox] {
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -4129,6 +4477,48 @@ input[type=checkbox] {
 	#moneyOnly
 	{
 		font-size: .95em;
+	}
+	
+	#budgetForm fieldset
+	{
+		margin-bottom: 0;
+	}
+	
+	#budgetForm input
+	{
+		width: 100%!important;
+	}
+	
+	#budgetForm input:focus
+	{
+		border-radius: 0;
+	}
+	
+	#budgetResults
+	{
+		border-bottom:3px solid white;
+	}
+	
+	#budgetResults object, #budgetResults img
+	{
+		display: none;
+	}
+	
+	#budgetResults p
+	{
+		margin: 0;
+		float: none;
+		width: 100%;
+		font-size: .8em!important;
+	}
+	
+	#budgetResults button
+	{
+		width: 100%;
+		position: static;
+		font-size: .4em!important;
+	  float: left;
+		border: none;
 	}
 	
 	/*BUDGET MONEY*/
@@ -4180,6 +4570,11 @@ input[type=checkbox] {
 	/*BANNER*/
 	
 	/*SETTING*/
+	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
 	
 	#settingList div
 	{
@@ -4255,7 +4650,7 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12),.favoriteSelector:nth-child(11)
+	.favoriteSelector:nth-child(10),.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -4331,6 +4726,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -4389,6 +4786,36 @@ input[type=checkbox] {
 		font-size: 1em;
 	}
 	
+	#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 200px!important;
+	}
+	
 	/*map only*/
 	
 	/*Confirm Upload*/
@@ -4416,7 +4843,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 135px!important;
+		padding-bottom: 135px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -4575,25 +5002,33 @@ input[type=checkbox] {
 	
 	/*User Thumb and Settings*/
 	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
+	
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -4636,6 +5071,22 @@ input[type=checkbox] {
 	#moneyOnly
 	{
 		font-size: .95em;
+	}
+	
+	#budgetResults object, #budgetResults img
+	{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	
+	#budgetResults p
+	{
+		margin-top: 12px;
+	}
+	
+	#budgetResults button
+	{
+		font-size: .4em!important;
 	}
 	
 	/*BUDGET MONEY*/
@@ -4762,7 +5213,7 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12),.favoriteSelector:nth-child(11)
+	.favoriteSelector:nth-child(10),.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -4838,6 +5289,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -4896,6 +5349,36 @@ input[type=checkbox] {
 		font-size: 1em;
 	}
 	
+		#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 200px!important;
+	}
+	
 	/*map only*/
 	
 }
@@ -4915,7 +5398,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 135px!important;
+		padding-bottom: 135px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -5074,25 +5557,38 @@ input[type=checkbox] {
 	
 	/*User Thumb and Settings*/
 	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
+	
+	#settingList a
+	{
+		width: 50%;
+	}
+	
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -5135,6 +5631,22 @@ input[type=checkbox] {
 	#moneyOnly
 	{
 		font-size: 1.1em;
+	}
+	
+	#budgetResults object, #budgetResults img
+	{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	
+	#budgetResults p
+	{
+		margin-top: 12px;
+	}
+	
+	#budgetResults button
+	{
+		font-size: .4em!important;
 	}
 	
 	/*BUDGET MONEY*/
@@ -5193,7 +5705,7 @@ input[type=checkbox] {
 	
 	#settingPad
 	{
-		padding-bottom: 150px;
+		padding-bottom: 130px;
 	}
 	
 	/*SETTING*/
@@ -5249,7 +5761,7 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12),.favoriteSelector:nth-child(11)
+	.favoriteSelector:nth-child(10),.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -5314,6 +5826,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -5372,6 +5886,36 @@ input[type=checkbox] {
 		font-size: 1em;
 	}
 	
+		#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 200px!important;
+	}
+	
 	/*map only*/
 }
 
@@ -5390,7 +5934,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 135px!important;
+		padding-bottom: 135px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -5542,22 +6086,25 @@ input[type=checkbox] {
 	#settings
 {
 	float: none;
+	display: block;
 	width: 100%;
-	padding-top:10px;
+	text-align: center;
 	border-top: thin solid white;
+	overflow: hidden;
 }
-	
-  .settingMobile
-	{
-		display: block;
-	}
 
 #settings a
 {
 	display: inline-block;
-	width:40%;
-	text-align: center;
-}
+	float: none;
+  margin: 10px 0;
+	width: 40%;
+	}
+	
+	.settingMobile
+	{
+		display: block;
+	}
 	
 	#userHolder
 {
@@ -5643,6 +6190,16 @@ input[type=checkbox] {
 	
 	/*SETTING*/
 	
+	#settingList a
+	{
+		width: 50%;
+	}
+	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
+	
 	span.text-content
 	{
 		font-size: 1.1em;
@@ -5655,7 +6212,7 @@ input[type=checkbox] {
 	
 	#settingPad
 	{
-		padding-bottom: 150px;
+		padding-bottom: 130px;
 	}
 	
 	/*SETTING*/
@@ -5711,7 +6268,7 @@ input[type=checkbox] {
 		border-bottom: thin solid #006699;
 	}
 	
-	.favoriteSelector:nth-child(12),.favoriteSelector:nth-child(11)
+	.favoriteSelector:nth-child(10),.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -5776,6 +6333,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -5809,6 +6368,61 @@ input[type=checkbox] {
 	}
 	
 	/*Restaurants Page*/
+	
+	/*budget results*/
+	
+	#budgetResults object, #budgetResults img
+	{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	
+	#budgetResults p
+	{
+		margin-top: 15px;
+	}
+	
+	#budgetResults button
+	{
+		font-size: .5em!important;
+	}
+	
+	/*budget results*/
+	
+	/*user address*/
+	
+		#address
+	{
+		position: static;
+		width: 100%;
+		padding: 0;
+		margin-bottom: 10px;
+		border-bottom: thin solid white;
+		padding-bottom: 5px;
+	}
+	
+	#yourAddress
+	{
+		display: block;
+		background-color: #ffcc00;
+		color: #006699;
+		padding: 5px 0;
+		margin-bottom: 5px;
+	}
+	
+	footer
+	{
+		padding: 0;
+		width: 100%;
+	}
+	
+	.mapPad
+	{
+		padding-bottom: 200px!important;
+	}
+	
+	
+	/*user address*/
 }
 
 /*Apple Ipad*/
@@ -5888,20 +6502,19 @@ input[type=checkbox] {
 	/*USER AND SETTINGS*/
 	
 	#settings
+{
+	width: 25px;
+	margin: 0;
+}
+	
+	.settings
 	{
-		width: 20%;
-		text-align: right;
+		margin-bottom: 5px;
 	}
 	
-	#settings a
+	#settings div
 	{
-    display: block;
-		float: none;
-	}
-	
-	#settings object, #settings img
-	{
-		width: 23px;
+		height: 25px;
 	}
 	
 	#userHolder
@@ -5946,6 +6559,7 @@ input[type=checkbox] {
 	.goBack
 	{
 		width: 45px;
+		top: 0;
 	}
 	
 	/*Go Back*/
@@ -5986,6 +6600,16 @@ input[type=checkbox] {
 	
 	/*SETTING*/
 	
+	#settingList a
+	{
+		width: 50%;
+	}
+	
+		#settingList
+	{
+			flex-flow: row wrap;
+	}
+	
 	span.text-content
 	{
 		font-size: 1.6em;
@@ -5998,7 +6622,7 @@ input[type=checkbox] {
 	
 	#settingPad
 	{
-		padding-bottom: 170px;
+		padding-bottom: 45px;
 	}
 	
 	/*SETTING*/
@@ -6055,7 +6679,7 @@ input[type=checkbox] {
 		width:60%;
 	}
 	
-	.favoriteSelector:nth-child(12),.favoriteSelector:nth-child(11)
+	.favoriteSelector:nth-child(10),.favoriteSelector:nth-child(11)
 	{
     border-bottom: none;
 		margin: 0;
@@ -6113,6 +6737,8 @@ input[type=checkbox] {
 	#spendingCon object, #spendingCon img
 	{
 		max-width: 50px;
+		margin: auto;
+		display: block;
 	}
 	
 	.mapInstuctions
@@ -6145,6 +6771,11 @@ input[type=checkbox] {
 		display: none;
 	}
 	
+	#address
+	{
+		display: none;
+	}
+	
 	/*Restaurants Page*/
 	
 	/*Confirm Upload*/
@@ -6162,6 +6793,27 @@ input[type=checkbox] {
 	}
 	
 	/*Confirm Upload*/
+	
+	/*budget results*/
+	
+	#budgetResults object, #budgetResults img
+	{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	
+	#budgetResults p
+	{
+		font-size: .8em!important;
+		margin-top: 15px;
+	}
+	
+	#budgetResults button
+	{
+		font-size: .4em!important;
+	}
+	
+	/*budget results*/
 }
 
 /*Desktop1*/
@@ -6239,21 +6891,19 @@ input[type=checkbox] {
 	
 	/*USER AND SETTINGS*/
 	
-	#settings
+		#settings
+{
+	width: 25px;
+}
+	
+	.settings
 	{
-		width: 20%;
-		text-align: right;
+		margin-bottom: 5px;
 	}
 	
-	#settings a
+	#settings div
 	{
-    display: block;
-		float: none;
-	}
-	
-	#settings object, #settings img
-	{
-		width: 25px;
+		height: 25px;
 	}
 	
 	#userHolder
@@ -6299,6 +6949,7 @@ input[type=checkbox] {
 	.goBack
 	{
 		width: 45px;
+		top: 0;
 	}
 	
 	/*Go Back*/
@@ -6337,6 +6988,12 @@ input[type=checkbox] {
 	/*BANNER*/
 	
 		/*SETTING*/
+
+	
+	#settingPad
+	{
+		padding-bottom: 45px;
+	}
 	
 	span.text-content
 	{
@@ -6388,6 +7045,11 @@ input[type=checkbox] {
 		height: 36px;
 	}
 	
+	.favoriteSelector h3
+	{
+		font-size: 1em!important;
+	}
+	
 	/*FAVORITES PAGE*/
 	
 	/*Restaurants Page*/
@@ -6415,6 +7077,14 @@ input[type=checkbox] {
 		padding: 120px 0 0 0;
 	}
 	
+	#address
+	{
+		left: 20%;
+		text-align: left;
+		border-left: thin solid white;
+		padding-left: 10px;
+	}
+	
 	/*Restaurants Page*/
 	
 	/*Confirm Upload*/
@@ -6425,6 +7095,27 @@ input[type=checkbox] {
 	}
 	
 	/*Confirm Upload*/
+	
+	/*budget results*/
+	
+	#budgetResults object, #budgetResults img
+	{
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+	
+	#budgetResults p
+	{
+		font-size: .8em!important;
+		margin-top: 12px;
+	}
+	
+	#budgetResults button
+	{
+		font-size: .4em!important;
+	}
+	
+	/*budget results*/
 	
 }
 
@@ -6489,10 +7180,14 @@ input[type=checkbox] {
 	
 	/*USER AND SETTINGS*/
 	
-	#settings
+	.settings
 	{
-		width: 20%;
-		text-align: right;
+		margin-bottom: 10px;
+	}
+	
+	#settings div
+	{
+		height: 30px;
 	}
 	
 	#userHolder
@@ -6586,6 +7281,13 @@ input[type=checkbox] {
 	
 	/*DELETE PAGE*/
 	
-	
+	#address
+	{
+		left: 11%;
+		border-left: thin solid white;
+		width: 20%;
+		text-align: left;
+		padding-left: 10px;
+	}
 	
 }

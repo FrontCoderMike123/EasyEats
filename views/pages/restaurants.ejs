@@ -11,7 +11,7 @@
       <script src="/javascripts/dropDown.js"></script>
     </header>
 
-    <div id="padding"><!--for bottom padding. keep footer down!-->
+    <div id="padding" class="mapPad"><!--cause of the address.-->
 
       <section class="forms" id="restaurantsHolder">
         <h1><%= subTitle %><span class="status"></span></h1>
@@ -52,8 +52,8 @@
     </div>
 
     <footer>
+      <p id="address"><span id="yourAddress">Address</span><span id="userAddress"></span></p>
       <% include ../partials/footer %>
-      <span id="address"></span>
     </footer>
 <script src="/javascripts/mapDropDownMenu.js"></script>
 <script src="/javascripts/geoMap.js"></script>
