@@ -1064,9 +1064,8 @@ footer li
 
 #map
 {
-  width: 100%;
-	max-width: 100%;
-	min-height: 350px;
+  width: 800px;
+	height: 350px;
 	margin: 0 auto;
 }
 
