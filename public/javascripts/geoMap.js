@@ -132,9 +132,6 @@
   }//writes the user address!
 
   function geolocationSuccess(position){
-    var status = document.querySelector('.status');
-    var infoWindow;
-    var markers = [];
     status.innerHTML = "" + status.classList.add('remove');
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     writeAddress(latlng);
