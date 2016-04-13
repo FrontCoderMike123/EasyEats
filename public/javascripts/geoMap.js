@@ -126,7 +126,7 @@
       if(status == google.maps.GeocoderStatus.OK){
         document.getElementById('userAddress').innerHTML = results[0].formatted_address;
       }else{
-        status.innerHTML += 'Unable to retrieve your address';
+        status.innerHTML = 'Unable to retrieve your address';
       }
     });
   }//writes the user address!
@@ -147,48 +147,52 @@
     for(var a = 0; a < minPriceZero.length; a++){
       if(budget == minPriceZero[a]){
         console.log('Spending ($'+a+'/$25) - Min Price Zero');
-            service.nearbySearch({
+          service.nearbySearch({
+            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
             location: latlng,
             radius: 1500,
-            types: ['atm'],
+            type: ['restaurant'],
             minprice: 0
-          },callback);
+        },callback);
       }
     }
 
     for(var b = 0; b < minPriceOne.length; b++){
       if(budget == minPriceOne[b]){
         console.log('Spending ($'+b+'/$50) - Min Price One');
-            service.nearbySearch({
+          service.nearbySearch({
+            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
             location: latlng,
             radius: 1500,
-            types: ['bank'],
+            type: ['restaurant'],
             minprice: 1
-          },callback);
+        },callback);
       }
     }
 
     for(var c = 0; c < minPriceTwo.length; c++){
       if(budget == minPriceTwo[c]){
         console.log('Spending ($'+c+'/$75) - Min Price Two');
-            service.nearbySearch({
+          service.nearbySearch({
+            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
             location: latlng,
             radius: 1500,
-            types: ['bus_station'],
+            type: ['restaurant'],
             minprice: 2
-          },callback);
+        },callback);
       }
     }
 
     for(var d = 0; d < minPriceThree.length; d++){
       if(budget == minPriceThree[d]){
         console.log('Spending ($'+d+'/$99) - Min Price Three');
-            service.nearbySearch({
+          service.nearbySearch({
+            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
             location: latlng,
             radius: 1500,
-            types: ['gym'],
+            type: ['restaurant'],
             minprice: 3
-          },callback);
+        },callback);
       }
     }
 
@@ -244,39 +248,33 @@
   }
 }
 
-function createMarker(place, timeout) {
+function createMarker(place) {
   var placeLoc = place.geometry.location;
-
   var icon = '/images/icons/maps/arrow.svg';
-    var marker = new google.maps.Marker({
-      map: map,
-      //label: labels[labelIndex++ % labels.length],
-      animation: google.maps.Animation.DROP,
-      position: placeLoc,
-      icon: icon
-    });
-  marker.addListener('click', toggleBounce);
 
-function toggleBounce() {
-  if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-}
+  service.getDetails({
+    placeId: place.place_id
+  },function(place,status){
+    if(status === google.maps.places.PlacesServiceStatus.OK){
+      var marker = new google.maps.Marker({
+        map: map,
+        //label: labels[labelIndex++ % labels.length],
+        animation: google.maps.Animation.DROP,
+        position: placeLoc,
+        icon: icon
+      });
 
-  var request = { reference: place.reference };
-  service.getDetails(request, function(details) {
-    google.maps.event.addListener(marker, 'click', function() {
-    infoWindow.setContent('<div class="infoWindow"><h1>'+ details.name + '</h1>' +
+    google.maps.event.addListener(marker,'click',function(){
+      infoWindow.setContent('<div class="infoWindow"><h1>'+ place.name + '</h1>' +
       '<span>Address</span>' +
-      '<p>' + details.vicinity + '</p>' +
+      '<p>' + place.vicinity + '</p>' +
       '<span>Phone Number</span>' +
-      '<p>' + details.international_phone_number + '</p>' +
-      //details.price_level +
-      '<a href="'+details.url+'" target="onblank">GO EAT!</a>' + '</div>');
-    infoWindow.open(map, this);
-  });
+      '<p>' + place.international_phone_number + '</p>' +
+      //'<span>' + place.price_level + '</span>' + some are undefined, some show a number
+      '<a href="'+place.url+'" target="onblank">GO EAT!</a>' + '</div>');
+      infoWindow.open(map,this);
+    });
+    }
   });
 }
 

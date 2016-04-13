@@ -18,11 +18,11 @@
             <span class="errMsgs"><%= success %></span>
         <fieldset>
             <label><%= username %></label>
-            <input type="text" name="username">
+            <input type="text" name="username" required maxlength="10">
         </fieldset>
         <fieldset>
             <label><%= password %></label>
-            <input type="password" name="password">
+            <input type="password" name="password" required maxlength="10">
         </fieldset>
 
     	<input class="twoButtons" type="submit" value="<%= Login %>">

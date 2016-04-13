@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <% include ../partials/head %>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places"></script>
 </head>
 <body>
     <header>
@@ -16,10 +15,6 @@
         <h1><%= subTitle %><span class="status"></span></h1>
         <div id="spendingCon">
           <p>Easy Eats can see that you have <span id="userBudget">$<%= budget %></span> to spend. Let's not waste any more time! <span class="break"></span>Located on the map below are restaurants in your area.</p>
-
-          <div id="mapDrop"></div>
-
-          <div id="mobileMapDrop">
 
           <a href="/budget" title="Go Back" id="first">
             <div>
@@ -40,8 +35,6 @@
           <span class="mapInstuctions back">Go Back</span>
           <span class="mapInstuctions favorites">Favorites</span>
 
-          </div><!--mobile map dropdown-->
-
         </div>
 
         <div id="map"></div>
@@ -55,7 +48,7 @@
       <% include ../partials/footer %>
     </footer>
 
-<script src="/javascripts/mapDropDownMenu.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU&libraries=places"></script>
 <script src="/javascripts/geoMap.js"></script>
 </body>
 </html>

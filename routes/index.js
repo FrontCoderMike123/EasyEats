@@ -340,7 +340,10 @@ router.get('/settings',function(req,res){
     reset: 'Reset Password',
     picture: 'Change Profile Picture',
     favorite: 'Update Favorites',
-    remove: 'Delete Account'
+    remove: 'Delete Account',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username,
+    image: req.user.userPhoto.contentType
   });
 });
 

@@ -253,17 +253,17 @@ footer a:hover
 	position: relative;
 	border-right: thin solid #ffcc00;
 	padding-right: 5px;
-	width: 215px;
+	width: 290px;
 }
 
 #userPicHolder object, #userPicHolder img
 {
-	position: absolute;
-	width: 75px;
-	height: 75px;
-	bottom: 0;
+  position: absolute;
+	top: auto;
 	right: 5px;
 	z-index: 1;
+	width: 75px;
+	height: 75px;
 	border-radius: 50%;
 }
 
@@ -275,9 +275,9 @@ footer a:hover
 #userPicHolder article
 {
 	float: left;
+	width: 202px;
 	height: 75px;
 	padding-right: 5px;
-	margin-right: 5px;
 	border-right: thin solid #ffcc00;
 }
 
@@ -307,7 +307,7 @@ footer a:hover
 
 #userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
 {
-	padding: 5px 0;
+	padding: 2.5px 0;
 }
 
 
@@ -911,7 +911,7 @@ footer li
 	clear: both;
 	background-color: #006699;
 	overflow: hidden;
-	padding: 10px 0;
+	padding: 15px 0;
 	position: relative;
 }
 
@@ -931,7 +931,7 @@ footer li
 {
 	border-radius: 50%;
 	position: absolute;
-	top: 5px;
+	top: 12px;
 	z-index: 100;
 	transition: all .5s ease;
 	-webkit-transition: all .5s ease;
@@ -943,14 +943,14 @@ footer li
 	max-width: 100px;
 }
 
-#first:first-child
+#first
 {
-	left: 5px
+	left: 8px;
 }
 
 #second
 {
-	right: 5px;
+	right: 8px;
 }
 
 #first:hover ~ .back
@@ -1062,16 +1062,15 @@ footer li
 	color: #006699;
 }
 
-#map
-{
+
+#map {
   width: 800px;
 	height: 350px;
-	margin: 0 auto;
+	margin: auto;
 }
 
 .gm-style-iw
 {
-	width: 100%!important;
 	top: 0!important;
 	left: 0!important;
 }
@@ -1119,12 +1118,12 @@ footer li
 
 #settingPad
 {
-	position:relative;
+	position: relative;
 }
 
 #settingList
 {
-	min-height: 100vh;
+	min-height: 90vh;
 	text-align: center;
 	background-color: #ffcc00;
 	display: -ms-flexbox;
@@ -1133,16 +1132,15 @@ footer li
 	-ms-flex-align: center;
 	-webkit-align-items: center;
 	-webkit-box-align: center;
-
-	align-items: center;
 }
 
-#settingList div
+#settingList a
 {
   display: inline-block;
 	margin: 3%;
 	position: relative;
 	overflow: hidden;
+	align-self: center;
 }
 
 span.text-content
@@ -1164,7 +1162,7 @@ opacity: 0;
   transition: opacity 500ms;
 }
 
-#settingList div:hover span.text-content {
+#settingList a:hover span.text-content {
   opacity: 1;
     -webkit-opacity:1;
 }
@@ -2182,10 +2180,10 @@ input[type=checkbox] {
 	
 	/*SETTING*/
 	
-	#settingList div
+	#settingList a
 	{
 	 width: 70%;
-		margin: 10px 0;
+		margin: 10px auto;
 	}
 	
 	span.text-content
@@ -2321,7 +2319,6 @@ input[type=checkbox] {
 	#first,#second
 	{
 		position: static;
-		display: block;
 		width: 50%;
 		float: left;
 		margin: 0;
@@ -2772,10 +2769,16 @@ input[type=checkbox] {
 			flex-flow: row wrap;
 	}
 	
-	#settingList div
+	#settingList
 	{
-	 width: 70%;
-		margin: 10px 0;
+	 width: 100%;
+  padding: 10px 0;
+	}
+	
+	#settingList a
+	{
+		width: 70%;
+		margin: 10px auto;
 	}
 	
 	span.text-content
@@ -2896,8 +2899,8 @@ input[type=checkbox] {
 	
 	#spendingCon p
 	{
-		margin: 0 0 10px 0;
-		width: 100%;
+		width: 90%;
+		margin: 0 auto 10px auto;
 		line-height: normal;
 		font-size: .9em!important;
 	}
@@ -3368,10 +3371,10 @@ input[type=checkbox] {
 			flex-flow: row wrap;
 	}
 	
-	#settingList div
+	#settingList a
 	{
 	 width: 70%;
-		margin: 10px 0;
+		margin: 10px auto;
 	}
 	
 	span.text-content
@@ -3492,8 +3495,8 @@ input[type=checkbox] {
 	
 	#spendingCon p
 	{
-		margin: 0 0 10px 0;
-		width: 100%;
+		width: 98%;
+		margin: 0 auto 10px auto;
 		line-height: normal;
 		font-size: .9em!important;
 	}
@@ -3963,10 +3966,10 @@ input[type=checkbox] {
 			flex-flow: row wrap;
 	}
 	
-	#settingList div
+	#settingList a
 	{
 	 width: 60%;
-		margin: 10px 0;
+		margin: 10px auto;
 	}
 	
 	span.text-content
@@ -4103,8 +4106,8 @@ input[type=checkbox] {
 	
 	#spendingCon p
 	{
-		margin: 0 0 10px 0;
 		width: 90%;
+		margin: 0 auto 10px auto;
 		margin: auto;
 		line-height: normal;
 		font-size: .9em!important;
@@ -4122,7 +4125,7 @@ input[type=checkbox] {
 		display: block;
 		width: 50%;
 		float: left;
-		margin: 0;
+		margin: 10px 0 0 0;
 	}
 	
 	#spendingCon object, #spendingCon img
@@ -4575,10 +4578,10 @@ input[type=checkbox] {
 			flex-flow: row wrap;
 	}
 	
-	#settingList div
+	#settingList a
 	{
-	 width: 50%;
-		margin: 10px 0;
+	 width: 40%;
+		margin: 10px auto;
 	}
 	
 	span.text-content
@@ -5138,10 +5141,10 @@ input[type=checkbox] {
 	
 	/*SETTING*/
 	
-	#settingList div
+	#settingList a
 	{
-	 width: 50%;
-		margin: 10px 0;
+	 width: 40%;
+		margin: 10px auto;
 	}
 	
 	span.text-content
@@ -5563,7 +5566,8 @@ input[type=checkbox] {
 	
 	#settingList a
 	{
-		width: 50%;
+		width: 40%;
+		margin: 10px auto;
 	}
 	
 	#settings
@@ -5802,7 +5806,7 @@ input[type=checkbox] {
 	#spendingCon p
 	{
 		margin: 0 0 10px 0;
-		width: 80%;
+		width: 95%;
 		margin: auto;
 		line-height: 30px;
 	}
@@ -5819,7 +5823,7 @@ input[type=checkbox] {
 		display: block;
 		width: 50%;
 		float: left;
-		margin: 0;
+		margin: 10px 0 0 0;
 	}
 	
 	#spendingCon object, #spendingCon img
@@ -6191,7 +6195,8 @@ input[type=checkbox] {
 	
 	#settingList a
 	{
-		width: 50%;
+		width: 40%;
+		margin: 10px auto;
 	}
 	
 		#settingList
@@ -6601,7 +6606,8 @@ input[type=checkbox] {
 	
 	#settingList a
 	{
-		width: 50%;
+		width: 40%;
+		margin: 10px auto;
 	}
 	
 		#settingList
@@ -7071,7 +7077,7 @@ input[type=checkbox] {
 	.mapInstuctions
 	{
 		opacity: 1;
-		width: 17%;
+		width: 135px;
 		text-align: center;
 		padding: 120px 0 0 0;
 	}
@@ -7116,6 +7122,23 @@ input[type=checkbox] {
 	
 	/*budget results*/
 	
+}
+
+/*Extra For Map*/
+@media only screen and (min-width:981px) and (max-width: 1225px){
+	.mapInstuctions
+	{
+		opacity: 1;
+		width: 120px;
+		padding: 0;
+		text-align: center;
+		padding-top: 130px;
+	}
+	
+	#spendingCon p
+	{
+		font-size: 1.2em!important;
+	}
 }
 
 /*Desktop 4*/

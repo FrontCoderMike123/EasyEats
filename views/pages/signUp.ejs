@@ -20,19 +20,19 @@ id="signUpForm">
       <h5 class="errMsgs"><%= message %></h5>
       <fieldset>
           <label><%= username %></label>
-          <input type="text" name="username" required minlength="4" maxlength="12">
+          <input type="text" name="username" required maxlength="10">
       </fieldset>
       <fieldset>
           <label><%= password %></label>
-          <input type="password" name="password" required>
+          <input type="password" name="password" required maxlength="10">
       </fieldset>
       <fieldset>
           <label><%= fname %></label>
-          <input type="text" name="firstname" required>
+          <input type="text" name="firstname" required maxlength="18">
       </fieldset>
       <fieldset>
           <label><%= lname %></label>
-          <input type="text" name="lastname" required>
+          <input type="text" name="lastname" required maxlength="18">
       </fieldset>
       <fieldset id="EMAIL">
           <label><%= email %></label>
