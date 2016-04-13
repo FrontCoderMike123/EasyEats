@@ -1240,20 +1240,57 @@ opacity: 0;
 
 
 /*****************RESET FORM*******************/
-.resetForm
-{
-	padding-top: .5%;
-}
 
 .resetForm label
 {
 	text-align: center;
+	margin: 0 0 5px 0;
 }
 
 .resetForm input
 {
 	margin: auto;
 	display: block;
+	width: 100%;
+}
+
+.resetForm fieldset input
+{
+	width: 98%;
+	margin: 0;
+	text-align: center;
+	padding: 1%;
+	border: 0;
+}
+
+.resetForm fieldset
+{
+	width: 80%;
+	margin: 15px auto;
+}
+
+.resetForm fieldset span
+{
+	display: block;
+	text-align: center;
+	width: 100%;
+	color: #ffcc00;
+	font-weight: bold;
+	font-size: 1.5em;
+	letter-spacing: 1px;
+	border-radius: 0 0 10px 10px;
+}
+
+.resetForm fieldset input:focus
+{
+	border-radius: 0;
+	border: none;
+}
+
+.resetMatch
+{
+	background-color: #006699;
+	padding: 10px 0;
 }
 
 .error
@@ -1687,9 +1724,9 @@ input[type=checkbox] {
 
 #favSubmit
 {
-	width: 50%;
-	margin: 20px auto 0 auto;
-	display: block;
+	width: 50%!important;
+	margin: 20px auto 0 auto!important;
+	display: block!important;
 	background-color: #006699;
 	color: white;
 	font-weight: bold;
@@ -2436,6 +2473,20 @@ input[type=checkbox] {
 	
 	/*Confirm Upload*/
 	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
+	
 }
 
 /*Android*/
@@ -3031,6 +3082,20 @@ input[type=checkbox] {
 	}
 	
 	/*Confirm Upload*/
+	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
 }
 
 /*iPhone4*/
@@ -3627,6 +3692,20 @@ input[type=checkbox] {
 	}
 	
 	/*Confirm Upload*/
+	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
 	
 }
 
@@ -4239,6 +4318,20 @@ input[type=checkbox] {
 	}
 	
 	/*Confirm Upload*/
+	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
 }
 
 /*Device*/
@@ -4828,6 +4921,20 @@ input[type=checkbox] {
 	}
 	
 	/*Confirm Upload*/
+	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
 }
 
 /*Galaxy S*/
@@ -5383,6 +5490,20 @@ input[type=checkbox] {
 	
 	/*map only*/
 	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
+	
 }
 
 /*Kindle*/
@@ -5920,6 +6041,20 @@ input[type=checkbox] {
 	}
 	
 	/*map only*/
+	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
 }
 
 /*Nook Tablet*/
@@ -6427,6 +6562,20 @@ input[type=checkbox] {
 	
 	
 	/*user address*/
+	
+	/*RESET FORM*/
+	
+	.resetForm fieldset input
+	{
+	 width: 100%!important;	
+	}
+	
+	.resetForm fieldset span
+	{
+		border-radius: 0;
+	}
+	
+	/*RESET FORM*/
 }
 
 /*Apple Ipad*/
@@ -6523,28 +6672,33 @@ input[type=checkbox] {
 	
 	#userHolder
 	{
-		width: 190px;
-		right: 5.5%;
-		overflow: hidden;
+		right: 40px;
 	}
 	
 	#userPicHolder
 	{
 		height: 54px;
-		width: 150px;
+		width: 165px;
+	}
+	
+	#userPicHolder article
+	{
+		height: 54px;
+		width: 128px;
+		padding-right: 3px;
 	}
 	
 	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
 	{
 		font-size: 11px!important;
-		padding: 3.5px 0;
+		padding: 1.5px 0;
 	}
 	
 	#userPicHolder object, #userPicHolder img
 {
-	width: 40px;
-	height: 40px;
-	bottom: 5px;
+	width: 30px;
+	height: 30px;
+	bottom: 10px;
 }
 	
 	/*USER AND SETTINGS*/
@@ -6913,28 +7067,33 @@ input[type=checkbox] {
 	
 	#userHolder
 	{
-		width: 190px;
-		right: 5.5%;
-		overflow: hidden;
+		right: 50px;
 	}
 	
 	#userPicHolder
 	{
 		height: 54px;
-		width: 159px;
+		width: 175px;
+	}
+	
+	#userPicHolder article
+	{
+		height: 54px;
+		width: 128px;
+		padding-right: 3px;
 	}
 	
 	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
 	{
 		font-size: 11px!important;
-		padding: 3.5px 0;
+		padding: 1.5px 0;
 	}
 	
 	#userPicHolder object, #userPicHolder img
 {
-	width: 50px;
-	height: 50px;
-	border:none;
+	width: 40px;
+	height: 40px;
+	bottom: 5px;
 }
 	
 	/*USER AND SETTINGS*/
@@ -7139,6 +7298,35 @@ input[type=checkbox] {
 	{
 		font-size: 1.2em!important;
 	}
+	
+	#userHolder
+	{
+		right: 60px;
+	}
+	
+	#userPicHolder
+	{
+		width: 230px;
+	}
+	
+	#userPicHolder article
+	{
+		width: 160px;
+		padding-right: 3px;
+	}
+	
+	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
+	{
+		font-size: 13px!important;
+		padding: 3.5px 0;
+	}
+	
+	#userPicHolder object, #userPicHolder img
+{
+	width: 60px;
+	height: 60px;
+	bottom: 5px;
+}
 }
 
 /*Desktop 4*/

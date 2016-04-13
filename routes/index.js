@@ -122,7 +122,7 @@ router.post('/signUp', function(req, res) {
       lastname: req.body.lastname,
       emailAddress: req.body.email,
       userPhoto: req.body.userPhoto,
-      password: req.body.password
+      salt: req.body.password
     }), req.body.password, function(err, account) {
 
         if (err) {
@@ -224,6 +224,7 @@ router.post('/forgotPass', function(req, res, next) {
           return res.redirect('/signUp');
         }
 
+        user.username = req.user.username;
         user.resetPasswordToken = token;
         user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
@@ -271,13 +272,13 @@ router.get('/reset/:token', function(req, res) {
     res.render('pages/reset', {
       user: req.user,
       title: 'Reset Password',
-      //currentPass: user.password,
+      //currentPass: req.user.password,
       error: req.flash('error')
     });
   });
 });
 
-router.post('/reset/:token', function(req, res) {
+router.post('/reset/:token', function(req, res, next) {
   async.waterfall([
     function(done) {
       Account.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
@@ -286,15 +287,13 @@ router.post('/reset/:token', function(req, res) {
           return res.redirect('/');
         }
 
-        //user.hash = req.body.password;
-        user.password = req.body.password;
+        user.username = req.user.username;
+        user.salt = req.body.password;
         user.resetPasswordToken = undefined;
         user.resetPasswordExpires = undefined;
 
-        user.save(function(err) {
-          req.logIn(user, function(err) {
-            done(err, user);
-          });
+        req.logIn(user, function(err) {
+          done(err, user);
         });
       });
     },

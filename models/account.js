@@ -8,7 +8,7 @@
 
 	var Account = new Schema({
 		username: String,
-		password: String,
+		salt: String,
 		firstname: String,
 		lastname: String,
 		emailAddress: String,
@@ -24,10 +24,10 @@
 
   		if (!user.isModified('password')) return next();
 
-  		bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
+  		bcrypt.genSalt(SALT_FACTOR, function(err, password) {
     		if (err) return next(err);
 
-    		bcrypt.hash(user.password, salt, null, function(err, hash) {
+    		bcrypt.hash(user.password, password, null, function(err, hash) {
       		if (err) return next(err);
       		user.password = hash;
       		next();
@@ -36,7 +36,7 @@
 	});
 
 	Account.methods.comparePassword = function(candidatePassword, cb) {
-  	bcrypt.compare(candidatePassword, this.salt, function(err, isMatch) {
+  	bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
     	if (err) return cb(err);
     	cb(null, isMatch);
   	});

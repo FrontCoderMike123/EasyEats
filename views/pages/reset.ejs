@@ -11,15 +11,17 @@
     <div id="padding"><!--for bottom padding. keep footer down!-->
 
         <form role="form" class="forms resetForm" method="post">
-          <h1>Current Password</h1>
+          <h1>Password Fields</h1>
           <span><%= error %></span>
           <fieldset>
             <label>New Password</label>
-            <input type="password" name="password" value="">
+            <input type="password" name="password" id="password1" required maxlength="10">
+            <span id="passwordText1"></span>
           </fieldset>
           <fieldset>
             <label>Confirm Password</label>
-            <input type="password" name="confirm" value="">
+            <input type="password" name="confirm" id="password2" required maxlength="10">
+            <span id="passwordText2"></span>
           </fieldset>
           <input class="mainButton" type="submit" value="Update Password">
         </form>
@@ -30,5 +32,6 @@
       <% include ../partials/footer %>
     </footer>
 
+  <script src="/javascripts/passwordMatch.js"></script>
   </body>
 </html>
