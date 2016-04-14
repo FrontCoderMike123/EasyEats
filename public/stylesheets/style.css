@@ -1,11 +1,16 @@
 body
 {
-	background-color: #ebebeb;
-	overflow-x: hidden;
-	position: relative;
+  position: relative;
 	min-height: 100vh;
 	max-width: 1400px!important;
-	margin: 0 auto;
+	overflow-x: hidden;
+	background-color: #ebebeb;
+}
+
+#map
+{
+	width: 100%!important;
+	height: 350px!important;
 }
 
 .hidden
@@ -21,7 +26,7 @@ object
 
 img
 {
-	max-width: 100%!important;
+	max-width: 100%;/*this little guy here was important! got rid of it and map works*/
 }
 
 #padding
@@ -1060,13 +1065,6 @@ footer li
 {
 	background-color:#ffcc00;
 	color: #006699;
-}
-
-
-#map {
-  width: 800px;
-	height: 350px;
-	margin: auto;
 }
 
 .gm-style-iw

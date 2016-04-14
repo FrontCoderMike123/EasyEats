@@ -146,52 +146,52 @@
 
     for(var a = 0; a < minPriceZero.length; a++){
       if(budget == minPriceZero[a]){
-        console.log('Spending ($'+a+'/$25) - Min Price Zero');
+        console.log('Spending ($'+a+'/$25) - Max Price Zero');
           service.nearbySearch({
-            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
+            //key: 'AIzaSyAif8p3tGiOldjVWz8wxPN33mH3nxXqY8s',
             location: latlng,
             radius: 1500,
             type: ['restaurant'],
-            minprice: 0
+            maxprice: 0
         },callback);
       }
     }
 
     for(var b = 0; b < minPriceOne.length; b++){
       if(budget == minPriceOne[b]){
-        console.log('Spending ($'+b+'/$50) - Min Price One');
+        console.log('Spending ($'+b+'/$50) - Max Price One');
           service.nearbySearch({
-            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
+            //key: 'AIzaSyAif8p3tGiOldjVWz8wxPN33mH3nxXqY8s',
             location: latlng,
             radius: 1500,
             type: ['restaurant'],
-            minprice: 1
+            maxprice: 1
         },callback);
       }
     }
 
     for(var c = 0; c < minPriceTwo.length; c++){
       if(budget == minPriceTwo[c]){
-        console.log('Spending ($'+c+'/$75) - Min Price Two');
+        console.log('Spending ($'+c+'/$75) - Max Price Two');
           service.nearbySearch({
-            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
+            //key: 'AIzaSyAif8p3tGiOldjVWz8wxPN33mH3nxXqY8s',
             location: latlng,
             radius: 1500,
             type: ['restaurant'],
-            minprice: 2
+            maxprice: 2
         },callback);
       }
     }
 
     for(var d = 0; d < minPriceThree.length; d++){
       if(budget == minPriceThree[d]){
-        console.log('Spending ($'+d+'/$99) - Min Price Three');
+        console.log('Spending ($'+d+'/$99) - Max Price Three');
           service.nearbySearch({
-            //key: 'AIzaSyC0G13t14G1RY1GcKf3ElLy5sHARKQ7jMU',
+            //key: 'AIzaSyAif8p3tGiOldjVWz8wxPN33mH3nxXqY8s',
             location: latlng,
             radius: 1500,
             type: ['restaurant'],
-            minprice: 3
+            maxprice: 3
         },callback);
       }
     }
@@ -270,7 +270,7 @@ function createMarker(place) {
       '<p>' + place.vicinity + '</p>' +
       '<span>Phone Number</span>' +
       '<p>' + place.international_phone_number + '</p>' +
-      //'<span>' + place.price_level + '</span>' + some are undefined, some show a number
+      //'<span>' + place.price_level + '</span>' + //some are undefined, some show a number
       '<a href="'+place.url+'" target="onblank">GO EAT!</a>' + '</div>');
       infoWindow.open(map,this);
     });
@@ -302,5 +302,6 @@ function createMarker(place) {
     }
   }//window load function
 
-  window.onload = locateUser;
+  google.maps.event.addDomListener(window, "load", locateUser);
+  //window.onload = locateUser;
 })();
