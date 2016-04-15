@@ -1,6 +1,8 @@
 var express = require('express');
 var passport = require('passport');
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 var fs = require('fs');
 var Account = require('../models/account.js');
 var Food = require('../models/Type.js');
@@ -24,16 +26,7 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage : storage }).single('userPhoto');
 
-router.get('/foodTypes', function(req,res,next){
-  Food.find(function(err,favs){
-    if(err)return next(err);
-    res.json(favs);
-  });
-  /*Account.find().select('Foods').exec(function(err,foodType){
-    if(err)return next(err);
-    res.json(foodType);
-  });*/
-});
+//Routers!!!!
 
 router.get('/', function (req, res) {
     res.render('pages/index', {
@@ -109,12 +102,6 @@ router.get('/signUp', function(req, res) {
   });
 });
 
-/*
-router.get('/ping', function(req, res){
-    res.status(200).send("pong!");
-});
-*/
-
 router.post('/signUp', function(req, res) {
     Account.register(new Account({
       username : req.body.username,
@@ -142,7 +129,6 @@ router.post('/signUp', function(req, res) {
         }
 
         passport.authenticate('local')(req, res, function () {
-            //res.redirect('/login');
             res.render('pages/login', {
               user: req.user,
               title: 'Please Login',
@@ -178,16 +164,9 @@ router.get('/budget', function(req, res) {
   });
 });
 
-router.get('/forgetMemory', function(req, res){
-  res.clearCookie('budget');
-  res.clearCookie('options');
-  res.redirect('/');
-});
-
 router.post('/restaurants', function(req,res,err) {
   var minute = 60 * 1000;
   if (req.body.budget) res.cookie('budget', 1, { maxAge: minute });
-  //if (req.body.options.value) res.cookie('options', 1, { maxAge: minute });
   res.render('pages/restaurants', {
     title: 'Restaurants',
     subTitle: "What's on the menu today "+req.user.username+"?",
@@ -195,6 +174,118 @@ router.post('/restaurants', function(req,res,err) {
     fullName: req.user.firstname + ' ' + req.user.lastname,
     userName: req.user.username,
     image: req.user.userPhoto.contentType
+  });
+});
+
+router.get('/message',function(req,res){
+  res.render('pages/messages',{
+    title: 'Messages',
+    sent: req.flash('info'),
+    profileUpdated: req.flash('profileUpdated'),
+    deleted: req.flash('deleted')
+  });
+});
+
+router.get('/profilePicture',function(req,res){
+  res.render('pages/profilePic',{
+    title: 'Profile Picture',
+    user: req.user.username,
+    profilePic: 'Upload a Profile Picture ',
+    noUpload: req.flash('uploadError')
+  });
+});
+
+router.post('/profilePicture',function(req,res,next){
+  Account.findById({ _id: req.user.id }, function(err,account){
+    if(err) throw err;
+    upload(req,res,function(err){
+    if(err){
+      req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
+      return res.redirect('/profilePicture');
+    }else{
+        //console.log(account.userPhoto);
+        req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
+        res.render('pages/confirmProfilePic',{
+          title: 'Confirm Picture',
+          user: req.user.username,
+          profilePic: "How's this picture look ",
+          goodUpload: req.flash('goodUpload'),
+          image: '/uploads/UserPics/' + req.file.originalname
+        });
+      }
+
+    account.userPhoto.contentType = '/uploads/UserPics/'+req.file.originalname;
+    account.save(function(err){
+      if(err){
+        req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
+        return res.redirect('/profilePicture');
+      }
+    });
+  });  
+  });
+});
+
+router.get('/settings',function(req,res){
+  res.render('pages/settings',{
+    user: req.user,
+    title: 'Settings',
+    updateBio: 'Update Profile',
+    reset: 'Reset Password',
+    picture: 'Change Profile Picture',
+    favorite: 'Update Favorites',
+    remove: 'Delete Account',
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username,
+    image: req.user.userPhoto.contentType
+  });
+});
+
+router.get('/updateProfile',function(req,res){
+  res.render('pages/profileUpdate',{
+    title: 'Your Profile',
+    update: 'Update Your Profile ' + req.user.username,
+    firstname: req.user.firstname,
+    lastname: req.user.lastname,
+    username: req.user.username,
+    emailAddress: req.user.emailAddress,
+    fullName: req.user.firstname + ' ' + req.user.lastname,
+    userName: req.user.username,
+    image: req.user.userPhoto.contentType,
+    error: req.flash('profileError')
+  });
+});
+
+//This function right here checks to see if there is an existing user by that username
+//before the user can UPDATE HES/HERS username! tap on the back!
+function userExist(req, res, next) {
+  Account.count({username: req.body.username}, function (err, count){
+    if (count === 0){
+      next();
+    }else{
+      req.flash('profileError', 'A user by that username already exists, please try again.');
+      res.redirect('/updateProfile');
+    }
+  });
+}
+
+router.post('/updateProfile',userExist,function(req,res){
+  Account.findById({ _id: req.user.id }, function(err,account){
+    if(err) throw(err);
+
+    account.firstname = req.body.firstname;
+    account.lastname = req.body.lastname;
+    account.username = req.body.username;
+    account.emailAddress = req.body.email;
+
+    account.save(function(err){
+      if(err){
+        req.flash('profileError', 'A user by that username already exists, please try again.');
+        res.redirect('/updateProfile');
+      }else{
+        req.flash('profileUpdated', 'Your Profile has been Updated!');
+        res.redirect('/message');
+      }
+    });
   });
 });
 
@@ -322,103 +413,10 @@ router.post('/reset/:token', function(req, res, next) {
   });
 });
 
-router.get('/message',function(req,res){
-  res.render('pages/messages',{
-    title: 'Messages',
-    sent: req.flash('info'),
-    profileUpdated: req.flash('profileUpdated'),
-    deleted: req.flash('deleted')
-  });
-});
-
-router.get('/settings',function(req,res){
-  res.render('pages/settings',{
-    user: req.user,
-    title: 'Settings',
-    updateBio: 'Update Profile',
-    reset: 'Reset Password',
-    picture: 'Change Profile Picture',
-    favorite: 'Update Favorites',
-    remove: 'Delete Account',
-    fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username,
-    image: req.user.userPhoto.contentType
-  });
-});
-
-router.get('/profilePicture',function(req,res){
-  res.render('pages/profilePic',{
-    title: 'Profile Picture',
-    user: req.user.username,
-    profilePic: 'Upload a Profile Picture ',
-    noUpload: req.flash('uploadError')
-  });
-});
-
-router.post('/profilePicture',function(req,res,next){
-  Account.findById({ _id: req.user.id }, function(err,account){
-    if(err) throw err;
-    upload(req,res,function(err){
-    if(err){
-      req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
-      return res.redirect('/profilePicture');
-    }else{
-        //console.log(account.userPhoto);
-        req.flash('goodUpload', 'Your profile picture has been uploaded. Check it Out');
-        res.render('pages/confirmProfilePic',{
-          title: 'Confirm Picture',
-          user: req.user.username,
-          profilePic: "How's this picture look ",
-          goodUpload: req.flash('goodUpload'),
-          image: '/uploads/UserPics/' + req.file.originalname
-        });
-      }
-
-    account.userPhoto.contentType = '/uploads/UserPics/'+req.file.originalname;
-    account.save(function(err){
-      if(err){
-        req.flash('uploadError', 'So sorry, profile picture did not upload, please try again.');
-        return res.redirect('/profilePicture');
-      }
-    });
-
-  });  
-  });
-});
-
-router.get('/updateProfile',function(req,res){
-  res.render('pages/profileUpdate',{
-    title: 'Your Profile',
-    update: 'Update Your Profile ' + req.user.username,
-    firstname: req.user.firstname,
-    lastname: req.user.lastname,
-    username: req.user.username,
-    emailAddress: req.user.emailAddress,
-    fullName: req.user.firstname + ' ' + req.user.lastname,
-    userName: req.user.username,
-    image: req.user.userPhoto.contentType
-  });
-});
-
-router.post('/updateProfile',function(req,res){
-  Account.findById({ _id: req.user.id }, function(err,account){
-    if(err) throw err;
-
-    account.firstname = req.body.firstname;
-    account.lastname = req.body.lastname;
-    account.username = req.body.username;
-    account.emailAddress = req.body.email;
-    //account.userPhoto.contentType = req.body.userPhoto;
-    //account.set('userPhoto.file', req.body.userPhoto);
-
-    account.save(function(err){
-      if(err){
-        console.log('Something went wrong.');
-      }else{
-        req.flash('profileUpdated', 'Your Profile has been Updated!');
-        res.redirect('/message');
-      }
-    });
+router.get('/foodTypes', function(req,res,next){
+  Food.find(function(err,favs){
+    if(err)return next(err);
+    res.json(favs);
   });
 });
 
@@ -452,7 +450,7 @@ router.post('/favorites',function(req,res){
       }
     });
   });
-});//this WILL be used. each food item has an ID
+});
 
 router.get('/deleteProfile',function(req,res){
   res.render('pages/deleteProfile',{

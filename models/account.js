@@ -2,6 +2,7 @@
 
 	var mongoose = require('mongoose');
 	var Schema = mongoose.Schema;
+	var ObjectId = Schema.ObjectId;
 	var passportLocalMongoose = require('passport-local-mongoose');
 	var bcrypt = require('bcrypt-nodejs');
 	var SALT_WORK_FACTOR = 10;
