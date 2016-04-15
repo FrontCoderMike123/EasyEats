@@ -140,48 +140,32 @@
   {
     "featureType":"water",
     "elementType":"geometry.fill",
-    "stylers": [
-      { "color": "#006699" }
-    ]
+    "stylers": [{ "color": "#006699" }]
   },{
     "featureType": "road.local",
     "elementType": "geometry.fill",
-    "stylers": [
-      { "color": "#006699" },
-      { "saturation": -29 },
-      { "lightness": -4 }
-    ]
+    "stylers": [{ "color": "#ffffff" }]
   },{
     "featureType": "road.arterial",
     "elementType": "geometry.fill",
-    "stylers": [
-      { "color": "#006699" },
-      { "saturation": -29 },
-      { "lightness": -4 }
-    ]
+    "stylers": [{ "color": "#ffffff" }]
   },{
     "featureType":"road.highway",
     "elementType":"geometry.fill",
-    "stylers":[
-      { "color":"#ffcc00" }
-    ]
+    "stylers":[{ "color":"#ffcc00" }]
   },{
     "featureType":"administrative.locality",
-    "stylers":[
-      { "color":"#006699" }
-    ]
+    "stylers":[{ "color":"#006699" }]
   },{
     "featureType":"water",
     "elementType":"labels.text.fill",
-    "stylers":[
-      { "color":"#ffcc00" }
-    ]
+    "stylers":[{ "color":"#ffcc00" }]
   }
 ];
     var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
 
     var myOptions = {
-      zoom: 16,
+      zoom: 15,
       center: latlng,
       scrollwheel: false,
       mapTypeControlOptions: {
@@ -192,16 +176,20 @@
     var map = new google.maps.Map(document.getElementById('map'), myOptions);
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
+
     var service = new google.maps.places.PlacesService(map);
+    var key = 'AIzaSyAMMAihXyTWvALvpK_I6csYCv_rt0eivnA';
+    var radius = 1500;
+    var type = ['restaurant'];
 
     for(var a = 0; a < minPriceZero.length; a++){
       if(budget == minPriceZero[a]){
         console.log('Spending ($'+a+'/$25) - Max Price Zero');
           service.nearbySearch({
-            key: 'AIzaSyAMMAihXyTWvALvpK_I6csYCv_rt0eivnA',
+            key: key,
             location: latlng,
-            radius: 1500,
-            type: ['restaurant'],
+            radius: radius,
+            type: type,
             maxprice: 0
         },callback);
       }
@@ -211,11 +199,11 @@
       if(budget == minPriceOne[b]){
         console.log('Spending ($'+b+'/$50) - Max Price One');
           service.nearbySearch({
-            key: 'AIzaSyAMMAihXyTWvALvpK_I6csYCv_rt0eivnA',
+            key: key,
             location: latlng,
-            radius: 1500,
-            type: ['restaurant'],
-            maxprice: 1
+            radius: radius,
+            type: type,
+            maxprice: 3
         },callback);
       }
     }
@@ -224,11 +212,11 @@
       if(budget == minPriceTwo[c]){
         console.log('Spending ($'+c+'/$75) - Max Price Two');
           service.nearbySearch({
-            key: 'AIzaSyAMMAihXyTWvALvpK_I6csYCv_rt0eivnA',
+            key: key,
             location: latlng,
-            radius: 1500,
-            type: ['restaurant'],
-            maxprice: 2
+            radius: radius,
+            type: type,
+            maxprice: 3
         },callback);
       }
     }
@@ -237,10 +225,10 @@
       if(budget == minPriceThree[d]){
         console.log('Spending ($'+d+'/$99) - Max Price Three');
           service.nearbySearch({
-            key: 'AIzaSyAMMAihXyTWvALvpK_I6csYCv_rt0eivnA',
+            key: key,
             location: latlng,
-            radius: 1500,
-            type: ['restaurant'],
+            radius: radius,
+            type: type,
             maxprice: 3
         },callback);
       }
@@ -249,26 +237,27 @@
   var home = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
   function HomeControl(controlDiv, map){
-    controlDiv.style.padding = '5px';
+    controlDiv.style.padding = '0px';
     var controlUI = document.createElement('div');
     controlUI.style.backgroundColor = "#006699";
-    controlUI.style.borderRadius = '10px';
-    controlUI.style.border = '1px solid #ccc';
     controlUI.style.cursor = 'pointer';
     controlUI.style.textAlign = 'center';
+    controlUI.style.width = "120px";
+    controlUI.style.borderBottomLeftRadius = '10px';
     controlUI.title = "Send Me Home";
     controlDiv.appendChild(controlUI);
     var controlText = document.createElement('div');
     controlText.style.fontFamily = 'Lato, sans-serif';
     controlText.style.color = '#ffcc00';
-    controlText.style.fontSize = '12px';
-    controlText.style.padding = '10px';
+    controlText.style.fontSize = '13px';
+    controlText.style.paddingTop = '15px';
+    controlText.style.paddingBottom = '15px';
     controlText.innerHTML = '<b>HOME<b>';
     controlUI.appendChild(controlText);
 
     google.maps.event.addDomListener(controlUI,'click',function(){
       map.setCenter(home);
-      map.setZoom(16);
+      map.setZoom(15);
     });
   }
 
@@ -288,16 +277,17 @@
 
   var infoWindow = new google.maps.InfoWindow({
       position: latlng,
-      maxWidth: 1000
+      maxWidth: 700
   });
 
   function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
-      createMarker(results[i], i * 200);
+      createMarker(results[i]);
     }
   }
 }
+
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
@@ -315,7 +305,6 @@ function createMarker(place) {
         icon: icon,
         title: place.name
       });
-
     google.maps.event.addListener(marker,'click',function(){
       infoWindow.setContent('<div class="infoWindow">'+
       '<h1>'+ place.name + '</h1>' +

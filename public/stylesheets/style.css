@@ -5,17 +5,17 @@ body
 	max-width: 1400px!important;
 	overflow-x: hidden;
 	background-color: #ebebeb;
-}
-
-#map
-{
-	width: 100%!important;
-	height: 350px!important;
+	margin: 0 auto;
 }
 
 .hidden
 {
 	display: none;
+}
+
+.block
+{
+	display: block!important;
 }
 
 object
@@ -1067,10 +1067,27 @@ footer li
 	color: #006699;
 }
 
+#map
+{
+	width: 100%!important;
+	height: 350px!important;
+}
+
 .gm-style-iw
 {
 	top: 0!important;
 	left: 0!important;
+	overflow: visible!important;
+}
+
+.gm-style-iw > div
+{
+	overflow: visible!important;
+}
+
+.gm-style-iw > div > div
+{
+	overflow: visible!important;
 }
 
 #address
@@ -1110,6 +1127,57 @@ footer li
 #yourAddress
 {
 	display: none;
+}
+
+#alreadyKnows
+{
+	width: 100%;
+	display: block;
+	clear: both;
+}
+
+#knowsButton h3
+{
+  font-size: 1.5em;
+	color: #006699;
+	padding-top: 16px;
+	padding-left: 5px;
+}
+
+#knowsButton button
+{
+	background: none;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+#restaurantNames
+{
+	text-align: center;
+}
+
+#restaurantNames a
+{
+	display: inline-block;
+	padding: 12px 15px;
+	background-color: #006699;
+	margin: 0 10px 10px 10px;
+	color: #ffcc00;
+	font-weight: bold;
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: thin solid rgba(0,0,0,0);
+	transition: all .3s ease;
+	-webkit-transition: all .3s ease;
+	-o-transition: all .3s ease;
+}
+
+#restaurantNames a:hover
+{
+	background-color: rgba(255,255,255,.5);
+	border-color:#006699;
+	color: #006699;
 }
 
 /***************************SETTINGS PAGE**************************************/
@@ -1892,14 +1960,9 @@ input[type=checkbox] {
 		display: block;
 	}
 	
-	.signPad
-	{
-		padding-bottom: 130px!important;
-	}
-	
 	#padding
 	{
-		padding-bottom: 130px;
+		padding-bottom: 135.8px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2185,6 +2248,7 @@ input[type=checkbox] {
 	{
 		width: 100%;
 		display: block;
+		padding: 0;
 	}
 	
 	#openingBanner button
@@ -7400,24 +7464,30 @@ input[type=checkbox] {
 	
 	#userHolder
 	{
-		right: 5%;
-		overflow: hidden;
+		right: 60px;
 	}
 	
 	#userPicHolder
 	{
-		width: 192px;
+		width: 300px;
+	}
+	
+	#userPicHolder article
+	{
+		width: 215px;
+		padding-right: 3px;
 	}
 	
 	#userPicHolder article h3,#userPicHolder article p,#userPicHolder article a
 	{
-		font-size: 12px!important;
-		padding: 6px 0;
+		font-size: 13px!important;
+		padding: 3.5px 0;
 	}
 	
 	#userPicHolder object, #userPicHolder img
 {
-	border:none;
+	width: 75px;
+	height: 75px;
 }
 	
 	/*USER AND SETTINGS*/
