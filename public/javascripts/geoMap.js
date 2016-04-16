@@ -133,36 +133,51 @@
 
   function geolocationSuccess(position){
     status.innerHTML = "" + status.classList.add('remove');
+    //var lat = 43.655009; var lng = -79.386365;
+    //var latlng = new google.maps.LatLng(lat,lng);
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
     writeAddress(latlng);
     //Styles For The Map
     var styles = [
   {
-    "featureType":"water",
-    "elementType":"geometry.fill",
-    "stylers": [{ "color": "#006699" }]
+    "featureType":"road.local",
+    "elementType":"labels.text.fill",
+    "stylers":[{ "color":"#ffffff", "weight":8 }]
   },{
-    "featureType": "road.local",
-    "elementType": "geometry.fill",
-    "stylers": [{ "color": "#ffffff" }]
+    "featureType":"road.local",
+    "elementType":"labels.text.stroke",
+    "stylers":[{ "color":"#006699","weight":6 }]
   },{
     "featureType": "road.arterial",
     "elementType": "geometry.fill",
-    "stylers": [{ "color": "#ffffff" }]
+    "stylers": [{ "color": "#ffcc00" }]
   },{
     "featureType":"road.highway",
     "elementType":"geometry.fill",
     "stylers":[{ "color":"#ffcc00" }]
   },{
     "featureType":"administrative.locality",
+    "elementType":"labels.text.stroke",
     "stylers":[{ "color":"#006699" }]
+  },{
+    "featureType":"administrative.locality",
+    "elementType":"labels.text.fill",
+    "stylers":[{ "visibility":"off" }]
+  },{
+    "featureType":"water",
+    "elementType":"geometry.fill",
+    "stylers": [{ "color": "#006699" }]
   },{
     "featureType":"water",
     "elementType":"labels.text.fill",
-    "stylers":[{ "color":"#ffcc00" }]
+    "stylers":[{ "color":"#ffffff", "weight":8 }]
+  },{
+    "featureType":"water",
+    "elementType":"labels.text.stroke",
+    "stylers":[{ "color":"#006699","weight":6 }]
   }
 ];
-    var styledMap = new google.maps.StyledMapType(styles,{name: "Styled Map"});
+    var styledMap = new google.maps.StyledMapType(styles,{name: "Easy Map"});
 
     var myOptions = {
       zoom: 15,
@@ -185,7 +200,7 @@
     for(var a = 0; a < minPriceZero.length; a++){
       if(budget == minPriceZero[a]){
         console.log('Spending ($'+a+'/$25) - Max Price Zero');
-          service.nearbySearch({
+          service.radarSearch({
             key: key,
             location: latlng,
             radius: radius,
@@ -198,12 +213,12 @@
     for(var b = 0; b < minPriceOne.length; b++){
       if(budget == minPriceOne[b]){
         console.log('Spending ($'+b+'/$50) - Max Price One');
-          service.nearbySearch({
+          service.radarSearch({
             key: key,
             location: latlng,
             radius: radius,
             type: type,
-            maxprice: 3
+            maxprice: 1
         },callback);
       }
     }
@@ -211,12 +226,12 @@
     for(var c = 0; c < minPriceTwo.length; c++){
       if(budget == minPriceTwo[c]){
         console.log('Spending ($'+c+'/$75) - Max Price Two');
-          service.nearbySearch({
+          service.radarSearch({
             key: key,
             location: latlng,
             radius: radius,
             type: type,
-            maxprice: 3
+            maxprice: 2
         },callback);
       }
     }
@@ -224,7 +239,7 @@
     for(var d = 0; d < minPriceThree.length; d++){
       if(budget == minPriceThree[d]){
         console.log('Spending ($'+d+'/$99) - Max Price Three');
-          service.nearbySearch({
+          service.radarSearch({
             key: key,
             location: latlng,
             radius: radius,
@@ -286,7 +301,7 @@
       pane: 'floatPane'
   });
 
-  function callback(results, status) {
+function callback(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (var i = 0; i < results.length; i++) {
       createMarker(results[i]);
@@ -294,18 +309,14 @@
   }
 }
 
-
 function createMarker(place) {
   var placeLoc = place.geometry.location;
   var icon = '/images/icons/maps/restaurantMarker.svg';
 
-  service.getDetails({
-    placeId: place.place_id
-  },function(place,status){
+  service.getDetails({placeId: place.place_id},function(place,status){
     if(status === google.maps.places.PlacesServiceStatus.OK){
       var marker = new google.maps.Marker({
         map: map,
-        //label: labels[labelIndex++ % labels.length],
         animation: google.maps.Animation.DROP,
         position: placeLoc,
         icon: icon,
@@ -321,7 +332,7 @@ function createMarker(place) {
       //'<span>' + place.price_level + '</span>' + //some are undefined, some show a number
       '<a href="'+place.website+'" target="onblank">GO EAT!</a>' + '</div>');
       infoWindow.open(map,this);
-      map.setCenter(placeLoc);//so if the user is zoomed out and clicks a restaurant, is set to normal
+      map.setCenter(placeLoc);
       map.setZoom(15);
     });
     }

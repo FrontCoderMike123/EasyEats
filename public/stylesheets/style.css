@@ -1058,7 +1058,7 @@ footer li
 	font-weight: bold;
 	color: #006699;
 	font-size: 1.6em;
-	padding: 10px 0!important;
+	padding: 10px 20px!important;
 	display: block;
 	clear: both;
 	position: relative;
@@ -2505,22 +2505,23 @@ input[type=checkbox] {
 	.infoWindow
 	{
 		width: 100%;
+		border-radius: 0;
 	}
 	
-	.infoWindow h1
+	.infoWindow img
 	{
-		padding: 0 0 5px 0!important;
+		width: 20px;
 	}
 	
 	.infoWindow span
 	{
-		padding: 3px 0;
+		padding: 5px 0;
 		font-size: 1em;
 	}
 	
 	.infoWindow p
 	{
-		padding: 3px 0;
+		padding: 5px 0;
 		font-size: 1em;
 	}
 	
@@ -3115,22 +3116,18 @@ input[type=checkbox] {
 	.infoWindow
 	{
 		width: 100%;
-	}
-	
-	.infoWindow h1
-	{
-		padding: 0 0 5px 0!important;
+		border-radius: 0;
 	}
 	
 	.infoWindow span
 	{
-		padding: 3px 0;
+		padding: 6px 0;
 		font-size: 1em;
 	}
 	
 	.infoWindow p
 	{
-		padding: 3px 0;
+		padding: 6px 0;
 		font-size: 1em;
 	}
 	
@@ -3725,22 +3722,18 @@ input[type=checkbox] {
 	.infoWindow
 	{
 		width: 100%;
-	}
-	
-	.infoWindow h1
-	{
-		padding: 0 0 5px 0!important;
+		border-radius: 0;
 	}
 	
 	.infoWindow span
 	{
-		padding: 3px 0;
+		padding: 6px 0;
 		font-size: 1em;
 	}
 	
 	.infoWindow p
 	{
-		padding: 3px 0;
+		padding: 6px 0;
 		font-size: 1em;
 	}
 	
@@ -4350,23 +4343,18 @@ input[type=checkbox] {
 	
 	.infoWindow
 	{
-		width: 100%;
-	}
-	
-	.infoWindow h1
-	{
-		padding: 0 0 5px 0!important;
+		width: 275px;
 	}
 	
 	.infoWindow span
 	{
-		padding: 3px 0;
+		padding: 6px 0;
 		font-size: 1em;
 	}
 	
 	.infoWindow p
 	{
-		padding: 3px 0;
+		padding: 6px 0;
 		font-size: 1em;
 	}
 	
@@ -4961,23 +4949,18 @@ input[type=checkbox] {
 	
 	.infoWindow
 	{
-		width: 100%;
-	}
-	
-	.infoWindow h1
-	{
-		padding: 0 0 5px 0!important;
+		width: 300px;
 	}
 	
 	.infoWindow span
 	{
-		padding: 5px 0;
+		padding: 8px 0;
 		font-size: 1em;
 	}
 	
 	.infoWindow p
 	{
-		padding: 5px 0;
+		padding: 8px 0;
 		font-size: 1em;
 	}
 	
@@ -5538,23 +5521,18 @@ input[type=checkbox] {
 	
 	.infoWindow
 	{
-		width: 100%;
-	}
-	
-	.infoWindow h1
-	{
-		padding: 0 0 5px 0!important;
+		width: 300px;
 	}
 	
 	.infoWindow span
 	{
-		padding: 5px 0;
+		padding: 8px 0;
 		font-size: 1em;
 	}
 	
 	.infoWindow p
 	{
-		padding: 5px 0;
+		padding: 8px 0;
 		font-size: 1em;
 	}
 	
@@ -6090,23 +6068,18 @@ input[type=checkbox] {
 	
 	.infoWindow
 	{
-		width: 100%;
-	}
-	
-	.infoWindow h1
-	{
-		padding: 0 0 5px 0!important;
+		width: 320px;
 	}
 	
 	.infoWindow span
 	{
-		padding: 5px 0;
+		padding: 8px 0;
 		font-size: 1em;
 	}
 	
 	.infoWindow p
 	{
-		padding: 5px 0;
+		padding: 8px 0;
 		font-size: 1em;
 	}
 	
@@ -6676,6 +6649,11 @@ input[type=checkbox] {
 	}
 	
 	/*RESET FORM*/
+	
+	.infoWindow
+	{
+		width: 300px;
+	}
 }
 
 /*Apple Ipad*/
