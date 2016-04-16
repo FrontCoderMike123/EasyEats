@@ -12,10 +12,9 @@
 
     <form role="form" action="/login" method="post" class="forms" id="loginForm">
     	<h1><%= formTitle %></h1>
-        
         <h5 class="errMsgs"><%= message %></h5>
-            <span class="errMsgs"><%= sent %></span>
-            <span class="errMsgs"><%= success %></span>
+        <h5 class="errMsgs"><%= sent %></h5>
+        <h5 class="errMsgs"><%= success %></h5>
         <fieldset>
             <label><%= username %></label>
             <input type="text" name="username" required maxlength="10">

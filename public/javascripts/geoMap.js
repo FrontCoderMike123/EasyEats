@@ -242,7 +242,7 @@
     controlUI.style.backgroundColor = "#006699";
     controlUI.style.cursor = 'pointer';
     controlUI.style.textAlign = 'center';
-    controlUI.style.width = "120px";
+    controlUI.style.width = "80px";
     controlUI.style.borderBottomLeftRadius = '10px';
     controlUI.title = "Send Me Home";
     controlDiv.appendChild(controlUI);
@@ -275,9 +275,15 @@
       title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
   });
 
-  var infoWindow = new google.maps.InfoWindow({
+  var infoWindow = new InfoBox({
       position: latlng,
-      maxWidth: 700
+      maxWidth: 350,
+      boxClass: 'infoWindow',
+      closeBoxMargin: '0px',
+      //pixelOffset: new google.maps.Size(-175,2), 
+      closeBoxURL: '/images/icons/maps/exit.svg',
+      visible: true,
+      pane: 'floatPane'
   });
 
   function callback(results, status) {
@@ -315,11 +321,12 @@ function createMarker(place) {
       //'<span>' + place.price_level + '</span>' + //some are undefined, some show a number
       '<a href="'+place.website+'" target="onblank">GO EAT!</a>' + '</div>');
       infoWindow.open(map,this);
+      map.setCenter(placeLoc);//so if the user is zoomed out and clicks a restaurant, is set to normal
+      map.setZoom(15);
     });
     }
   });
 }
-
     google.maps.event.addDomListener(window, "resize", function() {
       var center = map.getCenter();
       google.maps.event.trigger(map, "resize");

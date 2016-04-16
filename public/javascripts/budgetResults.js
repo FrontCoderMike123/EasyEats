@@ -3,9 +3,9 @@
 	var budgetResults = document.querySelector('#budgetResults p');
 	var results = document.querySelector('#budgetResults');
 
-	budgetField.addEventListener('keyup',function(){
+	budgetField.addEventListener('keyup',function(event){
 		budgetResults.innerHTML = "$"+this.value;
-		if(budgetResults.innerHTML === "$"){
+		if(budgetField.value === ""){
 			results.classList.add('hidden');
 		}
 	},false);
