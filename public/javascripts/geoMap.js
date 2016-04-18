@@ -330,7 +330,9 @@ function createMarker(place) {
       '<span>Phone Number</span>' +
       '<p>' + place.international_phone_number + '</p>' +
       //'<span>' + place.price_level + '</span>' + //some are undefined, some show a number
-      '<a href="'+place.website+'" target="onblank">GO EAT!</a>' + '</div>');
+      '<a href="'+place.url+'" target="onblank">Get Directions</a>' + 
+      '<a href="'+place.website+'" target="onblank">Visit Website</a>' +
+      '</div>');
       infoWindow.open(map,this);
       map.setCenter(placeLoc);
       map.setZoom(15);

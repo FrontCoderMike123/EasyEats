@@ -8,11 +8,11 @@
 	var SALT_WORK_FACTOR = 10;
 
 	var Account = new Schema({
-		username: String,
-		salt: String,
+		username: { type: String, required: true, unique: true },
+		password: { type: String, required: true },
 		firstname: String,
 		lastname: String,
-		emailAddress: String,
+		emailAddress: { type: String, required: true, unique: true },
     	userPhoto: { data: Buffer, contentType: String, default: '' },
 		resetPasswordToken: String,
   		resetPasswordExpires: Date,
@@ -25,10 +25,10 @@
 
   		if (!user.isModified('password')) return next();
 
-  		bcrypt.genSalt(SALT_FACTOR, function(err, password) {
+  		bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
     		if (err) return next(err);
 
-    		bcrypt.hash(user.password, password, null, function(err, hash) {
+    		bcrypt.hash(user.password, salt, null, function(err, hash) {
       		if (err) return next(err);
       		user.password = hash;
       		next();

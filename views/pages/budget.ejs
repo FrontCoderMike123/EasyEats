@@ -9,12 +9,14 @@
     var moneyDiv = document.querySelector('#moneyOnly');
     var moneyOnly = document.querySelector('#moneyOnly p');
     var results = document.querySelector('#budgetResults');
+    var noSoupForYou = document.querySelector('#noFree');
     if (charCode > 31 && (charCode < 48 || charCode > 57)) {
         moneyOnly.innerHTML = "<%= moneyOnly %>";
         moneyDiv.classList.add('opac');
         results.classList.add('hidden');
         return false;
     }else{
+      noSoupForYou.innerHTML = '';
       moneyOnly.innerHTML = "";
       moneyDiv.classList.remove('opac');
       results.classList.remove('hidden');
@@ -59,6 +61,9 @@ maxlength="2"
 autocomplete="off"
 required>
         </fieldset>
+
+        <h5 class="errMsgs" id="noFree"></h5>
+
         <div id="budgetResults" class="hidden">
           <object data="/images/budget/money.svg">
             <img src="/images/budget/money.png" alt="Money"/>

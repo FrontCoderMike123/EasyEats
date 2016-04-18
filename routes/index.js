@@ -104,12 +104,12 @@ router.get('/signUp', function(req, res) {
 
 router.post('/signUp', function(req, res) {
     Account.register(new Account({
-      username : req.body.username,
+      username: req.body.username,
+      password: req.body.password,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       emailAddress: req.body.email,
-      userPhoto: req.body.userPhoto,
-      salt: req.body.password
+      userPhoto: req.body.userPhoto
     }), req.body.password, function(err, account) {
 
         if (err) {
@@ -315,7 +315,7 @@ router.post('/forgotPass', function(req, res, next) {
           return res.redirect('/signUp');
         }
 
-        user.username = req.user.username;
+        //user.username = req.user.username;
         user.resetPasswordToken = token;
         user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
@@ -354,8 +354,7 @@ router.post('/forgotPass', function(req, res, next) {
 });
 
 router.get('/reset/:token', function(req, res) {
-  Account.findOne({
-    resetPasswordToken: req.params.token, resetPasswordExpires: {$gt: Date.now()}}, function(err, user) {
+  Account.findOne({resetPasswordToken: req.params.token, resetPasswordExpires: {$gt: Date.now()}}, function(err, user) {
     if (!user) {
       req.flash('error', 'Password reset token is invalid or has expired.');
       return res.redirect('/forgotPass');
@@ -378,13 +377,15 @@ router.post('/reset/:token', function(req, res, next) {
           return res.redirect('/');
         }
 
-        user.username = req.user.username;
-        user.salt = req.body.password;
+        //user.username = req.user.username;
+        user.password = req.body.password;
         user.resetPasswordToken = undefined;
         user.resetPasswordExpires = undefined;
 
-        req.logIn(user, function(err) {
-          done(err, user);
+        user.save(function(err){
+          req.logIn(user, function(err) {
+            done(err, user);
+          });
         });
       });
     },
