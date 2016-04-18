@@ -102,15 +102,16 @@ router.get('/signUp', function(req, res) {
   });
 });
 
+//Everything HAAAAAS To be Unique. INCLUDING email addresses...hope you have two!
 router.post('/signUp', function(req, res) {
     Account.register(new Account({
-      username: req.body.username,
+      username : req.body.username,
       password: req.body.password,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       emailAddress: req.body.email,
       userPhoto: req.body.userPhoto
-    }), req.body.password, function(err, account) {
+    }), req.body.password, function(err) {
 
         if (err) {
             return res.render("pages/signUp", {
@@ -129,6 +130,7 @@ router.post('/signUp', function(req, res) {
         }
 
         passport.authenticate('local')(req, res, function () {
+            //res.redirect('/login');
             res.render('pages/login', {
               user: req.user,
               title: 'Please Login',

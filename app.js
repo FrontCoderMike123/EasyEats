@@ -16,7 +16,7 @@ var uploads_base = path.join(__dirname, "uploads");
 var busboy = require('connect-busboy');
 var methodOverride = require('method-override');
 var routes = require('./routes/index');
-var multer  =   require('multer');
+var multer = require('multer');
 var fs = require('fs');
 var app = express();
 
