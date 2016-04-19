@@ -40,7 +40,7 @@ router.get('/login', function(req,res,next) {
   res.render('pages/login', {
     user: req.user,
     title: 'Please Login',
-    formTitle: 'Welcome',
+    formTitle: 'Welcome to Easy Eats',
     username: 'Username',
     password: 'Password',
     Login: 'Login',
@@ -58,11 +58,11 @@ router.post('/login', function(req, res, next) {
       return res.render('pages/login',{
         user: req.user,
         title: 'Please Login',
-        formTitle: 'Welcome Back',
+        formTitle: 'Something Went Wrong...',
         username: 'Username',
         password: 'Password',
         Login: 'Login',
-        message : 'Username or Password Are Incorrect. Please Try Again.',
+        message: 'Username or Password are Incorrect. Try Again.',
         sent: '',
         success: ''
       });
@@ -106,9 +106,36 @@ router.post('/signup', function(req, res) {
     });
 
   account.save(function(err) {
-    req.logIn(account, function(err) {
-      res.redirect('/login');
-    });
+        if (err) {
+            return res.render("pages/signUp", {
+              info: "Sorry. That username OR email address have already been taken. Try again.",
+              title: 'Register Today',
+              signUpTitle: 'Sign Up',
+              username: 'Username',
+              password: 'Password',
+              fname: 'First Name',
+              lname: 'Last Name',
+              signUp: 'Sign Up',
+              email: 'Email Address',
+              favorites: 'Set Favorites',
+              message: ''
+            });
+        }else{
+          req.logIn(account, function(err) {
+            res.render('pages/login', {
+              user: req.user,
+              title: 'Please Login',
+              formTitle: 'Welcome ' + req.user.username,
+              username: 'Username',
+              password: 'Password',
+              Login: 'Login',
+              message: '',
+              sent: '',
+              success: req.flash('success'),
+              thumb: ''
+            });
+        });
+      }
   });
 });
 
