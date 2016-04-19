@@ -31,7 +31,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(flash());
 
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -50,17 +49,35 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(express.static(path.join(__dirname, 'public')));
-//app.use('/uploads', express.static(__dirname + '/uploads'));
-//app.use(multer({dest: './uploads/'}));
 app.use('/uploads', express.static(uploads_base));
 
 app.use('/', routes);
 
 // passport config
 var Account = require('./models/account.js');
-passport.use(new LocalStrategy(Account.authenticate()));
-passport.serializeUser(Account.serializeUser());
-passport.deserializeUser(Account.deserializeUser());
+passport.use(new LocalStrategy(function(username, password, done) {
+  Account.findOne({ username: username }, function(err, account) {
+    if (err) return done(err);
+    if (!account) return done(null, false, { message: 'Incorrect username.' });
+    account.comparePassword(password, function(err, isMatch) {
+      if (isMatch) {
+        return done(null, account);
+      } else {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
+    });
+  });
+}));
+
+passport.serializeUser(function(account, done) {
+  done(null, account.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  Account.findById(id, function(err, account) {
+    done(err, account);
+  });
+});
 
 mongoose.connect('mongodb://localhost/users', function(err){
   if(err){

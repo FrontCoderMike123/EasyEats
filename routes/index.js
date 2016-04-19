@@ -52,12 +52,9 @@ router.get('/login', function(req,res,next) {
 });
 
 router.post('/login', function(req, res, next) {
-  passport.authenticate('local', function(err, user, info) {
-    if (err) {
-      return next(err);
-    }
-
-    if (! user) {
+  passport.authenticate('local', function(err, account, info) {
+    if (err) return next(err)
+    if (!account) {
       return res.render('pages/login',{
         user: req.user,
         title: 'Please Login',
@@ -70,13 +67,10 @@ router.post('/login', function(req, res, next) {
         success: ''
       });
     }
-
-    req.login(user, loginErr => {
-      if (loginErr) {
-        return next(loginErr);
-      }
-      res.redirect('/budget');
-    });      
+    req.logIn(account, function(err) {
+      if (err) return next(err);
+      return res.redirect('/budget');
+    });
   })(req, res, next);
 });
 
@@ -102,8 +96,24 @@ router.get('/signUp', function(req, res) {
   });
 });
 
+router.post('/signup', function(req, res) {
+  var account = new Account({
+      username : req.body.username,
+      password: req.body.password,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      emailAddress: req.body.email
+    });
+
+  account.save(function(err) {
+    req.logIn(account, function(err) {
+      res.redirect('/login');
+    });
+  });
+});
+
 //Everything HAAAAAS To be Unique. INCLUDING email addresses...hope you have two!
-router.post('/signUp', function(req, res) {
+/*router.post('/signUp', function(req, res) {
     Account.register(new Account({
       username : req.body.username,
       password: req.body.password,
@@ -115,7 +125,7 @@ router.post('/signUp', function(req, res) {
 
         if (err) {
             return res.render("pages/signUp", {
-              info: "Sorry. That username already exists. Try again.",
+              info: "Sorry. That username OR email address have already been taken. Try again.",
               title: 'Register Today',
               signUpTitle: 'Sign Up',
               username: 'Username',
@@ -145,7 +155,7 @@ router.post('/signUp', function(req, res) {
             });
         });
     });
-});
+});*/
 
 router.get('/budget', function(req, res) {
   var chosen = JSON.stringify(req.user.Foods.Type);
@@ -223,7 +233,7 @@ router.post('/profilePicture',function(req,res,next){
         return res.redirect('/profilePicture');
       }
     });
-  });  
+  });
   });
 });
 

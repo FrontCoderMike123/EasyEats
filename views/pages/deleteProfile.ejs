@@ -9,21 +9,21 @@
       <script src="/javascripts/dropDown.js"></script>
     </header>
 
-    <div id="updatePad"><!--for bottom padding. keep footer down!-->
+    <div id="updatePad" class="relative"><!--for bottom padding. keep footer down!-->
 
         <form role="form" id="deleteForm" action="/deleteProfile" method="post">
           <p id="deleteText">You Can Still Say No...</p>
-          <button class="deletes" type="submit">
-            <object data="images/icons/buttons/deleteUser.svg">
-              <img src="images/icons/buttons/deleteUser.png" alt="Delete User"/>
-            </object>
-          </button>
-          <a href="/settings" class="deletes">
-            <button class="deletes" type="button">
-              <object data="images/icons/buttons/abort.svg">
-                <img src="images/icons/buttons/abort.png" alt="Abort Mission"/>
+          <a href="#/" class="deletes">
+            <button type="submit">
+              <object data="images/icons/buttons/deleteUser.svg">
+                <img src="images/icons/buttons/deleteUser.png" alt="Delete User"/>
               </object>
             </button>
+          </a>
+          <a href="/settings" class="deletes">
+            <object data="images/icons/buttons/abort.svg">
+              <img src="images/icons/buttons/abort.png" alt="Abort Mission"/>
+            </object>
           </a>
         </form>
       

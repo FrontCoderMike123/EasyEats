@@ -1938,12 +1938,21 @@ input[type=checkbox] {
 {
 	width: 100%;
 	background-color: #ffcc00;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
 	text-align: center;
 	overflow: hidden;
-	clear: both;
 	color: #006699;
 	position: relative;
-	padding: 6% 0;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	-webkit-box-align: center;
+	align-items: center;
 }
 
 #deleteText{
@@ -1961,27 +1970,25 @@ input[type=checkbox] {
 #deleteForm button
 {
 	border: none;
+	background: none;
+	padding: 0;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.deletes
+{
+	border: none;
 	border-radius: 50%;
 	background-color: #095e7f;
-	padding: 0%;
-	cursor: pointer;
-	display: inline-block;
-	margin: 0 30px;
+	cursor: pointer; 
 	transition: all .5s ease;
 	-webkit-transition: all .5s ease;
 	-o-transition: all .5s ease;
-	width:300px;
 	opacity: 0;
-}
-
-#nukeButton:hover, #abort:hover
-{
-	box-shadow: 0 0 10px rgba(51,51,51,.8)
-}
-
-#updatePad
-{
-	background-color: #ffcc00;
+	width: 300px;
+	display: block;
+	margin: auto;
 }
 
 /**************************DELETE PAGE*****************/
