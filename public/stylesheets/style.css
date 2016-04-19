@@ -1971,7 +1971,7 @@ input[type=checkbox] {
 {
 	border: none;
 	background: none;
-	padding: 0;
+	padding:0;
 	border-radius: 50%;
 	cursor: pointer;
 }
@@ -1996,6 +1996,11 @@ input[type=checkbox] {
 
 /*My Phone*/
 @media only screen and (max-width: 240px) {
+			#noFree
+{
+	margin: 10px 0;
+}
+	
 	
 	/*Main importants*/
 	
@@ -2011,7 +2016,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 135.8px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2299,6 +2304,7 @@ input[type=checkbox] {
 		width: 100%;
 		display: block;
 		padding: 0;
+		border-bottom: thin solid white;
 	}
 	
 	#openingBanner button
@@ -2367,24 +2373,16 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 10px;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 5px
 	}
 	
 	/*DELETE PAGE*/
@@ -2556,6 +2554,11 @@ input[type=checkbox] {
 		margin-bottom: 5px;
 	}
 	
+	#userAddress
+	{
+		padding: 0 10px;
+	}
+	
 	footer
 	{
 		padding: 0;
@@ -2604,6 +2607,12 @@ input[type=checkbox] {
 
 /*Android*/
 @media only screen and (min-width:241px) and  (max-width: 266px) {
+	
+			#noFree
+{
+	margin: 10px 0;
+}
+	
 		/*Main importants*/
 	#mobileDropDown
 	{
@@ -2617,7 +2626,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -2898,6 +2907,8 @@ input[type=checkbox] {
 	{
 		width: 100%;
 		display: block;
+		padding: 0;
+		border-bottom: thin solid white;
 	}
 	
 	#openingBanner button
@@ -2977,24 +2988,16 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 10px;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 5px
 	}
 	
 	/*DELETE PAGE*/
@@ -3162,6 +3165,11 @@ input[type=checkbox] {
 		margin-bottom: 5px;
 	}
 	
+	#userAddress
+	{
+		padding: 0 10px;
+	}
+	
 	footer
 	{
 		padding: 0;
@@ -3209,6 +3217,11 @@ input[type=checkbox] {
 
 /*iPhone4*/
 @media only screen and (min-width: 267px) and (max-width: 320px) {
+		#noFree
+{
+	margin: 10px 0;
+}
+	
 		/*Main importants*/
 	#mobileDropDown
 	{
@@ -3222,7 +3235,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -3510,6 +3523,8 @@ input[type=checkbox] {
 	{
 		width: 100%;
 		display: block;
+		padding: 0;
+		border-bottom: thin solid white;
 	}
 	
 	#openingBanner button
@@ -3583,24 +3598,16 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 10px;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 5px
 	}
 	
 	/*DELETE PAGE*/
@@ -3768,6 +3775,11 @@ input[type=checkbox] {
 		margin-bottom: 5px;
 	}
 	
+	#userAddress
+	{
+		padding: 0 10px;
+	}
+	
 	footer
 	{
 		padding: 0;
@@ -3816,6 +3828,10 @@ input[type=checkbox] {
 
 /*Blackberry*/
 @media only screen and (min-width: 321px) and (max-width: 379px) {
+		#noFree
+{
+	margin: 10px 0;
+}
 		/*Main importants*/
 	#mobileDropDown
 	{
@@ -3829,7 +3845,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -4115,6 +4131,8 @@ input[type=checkbox] {
 	{
 		width: 100%;
 		display: block;
+		padding: 0;
+		border-bottom: thin solid white;
 	}
 	
 	#openingBanner button
@@ -4188,25 +4206,16 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
-	/*DELETE PAGE*/
+  /*DELETE PAGE*/
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 15px;
-		font-size: 1.5em!important;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 5px
 	}
 	
 	/*DELETE PAGE*/
@@ -4389,6 +4398,11 @@ input[type=checkbox] {
 		margin-bottom: 5px;
 	}
 	
+	#userAddress
+	{
+		padding: 0 10px;
+	}
+	
 	footer
 	{
 		padding: 0;
@@ -4436,6 +4450,10 @@ input[type=checkbox] {
 
 /*Device*/
 @media only screen and (min-width:380px) and (max-width:414px){
+	#noFree
+{
+	margin: 10px 0;
+}
   	/*Main importants*/
 	#mobileDropDown
 	{
@@ -4449,7 +4467,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -4736,6 +4754,8 @@ input[type=checkbox] {
 	{
 		width: 100%;
 		display: block;
+		padding: 0;
+		border-bottom: thin solid white;
 	}
 	
 	#openingBanner button
@@ -4809,25 +4829,17 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 130px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
+
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 15px;
-		font-size:1.5em!important;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 10px;
 	}
 	
 	/*DELETE PAGE*/
@@ -4995,6 +5007,11 @@ input[type=checkbox] {
 		margin-bottom: 5px;
 	}
 	
+	#userAddress
+	{
+		padding: 0 10px;
+	}
+	
 	footer
 	{
 		padding: 0;
@@ -5034,6 +5051,12 @@ input[type=checkbox] {
 
 /*Galaxy S*/
 @media only screen and (min-width: 415px) and (max-width: 480px) {
+	
+	#noFree
+{
+	margin-bottom: 10px;
+}
+	
 		/*Main importants*/
 	#mobileDropDown
 	{
@@ -5047,7 +5070,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 135px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -5313,6 +5336,8 @@ input[type=checkbox] {
 	{
 		width: 100%;
 		display: block;
+		padding: 0;
+		border-bottom: thin solid white;
 	}
 	
 	#openingBanner button
@@ -5381,25 +5406,16 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 132px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 15px;
-		font-size: 1.5em!important;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 5px
 	}
 	
 	/*DELETE PAGE*/
@@ -5567,6 +5583,11 @@ input[type=checkbox] {
 		margin-bottom: 5px;
 	}
 	
+	#userAddress
+	{
+		padding: 0 10px;
+	}
+	
 	footer
 	{
 		padding: 0;
@@ -5598,6 +5619,11 @@ input[type=checkbox] {
 
 /*Kindle*/
 @media only screen and (min-width: 481px) and (max-width: 533px) {
+	
+	#noFree
+{
+	margin-bottom: 10px;
+}
 		/*Main importants*/
 	#mobileDropDown
 	{
@@ -5611,7 +5637,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 135px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -5939,25 +5965,16 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 135px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 15px;
-		font-size: 1.5em!important;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 5px
 	}
 	
 	/*DELETE PAGE*/
@@ -6114,6 +6131,11 @@ input[type=checkbox] {
 		margin-bottom: 5px;
 	}
 	
+	#userAddress
+	{
+		padding: 0 10px;
+	}
+	
 	footer
 	{
 		padding: 0;
@@ -6157,7 +6179,7 @@ input[type=checkbox] {
 	
 	#padding
 	{
-		padding-bottom: 135px;
+		padding-bottom: 125px;
 	}
 	
 	#logoHolder object,#logoHolder img
@@ -6456,25 +6478,16 @@ input[type=checkbox] {
 	
 	#updatePad
 	{
-		padding-bottom: 135px;
+		padding-bottom: 125px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
 	
-	#deleteText
-	{
-		position: static;
-		padding: 0;
-		margin-bottom: 15px;
-		font-size: 1.5em!important;
-	}
-	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 5px
 	}
 	
 	/*DELETE PAGE*/
@@ -6537,6 +6550,7 @@ input[type=checkbox] {
 		width: 80%;
 		margin: auto;
 		line-height: 30px;
+		font-size: 1em!important;
 	}
 	
 	#userBudget
@@ -6594,6 +6608,10 @@ input[type=checkbox] {
 	/*Restaurants Page*/
 	
 	/*budget results*/
+	#noFree
+{
+	margin-bottom: 10px;
+}
 	
 	#budgetResults object, #budgetResults img
 	{
@@ -6632,6 +6650,11 @@ input[type=checkbox] {
 		color: #006699;
 		padding: 5px 0;
 		margin-bottom: 5px;
+	}
+	
+	#userAddress
+	{
+		padding: 0 10px;
 	}
 	
 	footer
@@ -6885,27 +6908,21 @@ input[type=checkbox] {
 
 	#updatePad
 	{
-		padding-bottom: 70px;
+		padding-bottom: 46px;
 	}
 	
 	/*UPDATE PRO*/
 	
 	/*DELETE PAGE*/
 	
-	#deleteForm
-	{
-		padding: 8% 0;
-	}
-	
 	#deleteText
 	{
-		font-size: 1.6em!important;
+		font-size: 1.5em!important;
 	}
 	
-	#deleteForm button
+	.deletes
 	{
 		width: 40%;
-		margin: 0 10px
 	}
 	
 	/*DELETE PAGE*/
@@ -7045,6 +7062,11 @@ input[type=checkbox] {
 	
 	/*budget results*/
 	
+	#noFree
+{
+	margin-bottom: 10px;
+}
+	
 	#budgetResults object, #budgetResults img
 	{
 		margin-left: 5%;
@@ -7066,7 +7088,7 @@ input[type=checkbox] {
 }
 
 /*Desktop1*/
-@media only screen and (min-width: 768px) and (max-width: 980px) {
+@media only screen and (min-width: 769px) and (max-width: 980px) {
 	p,a,input,select
 	{
 	 font-size: 1em!important;	
@@ -7260,13 +7282,12 @@ input[type=checkbox] {
 	
 	#deleteText
 	{
-		font-size: 1.8em!important;
+		font-size: 1.5em!important;
 	}
 	
-	#deleteForm button
+	.deletes
 	{
-		width: 35%;
-		margin: 0 15px
+		width: 40%;
 	}
 	
 	/*DELETE PAGE*/
@@ -7607,13 +7628,7 @@ input[type=checkbox] {
 	{
 		font-size: 2em!important;
 	}
-	
-	#deleteForm button
-	{
-		width: 25%;
-		margin: 0 20px
-	}
-	
+
 	/*DELETE PAGE*/
 	
 	#address

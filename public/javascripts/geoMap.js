@@ -142,19 +142,35 @@
   {
     "featureType":"road.local",
     "elementType":"labels.text.fill",
-    "stylers":[{ "color":"#ffffff", "weight":8 }]
+    "stylers":[{ "color":"#006699", "weight":8 }]
   },{
     "featureType":"road.local",
     "elementType":"labels.text.stroke",
-    "stylers":[{ "color":"#006699","weight":6 }]
+    "stylers":[{ "visibility":"off" }]
   },{
     "featureType": "road.arterial",
     "elementType": "geometry.fill",
     "stylers": [{ "color": "#ffcc00" }]
   },{
+    "featureType":"road.arterial",
+    "elementType":"labels.text.fill",
+    "stylers":[{ "color":"#006699", "weight":8 }]
+  },{
+    "featureType":"road.arterial",
+    "elementType":"labels.text.stroke",
+    "stylers":[{ "visibility":"off" }]
+  },{
     "featureType":"road.highway",
     "elementType":"geometry.fill",
     "stylers":[{ "color":"#ffcc00" }]
+  },{
+    "featureType":"road.highway",
+    "elementType":"labels.text.fill",
+    "stylers":[{ "color":"#006699", "weight":10 }]
+  },{
+    "featureType":"road.highway",
+    "elementType":"labels.text.stroke",
+    "stylers":[{ "visibility":"off" }]
   },{
     "featureType":"administrative.locality",
     "elementType":"labels.text.stroke",
