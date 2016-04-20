@@ -22,6 +22,7 @@
   		Foods: { Type: String, Favorite: Boolean }
 	});
 
+//creating the hash password
 Account.pre('save', function(next) {
   var user = this;
   var SALT_FACTOR = 5;

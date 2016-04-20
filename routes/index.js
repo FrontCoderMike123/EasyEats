@@ -16,6 +16,7 @@ var flash = require('express-flash');
 var busboy = require('connect-busboy');
 var multer  =   require('multer');
 var util = require('util');
+//Where the uploaded user images are headed too.
 var storage = multer.diskStorage({
   destination: function (req, file, callback) {
     callback(null, './uploads/UserPics/');
@@ -139,53 +140,9 @@ router.post('/signup', function(req, res) {
   });
 });
 
-//Everything HAAAAAS To be Unique. INCLUDING email addresses...hope you have two!
-/*router.post('/signUp', function(req, res) {
-    Account.register(new Account({
-      username : req.body.username,
-      password: req.body.password,
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      emailAddress: req.body.email,
-      userPhoto: req.body.userPhoto
-    }), req.body.password, function(err) {
-
-        if (err) {
-            return res.render("pages/signUp", {
-              info: "Sorry. That username OR email address have already been taken. Try again.",
-              title: 'Register Today',
-              signUpTitle: 'Sign Up',
-              username: 'Username',
-              password: 'Password',
-              fname: 'First Name',
-              lname: 'Last Name',
-              signUp: 'Sign Up',
-              email: 'Email Address',
-              favorites: 'Set Favorites',
-              message: ''
-            });
-        }
-
-        passport.authenticate('local')(req, res, function () {
-            //res.redirect('/login');
-            res.render('pages/login', {
-              user: req.user,
-              title: 'Please Login',
-              formTitle: 'Welcome ' + req.user.username,
-              username: 'Username',
-              password: 'Password',
-              Login: 'Login',
-              message: '',
-              sent: '',
-              success: req.flash('success'),
-              thumb: ''
-            });
-        });
-    });
-});*/
-
 router.get('/budget', function(req, res) {
   var chosen = JSON.stringify(req.user.Foods.Type);
+  //this console.log WILL appear undefined, UP UNTIL you select some FAVORITES!!!!!
   console.log(chosen);
   res.render('pages/budget', {
     title: 'Hungry?',
@@ -307,6 +264,9 @@ function userExist(req, res, next) {
   });
 }
 
+//EVEN if you only want to change you name, but not your username. 
+//it will still deny you access. THERE is a user in the DB by that name
+//its YOU! . so if you do make it to the update page. update everything or nothing is needed.
 router.post('/updateProfile',userExist,function(req,res){
   Account.findById({ _id: req.user.id }, function(err,account){
     if(err) throw(err);
@@ -354,7 +314,6 @@ router.post('/forgotPass', function(req, res, next) {
           return res.redirect('/signUp');
         }
 
-        //user.username = req.user.username;
         user.resetPasswordToken = token;
         user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
@@ -367,8 +326,8 @@ router.post('/forgotPass', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Hotmail',
         auth: {
-          user: '*****************',
-          pass: '*****************'
+          user: '*******************',
+          pass: '*******************',
         }
       });
       var mailOptions = {
@@ -431,8 +390,8 @@ router.post('/reset/:token', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Hotmail',
         auth: {
-          user: '****************',
-          pass: '****************'
+          user: '*******************',
+          pass: '*******************'
         }
       });
       var mailOptions = {
@@ -452,6 +411,7 @@ router.post('/reset/:token', function(req, res, next) {
   });
 });
 
+//This gets my restaurants for the favorites page.
 router.get('/foodTypes', function(req,res,next){
   Food.find(function(err,favs){
     if(err)return next(err);
@@ -509,4 +469,5 @@ router.post('/deleteProfile',function(req,res){
   });
 });
 
+//Thank you GENTLEMEN!!!
 module.exports = router;

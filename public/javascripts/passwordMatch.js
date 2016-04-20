@@ -1,4 +1,5 @@
 (function(){
+	//This script file is aimed towards the RESET PASSWORD FORM
 	var passOne = document.querySelector('#password1');
 	var passTwo = document.querySelector('#password2');
 	var passOneText = document.querySelector('#passwordText1');
@@ -11,6 +12,11 @@
 	form.addEventListener('keyup', function(){
 		for(var i = 0; i<formInputs.length; i++){
 			//console.log(formInputs[i].value);
+			if(formInputs[i].value == ""){
+				//console.log('empty');
+				noMatch.innerHTML = '';
+				return true;
+			}
 			if(formInputs[0].value != formInputs[1].value){
 				//console.log('wrong');
 				noMatch.innerHTML = 'Your Passwords Do Not Match. Please Try Again.';

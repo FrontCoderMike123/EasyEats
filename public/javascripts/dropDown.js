@@ -1,5 +1,5 @@
 (function(){
-
+	//my own little drop down menu. with the help of css.
 	var drop = document.querySelector('#dropDown');
 	var dropCover = document.querySelector('#mobileDropDown');
 

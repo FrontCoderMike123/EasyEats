@@ -1,4 +1,5 @@
 (function() {
+	//Delete pages Tweens...but you knew that lol
     var text = document.querySelector('#deleteText');
 
 	function destroy() {

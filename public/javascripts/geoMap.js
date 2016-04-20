@@ -133,6 +133,7 @@
 
   function geolocationSuccess(position){
     status.innerHTML = "" + status.classList.add('remove');
+    //some DT Toronto testing
     //var lat = 43.655009; var lng = -79.386365;
     //var latlng = new google.maps.LatLng(lat,lng);
     var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
@@ -208,8 +209,11 @@
     map.mapTypes.set('map_style', styledMap);
     map.setMapTypeId('map_style');
 
+    //I  COULD NEVER GET IT FULLY WORKING. 
+    //PLAY AROUND WITH THE VARIABLES . INSTEAD OF RESTAURANT. PUT GYM. OR BANK. ETC... 
+    //YOULL SEE. BUT AS FOR MAXPRICE!!!!. BWAH!
+
     var service = new google.maps.places.PlacesService(map);
-    var key = 'AIzaSyAMMAihXyTWvALvpK_I6csYCv_rt0eivnA';
     var radius = 1500;
     var type = ['restaurant'];
 
@@ -217,7 +221,6 @@
       if(budget == minPriceZero[a]){
         console.log('Spending ($'+a+'/$25) - Max Price Zero');
           service.nearbySearch({
-            key: key,
             location: latlng,
             radius: radius,
             type: type,
@@ -230,7 +233,6 @@
       if(budget == minPriceOne[b]){
         console.log('Spending ($'+b+'/$50) - Max Price One');
           service.nearbySearch({
-            key: key,
             location: latlng,
             radius: radius,
             type: type,
@@ -243,7 +245,6 @@
       if(budget == minPriceTwo[c]){
         console.log('Spending ($'+c+'/$75) - Max Price Two');
           service.nearbySearch({
-            key: key,
             location: latlng,
             radius: radius,
             type: type,
@@ -256,7 +257,6 @@
       if(budget == minPriceThree[d]){
         console.log('Spending ($'+d+'/$99) - Max Price Three');
           service.nearbySearch({
-            key: key,
             location: latlng,
             radius: radius,
             type: type,
@@ -265,8 +265,8 @@
       }
     }
 
+    //TAKE YOU HOME BUTTON
   var home = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
   function HomeControl(controlDiv, map){
     controlDiv.style.padding = '0px';
     var controlUI = document.createElement('div');
@@ -306,6 +306,7 @@
       title:"You are here! (at least within a "+position.coords.accuracy+" meter radius)"
   });
 
+  //THIS IS WHY THE INFOBOX SCRIPT CAME IN HANDY!
   var infoWindow = new InfoBox({
       position: latlng,
       maxWidth: 350,
