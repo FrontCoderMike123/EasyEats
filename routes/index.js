@@ -326,8 +326,8 @@ router.post('/forgotPass', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Hotmail',
         auth: {
-          user: '*******************',
-          pass: '*******************',
+          user: 'Enter Own Credentials Here!',
+          pass: 'Enter Own Credentials Here!'
         }
       });
       var mailOptions = {
@@ -390,8 +390,8 @@ router.post('/reset/:token', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Hotmail',
         auth: {
-          user: '*******************',
-          pass: '*******************'
+          user: 'Enter Own Credentials Here!',
+          pass: 'Enter Own Credentials Here!'
         }
       });
       var mailOptions = {
