@@ -13,17 +13,18 @@
         <form role="form" class="forms resetForm" method="post">
           <h1>Password Fields</h1>
           <h5 class="errMsgs"><%= error %></h5>
+          <h5 class="errMsgs" id="noMatch"></h5>
           <fieldset>
             <label>New Password</label>
-            <input type="password" name="password" value="" id="password1" required maxlength="10">
+            <input type="password" name="password" id="password1" required maxlength="10">
             <span id="passwordText1"></span>
           </fieldset>
           <fieldset>
             <label>Confirm Password</label>
-            <input type="password" name="confirm" value="" id="password2" required maxlength="10">
+            <input type="password" name="confirm" id="password2" required maxlength="10">
             <span id="passwordText2"></span>
           </fieldset>
-          <input class="mainButton" type="submit" value="Update Password">
+          <input class="mainButton" id="resetButton" type="submit" value="Update Password">
         </form>
       
     </div>

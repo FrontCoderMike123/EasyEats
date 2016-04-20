@@ -367,8 +367,8 @@ router.post('/forgotPass', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Hotmail',
         auth: {
-          user: 'michelBeaubien@hotmail.com',
-          pass: 'Juggalo69!'
+          user: '*****************',
+          pass: '*****************'
         }
       });
       var mailOptions = {
@@ -401,7 +401,6 @@ router.get('/reset/:token', function(req, res) {
     res.render('pages/reset', {
       user: req.user,
       title: 'Reset Password',
-      //currentPass: req.user.password,
       error: req.flash('error')
     });
   });
@@ -432,8 +431,8 @@ router.post('/reset/:token', function(req, res, next) {
       var smtpTransport = nodemailer.createTransport('SMTP', {
         service: 'Hotmail',
         auth: {
-          user: 'michelBeaubien@hotmail.com',
-          pass: 'Juggalo69!'
+          user: '****************',
+          pass: '****************'
         }
       });
       var mailOptions = {

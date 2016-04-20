@@ -216,7 +216,7 @@
     for(var a = 0; a < minPriceZero.length; a++){
       if(budget == minPriceZero[a]){
         console.log('Spending ($'+a+'/$25) - Max Price Zero');
-          service.radarSearch({
+          service.nearbySearch({
             key: key,
             location: latlng,
             radius: radius,
@@ -229,7 +229,7 @@
     for(var b = 0; b < minPriceOne.length; b++){
       if(budget == minPriceOne[b]){
         console.log('Spending ($'+b+'/$50) - Max Price One');
-          service.radarSearch({
+          service.nearbySearch({
             key: key,
             location: latlng,
             radius: radius,
@@ -242,7 +242,7 @@
     for(var c = 0; c < minPriceTwo.length; c++){
       if(budget == minPriceTwo[c]){
         console.log('Spending ($'+c+'/$75) - Max Price Two');
-          service.radarSearch({
+          service.nearbySearch({
             key: key,
             location: latlng,
             radius: radius,
@@ -255,7 +255,7 @@
     for(var d = 0; d < minPriceThree.length; d++){
       if(budget == minPriceThree[d]){
         console.log('Spending ($'+d+'/$99) - Max Price Three');
-          service.radarSearch({
+          service.nearbySearch({
             key: key,
             location: latlng,
             radius: radius,

@@ -1414,21 +1414,23 @@ opacity: 0;
 /************************MESSAGES****************************/
 .messagesHolder
 {
-	position: relative;
-	clear: both;
-	width: 98%;
-	margin: 0;
-	padding: 16% 1%;
+	width: 100%;
 	background-color: #ffcc00;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	text-align: center;
+	overflow: hidden;
+	color: #006699;
+	position: relative;
 }
 
 .messagesHolder p
 {
-	text-align: center;
-	font-size: 2.2em;
-	line-height: 50px;
-	color: #006699;
 	font-weight: bold;
+	padding: 50px 20px;
+	font-size: 2em;
 }
 
 .messagesHolder a
@@ -2603,6 +2605,16 @@ input[type=checkbox] {
 	
 	/*RESET FORM*/
 	
+	/*MESSAGE*/
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
+	
 }
 
 /*Android*/
@@ -3213,6 +3225,16 @@ input[type=checkbox] {
 	}
 	
 	/*RESET FORM*/
+	
+	/*MESSAGE*/
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 }
 
 /*iPhone4*/
@@ -3823,6 +3845,16 @@ input[type=checkbox] {
 	}
 	
 	/*RESET FORM*/
+	
+	/*MESSAGE*/
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 	
 }
 
@@ -4446,6 +4478,16 @@ input[type=checkbox] {
 	}
 	
 	/*RESET FORM*/
+	
+	/*MESSAGE*/
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 }
 
 /*Device*/
@@ -5047,6 +5089,16 @@ input[type=checkbox] {
 	}
 	
 	/*RESET FORM*/
+	
+	/*MESSAGE*/
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 }
 
 /*Galaxy S*/
@@ -5615,6 +5667,16 @@ input[type=checkbox] {
 	
 	/*RESET FORM*/
 	
+	/*MESSAGE*/
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
+	
 }
 
 /*Kindle*/
@@ -6162,6 +6224,21 @@ input[type=checkbox] {
 	}
 	
 	/*RESET FORM*/
+	
+	/*MESSAGE*/
+	
+	.messagesHolder p
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 }
 
 /*Nook Tablet*/
@@ -6689,6 +6766,21 @@ input[type=checkbox] {
 	{
 		width: 300px;
 	}
+	
+	/*MESSAGE*/
+	
+	.messagesHolder p
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 }
 
 /*Apple Ipad*/
@@ -7085,6 +7177,21 @@ input[type=checkbox] {
 	}
 	
 	/*budget results*/
+	
+	/*MESSAGE*/
+	
+	.messagesHolder p
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 }
 
 /*Desktop1*/
@@ -7392,6 +7499,21 @@ input[type=checkbox] {
 	
 	/*budget results*/
 	
+	/*MESSAGE*/
+	
+	.messagesHolder p
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
+	
 }
 
 /*Extra For Map*/
@@ -7467,6 +7589,21 @@ input[type=checkbox] {
 		line-height: 20px;
 		font-size: 1.2em!important;
 	}
+	
+	/*MESSAGE*/
+	
+	.messagesHolder p
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 }
 
 /*Desktop 4*/
@@ -7639,5 +7776,20 @@ input[type=checkbox] {
 		text-align: left;
 		padding-left: 10px;
 	}
+	
+	/*MESSAGE*/
+	
+	.messagesHolder p
+	{
+		font-size: 1.5em!important;
+	}
+	
+	.messagesHolder a
+	{
+	 width: 30%;
+		left: 35%;
+	}
+	
+	/*MESSAGE*/
 	
 }
